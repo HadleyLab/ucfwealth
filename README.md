@@ -5,6 +5,15 @@
 Copy `.env.tpl` to `.env` and specify `AIDBOX_LICENSE_ID` and `AIDBOX_LICENSE_KEY`.
 [https://license-ui.aidbox.app/](https://license-ui.aidbox.app/)
 
+### Necessary env variables
+#### Health Gorilla API
+```
+HEALTH_GORILLA_CLIENT_ID= (not mandatory)
+HEALTH_GORILLA_CLIENT_SECRET=
+HEALTH_GORILLA_BASE_URL=https://sandbox.healthgorilla.com or https://api.healthgorilla.com (production)
+HEALTH_GORILLA_ISS=https://www.hadleylab.org/ (redirect URL)
+HEALTH_GORILLA_SUB=dexter.hadley (HG username)
+```
 
 ## Cluster setup
 
