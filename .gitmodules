@@ -1,3 +1,15 @@
 [submodule "backend"]
 	path = backend
 	url = git@gitlab.beda.software:covid-imaging/backend.git
+[submodule "frontend"]
+	path = frontend
+	url = git@gitlab.beda.software:covid-imaging/covidimaging-frontend.git
+[submodule "file-uploader"]
+	path = file-uploader
+	url = git@gitlab.beda.software:covid-imaging/file-uploader.git
+[submodule "ipfs-nodejs"]
+	path = ipfs-nodejs
+	url = git@gitlab.beda.software:covid-imaging/ipfs-nodejs.git
+[submodule "dcm-to-png"]
+	path = dcm-to-png
+	url = git@gitlab.beda.software:covid-imaging/dcm-to-png.git
