@@ -1,0 +1,84 @@
+version: "3.8"
+
+services:
+  dcm-to-png:
+    container_name: dcm-to-png
+    image: dcm-to-png
+    build:
+      context: ./dcm-to-png
+    ports:
+      - 8089:8089
+  ipfs-nodejs:
+    container_name: ipfs-nodejs
+    image: ipfs-nodejs
+    depends_on:
+      - dcm-to-png
+    build:
+      context: ./ipfs-nodejs
+    ports:
+      - 8088:8088
+  file-uploader-server:
+    container_name: file-uploader-server
+    image: file-uploader-server
+    depends_on:
+      - ipfs-nodejs
+    build:
+      context: ./file-uploader/server
+    ports:
+      - 8083:8083
+  file-uploader-client:
+    container_name: file-uploader-client
+    image: file-uploader-client
+    depends_on:
+      - file-uploader-server
+    build:
+      context: ./file-uploader/client
+    ports:
+      - 3001:3001
+  devbox-db:
+    image: "healthsamurai/aidboxdb:13.2"
+    depends_on:
+      - file-uploader-client
+    environment:
+      POSTGRES_USER:     postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB:       devbox
+  devbox:
+    image: "healthsamurai/devbox:stable"
+    depends_on:
+      - devbox-db
+    links:
+      - "devbox-db:database"
+    ports:
+      - "8080:8080"
+    env_file:
+      - .env
+    volumes:
+      - ./wait-for-it.sh:/usr/local/bin/wait-for-it.sh:cached
+      - ./config:/var/config:cached
+  backend:
+    build: ./backend
+    command: ["wait-for-it.sh", "devbox:8080", "--strict", "--timeout=0", "--", "gunicorn", "main:create_app", "--worker-class", "aiohttp.worker.GunicornWebWorker", "-b", "0.0.0.0:8081", "--reload"]
+    depends_on:
+      - devbox
+    links:
+      - devbox
+    env_file:
+      - .env
+    volumes:
+      - ./backend:/app:cached
+      - ./config:/var/config:cached
+      - ./wait-for-it.sh:/usr/local/bin/wait-for-it.sh:cached
+    # Colored logs
+    tty: true
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+  frontend:
+    container_name: frontend
+    image: frontend
+    depends_on:
+      - backend
+    build:
+      context: ./frontend
+    ports:
+      - 3000:3000
