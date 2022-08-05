@@ -6,9 +6,6 @@ services:
     image: dcm-to-png
     build:
       context: ./dcm-to-png
-    volumes:
-      - dicom-data:/ipfs-nodejs/dicom-files
-      - png-data:/ipfs-nodejs/png-files
   ipfs-nodejs:
     container_name: ipfs-nodejs
     image: ipfs-nodejs
@@ -18,9 +15,6 @@ services:
       context: ./ipfs-nodejs
     ports:
       - 8088:8080
-    volumes:
-      - dicom-data:/app/dicom-files
-      - png-data:/app/png-files
   file-uploader-server:
     container_name: file-uploader-server
     image: file-uploader-server
@@ -86,8 +80,3 @@ services:
       context: ./frontend
     ports:
       - 3000:3000
-volumes:
-  dicom-data:
-    external: true
-  png-data:
-    external: true
