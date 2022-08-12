@@ -24,15 +24,15 @@ services:
       context: ./file-uploader/server
     ports:
       - 8083:8080
-  file-uploader-client:
-    container_name: file-uploader-client
-    image: file-uploader-client
-    depends_on:
-      - file-uploader-server
-    build:
-      context: ./file-uploader/client
-    ports:
-      - 3001:3001
+  # file-uploader-client:
+  #   container_name: file-uploader-client
+  #   image: file-uploader-client
+  #   depends_on:
+  #     - file-uploader-server
+  #   build:
+  #     context: ./file-uploader/client
+  #   ports:
+  #     - 3001:3001
   devbox-db:
     image: "healthsamurai/aidboxdb:13.2"
     depends_on:
