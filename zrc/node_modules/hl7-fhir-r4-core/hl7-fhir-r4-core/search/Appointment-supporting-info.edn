@@ -1,0 +1,15 @@
+{ns hl7-fhir-r4-core.search.Appointment-supporting-info,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "Appointment-supporting-info",
+  :fhir/url
+  "http://hl7.org/fhir/SearchParameter/Appointment-supporting-info",
+  :fhir/type "reference",
+  :name "supporting-info",
+  :expr
+  {:Appointment
+   {:knife [["supportingInformation"]],
+    :jsonpath ["$.\"supportingInformation\"[*]"],
+    :data-types #{{:type "Reference", :polymorphic? false}},
+    :template :reference}}}}

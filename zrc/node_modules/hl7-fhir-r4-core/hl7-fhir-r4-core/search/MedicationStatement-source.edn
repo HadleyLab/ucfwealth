@@ -1,0 +1,15 @@
+{ns hl7-fhir-r4-core.search.MedicationStatement-source,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "MedicationStatement-source",
+  :fhir/url
+  "http://hl7.org/fhir/SearchParameter/MedicationStatement-source",
+  :fhir/type "reference",
+  :name "source",
+  :expr
+  {:MedicationStatement
+   {:knife [["informationSource"]],
+    :jsonpath ["$.\"informationSource\"[*]"],
+    :data-types #{{:type "Reference", :polymorphic? false}},
+    :template :reference}}}}

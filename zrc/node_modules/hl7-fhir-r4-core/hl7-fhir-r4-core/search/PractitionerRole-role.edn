@@ -1,0 +1,15 @@
+{ns hl7-fhir-r4-core.search.PractitionerRole-role,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "PractitionerRole-role",
+  :fhir/url
+  "http://hl7.org/fhir/SearchParameter/PractitionerRole-role",
+  :fhir/type "token",
+  :name "role",
+  :expr
+  {:PractitionerRole
+   {:knife [["code"]],
+    :jsonpath ["$.\"code\"[*]"],
+    :data-types #{{:type "CodeableConcept", :polymorphic? false}},
+    :template :token}}}}

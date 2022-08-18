@@ -1,0 +1,30 @@
+{ns hl7-fhir-r4-core.search.medications-medication,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "medications-medication",
+  :fhir/url
+  "http://hl7.org/fhir/SearchParameter/medications-medication",
+  :fhir/type "reference",
+  :name "medication",
+  :expr
+  {:MedicationAdministration
+   {:knife [["medication" "Reference"]],
+    :jsonpath ["$.\"medication\".\"Reference\"[*]"],
+    :data-types #{{:type "Reference", :polymorphic? false}},
+    :template :reference},
+   :MedicationDispense
+   {:knife [["medication" "Reference"]],
+    :jsonpath ["$.\"medication\".\"Reference\"[*]"],
+    :data-types #{{:type "Reference", :polymorphic? false}},
+    :template :reference},
+   :MedicationRequest
+   {:knife [["medication" "Reference"]],
+    :jsonpath ["$.\"medication\".\"Reference\"[*]"],
+    :data-types #{{:type "Reference", :polymorphic? false}},
+    :template :reference},
+   :MedicationStatement
+   {:knife [["medication" "Reference"]],
+    :jsonpath ["$.\"medication\".\"Reference\"[*]"],
+    :data-types #{{:type "Reference", :polymorphic? false}},
+    :template :reference}}}}

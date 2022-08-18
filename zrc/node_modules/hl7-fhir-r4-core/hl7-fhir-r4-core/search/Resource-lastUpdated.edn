@@ -1,0 +1,15 @@
+{ns hl7-fhir-r4-core.search.Resource-lastUpdated,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "Resource-lastUpdated",
+  :fhir/url "http://hl7.org/fhir/SearchParameter/Resource-lastUpdated",
+  :fhir/type "date",
+  :name "_lastUpdated",
+  :expr
+  {:Resource
+   {:knife [["meta" "lastUpdated"]],
+    :jsonpath ["$.\"meta\".\"lastUpdated\"[*]"],
+    :data-types #{},
+    :template :date,
+    :sql {:where [:or]}}}}}

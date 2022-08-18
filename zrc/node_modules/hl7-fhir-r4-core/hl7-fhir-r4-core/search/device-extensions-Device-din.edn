@@ -1,0 +1,10 @@
+{ns hl7-fhir-r4-core.search.device-extensions-Device-din,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "device-extensions-Device-din",
+  :fhir/url
+  "http://hl7.org/fhir/SearchParameter/device-extensions-Device-din",
+  :fhir/type "token",
+  :name "din",
+  :expr {:Device {:jsonpath [], :data-types #{}, :template :token}}}}

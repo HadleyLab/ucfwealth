@@ -1,0 +1,159 @@
+{ns hl7-fhir-r4-core.search.clinical-identifier,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "clinical-identifier",
+  :fhir/url "http://hl7.org/fhir/SearchParameter/clinical-identifier",
+  :fhir/type "token",
+  :name "identifier",
+  :expr
+  {:DeviceRequest
+   {:knife [["identifier"]],
+    :jsonpath ["$.\"identifier\"[*]"],
+    :data-types #{{:type "Identifier", :polymorphic? false}},
+    :template :token},
+   :ServiceRequest
+   {:knife [["identifier"]],
+    :jsonpath ["$.\"identifier\"[*]"],
+    :data-types #{{:type "Identifier", :polymorphic? false}},
+    :template :token},
+   :CarePlan
+   {:knife [["identifier"]],
+    :jsonpath ["$.\"identifier\"[*]"],
+    :data-types #{{:type "Identifier", :polymorphic? false}},
+    :template :token},
+   :Observation
+   {:knife [["identifier"]],
+    :jsonpath ["$.\"identifier\"[*]"],
+    :data-types #{{:type "Identifier", :polymorphic? false}},
+    :template :token},
+   :EpisodeOfCare
+   {:knife [["identifier"]],
+    :jsonpath ["$.\"identifier\"[*]"],
+    :data-types #{{:type "Identifier", :polymorphic? false}},
+    :template :token},
+   :SupplyDelivery
+   {:knife [["identifier"]],
+    :jsonpath ["$.\"identifier\"[*]"],
+    :data-types #{{:type "Identifier", :polymorphic? false}},
+    :template :token},
+   :DetectedIssue
+   {:knife [["identifier"]],
+    :jsonpath ["$.\"identifier\"[*]"],
+    :data-types #{{:type "Identifier", :polymorphic? false}},
+    :template :token},
+   :MedicationAdministration
+   {:knife [["identifier"]],
+    :jsonpath ["$.\"identifier\"[*]"],
+    :data-types #{{:type "Identifier", :polymorphic? false}},
+    :template :token},
+   :Goal
+   {:knife [["identifier"]],
+    :jsonpath ["$.\"identifier\"[*]"],
+    :data-types #{{:type "Identifier", :polymorphic? false}},
+    :template :token},
+   :DocumentReference
+   {:knife [["masterIdentifier"] ["identifier"]],
+    :jsonpath ["$.\"masterIdentifier\"[*]" "$.\"identifier\"[*]"],
+    :data-types #{{:type "Identifier", :polymorphic? false}},
+    :template :token},
+   :FamilyMemberHistory
+   {:knife [["identifier"]],
+    :jsonpath ["$.\"identifier\"[*]"],
+    :data-types #{{:type "Identifier", :polymorphic? false}},
+    :template :token},
+   :Composition
+   {:knife [["identifier"]],
+    :jsonpath ["$.\"identifier\"[*]"],
+    :data-types #{{:type "Identifier", :polymorphic? false}},
+    :template :token},
+   :MedicationDispense
+   {:knife [["identifier"]],
+    :jsonpath ["$.\"identifier\"[*]"],
+    :data-types #{{:type "Identifier", :polymorphic? false}},
+    :template :token},
+   :DiagnosticReport
+   {:knife [["identifier"]],
+    :jsonpath ["$.\"identifier\"[*]"],
+    :data-types #{{:type "Identifier", :polymorphic? false}},
+    :template :token},
+   :Immunization
+   {:knife [["identifier"]],
+    :jsonpath ["$.\"identifier\"[*]"],
+    :data-types #{{:type "Identifier", :polymorphic? false}},
+    :template :token},
+   :MedicationStatement
+   {:knife [["identifier"]],
+    :jsonpath ["$.\"identifier\"[*]"],
+    :data-types #{{:type "Identifier", :polymorphic? false}},
+    :template :token},
+   :NutritionOrder
+   {:knife [["identifier"]],
+    :jsonpath ["$.\"identifier\"[*]"],
+    :data-types #{{:type "Identifier", :polymorphic? false}},
+    :template :token},
+   :DocumentManifest
+   {:knife [["masterIdentifier"] ["identifier"]],
+    :jsonpath ["$.\"masterIdentifier\"[*]" "$.\"identifier\"[*]"],
+    :data-types #{{:type "Identifier", :polymorphic? false}},
+    :template :token},
+   :MedicationRequest
+   {:knife [["identifier"]],
+    :jsonpath ["$.\"identifier\"[*]"],
+    :data-types #{{:type "Identifier", :polymorphic? false}},
+    :template :token},
+   :List
+   {:knife [["identifier"]],
+    :jsonpath ["$.\"identifier\"[*]"],
+    :data-types #{{:type "Identifier", :polymorphic? false}},
+    :template :token},
+   :Encounter
+   {:knife [["identifier"]],
+    :jsonpath ["$.\"identifier\"[*]"],
+    :data-types #{{:type "Identifier", :polymorphic? false}},
+    :template :token},
+   :VisionPrescription
+   {:knife [["identifier"]],
+    :jsonpath ["$.\"identifier\"[*]"],
+    :data-types #{{:type "Identifier", :polymorphic? false}},
+    :template :token},
+   :RiskAssessment
+   {:knife [["identifier"]],
+    :jsonpath ["$.\"identifier\"[*]"],
+    :data-types #{{:type "Identifier", :polymorphic? false}},
+    :template :token},
+   :Condition
+   {:knife [["identifier"]],
+    :jsonpath ["$.\"identifier\"[*]"],
+    :data-types #{{:type "Identifier", :polymorphic? false}},
+    :template :token},
+   :CareTeam
+   {:knife [["identifier"]],
+    :jsonpath ["$.\"identifier\"[*]"],
+    :data-types #{{:type "Identifier", :polymorphic? false}},
+    :template :token},
+   :Procedure
+   {:knife [["identifier"]],
+    :jsonpath ["$.\"identifier\"[*]"],
+    :data-types #{{:type "Identifier", :polymorphic? false}},
+    :template :token},
+   :Consent
+   {:knife [["identifier"]],
+    :jsonpath ["$.\"identifier\"[*]"],
+    :data-types #{{:type "Identifier", :polymorphic? false}},
+    :template :token},
+   :SupplyRequest
+   {:knife [["identifier"]],
+    :jsonpath ["$.\"identifier\"[*]"],
+    :data-types #{{:type "Identifier", :polymorphic? false}},
+    :template :token},
+   :AllergyIntolerance
+   {:knife [["identifier"]],
+    :jsonpath ["$.\"identifier\"[*]"],
+    :data-types #{{:type "Identifier", :polymorphic? false}},
+    :template :token},
+   :ImagingStudy
+   {:knife [["identifier"]],
+    :jsonpath ["$.\"identifier\"[*]"],
+    :data-types #{{:type "Identifier", :polymorphic? false}},
+    :template :token}}}}

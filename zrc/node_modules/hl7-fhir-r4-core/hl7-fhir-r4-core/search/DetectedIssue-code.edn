@@ -1,0 +1,14 @@
+{ns hl7-fhir-r4-core.search.DetectedIssue-code,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "DetectedIssue-code",
+  :fhir/url "http://hl7.org/fhir/SearchParameter/DetectedIssue-code",
+  :fhir/type "token",
+  :name "code",
+  :expr
+  {:DetectedIssue
+   {:knife [["code"]],
+    :jsonpath ["$.\"code\"[*]"],
+    :data-types #{{:type "CodeableConcept", :polymorphic? false}},
+    :template :token}}}}

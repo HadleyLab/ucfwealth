@@ -1,0 +1,16 @@
+{ns
+ hl7-fhir-r4-core.search.OrganizationAffiliation-participating-organization,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "OrganizationAffiliation-participating-organization",
+  :fhir/url
+  "http://hl7.org/fhir/SearchParameter/OrganizationAffiliation-participating-organization",
+  :fhir/type "reference",
+  :name "participating-organization",
+  :expr
+  {:OrganizationAffiliation
+   {:knife [["participatingOrganization"]],
+    :jsonpath ["$.\"participatingOrganization\"[*]"],
+    :data-types #{{:type "Reference", :polymorphic? false}},
+    :template :reference}}}}

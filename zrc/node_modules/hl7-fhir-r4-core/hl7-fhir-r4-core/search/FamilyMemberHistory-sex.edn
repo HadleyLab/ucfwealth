@@ -1,0 +1,15 @@
+{ns hl7-fhir-r4-core.search.FamilyMemberHistory-sex,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "FamilyMemberHistory-sex",
+  :fhir/url
+  "http://hl7.org/fhir/SearchParameter/FamilyMemberHistory-sex",
+  :fhir/type "token",
+  :name "sex",
+  :expr
+  {:FamilyMemberHistory
+   {:knife [["sex"]],
+    :jsonpath ["$.\"sex\"[*]"],
+    :data-types #{{:type "CodeableConcept", :polymorphic? false}},
+    :template :token}}}}

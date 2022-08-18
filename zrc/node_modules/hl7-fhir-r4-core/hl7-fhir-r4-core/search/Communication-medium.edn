@@ -1,0 +1,14 @@
+{ns hl7-fhir-r4-core.search.Communication-medium,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "Communication-medium",
+  :fhir/url "http://hl7.org/fhir/SearchParameter/Communication-medium",
+  :fhir/type "token",
+  :name "medium",
+  :expr
+  {:Communication
+   {:knife [["medium"]],
+    :jsonpath ["$.\"medium\"[*]"],
+    :data-types #{{:type "CodeableConcept", :polymorphic? false}},
+    :template :token}}}}

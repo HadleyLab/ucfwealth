@@ -1,0 +1,29 @@
+{ns hl7-fhir-r4-core.search.medications-status,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "medications-status",
+  :fhir/url "http://hl7.org/fhir/SearchParameter/medications-status",
+  :fhir/type "token",
+  :name "status",
+  :expr
+  {:MedicationAdministration
+   {:knife [["status"]],
+    :jsonpath ["$.\"status\"[*]"],
+    :data-types #{{:type "code", :polymorphic? false}},
+    :template :token},
+   :MedicationDispense
+   {:knife [["status"]],
+    :jsonpath ["$.\"status\"[*]"],
+    :data-types #{{:type "code", :polymorphic? false}},
+    :template :token},
+   :MedicationRequest
+   {:knife [["status"]],
+    :jsonpath ["$.\"status\"[*]"],
+    :data-types #{{:type "code", :polymorphic? false}},
+    :template :token},
+   :MedicationStatement
+   {:knife [["status"]],
+    :jsonpath ["$.\"status\"[*]"],
+    :data-types #{{:type "code", :polymorphic? false}},
+    :template :token}}}}

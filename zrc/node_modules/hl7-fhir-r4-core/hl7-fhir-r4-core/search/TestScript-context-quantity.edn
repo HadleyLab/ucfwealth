@@ -1,0 +1,47 @@
+{ns hl7-fhir-r4-core.search.TestScript-context-quantity,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "TestScript-context-quantity",
+  :fhir/url
+  "http://hl7.org/fhir/SearchParameter/TestScript-context-quantity",
+  :fhir/type "quantity",
+  :name "context-quantity",
+  :expr
+  {:TestScript
+   {:knife
+    [["useContext" "value" "Quantity"] ["useContext" "value" "Range"]],
+    :jsonpath
+    ["$.\"useContext\".\"value\".\"Quantity\"[*]"
+     "$.\"useContext\".\"value\".\"Range\"[*]"],
+    :data-types #{},
+    :template :quantity,
+    :sql
+    {:where
+     [:or
+      [:and
+       [:>=
+        [:pg/call
+         :jsonpath_extract_max_numeric
+         [:pg/sql "{{table}}.resource"]
+         "$.\"useContext\".\"value\".\"Quantity\"[*].\"value\""]
+        [:pg/cast [:pg/sql "{{param}}"] :numeric]]
+       [:<=
+        [:pg/call
+         :jsonpath_extract_min_numeric
+         [:pg/sql "{{table}}.resource"]
+         "$.\"useContext\".\"value\".\"Quantity\"[*].\"value\""]
+        [:pg/cast [:pg/sql "{{param}}"] :numeric]]]
+      [:and
+       [:>=
+        [:pg/call
+         :jsonpath_extract_max_numeric
+         [:pg/sql "{{table}}.resource"]
+         "$.\"useContext\".\"value\".\"Range\"[*].\"value\""]
+        [:pg/cast [:pg/sql "{{param}}"] :numeric]]
+       [:<=
+        [:pg/call
+         :jsonpath_extract_min_numeric
+         [:pg/sql "{{table}}.resource"]
+         "$.\"useContext\".\"value\".\"Range\"[*].\"value\""]
+        [:pg/cast [:pg/sql "{{param}}"] :numeric]]]]}}}}}

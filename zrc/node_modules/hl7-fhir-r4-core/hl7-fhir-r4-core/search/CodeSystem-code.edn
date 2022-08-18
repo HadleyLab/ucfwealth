@@ -1,0 +1,14 @@
+{ns hl7-fhir-r4-core.search.CodeSystem-code,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "CodeSystem-code",
+  :fhir/url "http://hl7.org/fhir/SearchParameter/CodeSystem-code",
+  :fhir/type "token",
+  :name "code",
+  :expr
+  {:CodeSystem
+   {:knife [["concept" "code"]],
+    :jsonpath ["$.\"concept\".\"code\"[*]"],
+    :data-types #{{:type "code", :polymorphic? false}},
+    :template :token}}}}

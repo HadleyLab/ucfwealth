@@ -1,0 +1,15 @@
+{ns hl7-fhir-r4-core.search.SupplyRequest-subject,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "SupplyRequest-subject",
+  :fhir/url
+  "http://hl7.org/fhir/SearchParameter/SupplyRequest-subject",
+  :fhir/type "reference",
+  :name "subject",
+  :expr
+  {:SupplyRequest
+   {:knife [["deliverTo"]],
+    :jsonpath ["$.\"deliverTo\"[*]"],
+    :data-types #{{:type "Reference", :polymorphic? false}},
+    :template :reference}}}}

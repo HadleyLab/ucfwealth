@@ -1,0 +1,15 @@
+{ns hl7-fhir-r4-core.search.DocumentManifest-item,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "DocumentManifest-item",
+  :fhir/url
+  "http://hl7.org/fhir/SearchParameter/DocumentManifest-item",
+  :fhir/type "reference",
+  :name "item",
+  :expr
+  {:DocumentManifest
+   {:knife [["content"]],
+    :jsonpath ["$.\"content\"[*]"],
+    :data-types #{{:type "Reference", :polymorphic? false}},
+    :template :reference}}}}

@@ -1,0 +1,15 @@
+{ns hl7-fhir-r4-core.search.Observation-component-data-absent-reason,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "Observation-component-data-absent-reason",
+  :fhir/url
+  "http://hl7.org/fhir/SearchParameter/Observation-component-data-absent-reason",
+  :fhir/type "token",
+  :name "component-data-absent-reason",
+  :expr
+  {:Observation
+   {:knife [["component" "dataAbsentReason"]],
+    :jsonpath ["$.\"component\".\"dataAbsentReason\"[*]"],
+    :data-types #{{:type "CodeableConcept", :polymorphic? false}},
+    :template :token}}}}

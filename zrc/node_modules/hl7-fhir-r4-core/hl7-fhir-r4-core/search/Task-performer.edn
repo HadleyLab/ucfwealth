@@ -1,0 +1,14 @@
+{ns hl7-fhir-r4-core.search.Task-performer,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "Task-performer",
+  :fhir/url "http://hl7.org/fhir/SearchParameter/Task-performer",
+  :fhir/type "token",
+  :name "performer",
+  :expr
+  {:Task
+   {:knife [["performerType"]],
+    :jsonpath ["$.\"performerType\"[*]"],
+    :data-types #{{:type "CodeableConcept", :polymorphic? false}},
+    :template :token}}}}

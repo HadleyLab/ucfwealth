@@ -1,0 +1,14 @@
+{ns hl7-fhir-r4-core.search.Task-business-status,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "Task-business-status",
+  :fhir/url "http://hl7.org/fhir/SearchParameter/Task-business-status",
+  :fhir/type "token",
+  :name "business-status",
+  :expr
+  {:Task
+   {:knife [["businessStatus"]],
+    :jsonpath ["$.\"businessStatus\"[*]"],
+    :data-types #{{:type "CodeableConcept", :polymorphic? false}},
+    :template :token}}}}

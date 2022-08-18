@@ -1,0 +1,262 @@
+{ns hl7-fhir-r4-core.search.conformance-publisher,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "conformance-publisher",
+  :fhir/url
+  "http://hl7.org/fhir/SearchParameter/conformance-publisher",
+  :fhir/type "string",
+  :name "publisher",
+  :expr
+  {:MessageDefinition
+   {:knife [["publisher"]],
+    :jsonpath ["$.\"publisher\"[*]"],
+    :data-types #{{:type "string", :polymorphic? false}},
+    :template :string,
+    :sql
+    {:where
+     [:or
+      [:ilike
+       [:pg/cast
+        [:pg/jsonb-path-query-array
+         [:pg/sql "{{table}}.resource"]
+         [:pg/cast
+          "($.\"publisher\"[*]).** ? (@.type() == \"string\")"
+          :jsonpath]]
+        :text]
+       [:pg/sql "{{param}}"]]],
+     :parameter-format "%\"?%"}},
+   :CompartmentDefinition
+   {:knife [["publisher"]],
+    :jsonpath ["$.\"publisher\"[*]"],
+    :data-types #{{:type "string", :polymorphic? false}},
+    :template :string,
+    :sql
+    {:where
+     [:or
+      [:ilike
+       [:pg/cast
+        [:pg/jsonb-path-query-array
+         [:pg/sql "{{table}}.resource"]
+         [:pg/cast
+          "($.\"publisher\"[*]).** ? (@.type() == \"string\")"
+          :jsonpath]]
+        :text]
+       [:pg/sql "{{param}}"]]],
+     :parameter-format "%\"?%"}},
+   :ImplementationGuide
+   {:knife [["publisher"]],
+    :jsonpath ["$.\"publisher\"[*]"],
+    :data-types #{{:type "string", :polymorphic? false}},
+    :template :string,
+    :sql
+    {:where
+     [:or
+      [:ilike
+       [:pg/cast
+        [:pg/jsonb-path-query-array
+         [:pg/sql "{{table}}.resource"]
+         [:pg/cast
+          "($.\"publisher\"[*]).** ? (@.type() == \"string\")"
+          :jsonpath]]
+        :text]
+       [:pg/sql "{{param}}"]]],
+     :parameter-format "%\"?%"}},
+   :CodeSystem
+   {:knife [["publisher"]],
+    :jsonpath ["$.\"publisher\"[*]"],
+    :data-types #{{:type "string", :polymorphic? false}},
+    :template :string,
+    :sql
+    {:where
+     [:or
+      [:ilike
+       [:pg/cast
+        [:pg/jsonb-path-query-array
+         [:pg/sql "{{table}}.resource"]
+         [:pg/cast
+          "($.\"publisher\"[*]).** ? (@.type() == \"string\")"
+          :jsonpath]]
+        :text]
+       [:pg/sql "{{param}}"]]],
+     :parameter-format "%\"?%"}},
+   :StructureMap
+   {:knife [["publisher"]],
+    :jsonpath ["$.\"publisher\"[*]"],
+    :data-types #{{:type "string", :polymorphic? false}},
+    :template :string,
+    :sql
+    {:where
+     [:or
+      [:ilike
+       [:pg/cast
+        [:pg/jsonb-path-query-array
+         [:pg/sql "{{table}}.resource"]
+         [:pg/cast
+          "($.\"publisher\"[*]).** ? (@.type() == \"string\")"
+          :jsonpath]]
+        :text]
+       [:pg/sql "{{param}}"]]],
+     :parameter-format "%\"?%"}},
+   :NamingSystem
+   {:knife [["publisher"]],
+    :jsonpath ["$.\"publisher\"[*]"],
+    :data-types #{{:type "string", :polymorphic? false}},
+    :template :string,
+    :sql
+    {:where
+     [:or
+      [:ilike
+       [:pg/cast
+        [:pg/jsonb-path-query-array
+         [:pg/sql "{{table}}.resource"]
+         [:pg/cast
+          "($.\"publisher\"[*]).** ? (@.type() == \"string\")"
+          :jsonpath]]
+        :text]
+       [:pg/sql "{{param}}"]]],
+     :parameter-format "%\"?%"}},
+   :ValueSet
+   {:knife [["publisher"]],
+    :jsonpath ["$.\"publisher\"[*]"],
+    :data-types #{{:type "string", :polymorphic? false}},
+    :template :string,
+    :sql
+    {:where
+     [:or
+      [:ilike
+       [:pg/cast
+        [:pg/jsonb-path-query-array
+         [:pg/sql "{{table}}.resource"]
+         [:pg/cast
+          "($.\"publisher\"[*]).** ? (@.type() == \"string\")"
+          :jsonpath]]
+        :text]
+       [:pg/sql "{{param}}"]]],
+     :parameter-format "%\"?%"}},
+   :CapabilityStatement
+   {:knife [["publisher"]],
+    :jsonpath ["$.\"publisher\"[*]"],
+    :data-types #{{:type "string", :polymorphic? false}},
+    :template :string,
+    :sql
+    {:where
+     [:or
+      [:ilike
+       [:pg/cast
+        [:pg/jsonb-path-query-array
+         [:pg/sql "{{table}}.resource"]
+         [:pg/cast
+          "($.\"publisher\"[*]).** ? (@.type() == \"string\")"
+          :jsonpath]]
+        :text]
+       [:pg/sql "{{param}}"]]],
+     :parameter-format "%\"?%"}},
+   :ConceptMap
+   {:knife [["publisher"]],
+    :jsonpath ["$.\"publisher\"[*]"],
+    :data-types #{{:type "string", :polymorphic? false}},
+    :template :string,
+    :sql
+    {:where
+     [:or
+      [:ilike
+       [:pg/cast
+        [:pg/jsonb-path-query-array
+         [:pg/sql "{{table}}.resource"]
+         [:pg/cast
+          "($.\"publisher\"[*]).** ? (@.type() == \"string\")"
+          :jsonpath]]
+        :text]
+       [:pg/sql "{{param}}"]]],
+     :parameter-format "%\"?%"}},
+   :StructureDefinition
+   {:knife [["publisher"]],
+    :jsonpath ["$.\"publisher\"[*]"],
+    :data-types #{{:type "string", :polymorphic? false}},
+    :template :string,
+    :sql
+    {:where
+     [:or
+      [:ilike
+       [:pg/cast
+        [:pg/jsonb-path-query-array
+         [:pg/sql "{{table}}.resource"]
+         [:pg/cast
+          "($.\"publisher\"[*]).** ? (@.type() == \"string\")"
+          :jsonpath]]
+        :text]
+       [:pg/sql "{{param}}"]]],
+     :parameter-format "%\"?%"}},
+   :SearchParameter
+   {:knife [["publisher"]],
+    :jsonpath ["$.\"publisher\"[*]"],
+    :data-types #{{:type "string", :polymorphic? false}},
+    :template :string,
+    :sql
+    {:where
+     [:or
+      [:ilike
+       [:pg/cast
+        [:pg/jsonb-path-query-array
+         [:pg/sql "{{table}}.resource"]
+         [:pg/cast
+          "($.\"publisher\"[*]).** ? (@.type() == \"string\")"
+          :jsonpath]]
+        :text]
+       [:pg/sql "{{param}}"]]],
+     :parameter-format "%\"?%"}},
+   :OperationDefinition
+   {:knife [["publisher"]],
+    :jsonpath ["$.\"publisher\"[*]"],
+    :data-types #{{:type "string", :polymorphic? false}},
+    :template :string,
+    :sql
+    {:where
+     [:or
+      [:ilike
+       [:pg/cast
+        [:pg/jsonb-path-query-array
+         [:pg/sql "{{table}}.resource"]
+         [:pg/cast
+          "($.\"publisher\"[*]).** ? (@.type() == \"string\")"
+          :jsonpath]]
+        :text]
+       [:pg/sql "{{param}}"]]],
+     :parameter-format "%\"?%"}},
+   :GraphDefinition
+   {:knife [["publisher"]],
+    :jsonpath ["$.\"publisher\"[*]"],
+    :data-types #{{:type "string", :polymorphic? false}},
+    :template :string,
+    :sql
+    {:where
+     [:or
+      [:ilike
+       [:pg/cast
+        [:pg/jsonb-path-query-array
+         [:pg/sql "{{table}}.resource"]
+         [:pg/cast
+          "($.\"publisher\"[*]).** ? (@.type() == \"string\")"
+          :jsonpath]]
+        :text]
+       [:pg/sql "{{param}}"]]],
+     :parameter-format "%\"?%"}},
+   :TerminologyCapabilities
+   {:knife [["publisher"]],
+    :jsonpath ["$.\"publisher\"[*]"],
+    :data-types #{{:type "string", :polymorphic? false}},
+    :template :string,
+    :sql
+    {:where
+     [:or
+      [:ilike
+       [:pg/cast
+        [:pg/jsonb-path-query-array
+         [:pg/sql "{{table}}.resource"]
+         [:pg/cast
+          "($.\"publisher\"[*]).** ? (@.type() == \"string\")"
+          :jsonpath]]
+        :text]
+       [:pg/sql "{{param}}"]]],
+     :parameter-format "%\"?%"}}}}}

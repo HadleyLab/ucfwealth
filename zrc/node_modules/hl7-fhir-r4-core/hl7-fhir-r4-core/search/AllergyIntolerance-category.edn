@@ -1,0 +1,15 @@
+{ns hl7-fhir-r4-core.search.AllergyIntolerance-category,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "AllergyIntolerance-category",
+  :fhir/url
+  "http://hl7.org/fhir/SearchParameter/AllergyIntolerance-category",
+  :fhir/type "token",
+  :name "category",
+  :expr
+  {:AllergyIntolerance
+   {:knife [["category"]],
+    :jsonpath ["$.\"category\"[*]"],
+    :data-types #{{:type "code", :polymorphic? false}},
+    :template :token}}}}

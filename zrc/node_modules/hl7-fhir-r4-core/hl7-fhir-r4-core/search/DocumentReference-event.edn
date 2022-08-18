@@ -1,0 +1,15 @@
+{ns hl7-fhir-r4-core.search.DocumentReference-event,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "DocumentReference-event",
+  :fhir/url
+  "http://hl7.org/fhir/SearchParameter/DocumentReference-event",
+  :fhir/type "token",
+  :name "event",
+  :expr
+  {:DocumentReference
+   {:knife [["context" "event"]],
+    :jsonpath ["$.\"context\".\"event\"[*]"],
+    :data-types #{{:type "CodeableConcept", :polymorphic? false}},
+    :template :token}}}}

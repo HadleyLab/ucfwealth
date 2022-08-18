@@ -1,0 +1,14 @@
+{ns hl7-fhir-r4-core.search.Claim-subdetail-udi,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "Claim-subdetail-udi",
+  :fhir/url "http://hl7.org/fhir/SearchParameter/Claim-subdetail-udi",
+  :fhir/type "reference",
+  :name "subdetail-udi",
+  :expr
+  {:Claim
+   {:knife [["item" "detail" "subDetail" "udi"]],
+    :jsonpath ["$.\"item\".\"detail\".\"subDetail\".\"udi\"[*]"],
+    :data-types #{{:type "Reference", :polymorphic? false}},
+    :template :reference}}}}

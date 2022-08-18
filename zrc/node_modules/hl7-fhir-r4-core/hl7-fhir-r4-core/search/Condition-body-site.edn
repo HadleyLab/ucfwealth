@@ -1,0 +1,14 @@
+{ns hl7-fhir-r4-core.search.Condition-body-site,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "Condition-body-site",
+  :fhir/url "http://hl7.org/fhir/SearchParameter/Condition-body-site",
+  :fhir/type "token",
+  :name "body-site",
+  :expr
+  {:Condition
+   {:knife [["bodySite"]],
+    :jsonpath ["$.\"bodySite\"[*]"],
+    :data-types #{{:type "CodeableConcept", :polymorphic? false}},
+    :template :token}}}}

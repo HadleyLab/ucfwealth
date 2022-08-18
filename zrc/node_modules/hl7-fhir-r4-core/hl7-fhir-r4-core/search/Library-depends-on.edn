@@ -1,0 +1,15 @@
+{ns hl7-fhir-r4-core.search.Library-depends-on,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "Library-depends-on",
+  :fhir/url "http://hl7.org/fhir/SearchParameter/Library-depends-on",
+  :fhir/type "reference",
+  :name "depends-on",
+  :expr
+  {:Library
+   {:knife [["relatedArtifact" {:type "depends-on"} "resource"]],
+    :jsonpath
+    ["$.\"relatedArtifact\"?(@.\"type\"==\"depends-on\").\"resource\"[*]"],
+    :data-types #{},
+    :template :reference}}}}

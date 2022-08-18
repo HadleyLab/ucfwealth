@@ -1,0 +1,14 @@
+{ns hl7-fhir-r4-core.search.ChargeItem-enterer,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "ChargeItem-enterer",
+  :fhir/url "http://hl7.org/fhir/SearchParameter/ChargeItem-enterer",
+  :fhir/type "reference",
+  :name "enterer",
+  :expr
+  {:ChargeItem
+   {:knife [["enterer"]],
+    :jsonpath ["$.\"enterer\"[*]"],
+    :data-types #{{:type "Reference", :polymorphic? false}},
+    :template :reference}}}}

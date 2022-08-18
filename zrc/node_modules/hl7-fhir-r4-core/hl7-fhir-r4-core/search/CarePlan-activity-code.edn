@@ -1,0 +1,15 @@
+{ns hl7-fhir-r4-core.search.CarePlan-activity-code,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "CarePlan-activity-code",
+  :fhir/url
+  "http://hl7.org/fhir/SearchParameter/CarePlan-activity-code",
+  :fhir/type "token",
+  :name "activity-code",
+  :expr
+  {:CarePlan
+   {:knife [["activity" "detail" "code"]],
+    :jsonpath ["$.\"activity\".\"detail\".\"code\"[*]"],
+    :data-types #{{:type "CodeableConcept", :polymorphic? false}},
+    :template :token}}}}

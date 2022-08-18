@@ -1,0 +1,15 @@
+{ns hl7-fhir-r4-core.search.Location-operational-status,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "Location-operational-status",
+  :fhir/url
+  "http://hl7.org/fhir/SearchParameter/Location-operational-status",
+  :fhir/type "token",
+  :name "operational-status",
+  :expr
+  {:Location
+   {:knife [["operationalStatus"]],
+    :jsonpath ["$.\"operationalStatus\"[*]"],
+    :data-types #{{:type "Coding", :polymorphic? false}},
+    :template :token}}}}

@@ -1,0 +1,15 @@
+{ns hl7-fhir-r4-core.search.ChargeItemDefinition-jurisdiction,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "ChargeItemDefinition-jurisdiction",
+  :fhir/url
+  "http://hl7.org/fhir/SearchParameter/ChargeItemDefinition-jurisdiction",
+  :fhir/type "token",
+  :name "jurisdiction",
+  :expr
+  {:ChargeItemDefinition
+   {:knife [["jurisdiction"]],
+    :jsonpath ["$.\"jurisdiction\"[*]"],
+    :data-types #{{:type "CodeableConcept", :polymorphic? false}},
+    :template :token}}}}

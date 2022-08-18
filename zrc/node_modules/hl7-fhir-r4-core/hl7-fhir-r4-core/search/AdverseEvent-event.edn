@@ -1,0 +1,14 @@
+{ns hl7-fhir-r4-core.search.AdverseEvent-event,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "AdverseEvent-event",
+  :fhir/url "http://hl7.org/fhir/SearchParameter/AdverseEvent-event",
+  :fhir/type "token",
+  :name "event",
+  :expr
+  {:AdverseEvent
+   {:knife [["event"]],
+    :jsonpath ["$.\"event\"[*]"],
+    :data-types #{{:type "CodeableConcept", :polymorphic? false}},
+    :template :token}}}}

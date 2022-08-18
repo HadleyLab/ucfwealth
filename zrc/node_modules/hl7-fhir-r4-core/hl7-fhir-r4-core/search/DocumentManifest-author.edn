@@ -1,0 +1,15 @@
+{ns hl7-fhir-r4-core.search.DocumentManifest-author,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "DocumentManifest-author",
+  :fhir/url
+  "http://hl7.org/fhir/SearchParameter/DocumentManifest-author",
+  :fhir/type "reference",
+  :name "author",
+  :expr
+  {:DocumentManifest
+   {:knife [["author"]],
+    :jsonpath ["$.\"author\"[*]"],
+    :data-types #{{:type "Reference", :polymorphic? false}},
+    :template :reference}}}}

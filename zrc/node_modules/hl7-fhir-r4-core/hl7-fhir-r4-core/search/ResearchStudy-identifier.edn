@@ -1,0 +1,15 @@
+{ns hl7-fhir-r4-core.search.ResearchStudy-identifier,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "ResearchStudy-identifier",
+  :fhir/url
+  "http://hl7.org/fhir/SearchParameter/ResearchStudy-identifier",
+  :fhir/type "token",
+  :name "identifier",
+  :expr
+  {:ResearchStudy
+   {:knife [["identifier"]],
+    :jsonpath ["$.\"identifier\"[*]"],
+    :data-types #{{:type "Identifier", :polymorphic? false}},
+    :template :token}}}}

@@ -1,0 +1,14 @@
+{ns hl7-fhir-r4-core.search.Practitioner-active,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "Practitioner-active",
+  :fhir/url "http://hl7.org/fhir/SearchParameter/Practitioner-active",
+  :fhir/type "token",
+  :name "active",
+  :expr
+  {:Practitioner
+   {:knife [["active"]],
+    :jsonpath ["$.\"active\"[*]"],
+    :data-types #{{:type "boolean", :polymorphic? false}},
+    :template :token}}}}

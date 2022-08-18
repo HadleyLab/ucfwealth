@@ -1,0 +1,14 @@
+{ns hl7-fhir-r4-core.search.Evidence-version,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "Evidence-version",
+  :fhir/url "http://hl7.org/fhir/SearchParameter/Evidence-version",
+  :fhir/type "token",
+  :name "version",
+  :expr
+  {:Evidence
+   {:knife [["version"]],
+    :jsonpath ["$.\"version\"[*]"],
+    :data-types #{{:type "string", :polymorphic? false}},
+    :template :token}}}}

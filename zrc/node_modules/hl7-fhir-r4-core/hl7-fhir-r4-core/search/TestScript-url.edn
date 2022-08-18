@@ -1,0 +1,14 @@
+{ns hl7-fhir-r4-core.search.TestScript-url,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "TestScript-url",
+  :fhir/url "http://hl7.org/fhir/SearchParameter/TestScript-url",
+  :fhir/type "uri",
+  :name "url",
+  :expr
+  {:TestScript
+   {:knife [["url"]],
+    :jsonpath ["$.\"url\"[*]"],
+    :data-types #{{:type "uri", :polymorphic? false}},
+    :template :uri}}}}

@@ -1,0 +1,14 @@
+{ns hl7-fhir-r4-core.search.Claim-identifier,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "Claim-identifier",
+  :fhir/url "http://hl7.org/fhir/SearchParameter/Claim-identifier",
+  :fhir/type "token",
+  :name "identifier",
+  :expr
+  {:Claim
+   {:knife [["identifier"]],
+    :jsonpath ["$.\"identifier\"[*]"],
+    :data-types #{{:type "Identifier", :polymorphic? false}},
+    :template :token}}}}

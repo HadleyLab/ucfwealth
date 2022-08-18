@@ -1,0 +1,15 @@
+{ns hl7-fhir-r4-core.search.MedicationRequest-intended-performer,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "MedicationRequest-intended-performer",
+  :fhir/url
+  "http://hl7.org/fhir/SearchParameter/MedicationRequest-intended-performer",
+  :fhir/type "reference",
+  :name "intended-performer",
+  :expr
+  {:MedicationRequest
+   {:knife [["performer"]],
+    :jsonpath ["$.\"performer\"[*]"],
+    :data-types #{{:type "Reference", :polymorphic? false}},
+    :template :reference}}}}

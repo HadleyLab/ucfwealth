@@ -1,0 +1,14 @@
+{ns hl7-fhir-r4-core.search.Observation-category,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "Observation-category",
+  :fhir/url "http://hl7.org/fhir/SearchParameter/Observation-category",
+  :fhir/type "token",
+  :name "category",
+  :expr
+  {:Observation
+   {:knife [["category"]],
+    :jsonpath ["$.\"category\"[*]"],
+    :data-types #{{:type "CodeableConcept", :polymorphic? false}},
+    :template :token}}}}

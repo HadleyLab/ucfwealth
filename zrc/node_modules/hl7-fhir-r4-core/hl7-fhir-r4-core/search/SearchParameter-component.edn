@@ -1,0 +1,15 @@
+{ns hl7-fhir-r4-core.search.SearchParameter-component,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "SearchParameter-component",
+  :fhir/url
+  "http://hl7.org/fhir/SearchParameter/SearchParameter-component",
+  :fhir/type "reference",
+  :name "component",
+  :expr
+  {:SearchParameter
+   {:knife [["component" "definition"]],
+    :jsonpath ["$.\"component\".\"definition\"[*]"],
+    :data-types #{{:type "canonical", :polymorphic? false}},
+    :template :reference}}}}

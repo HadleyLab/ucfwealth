@@ -1,0 +1,28 @@
+{ns hl7-fhir-r4-core.search.TestScript-testscript-capability,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "TestScript-testscript-capability",
+  :fhir/url
+  "http://hl7.org/fhir/SearchParameter/TestScript-testscript-capability",
+  :fhir/type "string",
+  :name "testscript-capability",
+  :expr
+  {:TestScript
+   {:knife [["metadata" "capability" "description"]],
+    :jsonpath ["$.\"metadata\".\"capability\".\"description\"[*]"],
+    :data-types #{{:type "string", :polymorphic? false}},
+    :template :string,
+    :sql
+    {:where
+     [:or
+      [:ilike
+       [:pg/cast
+        [:pg/jsonb-path-query-array
+         [:pg/sql "{{table}}.resource"]
+         [:pg/cast
+          "($.\"metadata\".\"capability\".\"description\"[*]).** ? (@.type() == \"string\")"
+          :jsonpath]]
+        :text]
+       [:pg/sql "{{param}}"]]],
+     :parameter-format "%\"?%"}}}}}

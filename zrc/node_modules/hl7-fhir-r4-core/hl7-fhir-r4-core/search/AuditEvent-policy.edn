@@ -1,0 +1,14 @@
+{ns hl7-fhir-r4-core.search.AuditEvent-policy,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "AuditEvent-policy",
+  :fhir/url "http://hl7.org/fhir/SearchParameter/AuditEvent-policy",
+  :fhir/type "uri",
+  :name "policy",
+  :expr
+  {:AuditEvent
+   {:knife [["agent" "policy"]],
+    :jsonpath ["$.\"agent\".\"policy\"[*]"],
+    :data-types #{{:type "uri", :polymorphic? false}},
+    :template :uri}}}}

@@ -1,0 +1,15 @@
+{ns hl7-fhir-r4-core.search.Appointment-appointment-type,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "Appointment-appointment-type",
+  :fhir/url
+  "http://hl7.org/fhir/SearchParameter/Appointment-appointment-type",
+  :fhir/type "token",
+  :name "appointment-type",
+  :expr
+  {:Appointment
+   {:knife [["appointmentType"]],
+    :jsonpath ["$.\"appointmentType\"[*]"],
+    :data-types #{{:type "CodeableConcept", :polymorphic? false}},
+    :template :token}}}}

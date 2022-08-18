@@ -1,0 +1,14 @@
+{ns hl7-fhir-r4-core.search.MessageHeader-code,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "MessageHeader-code",
+  :fhir/url "http://hl7.org/fhir/SearchParameter/MessageHeader-code",
+  :fhir/type "token",
+  :name "code",
+  :expr
+  {:MessageHeader
+   {:knife [["response" "code"]],
+    :jsonpath ["$.\"response\".\"code\"[*]"],
+    :data-types #{{:type "code", :polymorphic? false}},
+    :template :token}}}}

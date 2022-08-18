@@ -1,0 +1,28 @@
+{ns hl7-fhir-r4-core.search.Immunization-lot-number,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "Immunization-lot-number",
+  :fhir/url
+  "http://hl7.org/fhir/SearchParameter/Immunization-lot-number",
+  :fhir/type "string",
+  :name "lot-number",
+  :expr
+  {:Immunization
+   {:knife [["lotNumber"]],
+    :jsonpath ["$.\"lotNumber\"[*]"],
+    :data-types #{{:type "string", :polymorphic? false}},
+    :template :string,
+    :sql
+    {:where
+     [:or
+      [:ilike
+       [:pg/cast
+        [:pg/jsonb-path-query-array
+         [:pg/sql "{{table}}.resource"]
+         [:pg/cast
+          "($.\"lotNumber\"[*]).** ? (@.type() == \"string\")"
+          :jsonpath]]
+        :text]
+       [:pg/sql "{{param}}"]]],
+     :parameter-format "%\"?%"}}}}}

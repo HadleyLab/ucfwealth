@@ -1,0 +1,14 @@
+{ns hl7-fhir-r4-core.search.Specimen-accession,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "Specimen-accession",
+  :fhir/url "http://hl7.org/fhir/SearchParameter/Specimen-accession",
+  :fhir/type "token",
+  :name "accession",
+  :expr
+  {:Specimen
+   {:knife [["accessionIdentifier"]],
+    :jsonpath ["$.\"accessionIdentifier\"[*]"],
+    :data-types #{{:type "Identifier", :polymorphic? false}},
+    :template :token}}}}

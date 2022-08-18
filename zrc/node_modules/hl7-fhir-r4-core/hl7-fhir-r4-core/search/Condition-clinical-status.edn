@@ -1,0 +1,15 @@
+{ns hl7-fhir-r4-core.search.Condition-clinical-status,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "Condition-clinical-status",
+  :fhir/url
+  "http://hl7.org/fhir/SearchParameter/Condition-clinical-status",
+  :fhir/type "token",
+  :name "clinical-status",
+  :expr
+  {:Condition
+   {:knife [["clinicalStatus"]],
+    :jsonpath ["$.\"clinicalStatus\"[*]"],
+    :data-types #{{:type "CodeableConcept", :polymorphic? false}},
+    :template :token}}}}

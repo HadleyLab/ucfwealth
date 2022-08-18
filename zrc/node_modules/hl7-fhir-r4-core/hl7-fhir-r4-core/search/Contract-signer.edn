@@ -1,0 +1,14 @@
+{ns hl7-fhir-r4-core.search.Contract-signer,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "Contract-signer",
+  :fhir/url "http://hl7.org/fhir/SearchParameter/Contract-signer",
+  :fhir/type "reference",
+  :name "signer",
+  :expr
+  {:Contract
+   {:knife [["signer" "party"]],
+    :jsonpath ["$.\"signer\".\"party\"[*]"],
+    :data-types #{{:type "Reference", :polymorphic? false}},
+    :template :reference}}}}

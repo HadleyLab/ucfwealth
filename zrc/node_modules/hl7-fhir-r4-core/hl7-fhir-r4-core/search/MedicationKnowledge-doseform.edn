@@ -1,0 +1,15 @@
+{ns hl7-fhir-r4-core.search.MedicationKnowledge-doseform,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "MedicationKnowledge-doseform",
+  :fhir/url
+  "http://hl7.org/fhir/SearchParameter/MedicationKnowledge-doseform",
+  :fhir/type "token",
+  :name "doseform",
+  :expr
+  {:MedicationKnowledge
+   {:knife [["doseForm"]],
+    :jsonpath ["$.\"doseForm\"[*]"],
+    :data-types #{{:type "CodeableConcept", :polymorphic? false}},
+    :template :token}}}}

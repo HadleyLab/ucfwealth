@@ -1,0 +1,15 @@
+{ns hl7-fhir-r4-core.search.MedicinalProductPharmaceutical-route,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "MedicinalProductPharmaceutical-route",
+  :fhir/url
+  "http://hl7.org/fhir/SearchParameter/MedicinalProductPharmaceutical-route",
+  :fhir/type "token",
+  :name "route",
+  :expr
+  {:MedicinalProductPharmaceutical
+   {:knife [["routeOfAdministration" "code"]],
+    :jsonpath ["$.\"routeOfAdministration\".\"code\"[*]"],
+    :data-types #{{:type "CodeableConcept", :polymorphic? false}},
+    :template :token}}}}

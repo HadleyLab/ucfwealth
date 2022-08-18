@@ -1,0 +1,15 @@
+{ns hl7-fhir-r4-core.search.CodeSystem-supplements,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "CodeSystem-supplements",
+  :fhir/url
+  "http://hl7.org/fhir/SearchParameter/CodeSystem-supplements",
+  :fhir/type "reference",
+  :name "supplements",
+  :expr
+  {:CodeSystem
+   {:knife [["supplements"]],
+    :jsonpath ["$.\"supplements\"[*]"],
+    :data-types #{{:type "canonical", :polymorphic? false}},
+    :template :reference}}}}

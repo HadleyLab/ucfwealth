@@ -1,0 +1,28 @@
+{ns hl7-fhir-r4-core.search.HealthcareService-name,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "HealthcareService-name",
+  :fhir/url
+  "http://hl7.org/fhir/SearchParameter/HealthcareService-name",
+  :fhir/type "string",
+  :name "name",
+  :expr
+  {:HealthcareService
+   {:knife [["name"]],
+    :jsonpath ["$.\"name\"[*]"],
+    :data-types #{{:type "string", :polymorphic? false}},
+    :template :string,
+    :sql
+    {:where
+     [:or
+      [:ilike
+       [:pg/cast
+        [:pg/jsonb-path-query-array
+         [:pg/sql "{{table}}.resource"]
+         [:pg/cast
+          "($.\"name\"[*]).** ? (@.type() == \"string\")"
+          :jsonpath]]
+        :text]
+       [:pg/sql "{{param}}"]]],
+     :parameter-format "%\"?%"}}}}}

@@ -1,0 +1,15 @@
+{ns hl7-fhir-r4-core.search.PaymentReconciliation-outcome,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "PaymentReconciliation-outcome",
+  :fhir/url
+  "http://hl7.org/fhir/SearchParameter/PaymentReconciliation-outcome",
+  :fhir/type "token",
+  :name "outcome",
+  :expr
+  {:PaymentReconciliation
+   {:knife [["outcome"]],
+    :jsonpath ["$.\"outcome\"[*]"],
+    :data-types #{{:type "code", :polymorphic? false}},
+    :template :token}}}}

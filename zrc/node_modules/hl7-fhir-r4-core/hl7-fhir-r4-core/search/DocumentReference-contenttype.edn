@@ -1,0 +1,15 @@
+{ns hl7-fhir-r4-core.search.DocumentReference-contenttype,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "DocumentReference-contenttype",
+  :fhir/url
+  "http://hl7.org/fhir/SearchParameter/DocumentReference-contenttype",
+  :fhir/type "token",
+  :name "contenttype",
+  :expr
+  {:DocumentReference
+   {:knife [["content" "attachment" "contentType"]],
+    :jsonpath ["$.\"content\".\"attachment\".\"contentType\"[*]"],
+    :data-types #{},
+    :template :token}}}}

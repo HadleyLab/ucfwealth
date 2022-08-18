@@ -1,0 +1,15 @@
+{ns hl7-fhir-r4-core.search.SubstanceSpecification-code,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "SubstanceSpecification-code",
+  :fhir/url
+  "http://hl7.org/fhir/SearchParameter/SubstanceSpecification-code",
+  :fhir/type "token",
+  :name "code",
+  :expr
+  {:SubstanceSpecification
+   {:knife [["code" "code"]],
+    :jsonpath ["$.\"code\".\"code\"[*]"],
+    :data-types #{{:type "CodeableConcept", :polymorphic? false}},
+    :template :token}}}}

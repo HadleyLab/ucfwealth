@@ -1,0 +1,14 @@
+{ns hl7-fhir-r4-core.search.Provenance-agent,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "Provenance-agent",
+  :fhir/url "http://hl7.org/fhir/SearchParameter/Provenance-agent",
+  :fhir/type "reference",
+  :name "agent",
+  :expr
+  {:Provenance
+   {:knife [["agent" "who"]],
+    :jsonpath ["$.\"agent\".\"who\"[*]"],
+    :data-types #{{:type "Reference", :polymorphic? false}},
+    :template :reference}}}}

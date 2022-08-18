@@ -1,0 +1,128 @@
+{ns hl7-fhir-r4-core.search.Condition-abatement-date,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "Condition-abatement-date",
+  :fhir/url
+  "http://hl7.org/fhir/SearchParameter/Condition-abatement-date",
+  :fhir/type "date",
+  :name "abatement-date",
+  :expr
+  {:Condition
+   {:knife [["abatement" "dateTime"] ["abatement" "Period"]],
+    :jsonpath
+    ["$.\"abatement\".\"dateTime\"[*]"
+     "$.\"abatement\".\"Period\"[*]"],
+    :data-types
+    #{{:type "Period", :polymorphic? false}
+      {:type "dateTime", :polymorphic? false}},
+    :template :date,
+    :sql
+    {:where
+     [:or
+      [:or
+       [:and
+        [:>=
+         [:pg/call :max_text_date_bound [:pg/sql "{{param}}"]]
+         [:pg/call
+          :jsonpath_extract_max_timestamptz
+          [:pg/sql "{{table}}.resource"]
+          "$.\"abatement\".\"dateTime\"[*].start"]]
+        [:<=
+         [:pg/call :min_text_date_bound [:pg/sql "{{param}}"]]
+         [:pg/call
+          :jsonpath_extract_min_timestamptz
+          [:pg/sql "{{table}}.resource"]
+          "$.\"abatement\".\"dateTime\"[*].end"]]]
+       [:and
+        [:>=
+         [:pg/call :max_text_date_bound [:pg/sql "{{param}}"]]
+         [:pg/call
+          :jsonpath_extract_max_timestamptz
+          [:pg/sql "{{table}}.resource"]
+          "$.\"abatement\".\"dateTime\"[*].start"]]
+        [:is
+         [:pg/call
+          :jsonpath_extract_max_timestamptz
+          [:pg/sql "{{table}}.resource"]
+          "$.\"abatement\".\"dateTime\"[*].end"]
+         nil]]
+       [:and
+        [:<=
+         [:pg/call :min_text_date_bound [:pg/sql "{{param}}"]]
+         [:pg/call
+          :jsonpath_extract_min_timestamptz
+          [:pg/sql "{{table}}.resource"]
+          "$.\"abatement\".\"dateTime\"[*].end"]]
+        [:is
+         [:pg/call
+          :jsonpath_extract_min_timestamptz
+          [:pg/sql "{{table}}.resource"]
+          "$.\"abatement\".\"dateTime\"[*].start"]
+         nil]]]
+      [:or
+       [:and
+        [:>=
+         [:pg/call :max_text_date_bound [:pg/sql "{{param}}"]]
+         [:pg/call
+          :jsonpath_extract_max_timestamptz
+          [:pg/sql "{{table}}.resource"]
+          "$.\"abatement\".\"Period\"[*].start"]]
+        [:<=
+         [:pg/call :min_text_date_bound [:pg/sql "{{param}}"]]
+         [:pg/call
+          :jsonpath_extract_min_timestamptz
+          [:pg/sql "{{table}}.resource"]
+          "$.\"abatement\".\"Period\"[*].end"]]]
+       [:and
+        [:>=
+         [:pg/call :max_text_date_bound [:pg/sql "{{param}}"]]
+         [:pg/call
+          :jsonpath_extract_max_timestamptz
+          [:pg/sql "{{table}}.resource"]
+          "$.\"abatement\".\"Period\"[*].start"]]
+        [:is
+         [:pg/call
+          :jsonpath_extract_max_timestamptz
+          [:pg/sql "{{table}}.resource"]
+          "$.\"abatement\".\"Period\"[*].end"]
+         nil]]
+       [:and
+        [:<=
+         [:pg/call :min_text_date_bound [:pg/sql "{{param}}"]]
+         [:pg/call
+          :jsonpath_extract_min_timestamptz
+          [:pg/sql "{{table}}.resource"]
+          "$.\"abatement\".\"Period\"[*].end"]]
+        [:is
+         [:pg/call
+          :jsonpath_extract_min_timestamptz
+          [:pg/sql "{{table}}.resource"]
+          "$.\"abatement\".\"Period\"[*].start"]
+         nil]]]
+      [:and
+       [:>=
+        [:pg/call :max_text_date_bound [:pg/sql "{{param}}"]]
+        [:pg/call
+         :jsonpath_extract_max_timestamptz
+         [:pg/sql "{{table}}.resource"]
+         "$.\"abatement\".\"dateTime\"[*]"]]
+       [:<=
+        [:pg/call :min_text_date_bound [:pg/sql "{{param}}"]]
+        [:pg/call
+         :jsonpath_extract_min_timestamptz
+         [:pg/sql "{{table}}.resource"]
+         "$.\"abatement\".\"dateTime\"[*]"]]]
+      [:and
+       [:>=
+        [:pg/call :max_text_date_bound [:pg/sql "{{param}}"]]
+        [:pg/call
+         :jsonpath_extract_max_timestamptz
+         [:pg/sql "{{table}}.resource"]
+         "$.\"abatement\".\"Period\"[*]"]]
+       [:<=
+        [:pg/call :min_text_date_bound [:pg/sql "{{param}}"]]
+        [:pg/call
+         :jsonpath_extract_min_timestamptz
+         [:pg/sql "{{table}}.resource"]
+         "$.\"abatement\".\"Period\"[*]"]]]]}}}}}

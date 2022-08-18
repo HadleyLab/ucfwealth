@@ -1,0 +1,15 @@
+{ns hl7-fhir-r4-core.search.Substance-container-identifier,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "Substance-container-identifier",
+  :fhir/url
+  "http://hl7.org/fhir/SearchParameter/Substance-container-identifier",
+  :fhir/type "token",
+  :name "container-identifier",
+  :expr
+  {:Substance
+   {:knife [["instance" "identifier"]],
+    :jsonpath ["$.\"instance\".\"identifier\"[*]"],
+    :data-types #{{:type "Identifier", :polymorphic? false}},
+    :template :token}}}}

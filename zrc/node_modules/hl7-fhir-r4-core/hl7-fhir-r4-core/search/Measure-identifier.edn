@@ -1,0 +1,14 @@
+{ns hl7-fhir-r4-core.search.Measure-identifier,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "Measure-identifier",
+  :fhir/url "http://hl7.org/fhir/SearchParameter/Measure-identifier",
+  :fhir/type "token",
+  :name "identifier",
+  :expr
+  {:Measure
+   {:knife [["identifier"]],
+    :jsonpath ["$.\"identifier\"[*]"],
+    :data-types #{{:type "Identifier", :polymorphic? false}},
+    :template :token}}}}

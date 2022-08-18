@@ -1,0 +1,47 @@
+{ns hl7-fhir-r4-core.search.Condition-abatement-age,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "Condition-abatement-age",
+  :fhir/url
+  "http://hl7.org/fhir/SearchParameter/Condition-abatement-age",
+  :fhir/type "quantity",
+  :name "abatement-age",
+  :expr
+  {:Condition
+   {:knife [["abatement" "Age"] ["abatement" "Range"]],
+    :jsonpath
+    ["$.\"abatement\".\"Age\"[*]" "$.\"abatement\".\"Range\"[*]"],
+    :data-types
+    #{{:type "Age", :polymorphic? false}
+      {:type "Range", :polymorphic? false}},
+    :template :quantity,
+    :sql
+    {:where
+     [:or
+      [:and
+       [:>=
+        [:pg/call
+         :jsonpath_extract_max_numeric
+         [:pg/sql "{{table}}.resource"]
+         "$.\"abatement\".\"Age\"[*].\"value\""]
+        [:pg/cast [:pg/sql "{{param}}"] :numeric]]
+       [:<=
+        [:pg/call
+         :jsonpath_extract_min_numeric
+         [:pg/sql "{{table}}.resource"]
+         "$.\"abatement\".\"Age\"[*].\"value\""]
+        [:pg/cast [:pg/sql "{{param}}"] :numeric]]]
+      [:and
+       [:>=
+        [:pg/call
+         :jsonpath_extract_max_numeric
+         [:pg/sql "{{table}}.resource"]
+         "$.\"abatement\".\"Range\"[*].\"value\""]
+        [:pg/cast [:pg/sql "{{param}}"] :numeric]]
+       [:<=
+        [:pg/call
+         :jsonpath_extract_min_numeric
+         [:pg/sql "{{table}}.resource"]
+         "$.\"abatement\".\"Range\"[*].\"value\""]
+        [:pg/cast [:pg/sql "{{param}}"] :numeric]]]]}}}}}

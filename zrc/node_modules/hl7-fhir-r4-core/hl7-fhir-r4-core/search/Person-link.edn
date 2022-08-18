@@ -1,0 +1,14 @@
+{ns hl7-fhir-r4-core.search.Person-link,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "Person-link",
+  :fhir/url "http://hl7.org/fhir/SearchParameter/Person-link",
+  :fhir/type "reference",
+  :name "link",
+  :expr
+  {:Person
+   {:knife [["link" "target"]],
+    :jsonpath ["$.\"link\".\"target\"[*]"],
+    :data-types #{{:type "Reference", :polymorphic? false}},
+    :template :reference}}}}

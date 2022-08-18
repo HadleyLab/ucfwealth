@@ -1,0 +1,14 @@
+{ns hl7-fhir-r4-core.search.Location-address-use,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "Location-address-use",
+  :fhir/url "http://hl7.org/fhir/SearchParameter/Location-address-use",
+  :fhir/type "token",
+  :name "address-use",
+  :expr
+  {:Location
+   {:knife [["address" "use"]],
+    :jsonpath ["$.\"address\".\"use\"[*]"],
+    :data-types #{},
+    :template :token}}}}

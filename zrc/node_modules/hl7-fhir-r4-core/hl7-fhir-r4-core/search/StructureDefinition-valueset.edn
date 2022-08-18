@@ -1,0 +1,16 @@
+{ns hl7-fhir-r4-core.search.StructureDefinition-valueset,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "StructureDefinition-valueset",
+  :fhir/url
+  "http://hl7.org/fhir/SearchParameter/StructureDefinition-valueset",
+  :fhir/type "reference",
+  :name "valueset",
+  :expr
+  {:StructureDefinition
+   {:knife [["snapshot" "element" "binding" "valueSet"]],
+    :jsonpath
+    ["$.\"snapshot\".\"element\".\"binding\".\"valueSet\"[*]"],
+    :data-types #{},
+    :template :reference}}}}

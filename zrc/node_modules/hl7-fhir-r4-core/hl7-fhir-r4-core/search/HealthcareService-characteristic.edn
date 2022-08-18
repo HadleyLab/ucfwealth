@@ -1,0 +1,15 @@
+{ns hl7-fhir-r4-core.search.HealthcareService-characteristic,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "HealthcareService-characteristic",
+  :fhir/url
+  "http://hl7.org/fhir/SearchParameter/HealthcareService-characteristic",
+  :fhir/type "token",
+  :name "characteristic",
+  :expr
+  {:HealthcareService
+   {:knife [["characteristic"]],
+    :jsonpath ["$.\"characteristic\"[*]"],
+    :data-types #{{:type "CodeableConcept", :polymorphic? false}},
+    :template :token}}}}

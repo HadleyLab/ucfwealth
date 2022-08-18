@@ -1,0 +1,15 @@
+{ns hl7-fhir-r4-core.search.Evidence-jurisdiction,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "Evidence-jurisdiction",
+  :fhir/url
+  "http://hl7.org/fhir/SearchParameter/Evidence-jurisdiction",
+  :fhir/type "token",
+  :name "jurisdiction",
+  :expr
+  {:Evidence
+   {:knife [["jurisdiction"]],
+    :jsonpath ["$.\"jurisdiction\"[*]"],
+    :data-types #{{:type "CodeableConcept", :polymorphic? false}},
+    :template :token}}}}

@@ -1,0 +1,15 @@
+{ns hl7-fhir-r4-core.search.ResearchStudy-sponsor,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "ResearchStudy-sponsor",
+  :fhir/url
+  "http://hl7.org/fhir/SearchParameter/ResearchStudy-sponsor",
+  :fhir/type "reference",
+  :name "sponsor",
+  :expr
+  {:ResearchStudy
+   {:knife [["sponsor"]],
+    :jsonpath ["$.\"sponsor\"[*]"],
+    :data-types #{{:type "Reference", :polymorphic? false}},
+    :template :reference}}}}

@@ -1,0 +1,29 @@
+{ns hl7-fhir-r4-core.search.individual-gender,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "individual-gender",
+  :fhir/url "http://hl7.org/fhir/SearchParameter/individual-gender",
+  :fhir/type "token",
+  :name "gender",
+  :expr
+  {:Patient
+   {:knife [["gender"]],
+    :jsonpath ["$.\"gender\"[*]"],
+    :data-types #{{:type "code", :polymorphic? false}},
+    :template :token},
+   :Person
+   {:knife [["gender"]],
+    :jsonpath ["$.\"gender\"[*]"],
+    :data-types #{{:type "code", :polymorphic? false}},
+    :template :token},
+   :Practitioner
+   {:knife [["gender"]],
+    :jsonpath ["$.\"gender\"[*]"],
+    :data-types #{{:type "code", :polymorphic? false}},
+    :template :token},
+   :RelatedPerson
+   {:knife [["gender"]],
+    :jsonpath ["$.\"gender\"[*]"],
+    :data-types #{{:type "code", :polymorphic? false}},
+    :template :token}}}}

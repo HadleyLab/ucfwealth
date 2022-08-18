@@ -1,0 +1,14 @@
+{ns hl7-fhir-r4-core.search.Basic-code,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "Basic-code",
+  :fhir/url "http://hl7.org/fhir/SearchParameter/Basic-code",
+  :fhir/type "token",
+  :name "code",
+  :expr
+  {:Basic
+   {:knife [["code"]],
+    :jsonpath ["$.\"code\"[*]"],
+    :data-types #{{:type "CodeableConcept", :polymorphic? false}},
+    :template :token}}}}

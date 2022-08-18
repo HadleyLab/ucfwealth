@@ -1,0 +1,15 @@
+{ns hl7-fhir-r4-core.search.MessageDefinition-focus,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "MessageDefinition-focus",
+  :fhir/url
+  "http://hl7.org/fhir/SearchParameter/MessageDefinition-focus",
+  :fhir/type "token",
+  :name "focus",
+  :expr
+  {:MessageDefinition
+   {:knife [["focus" "code"]],
+    :jsonpath ["$.\"focus\".\"code\"[*]"],
+    :data-types #{{:type "code", :polymorphic? false}},
+    :template :token}}}}

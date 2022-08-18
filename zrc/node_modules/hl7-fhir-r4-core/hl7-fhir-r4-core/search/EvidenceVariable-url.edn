@@ -1,0 +1,14 @@
+{ns hl7-fhir-r4-core.search.EvidenceVariable-url,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "EvidenceVariable-url",
+  :fhir/url "http://hl7.org/fhir/SearchParameter/EvidenceVariable-url",
+  :fhir/type "uri",
+  :name "url",
+  :expr
+  {:EvidenceVariable
+   {:knife [["url"]],
+    :jsonpath ["$.\"url\"[*]"],
+    :data-types #{{:type "uri", :polymorphic? false}},
+    :template :uri}}}}

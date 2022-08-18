@@ -1,0 +1,31 @@
+{ns hl7-fhir-r4-core.search.MolecularSequence-variant-end,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "MolecularSequence-variant-end",
+  :fhir/url
+  "http://hl7.org/fhir/SearchParameter/MolecularSequence-variant-end",
+  :fhir/type "number",
+  :name "variant-end",
+  :expr
+  {:MolecularSequence
+   {:knife [["variant" "end"]],
+    :jsonpath ["$.\"variant\".\"end\"[*]"],
+    :data-types #{{:type "integer", :polymorphic? false}},
+    :template :number,
+    :sql
+    {:where
+     [:or
+      [:and
+       [:>=
+        [:pg/call
+         :jsonpath_extract_max_numeric
+         [:pg/sql "{{table}}.resource"]
+         "$.\"variant\".\"end\"[*]"]
+        [:pg/cast [:pg/sql "{{param}}"] :numeric]]
+       [:<=
+        [:pg/call
+         :jsonpath_extract_min_numeric
+         [:pg/sql "{{table}}.resource"]
+         "$.\"variant\".\"end\"[*]"]
+        [:pg/cast [:pg/sql "{{param}}"] :numeric]]]]}}}}}

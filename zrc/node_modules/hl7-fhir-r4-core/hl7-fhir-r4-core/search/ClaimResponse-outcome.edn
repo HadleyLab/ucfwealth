@@ -1,0 +1,15 @@
+{ns hl7-fhir-r4-core.search.ClaimResponse-outcome,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "ClaimResponse-outcome",
+  :fhir/url
+  "http://hl7.org/fhir/SearchParameter/ClaimResponse-outcome",
+  :fhir/type "token",
+  :name "outcome",
+  :expr
+  {:ClaimResponse
+   {:knife [["outcome"]],
+    :jsonpath ["$.\"outcome\"[*]"],
+    :data-types #{{:type "code", :polymorphic? false}},
+    :template :token}}}}

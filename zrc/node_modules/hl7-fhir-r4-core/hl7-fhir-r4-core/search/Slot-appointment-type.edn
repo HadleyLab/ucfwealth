@@ -1,0 +1,15 @@
+{ns hl7-fhir-r4-core.search.Slot-appointment-type,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "Slot-appointment-type",
+  :fhir/url
+  "http://hl7.org/fhir/SearchParameter/Slot-appointment-type",
+  :fhir/type "token",
+  :name "appointment-type",
+  :expr
+  {:Slot
+   {:knife [["appointmentType"]],
+    :jsonpath ["$.\"appointmentType\"[*]"],
+    :data-types #{{:type "CodeableConcept", :polymorphic? false}},
+    :template :token}}}}

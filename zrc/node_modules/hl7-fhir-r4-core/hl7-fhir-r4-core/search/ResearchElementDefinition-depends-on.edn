@@ -1,0 +1,18 @@
+{ns hl7-fhir-r4-core.search.ResearchElementDefinition-depends-on,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "ResearchElementDefinition-depends-on",
+  :fhir/url
+  "http://hl7.org/fhir/SearchParameter/ResearchElementDefinition-depends-on",
+  :fhir/type "reference",
+  :name "depends-on",
+  :expr
+  {:ResearchElementDefinition
+   {:knife
+    [["relatedArtifact" {:type "depends-on"} "resource"] ["library"]],
+    :jsonpath
+    ["$.\"relatedArtifact\"?(@.\"type\"==\"depends-on\").\"resource\"[*]"
+     "$.\"library\"[*]"],
+    :data-types #{{:type "canonical", :polymorphic? false}},
+    :template :reference}}}}

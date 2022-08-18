@@ -1,0 +1,14 @@
+{ns hl7-fhir-r4-core.search.Condition-category,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "Condition-category",
+  :fhir/url "http://hl7.org/fhir/SearchParameter/Condition-category",
+  :fhir/type "token",
+  :name "category",
+  :expr
+  {:Condition
+   {:knife [["category"]],
+    :jsonpath ["$.\"category\"[*]"],
+    :data-types #{{:type "CodeableConcept", :polymorphic? false}},
+    :template :token}}}}

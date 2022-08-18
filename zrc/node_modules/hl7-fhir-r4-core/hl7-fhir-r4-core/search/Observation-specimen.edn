@@ -1,0 +1,14 @@
+{ns hl7-fhir-r4-core.search.Observation-specimen,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "Observation-specimen",
+  :fhir/url "http://hl7.org/fhir/SearchParameter/Observation-specimen",
+  :fhir/type "reference",
+  :name "specimen",
+  :expr
+  {:Observation
+   {:knife [["specimen"]],
+    :jsonpath ["$.\"specimen\"[*]"],
+    :data-types #{{:type "Reference", :polymorphic? false}},
+    :template :reference}}}}

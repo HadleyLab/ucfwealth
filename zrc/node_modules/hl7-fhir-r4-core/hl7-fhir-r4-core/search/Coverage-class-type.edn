@@ -1,0 +1,14 @@
+{ns hl7-fhir-r4-core.search.Coverage-class-type,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "Coverage-class-type",
+  :fhir/url "http://hl7.org/fhir/SearchParameter/Coverage-class-type",
+  :fhir/type "token",
+  :name "class-type",
+  :expr
+  {:Coverage
+   {:knife [["class" "type"]],
+    :jsonpath ["$.\"class\".\"type\"[*]"],
+    :data-types #{{:type "CodeableConcept", :polymorphic? false}},
+    :template :token}}}}

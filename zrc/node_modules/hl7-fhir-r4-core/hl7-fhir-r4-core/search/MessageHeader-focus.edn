@@ -1,0 +1,14 @@
+{ns hl7-fhir-r4-core.search.MessageHeader-focus,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "MessageHeader-focus",
+  :fhir/url "http://hl7.org/fhir/SearchParameter/MessageHeader-focus",
+  :fhir/type "reference",
+  :name "focus",
+  :expr
+  {:MessageHeader
+   {:knife [["focus"]],
+    :jsonpath ["$.\"focus\"[*]"],
+    :data-types #{{:type "Reference", :polymorphic? false}},
+    :template :reference}}}}

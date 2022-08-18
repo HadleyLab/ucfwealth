@@ -1,0 +1,15 @@
+{ns hl7-fhir-r4-core.search.DiagnosticReport-performer,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "DiagnosticReport-performer",
+  :fhir/url
+  "http://hl7.org/fhir/SearchParameter/DiagnosticReport-performer",
+  :fhir/type "reference",
+  :name "performer",
+  :expr
+  {:DiagnosticReport
+   {:knife [["performer"]],
+    :jsonpath ["$.\"performer\"[*]"],
+    :data-types #{{:type "Reference", :polymorphic? false}},
+    :template :reference}}}}

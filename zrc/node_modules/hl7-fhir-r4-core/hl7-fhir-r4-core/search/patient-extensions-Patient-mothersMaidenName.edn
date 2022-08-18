@@ -1,0 +1,16 @@
+{ns
+ hl7-fhir-r4-core.search.patient-extensions-Patient-mothersMaidenName,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "patient-extensions-Patient-mothersMaidenName",
+  :fhir/url
+  "http://hl7.org/fhir/SearchParameter/patient-extensions-Patient-mothersMaidenName",
+  :fhir/type "string",
+  :name "mothersMaidenName",
+  :expr
+  {:Patient
+   {:jsonpath [],
+    :data-types #{},
+    :template :string,
+    :sql {:where [:or], :parameter-format "%\"?%"}}}}}

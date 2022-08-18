@@ -1,0 +1,14 @@
+{ns hl7-fhir-r4-core.search.Location-endpoint,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "Location-endpoint",
+  :fhir/url "http://hl7.org/fhir/SearchParameter/Location-endpoint",
+  :fhir/type "reference",
+  :name "endpoint",
+  :expr
+  {:Location
+   {:knife [["endpoint"]],
+    :jsonpath ["$.\"endpoint\"[*]"],
+    :data-types #{{:type "Reference", :polymorphic? false}},
+    :template :reference}}}}

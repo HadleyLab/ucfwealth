@@ -1,0 +1,15 @@
+{ns hl7-fhir-r4-core.search.NutritionOrder-supplement,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "NutritionOrder-supplement",
+  :fhir/url
+  "http://hl7.org/fhir/SearchParameter/NutritionOrder-supplement",
+  :fhir/type "token",
+  :name "supplement",
+  :expr
+  {:NutritionOrder
+   {:knife [["supplement" "type"]],
+    :jsonpath ["$.\"supplement\".\"type\"[*]"],
+    :data-types #{{:type "CodeableConcept", :polymorphic? false}},
+    :template :token}}}}

@@ -1,0 +1,15 @@
+{ns hl7-fhir-r4-core.search.Communication-encounter,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "Communication-encounter",
+  :fhir/url
+  "http://hl7.org/fhir/SearchParameter/Communication-encounter",
+  :fhir/type "reference",
+  :name "encounter",
+  :expr
+  {:Communication
+   {:knife [["encounter"]],
+    :jsonpath ["$.\"encounter\"[*]"],
+    :data-types #{{:type "Reference", :polymorphic? false}},
+    :template :reference}}}}

@@ -1,0 +1,15 @@
+{ns hl7-fhir-r4-core.search.ClinicalImpression-subject,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "ClinicalImpression-subject",
+  :fhir/url
+  "http://hl7.org/fhir/SearchParameter/ClinicalImpression-subject",
+  :fhir/type "reference",
+  :name "subject",
+  :expr
+  {:ClinicalImpression
+   {:knife [["subject"]],
+    :jsonpath ["$.\"subject\"[*]"],
+    :data-types #{{:type "Reference", :polymorphic? false}},
+    :template :reference}}}}

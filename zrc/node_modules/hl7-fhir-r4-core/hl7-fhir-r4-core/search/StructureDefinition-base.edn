@@ -1,0 +1,15 @@
+{ns hl7-fhir-r4-core.search.StructureDefinition-base,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "StructureDefinition-base",
+  :fhir/url
+  "http://hl7.org/fhir/SearchParameter/StructureDefinition-base",
+  :fhir/type "reference",
+  :name "base",
+  :expr
+  {:StructureDefinition
+   {:knife [["baseDefinition"]],
+    :jsonpath ["$.\"baseDefinition\"[*]"],
+    :data-types #{{:type "canonical", :polymorphic? false}},
+    :template :reference}}}}

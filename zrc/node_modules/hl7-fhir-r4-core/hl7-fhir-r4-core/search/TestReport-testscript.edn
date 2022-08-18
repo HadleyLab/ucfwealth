@@ -1,0 +1,15 @@
+{ns hl7-fhir-r4-core.search.TestReport-testscript,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "TestReport-testscript",
+  :fhir/url
+  "http://hl7.org/fhir/SearchParameter/TestReport-testscript",
+  :fhir/type "reference",
+  :name "testscript",
+  :expr
+  {:TestReport
+   {:knife [["testScript"]],
+    :jsonpath ["$.\"testScript\"[*]"],
+    :data-types #{{:type "Reference", :polymorphic? false}},
+    :template :reference}}}}

@@ -1,0 +1,14 @@
+{ns hl7-fhir-r4-core.search.Composition-category,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "Composition-category",
+  :fhir/url "http://hl7.org/fhir/SearchParameter/Composition-category",
+  :fhir/type "token",
+  :name "category",
+  :expr
+  {:Composition
+   {:knife [["category"]],
+    :jsonpath ["$.\"category\"[*]"],
+    :data-types #{{:type "CodeableConcept", :polymorphic? false}},
+    :template :token}}}}

@@ -1,0 +1,14 @@
+{ns hl7-fhir-r4-core.search.Contract-authority,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "Contract-authority",
+  :fhir/url "http://hl7.org/fhir/SearchParameter/Contract-authority",
+  :fhir/type "reference",
+  :name "authority",
+  :expr
+  {:Contract
+   {:knife [["authority"]],
+    :jsonpath ["$.\"authority\"[*]"],
+    :data-types #{{:type "Reference", :polymorphic? false}},
+    :template :reference}}}}

@@ -1,0 +1,15 @@
+{ns hl7-fhir-r4-core.search.VerificationResult-target,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "VerificationResult-target",
+  :fhir/url
+  "http://hl7.org/fhir/SearchParameter/VerificationResult-target",
+  :fhir/type "reference",
+  :name "target",
+  :expr
+  {:VerificationResult
+   {:knife [["target"]],
+    :jsonpath ["$.\"target\"[*]"],
+    :data-types #{{:type "Reference", :polymorphic? false}},
+    :template :reference}}}}

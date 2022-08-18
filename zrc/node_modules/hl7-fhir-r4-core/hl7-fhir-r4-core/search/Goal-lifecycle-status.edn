@@ -1,0 +1,15 @@
+{ns hl7-fhir-r4-core.search.Goal-lifecycle-status,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "Goal-lifecycle-status",
+  :fhir/url
+  "http://hl7.org/fhir/SearchParameter/Goal-lifecycle-status",
+  :fhir/type "token",
+  :name "lifecycle-status",
+  :expr
+  {:Goal
+   {:knife [["lifecycleStatus"]],
+    :jsonpath ["$.\"lifecycleStatus\"[*]"],
+    :data-types #{{:type "code", :polymorphic? false}},
+    :template :token}}}}

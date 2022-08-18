@@ -1,0 +1,15 @@
+{ns hl7-fhir-r4-core.search.ChargeItemDefinition-url,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "ChargeItemDefinition-url",
+  :fhir/url
+  "http://hl7.org/fhir/SearchParameter/ChargeItemDefinition-url",
+  :fhir/type "uri",
+  :name "url",
+  :expr
+  {:ChargeItemDefinition
+   {:knife [["url"]],
+    :jsonpath ["$.\"url\"[*]"],
+    :data-types #{{:type "uri", :polymorphic? false}},
+    :template :uri}}}}

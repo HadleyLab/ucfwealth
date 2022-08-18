@@ -1,0 +1,74 @@
+{ns hl7-fhir-r4-core.search.conformance-version,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "conformance-version",
+  :fhir/url "http://hl7.org/fhir/SearchParameter/conformance-version",
+  :fhir/type "token",
+  :name "version",
+  :expr
+  {:MessageDefinition
+   {:knife [["version"]],
+    :jsonpath ["$.\"version\"[*]"],
+    :data-types #{{:type "string", :polymorphic? false}},
+    :template :token},
+   :CompartmentDefinition
+   {:knife [["version"]],
+    :jsonpath ["$.\"version\"[*]"],
+    :data-types #{{:type "string", :polymorphic? false}},
+    :template :token},
+   :ImplementationGuide
+   {:knife [["version"]],
+    :jsonpath ["$.\"version\"[*]"],
+    :data-types #{{:type "string", :polymorphic? false}},
+    :template :token},
+   :CodeSystem
+   {:knife [["version"]],
+    :jsonpath ["$.\"version\"[*]"],
+    :data-types #{{:type "string", :polymorphic? false}},
+    :template :token},
+   :StructureMap
+   {:knife [["version"]],
+    :jsonpath ["$.\"version\"[*]"],
+    :data-types #{{:type "string", :polymorphic? false}},
+    :template :token},
+   :ValueSet
+   {:knife [["version"]],
+    :jsonpath ["$.\"version\"[*]"],
+    :data-types #{{:type "string", :polymorphic? false}},
+    :template :token},
+   :CapabilityStatement
+   {:knife [["version"]],
+    :jsonpath ["$.\"version\"[*]"],
+    :data-types #{{:type "string", :polymorphic? false}},
+    :template :token},
+   :ConceptMap
+   {:knife [["version"]],
+    :jsonpath ["$.\"version\"[*]"],
+    :data-types #{{:type "string", :polymorphic? false}},
+    :template :token},
+   :StructureDefinition
+   {:knife [["version"]],
+    :jsonpath ["$.\"version\"[*]"],
+    :data-types #{{:type "string", :polymorphic? false}},
+    :template :token},
+   :SearchParameter
+   {:knife [["version"]],
+    :jsonpath ["$.\"version\"[*]"],
+    :data-types #{{:type "string", :polymorphic? false}},
+    :template :token},
+   :OperationDefinition
+   {:knife [["version"]],
+    :jsonpath ["$.\"version\"[*]"],
+    :data-types #{{:type "string", :polymorphic? false}},
+    :template :token},
+   :GraphDefinition
+   {:knife [["version"]],
+    :jsonpath ["$.\"version\"[*]"],
+    :data-types #{{:type "string", :polymorphic? false}},
+    :template :token},
+   :TerminologyCapabilities
+   {:knife [["version"]],
+    :jsonpath ["$.\"version\"[*]"],
+    :data-types #{{:type "string", :polymorphic? false}},
+    :template :token}}}}

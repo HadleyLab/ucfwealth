@@ -1,0 +1,15 @@
+{ns hl7-fhir-r4-core.search.CapabilityStatement-resource-profile,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "CapabilityStatement-resource-profile",
+  :fhir/url
+  "http://hl7.org/fhir/SearchParameter/CapabilityStatement-resource-profile",
+  :fhir/type "reference",
+  :name "resource-profile",
+  :expr
+  {:CapabilityStatement
+   {:knife [["rest" "resource" "profile"]],
+    :jsonpath ["$.\"rest\".\"resource\".\"profile\"[*]"],
+    :data-types #{{:type "canonical", :polymorphic? false}},
+    :template :reference}}}}

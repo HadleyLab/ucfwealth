@@ -1,0 +1,189 @@
+{ns hl7-fhir-r4-core.search.conformance-title,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "conformance-title",
+  :fhir/url "http://hl7.org/fhir/SearchParameter/conformance-title",
+  :fhir/type "string",
+  :name "title",
+  :expr
+  {:MessageDefinition
+   {:knife [["title"]],
+    :jsonpath ["$.\"title\"[*]"],
+    :data-types #{{:type "string", :polymorphic? false}},
+    :template :string,
+    :sql
+    {:where
+     [:or
+      [:ilike
+       [:pg/cast
+        [:pg/jsonb-path-query-array
+         [:pg/sql "{{table}}.resource"]
+         [:pg/cast
+          "($.\"title\"[*]).** ? (@.type() == \"string\")"
+          :jsonpath]]
+        :text]
+       [:pg/sql "{{param}}"]]],
+     :parameter-format "%\"?%"}},
+   :ImplementationGuide
+   {:knife [["title"]],
+    :jsonpath ["$.\"title\"[*]"],
+    :data-types #{{:type "string", :polymorphic? false}},
+    :template :string,
+    :sql
+    {:where
+     [:or
+      [:ilike
+       [:pg/cast
+        [:pg/jsonb-path-query-array
+         [:pg/sql "{{table}}.resource"]
+         [:pg/cast
+          "($.\"title\"[*]).** ? (@.type() == \"string\")"
+          :jsonpath]]
+        :text]
+       [:pg/sql "{{param}}"]]],
+     :parameter-format "%\"?%"}},
+   :CodeSystem
+   {:knife [["title"]],
+    :jsonpath ["$.\"title\"[*]"],
+    :data-types #{{:type "string", :polymorphic? false}},
+    :template :string,
+    :sql
+    {:where
+     [:or
+      [:ilike
+       [:pg/cast
+        [:pg/jsonb-path-query-array
+         [:pg/sql "{{table}}.resource"]
+         [:pg/cast
+          "($.\"title\"[*]).** ? (@.type() == \"string\")"
+          :jsonpath]]
+        :text]
+       [:pg/sql "{{param}}"]]],
+     :parameter-format "%\"?%"}},
+   :StructureMap
+   {:knife [["title"]],
+    :jsonpath ["$.\"title\"[*]"],
+    :data-types #{{:type "string", :polymorphic? false}},
+    :template :string,
+    :sql
+    {:where
+     [:or
+      [:ilike
+       [:pg/cast
+        [:pg/jsonb-path-query-array
+         [:pg/sql "{{table}}.resource"]
+         [:pg/cast
+          "($.\"title\"[*]).** ? (@.type() == \"string\")"
+          :jsonpath]]
+        :text]
+       [:pg/sql "{{param}}"]]],
+     :parameter-format "%\"?%"}},
+   :ValueSet
+   {:knife [["title"]],
+    :jsonpath ["$.\"title\"[*]"],
+    :data-types #{{:type "string", :polymorphic? false}},
+    :template :string,
+    :sql
+    {:where
+     [:or
+      [:ilike
+       [:pg/cast
+        [:pg/jsonb-path-query-array
+         [:pg/sql "{{table}}.resource"]
+         [:pg/cast
+          "($.\"title\"[*]).** ? (@.type() == \"string\")"
+          :jsonpath]]
+        :text]
+       [:pg/sql "{{param}}"]]],
+     :parameter-format "%\"?%"}},
+   :CapabilityStatement
+   {:knife [["title"]],
+    :jsonpath ["$.\"title\"[*]"],
+    :data-types #{{:type "string", :polymorphic? false}},
+    :template :string,
+    :sql
+    {:where
+     [:or
+      [:ilike
+       [:pg/cast
+        [:pg/jsonb-path-query-array
+         [:pg/sql "{{table}}.resource"]
+         [:pg/cast
+          "($.\"title\"[*]).** ? (@.type() == \"string\")"
+          :jsonpath]]
+        :text]
+       [:pg/sql "{{param}}"]]],
+     :parameter-format "%\"?%"}},
+   :ConceptMap
+   {:knife [["title"]],
+    :jsonpath ["$.\"title\"[*]"],
+    :data-types #{{:type "string", :polymorphic? false}},
+    :template :string,
+    :sql
+    {:where
+     [:or
+      [:ilike
+       [:pg/cast
+        [:pg/jsonb-path-query-array
+         [:pg/sql "{{table}}.resource"]
+         [:pg/cast
+          "($.\"title\"[*]).** ? (@.type() == \"string\")"
+          :jsonpath]]
+        :text]
+       [:pg/sql "{{param}}"]]],
+     :parameter-format "%\"?%"}},
+   :StructureDefinition
+   {:knife [["title"]],
+    :jsonpath ["$.\"title\"[*]"],
+    :data-types #{{:type "string", :polymorphic? false}},
+    :template :string,
+    :sql
+    {:where
+     [:or
+      [:ilike
+       [:pg/cast
+        [:pg/jsonb-path-query-array
+         [:pg/sql "{{table}}.resource"]
+         [:pg/cast
+          "($.\"title\"[*]).** ? (@.type() == \"string\")"
+          :jsonpath]]
+        :text]
+       [:pg/sql "{{param}}"]]],
+     :parameter-format "%\"?%"}},
+   :OperationDefinition
+   {:knife [["title"]],
+    :jsonpath ["$.\"title\"[*]"],
+    :data-types #{{:type "string", :polymorphic? false}},
+    :template :string,
+    :sql
+    {:where
+     [:or
+      [:ilike
+       [:pg/cast
+        [:pg/jsonb-path-query-array
+         [:pg/sql "{{table}}.resource"]
+         [:pg/cast
+          "($.\"title\"[*]).** ? (@.type() == \"string\")"
+          :jsonpath]]
+        :text]
+       [:pg/sql "{{param}}"]]],
+     :parameter-format "%\"?%"}},
+   :TerminologyCapabilities
+   {:knife [["title"]],
+    :jsonpath ["$.\"title\"[*]"],
+    :data-types #{{:type "string", :polymorphic? false}},
+    :template :string,
+    :sql
+    {:where
+     [:or
+      [:ilike
+       [:pg/cast
+        [:pg/jsonb-path-query-array
+         [:pg/sql "{{table}}.resource"]
+         [:pg/cast
+          "($.\"title\"[*]).** ? (@.type() == \"string\")"
+          :jsonpath]]
+        :text]
+       [:pg/sql "{{param}}"]]],
+     :parameter-format "%\"?%"}}}}}

@@ -1,0 +1,15 @@
+{ns hl7-fhir-r4-core.search.Group-managing-entity,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "Group-managing-entity",
+  :fhir/url
+  "http://hl7.org/fhir/SearchParameter/Group-managing-entity",
+  :fhir/type "reference",
+  :name "managing-entity",
+  :expr
+  {:Group
+   {:knife [["managingEntity"]],
+    :jsonpath ["$.\"managingEntity\"[*]"],
+    :data-types #{{:type "Reference", :polymorphic? false}},
+    :template :reference}}}}

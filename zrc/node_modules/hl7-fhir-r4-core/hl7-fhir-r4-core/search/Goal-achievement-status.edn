@@ -1,0 +1,15 @@
+{ns hl7-fhir-r4-core.search.Goal-achievement-status,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "Goal-achievement-status",
+  :fhir/url
+  "http://hl7.org/fhir/SearchParameter/Goal-achievement-status",
+  :fhir/type "token",
+  :name "achievement-status",
+  :expr
+  {:Goal
+   {:knife [["achievementStatus"]],
+    :jsonpath ["$.\"achievementStatus\"[*]"],
+    :data-types #{{:type "CodeableConcept", :polymorphic? false}},
+    :template :token}}}}

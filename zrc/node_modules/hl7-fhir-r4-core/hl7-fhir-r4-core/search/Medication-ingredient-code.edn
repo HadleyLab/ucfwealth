@@ -1,0 +1,15 @@
+{ns hl7-fhir-r4-core.search.Medication-ingredient-code,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "Medication-ingredient-code",
+  :fhir/url
+  "http://hl7.org/fhir/SearchParameter/Medication-ingredient-code",
+  :fhir/type "token",
+  :name "ingredient-code",
+  :expr
+  {:Medication
+   {:knife [["ingredient" "item" "CodeableConcept"]],
+    :jsonpath ["$.\"ingredient\".\"item\".\"CodeableConcept\"[*]"],
+    :data-types #{{:type "CodeableConcept", :polymorphic? false}},
+    :template :token}}}}

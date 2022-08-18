@@ -1,0 +1,15 @@
+{ns hl7-fhir-r4-core.search.StructureDefinition-abstract,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "StructureDefinition-abstract",
+  :fhir/url
+  "http://hl7.org/fhir/SearchParameter/StructureDefinition-abstract",
+  :fhir/type "token",
+  :name "abstract",
+  :expr
+  {:StructureDefinition
+   {:knife [["abstract"]],
+    :jsonpath ["$.\"abstract\"[*]"],
+    :data-types #{{:type "boolean", :polymorphic? false}},
+    :template :token}}}}

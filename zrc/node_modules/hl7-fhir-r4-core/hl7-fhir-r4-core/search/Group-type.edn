@@ -1,0 +1,14 @@
+{ns hl7-fhir-r4-core.search.Group-type,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "Group-type",
+  :fhir/url "http://hl7.org/fhir/SearchParameter/Group-type",
+  :fhir/type "token",
+  :name "type",
+  :expr
+  {:Group
+   {:knife [["type"]],
+    :jsonpath ["$.\"type\"[*]"],
+    :data-types #{{:type "code", :polymorphic? false}},
+    :template :token}}}}

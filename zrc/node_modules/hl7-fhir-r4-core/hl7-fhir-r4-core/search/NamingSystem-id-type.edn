@@ -1,0 +1,14 @@
+{ns hl7-fhir-r4-core.search.NamingSystem-id-type,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "NamingSystem-id-type",
+  :fhir/url "http://hl7.org/fhir/SearchParameter/NamingSystem-id-type",
+  :fhir/type "token",
+  :name "id-type",
+  :expr
+  {:NamingSystem
+   {:knife [["uniqueId" "type"]],
+    :jsonpath ["$.\"uniqueId\".\"type\"[*]"],
+    :data-types #{{:type "code", :polymorphic? false}},
+    :template :token}}}}

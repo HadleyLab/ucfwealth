@@ -1,0 +1,72 @@
+{ns hl7-fhir-r4-core.search.Media-created,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "Media-created",
+  :fhir/url "http://hl7.org/fhir/SearchParameter/Media-created",
+  :fhir/type "date",
+  :name "created",
+  :expr
+  {:Media
+   {:knife [["created"]],
+    :jsonpath ["$.\"created\"[*]"],
+    :data-types
+    #{{:type "dateTime", :polymorphic? true}
+      {:type "Period", :polymorphic? true}},
+    :template :date,
+    :sql
+    {:where
+     [:or
+      [:and
+       [:>=
+        [:pg/call :max_text_date_bound [:pg/sql "{{param}}"]]
+        [:pg/call
+         :jsonpath_extract_max_timestamptz
+         [:pg/sql "{{table}}.resource"]
+         "$.\"created\"[*].dateTime"]]
+       [:<=
+        [:pg/call :min_text_date_bound [:pg/sql "{{param}}"]]
+        [:pg/call
+         :jsonpath_extract_min_timestamptz
+         [:pg/sql "{{table}}.resource"]
+         "$.\"created\"[*].dateTime"]]]
+      [:or
+       [:and
+        [:>=
+         [:pg/call :max_text_date_bound [:pg/sql "{{param}}"]]
+         [:pg/call
+          :jsonpath_extract_max_timestamptz
+          [:pg/sql "{{table}}.resource"]
+          "$.\"created\"[*].Period.start"]]
+        [:<=
+         [:pg/call :min_text_date_bound [:pg/sql "{{param}}"]]
+         [:pg/call
+          :jsonpath_extract_min_timestamptz
+          [:pg/sql "{{table}}.resource"]
+          "$.\"created\"[*].Period.end"]]]
+       [:and
+        [:>=
+         [:pg/call :max_text_date_bound [:pg/sql "{{param}}"]]
+         [:pg/call
+          :jsonpath_extract_max_timestamptz
+          [:pg/sql "{{table}}.resource"]
+          "$.\"created\"[*].Period.start"]]
+        [:is
+         [:pg/call
+          :jsonpath_extract_max_timestamptz
+          [:pg/sql "{{table}}.resource"]
+          "$.\"created\"[*].Period.end"]
+         nil]]
+       [:and
+        [:<=
+         [:pg/call :min_text_date_bound [:pg/sql "{{param}}"]]
+         [:pg/call
+          :jsonpath_extract_min_timestamptz
+          [:pg/sql "{{table}}.resource"]
+          "$.\"created\"[*].Period.end"]]
+        [:is
+         [:pg/call
+          :jsonpath_extract_min_timestamptz
+          [:pg/sql "{{table}}.resource"]
+          "$.\"created\"[*].Period.start"]
+         nil]]]]}}}}}

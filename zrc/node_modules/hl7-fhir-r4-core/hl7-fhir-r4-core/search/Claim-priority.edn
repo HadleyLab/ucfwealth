@@ -1,0 +1,14 @@
+{ns hl7-fhir-r4-core.search.Claim-priority,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "Claim-priority",
+  :fhir/url "http://hl7.org/fhir/SearchParameter/Claim-priority",
+  :fhir/type "token",
+  :name "priority",
+  :expr
+  {:Claim
+   {:knife [["priority"]],
+    :jsonpath ["$.\"priority\"[*]"],
+    :data-types #{{:type "CodeableConcept", :polymorphic? false}},
+    :template :token}}}}

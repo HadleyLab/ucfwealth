@@ -1,0 +1,15 @@
+{ns hl7-fhir-r4-core.search.TestScript-jurisdiction,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "TestScript-jurisdiction",
+  :fhir/url
+  "http://hl7.org/fhir/SearchParameter/TestScript-jurisdiction",
+  :fhir/type "token",
+  :name "jurisdiction",
+  :expr
+  {:TestScript
+   {:knife [["jurisdiction"]],
+    :jsonpath ["$.\"jurisdiction\"[*]"],
+    :data-types #{{:type "CodeableConcept", :polymorphic? false}},
+    :template :token}}}}

@@ -1,0 +1,14 @@
+{ns hl7-fhir-r4-core.search.RequestGroup-intent,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "RequestGroup-intent",
+  :fhir/url "http://hl7.org/fhir/SearchParameter/RequestGroup-intent",
+  :fhir/type "token",
+  :name "intent",
+  :expr
+  {:RequestGroup
+   {:knife [["intent"]],
+    :jsonpath ["$.\"intent\"[*]"],
+    :data-types #{{:type "code", :polymorphic? false}},
+    :template :token}}}}

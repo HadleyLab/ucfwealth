@@ -1,0 +1,14 @@
+{ns hl7-fhir-r4-core.search.Observation-subject,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "Observation-subject",
+  :fhir/url "http://hl7.org/fhir/SearchParameter/Observation-subject",
+  :fhir/type "reference",
+  :name "subject",
+  :expr
+  {:Observation
+   {:knife [["subject"]],
+    :jsonpath ["$.\"subject\"[*]"],
+    :data-types #{{:type "Reference", :polymorphic? false}},
+    :template :reference}}}}

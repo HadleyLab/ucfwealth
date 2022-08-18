@@ -1,0 +1,14 @@
+{ns hl7-fhir-r4-core.search.Observation-device,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "Observation-device",
+  :fhir/url "http://hl7.org/fhir/SearchParameter/Observation-device",
+  :fhir/type "reference",
+  :name "device",
+  :expr
+  {:Observation
+   {:knife [["device"]],
+    :jsonpath ["$.\"device\"[*]"],
+    :data-types #{{:type "Reference", :polymorphic? false}},
+    :template :reference}}}}

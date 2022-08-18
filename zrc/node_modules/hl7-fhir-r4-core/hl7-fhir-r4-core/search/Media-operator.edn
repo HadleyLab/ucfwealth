@@ -1,0 +1,14 @@
+{ns hl7-fhir-r4-core.search.Media-operator,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "Media-operator",
+  :fhir/url "http://hl7.org/fhir/SearchParameter/Media-operator",
+  :fhir/type "reference",
+  :name "operator",
+  :expr
+  {:Media
+   {:knife [["operator"]],
+    :jsonpath ["$.\"operator\"[*]"],
+    :data-types #{{:type "Reference", :polymorphic? false}},
+    :template :reference}}}}

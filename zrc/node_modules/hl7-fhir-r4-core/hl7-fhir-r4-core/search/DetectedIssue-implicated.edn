@@ -1,0 +1,15 @@
+{ns hl7-fhir-r4-core.search.DetectedIssue-implicated,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "DetectedIssue-implicated",
+  :fhir/url
+  "http://hl7.org/fhir/SearchParameter/DetectedIssue-implicated",
+  :fhir/type "reference",
+  :name "implicated",
+  :expr
+  {:DetectedIssue
+   {:knife [["implicated"]],
+    :jsonpath ["$.\"implicated\"[*]"],
+    :data-types #{{:type "Reference", :polymorphic? false}},
+    :template :reference}}}}

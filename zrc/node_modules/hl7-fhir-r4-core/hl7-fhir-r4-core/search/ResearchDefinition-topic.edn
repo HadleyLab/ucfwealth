@@ -1,0 +1,15 @@
+{ns hl7-fhir-r4-core.search.ResearchDefinition-topic,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "ResearchDefinition-topic",
+  :fhir/url
+  "http://hl7.org/fhir/SearchParameter/ResearchDefinition-topic",
+  :fhir/type "token",
+  :name "topic",
+  :expr
+  {:ResearchDefinition
+   {:knife [["topic"]],
+    :jsonpath ["$.\"topic\"[*]"],
+    :data-types #{{:type "CodeableConcept", :polymorphic? false}},
+    :template :token}}}}

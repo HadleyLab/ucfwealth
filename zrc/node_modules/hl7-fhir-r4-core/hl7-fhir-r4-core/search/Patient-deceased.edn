@@ -1,0 +1,16 @@
+{ns hl7-fhir-r4-core.search.Patient-deceased,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "Patient-deceased",
+  :fhir/url "http://hl7.org/fhir/SearchParameter/Patient-deceased",
+  :fhir/type "token",
+  :name "deceased",
+  :expr
+  {:Patient
+   {:knife [["deceased"]],
+    :jsonpath ["$.\"deceased\"[*]"],
+    :data-types
+    #{{:type "dateTime", :polymorphic? true}
+      {:type "boolean", :polymorphic? true}},
+    :template :token}}}}

@@ -1,0 +1,15 @@
+{ns hl7-fhir-r4-core.search.SearchParameter-derived-from,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "SearchParameter-derived-from",
+  :fhir/url
+  "http://hl7.org/fhir/SearchParameter/SearchParameter-derived-from",
+  :fhir/type "reference",
+  :name "derived-from",
+  :expr
+  {:SearchParameter
+   {:knife [["derivedFrom"]],
+    :jsonpath ["$.\"derivedFrom\"[*]"],
+    :data-types #{{:type "canonical", :polymorphic? false}},
+    :template :reference}}}}

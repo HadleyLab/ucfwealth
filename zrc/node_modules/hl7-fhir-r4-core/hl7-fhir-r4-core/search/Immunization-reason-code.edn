@@ -1,0 +1,15 @@
+{ns hl7-fhir-r4-core.search.Immunization-reason-code,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "Immunization-reason-code",
+  :fhir/url
+  "http://hl7.org/fhir/SearchParameter/Immunization-reason-code",
+  :fhir/type "token",
+  :name "reason-code",
+  :expr
+  {:Immunization
+   {:knife [["reasonCode"]],
+    :jsonpath ["$.\"reasonCode\"[*]"],
+    :data-types #{{:type "CodeableConcept", :polymorphic? false}},
+    :template :token}}}}

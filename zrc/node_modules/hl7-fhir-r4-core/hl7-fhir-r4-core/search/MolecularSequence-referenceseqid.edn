@@ -1,0 +1,15 @@
+{ns hl7-fhir-r4-core.search.MolecularSequence-referenceseqid,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "MolecularSequence-referenceseqid",
+  :fhir/url
+  "http://hl7.org/fhir/SearchParameter/MolecularSequence-referenceseqid",
+  :fhir/type "token",
+  :name "referenceseqid",
+  :expr
+  {:MolecularSequence
+   {:knife [["referenceSeq" "referenceSeqId"]],
+    :jsonpath ["$.\"referenceSeq\".\"referenceSeqId\"[*]"],
+    :data-types #{{:type "CodeableConcept", :polymorphic? false}},
+    :template :token}}}}

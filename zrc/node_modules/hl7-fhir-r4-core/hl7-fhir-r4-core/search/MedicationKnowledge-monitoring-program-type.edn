@@ -1,0 +1,16 @@
+{ns
+ hl7-fhir-r4-core.search.MedicationKnowledge-monitoring-program-type,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "MedicationKnowledge-monitoring-program-type",
+  :fhir/url
+  "http://hl7.org/fhir/SearchParameter/MedicationKnowledge-monitoring-program-type",
+  :fhir/type "token",
+  :name "monitoring-program-type",
+  :expr
+  {:MedicationKnowledge
+   {:knife [["monitoringProgram" "type"]],
+    :jsonpath ["$.\"monitoringProgram\".\"type\"[*]"],
+    :data-types #{{:type "CodeableConcept", :polymorphic? false}},
+    :template :token}}}}

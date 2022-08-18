@@ -1,0 +1,15 @@
+{ns hl7-fhir-r4-core.search.DocumentManifest-source,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "DocumentManifest-source",
+  :fhir/url
+  "http://hl7.org/fhir/SearchParameter/DocumentManifest-source",
+  :fhir/type "uri",
+  :name "source",
+  :expr
+  {:DocumentManifest
+   {:knife [["source"]],
+    :jsonpath ["$.\"source\"[*]"],
+    :data-types #{{:type "uri", :polymorphic? false}},
+    :template :uri}}}}

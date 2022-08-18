@@ -1,0 +1,15 @@
+{ns hl7-fhir-r4-core.search.MolecularSequence-type,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "MolecularSequence-type",
+  :fhir/url
+  "http://hl7.org/fhir/SearchParameter/MolecularSequence-type",
+  :fhir/type "token",
+  :name "type",
+  :expr
+  {:MolecularSequence
+   {:knife [["type"]],
+    :jsonpath ["$.\"type\"[*]"],
+    :data-types #{{:type "code", :polymorphic? false}},
+    :template :token}}}}

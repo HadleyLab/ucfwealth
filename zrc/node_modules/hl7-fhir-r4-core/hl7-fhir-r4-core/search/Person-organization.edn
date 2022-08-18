@@ -1,0 +1,14 @@
+{ns hl7-fhir-r4-core.search.Person-organization,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "Person-organization",
+  :fhir/url "http://hl7.org/fhir/SearchParameter/Person-organization",
+  :fhir/type "reference",
+  :name "organization",
+  :expr
+  {:Person
+   {:knife [["managingOrganization"]],
+    :jsonpath ["$.\"managingOrganization\"[*]"],
+    :data-types #{{:type "Reference", :polymorphic? false}},
+    :template :reference}}}}

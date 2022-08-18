@@ -1,0 +1,15 @@
+{ns hl7-fhir-r4-core.search.TestReport-identifier,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "TestReport-identifier",
+  :fhir/url
+  "http://hl7.org/fhir/SearchParameter/TestReport-identifier",
+  :fhir/type "token",
+  :name "identifier",
+  :expr
+  {:TestReport
+   {:knife [["identifier"]],
+    :jsonpath ["$.\"identifier\"[*]"],
+    :data-types #{{:type "Identifier", :polymorphic? false}},
+    :template :token}}}}

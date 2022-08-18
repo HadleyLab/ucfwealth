@@ -1,0 +1,15 @@
+{ns hl7-fhir-r4-core.search.ImmunizationRecommendation-vaccine-type,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "ImmunizationRecommendation-vaccine-type",
+  :fhir/url
+  "http://hl7.org/fhir/SearchParameter/ImmunizationRecommendation-vaccine-type",
+  :fhir/type "token",
+  :name "vaccine-type",
+  :expr
+  {:ImmunizationRecommendation
+   {:knife [["recommendation" "vaccineCode"]],
+    :jsonpath ["$.\"recommendation\".\"vaccineCode\"[*]"],
+    :data-types #{{:type "CodeableConcept", :polymorphic? false}},
+    :template :token}}}}

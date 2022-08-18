@@ -1,0 +1,12 @@
+{ns
+ hl7-fhir-r4-core.search.observation-genetic-Observation-gene-identifier,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "observation-genetic-Observation-gene-identifier",
+  :fhir/url
+  "http://hl7.org/fhir/SearchParameter/observation-genetic-Observation-gene-identifier",
+  :fhir/type "token",
+  :name "gene-identifier",
+  :expr
+  {:Observation {:jsonpath [], :data-types #{}, :template :token}}}}

@@ -1,0 +1,14 @@
+{ns hl7-fhir-r4-core.search.List-source,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "List-source",
+  :fhir/url "http://hl7.org/fhir/SearchParameter/List-source",
+  :fhir/type "reference",
+  :name "source",
+  :expr
+  {:List
+   {:knife [["source"]],
+    :jsonpath ["$.\"source\"[*]"],
+    :data-types #{{:type "Reference", :polymorphic? false}},
+    :template :reference}}}}

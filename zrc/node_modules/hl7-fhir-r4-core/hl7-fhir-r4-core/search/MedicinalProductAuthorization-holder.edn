@@ -1,0 +1,15 @@
+{ns hl7-fhir-r4-core.search.MedicinalProductAuthorization-holder,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "MedicinalProductAuthorization-holder",
+  :fhir/url
+  "http://hl7.org/fhir/SearchParameter/MedicinalProductAuthorization-holder",
+  :fhir/type "reference",
+  :name "holder",
+  :expr
+  {:MedicinalProductAuthorization
+   {:knife [["holder"]],
+    :jsonpath ["$.\"holder\"[*]"],
+    :data-types #{{:type "Reference", :polymorphic? false}},
+    :template :reference}}}}

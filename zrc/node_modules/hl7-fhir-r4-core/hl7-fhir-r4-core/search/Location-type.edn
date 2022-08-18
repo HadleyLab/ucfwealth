@@ -1,0 +1,14 @@
+{ns hl7-fhir-r4-core.search.Location-type,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "Location-type",
+  :fhir/url "http://hl7.org/fhir/SearchParameter/Location-type",
+  :fhir/type "token",
+  :name "type",
+  :expr
+  {:Location
+   {:knife [["type"]],
+    :jsonpath ["$.\"type\"[*]"],
+    :data-types #{{:type "CodeableConcept", :polymorphic? false}},
+    :template :token}}}}

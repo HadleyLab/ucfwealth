@@ -1,0 +1,15 @@
+{ns hl7-fhir-r4-core.search.HealthcareService-endpoint,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "HealthcareService-endpoint",
+  :fhir/url
+  "http://hl7.org/fhir/SearchParameter/HealthcareService-endpoint",
+  :fhir/type "reference",
+  :name "endpoint",
+  :expr
+  {:HealthcareService
+   {:knife [["endpoint"]],
+    :jsonpath ["$.\"endpoint\"[*]"],
+    :data-types #{{:type "Reference", :polymorphic? false}},
+    :template :reference}}}}

@@ -1,0 +1,15 @@
+{ns hl7-fhir-r4-core.search.FamilyMemberHistory-instantiates-uri,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "FamilyMemberHistory-instantiates-uri",
+  :fhir/url
+  "http://hl7.org/fhir/SearchParameter/FamilyMemberHistory-instantiates-uri",
+  :fhir/type "uri",
+  :name "instantiates-uri",
+  :expr
+  {:FamilyMemberHistory
+   {:knife [["instantiatesUri"]],
+    :jsonpath ["$.\"instantiatesUri\"[*]"],
+    :data-types #{{:type "uri", :polymorphic? false}},
+    :template :uri}}}}

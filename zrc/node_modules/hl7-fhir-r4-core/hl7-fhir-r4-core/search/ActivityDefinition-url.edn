@@ -1,0 +1,15 @@
+{ns hl7-fhir-r4-core.search.ActivityDefinition-url,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "ActivityDefinition-url",
+  :fhir/url
+  "http://hl7.org/fhir/SearchParameter/ActivityDefinition-url",
+  :fhir/type "uri",
+  :name "url",
+  :expr
+  {:ActivityDefinition
+   {:knife [["url"]],
+    :jsonpath ["$.\"url\"[*]"],
+    :data-types #{{:type "uri", :polymorphic? false}},
+    :template :uri}}}}

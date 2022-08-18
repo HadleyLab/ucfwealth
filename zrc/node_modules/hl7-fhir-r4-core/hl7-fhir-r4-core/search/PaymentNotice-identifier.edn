@@ -1,0 +1,15 @@
+{ns hl7-fhir-r4-core.search.PaymentNotice-identifier,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "PaymentNotice-identifier",
+  :fhir/url
+  "http://hl7.org/fhir/SearchParameter/PaymentNotice-identifier",
+  :fhir/type "token",
+  :name "identifier",
+  :expr
+  {:PaymentNotice
+   {:knife [["identifier"]],
+    :jsonpath ["$.\"identifier\"[*]"],
+    :data-types #{{:type "Identifier", :polymorphic? false}},
+    :template :token}}}}

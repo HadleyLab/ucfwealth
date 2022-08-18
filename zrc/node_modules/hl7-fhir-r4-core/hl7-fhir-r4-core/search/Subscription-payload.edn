@@ -1,0 +1,14 @@
+{ns hl7-fhir-r4-core.search.Subscription-payload,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "Subscription-payload",
+  :fhir/url "http://hl7.org/fhir/SearchParameter/Subscription-payload",
+  :fhir/type "token",
+  :name "payload",
+  :expr
+  {:Subscription
+   {:knife [["channel" "payload"]],
+    :jsonpath ["$.\"channel\".\"payload\"[*]"],
+    :data-types #{{:type "code", :polymorphic? false}},
+    :template :token}}}}

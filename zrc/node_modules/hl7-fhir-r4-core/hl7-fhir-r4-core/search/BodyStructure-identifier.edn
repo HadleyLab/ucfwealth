@@ -1,0 +1,15 @@
+{ns hl7-fhir-r4-core.search.BodyStructure-identifier,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "BodyStructure-identifier",
+  :fhir/url
+  "http://hl7.org/fhir/SearchParameter/BodyStructure-identifier",
+  :fhir/type "token",
+  :name "identifier",
+  :expr
+  {:BodyStructure
+   {:knife [["identifier"]],
+    :jsonpath ["$.\"identifier\"[*]"],
+    :data-types #{{:type "Identifier", :polymorphic? false}},
+    :template :token}}}}

@@ -1,0 +1,16 @@
+{ns hl7-fhir-r4-core.search.EventDefinition-predecessor,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "EventDefinition-predecessor",
+  :fhir/url
+  "http://hl7.org/fhir/SearchParameter/EventDefinition-predecessor",
+  :fhir/type "reference",
+  :name "predecessor",
+  :expr
+  {:EventDefinition
+   {:knife [["relatedArtifact" {:type "predecessor"} "resource"]],
+    :jsonpath
+    ["$.\"relatedArtifact\"?(@.\"type\"==\"predecessor\").\"resource\"[*]"],
+    :data-types #{},
+    :template :reference}}}}

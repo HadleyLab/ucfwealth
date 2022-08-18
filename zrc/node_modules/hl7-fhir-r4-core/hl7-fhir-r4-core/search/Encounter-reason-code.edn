@@ -1,0 +1,15 @@
+{ns hl7-fhir-r4-core.search.Encounter-reason-code,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "Encounter-reason-code",
+  :fhir/url
+  "http://hl7.org/fhir/SearchParameter/Encounter-reason-code",
+  :fhir/type "token",
+  :name "reason-code",
+  :expr
+  {:Encounter
+   {:knife [["reasonCode"]],
+    :jsonpath ["$.\"reasonCode\"[*]"],
+    :data-types #{{:type "CodeableConcept", :polymorphic? false}},
+    :template :token}}}}

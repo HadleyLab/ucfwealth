@@ -1,0 +1,15 @@
+{ns hl7-fhir-r4-core.search.MedicationKnowledge-monograph-type,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "MedicationKnowledge-monograph-type",
+  :fhir/url
+  "http://hl7.org/fhir/SearchParameter/MedicationKnowledge-monograph-type",
+  :fhir/type "token",
+  :name "monograph-type",
+  :expr
+  {:MedicationKnowledge
+   {:knife [["monograph" "type"]],
+    :jsonpath ["$.\"monograph\".\"type\"[*]"],
+    :data-types #{{:type "CodeableConcept", :polymorphic? false}},
+    :template :token}}}}

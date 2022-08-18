@@ -1,0 +1,15 @@
+{ns hl7-fhir-r4-core.search.StructureDefinition-experimental,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "StructureDefinition-experimental",
+  :fhir/url
+  "http://hl7.org/fhir/SearchParameter/StructureDefinition-experimental",
+  :fhir/type "token",
+  :name "experimental",
+  :expr
+  {:StructureDefinition
+   {:knife [["experimental"]],
+    :jsonpath ["$.\"experimental\"[*]"],
+    :data-types #{{:type "boolean", :polymorphic? false}},
+    :template :token}}}}

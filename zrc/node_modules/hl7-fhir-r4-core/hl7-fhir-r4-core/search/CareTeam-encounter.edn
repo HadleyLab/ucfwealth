@@ -1,0 +1,14 @@
+{ns hl7-fhir-r4-core.search.CareTeam-encounter,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "CareTeam-encounter",
+  :fhir/url "http://hl7.org/fhir/SearchParameter/CareTeam-encounter",
+  :fhir/type "reference",
+  :name "encounter",
+  :expr
+  {:CareTeam
+   {:knife [["encounter"]],
+    :jsonpath ["$.\"encounter\"[*]"],
+    :data-types #{{:type "Reference", :polymorphic? false}},
+    :template :reference}}}}

@@ -1,0 +1,27 @@
+{ns hl7-fhir-r4-core.search.AuditEvent-address,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "AuditEvent-address",
+  :fhir/url "http://hl7.org/fhir/SearchParameter/AuditEvent-address",
+  :fhir/type "string",
+  :name "address",
+  :expr
+  {:AuditEvent
+   {:knife [["agent" "network" "address"]],
+    :jsonpath ["$.\"agent\".\"network\".\"address\"[*]"],
+    :data-types #{{:type "string", :polymorphic? false}},
+    :template :string,
+    :sql
+    {:where
+     [:or
+      [:ilike
+       [:pg/cast
+        [:pg/jsonb-path-query-array
+         [:pg/sql "{{table}}.resource"]
+         [:pg/cast
+          "($.\"agent\".\"network\".\"address\"[*]).** ? (@.type() == \"string\")"
+          :jsonpath]]
+        :text]
+       [:pg/sql "{{param}}"]]],
+     :parameter-format "%\"?%"}}}}}

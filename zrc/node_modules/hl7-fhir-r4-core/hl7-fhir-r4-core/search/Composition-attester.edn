@@ -1,0 +1,14 @@
+{ns hl7-fhir-r4-core.search.Composition-attester,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "Composition-attester",
+  :fhir/url "http://hl7.org/fhir/SearchParameter/Composition-attester",
+  :fhir/type "reference",
+  :name "attester",
+  :expr
+  {:Composition
+   {:knife [["attester" "party"]],
+    :jsonpath ["$.\"attester\".\"party\"[*]"],
+    :data-types #{{:type "Reference", :polymorphic? false}},
+    :template :reference}}}}

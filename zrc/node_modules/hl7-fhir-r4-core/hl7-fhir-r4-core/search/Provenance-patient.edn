@@ -1,0 +1,14 @@
+{ns hl7-fhir-r4-core.search.Provenance-patient,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "Provenance-patient",
+  :fhir/url "http://hl7.org/fhir/SearchParameter/Provenance-patient",
+  :fhir/type "reference",
+  :name "patient",
+  :expr
+  {:Provenance
+   {:knife [["target" {:resourceType "Patient"}]],
+    :jsonpath ["$.\"target\"?(@.\"resourceType\"==\"Patient\")[*]"],
+    :data-types #{{:type "Reference", :polymorphic? false}},
+    :template :reference}}}}

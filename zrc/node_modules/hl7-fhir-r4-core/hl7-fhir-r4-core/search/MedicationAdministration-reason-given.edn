@@ -1,0 +1,15 @@
+{ns hl7-fhir-r4-core.search.MedicationAdministration-reason-given,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "MedicationAdministration-reason-given",
+  :fhir/url
+  "http://hl7.org/fhir/SearchParameter/MedicationAdministration-reason-given",
+  :fhir/type "token",
+  :name "reason-given",
+  :expr
+  {:MedicationAdministration
+   {:knife [["reasonCode"]],
+    :jsonpath ["$.\"reasonCode\"[*]"],
+    :data-types #{{:type "CodeableConcept", :polymorphic? false}},
+    :template :token}}}}

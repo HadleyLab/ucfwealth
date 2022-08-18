@@ -1,0 +1,15 @@
+{ns hl7-fhir-r4-core.search.DiagnosticReport-specimen,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "DiagnosticReport-specimen",
+  :fhir/url
+  "http://hl7.org/fhir/SearchParameter/DiagnosticReport-specimen",
+  :fhir/type "reference",
+  :name "specimen",
+  :expr
+  {:DiagnosticReport
+   {:knife [["specimen"]],
+    :jsonpath ["$.\"specimen\"[*]"],
+    :data-types #{{:type "Reference", :polymorphic? false}},
+    :template :reference}}}}

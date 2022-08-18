@@ -1,0 +1,14 @@
+{ns hl7-fhir-r4-core.search.ImagingStudy-series,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "ImagingStudy-series",
+  :fhir/url "http://hl7.org/fhir/SearchParameter/ImagingStudy-series",
+  :fhir/type "token",
+  :name "series",
+  :expr
+  {:ImagingStudy
+   {:knife [["series" "uid"]],
+    :jsonpath ["$.\"series\".\"uid\"[*]"],
+    :data-types #{{:type "id", :polymorphic? false}},
+    :template :token}}}}

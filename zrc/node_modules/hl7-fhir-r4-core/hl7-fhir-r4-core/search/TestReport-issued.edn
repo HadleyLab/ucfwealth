@@ -1,0 +1,30 @@
+{ns hl7-fhir-r4-core.search.TestReport-issued,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "TestReport-issued",
+  :fhir/url "http://hl7.org/fhir/SearchParameter/TestReport-issued",
+  :fhir/type "date",
+  :name "issued",
+  :expr
+  {:TestReport
+   {:knife [["issued"]],
+    :jsonpath ["$.\"issued\"[*]"],
+    :data-types #{{:type "dateTime", :polymorphic? false}},
+    :template :date,
+    :sql
+    {:where
+     [:or
+      [:and
+       [:>=
+        [:pg/call :max_text_date_bound [:pg/sql "{{param}}"]]
+        [:pg/call
+         :jsonpath_extract_max_timestamptz
+         [:pg/sql "{{table}}.resource"]
+         "$.\"issued\"[*]"]]
+       [:<=
+        [:pg/call :min_text_date_bound [:pg/sql "{{param}}"]]
+        [:pg/call
+         :jsonpath_extract_min_timestamptz
+         [:pg/sql "{{table}}.resource"]
+         "$.\"issued\"[*]"]]]]}}}}}

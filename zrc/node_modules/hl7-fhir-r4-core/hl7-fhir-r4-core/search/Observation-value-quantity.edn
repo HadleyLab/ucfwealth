@@ -1,0 +1,47 @@
+{ns hl7-fhir-r4-core.search.Observation-value-quantity,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "Observation-value-quantity",
+  :fhir/url
+  "http://hl7.org/fhir/SearchParameter/Observation-value-quantity",
+  :fhir/type "quantity",
+  :name "value-quantity",
+  :expr
+  {:Observation
+   {:knife [["value" "Quantity"] ["value" "SampledData"]],
+    :jsonpath
+    ["$.\"value\".\"Quantity\"[*]" "$.\"value\".\"SampledData\"[*]"],
+    :data-types
+    #{{:type "SampledData", :polymorphic? false}
+      {:type "Quantity", :polymorphic? false}},
+    :template :quantity,
+    :sql
+    {:where
+     [:or
+      [:and
+       [:>=
+        [:pg/call
+         :jsonpath_extract_max_numeric
+         [:pg/sql "{{table}}.resource"]
+         "$.\"value\".\"Quantity\"[*].\"value\""]
+        [:pg/cast [:pg/sql "{{param}}"] :numeric]]
+       [:<=
+        [:pg/call
+         :jsonpath_extract_min_numeric
+         [:pg/sql "{{table}}.resource"]
+         "$.\"value\".\"Quantity\"[*].\"value\""]
+        [:pg/cast [:pg/sql "{{param}}"] :numeric]]]
+      [:and
+       [:>=
+        [:pg/call
+         :jsonpath_extract_max_numeric
+         [:pg/sql "{{table}}.resource"]
+         "$.\"value\".\"SampledData\"[*].\"value\""]
+        [:pg/cast [:pg/sql "{{param}}"] :numeric]]
+       [:<=
+        [:pg/call
+         :jsonpath_extract_min_numeric
+         [:pg/sql "{{table}}.resource"]
+         "$.\"value\".\"SampledData\"[*].\"value\""]
+        [:pg/cast [:pg/sql "{{param}}"] :numeric]]]]}}}}}

@@ -1,0 +1,15 @@
+{ns hl7-fhir-r4-core.search.OperationDefinition-output-profile,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "OperationDefinition-output-profile",
+  :fhir/url
+  "http://hl7.org/fhir/SearchParameter/OperationDefinition-output-profile",
+  :fhir/type "reference",
+  :name "output-profile",
+  :expr
+  {:OperationDefinition
+   {:knife [["outputProfile"]],
+    :jsonpath ["$.\"outputProfile\"[*]"],
+    :data-types #{{:type "canonical", :polymorphic? false}},
+    :template :reference}}}}

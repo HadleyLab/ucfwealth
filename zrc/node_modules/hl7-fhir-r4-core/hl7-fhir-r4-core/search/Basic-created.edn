@@ -1,0 +1,30 @@
+{ns hl7-fhir-r4-core.search.Basic-created,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "Basic-created",
+  :fhir/url "http://hl7.org/fhir/SearchParameter/Basic-created",
+  :fhir/type "date",
+  :name "created",
+  :expr
+  {:Basic
+   {:knife [["created"]],
+    :jsonpath ["$.\"created\"[*]"],
+    :data-types #{{:type "date", :polymorphic? false}},
+    :template :date,
+    :sql
+    {:where
+     [:or
+      [:and
+       [:>=
+        [:pg/call :max_text_date_bound [:pg/sql "{{param}}"]]
+        [:pg/call
+         :jsonpath_extract_max_timestamptz
+         [:pg/sql "{{table}}.resource"]
+         "$.\"created\"[*]"]]
+       [:<=
+        [:pg/call :min_text_date_bound [:pg/sql "{{param}}"]]
+        [:pg/call
+         :jsonpath_extract_min_timestamptz
+         [:pg/sql "{{table}}.resource"]
+         "$.\"created\"[*]"]]]]}}}}}

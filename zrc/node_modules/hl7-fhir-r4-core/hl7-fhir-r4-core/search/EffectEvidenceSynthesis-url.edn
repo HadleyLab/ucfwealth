@@ -1,0 +1,15 @@
+{ns hl7-fhir-r4-core.search.EffectEvidenceSynthesis-url,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "EffectEvidenceSynthesis-url",
+  :fhir/url
+  "http://hl7.org/fhir/SearchParameter/EffectEvidenceSynthesis-url",
+  :fhir/type "uri",
+  :name "url",
+  :expr
+  {:EffectEvidenceSynthesis
+   {:knife [["url"]],
+    :jsonpath ["$.\"url\"[*]"],
+    :data-types #{{:type "uri", :polymorphic? false}},
+    :template :uri}}}}

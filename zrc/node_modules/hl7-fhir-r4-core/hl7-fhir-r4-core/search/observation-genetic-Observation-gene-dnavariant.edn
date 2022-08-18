@@ -1,0 +1,16 @@
+{ns
+ hl7-fhir-r4-core.search.observation-genetic-Observation-gene-dnavariant,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "observation-genetic-Observation-gene-dnavariant",
+  :fhir/url
+  "http://hl7.org/fhir/SearchParameter/observation-genetic-Observation-gene-dnavariant",
+  :fhir/type "string",
+  :name "gene-dnavariant",
+  :expr
+  {:Observation
+   {:jsonpath [],
+    :data-types #{},
+    :template :string,
+    :sql {:where [:or], :parameter-format "%\"?%"}}}}}

@@ -1,0 +1,14 @@
+{ns hl7-fhir-r4-core.search.Measure-context-type,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "Measure-context-type",
+  :fhir/url "http://hl7.org/fhir/SearchParameter/Measure-context-type",
+  :fhir/type "token",
+  :name "context-type",
+  :expr
+  {:Measure
+   {:knife [["useContext" "code"]],
+    :jsonpath ["$.\"useContext\".\"code\"[*]"],
+    :data-types #{},
+    :template :token}}}}

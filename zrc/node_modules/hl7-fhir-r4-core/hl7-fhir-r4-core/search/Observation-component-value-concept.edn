@@ -1,0 +1,15 @@
+{ns hl7-fhir-r4-core.search.Observation-component-value-concept,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "Observation-component-value-concept",
+  :fhir/url
+  "http://hl7.org/fhir/SearchParameter/Observation-component-value-concept",
+  :fhir/type "token",
+  :name "component-value-concept",
+  :expr
+  {:Observation
+   {:knife [["component" "value" "CodeableConcept"]],
+    :jsonpath ["$.\"component\".\"value\".\"CodeableConcept\"[*]"],
+    :data-types #{{:type "CodeableConcept", :polymorphic? false}},
+    :template :token}}}}

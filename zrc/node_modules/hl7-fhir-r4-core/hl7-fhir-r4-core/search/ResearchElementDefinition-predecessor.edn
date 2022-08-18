@@ -1,0 +1,16 @@
+{ns hl7-fhir-r4-core.search.ResearchElementDefinition-predecessor,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "ResearchElementDefinition-predecessor",
+  :fhir/url
+  "http://hl7.org/fhir/SearchParameter/ResearchElementDefinition-predecessor",
+  :fhir/type "reference",
+  :name "predecessor",
+  :expr
+  {:ResearchElementDefinition
+   {:knife [["relatedArtifact" {:type "predecessor"} "resource"]],
+    :jsonpath
+    ["$.\"relatedArtifact\"?(@.\"type\"==\"predecessor\").\"resource\"[*]"],
+    :data-types #{},
+    :template :reference}}}}

@@ -1,0 +1,15 @@
+{ns hl7-fhir-r4-core.search.EnrollmentResponse-request,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "EnrollmentResponse-request",
+  :fhir/url
+  "http://hl7.org/fhir/SearchParameter/EnrollmentResponse-request",
+  :fhir/type "reference",
+  :name "request",
+  :expr
+  {:EnrollmentResponse
+   {:knife [["request"]],
+    :jsonpath ["$.\"request\"[*]"],
+    :data-types #{{:type "Reference", :polymorphic? false}},
+    :template :reference}}}}

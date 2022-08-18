@@ -1,0 +1,15 @@
+{ns hl7-fhir-r4-core.search.ExplanationOfBenefit-procedure-udi,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "ExplanationOfBenefit-procedure-udi",
+  :fhir/url
+  "http://hl7.org/fhir/SearchParameter/ExplanationOfBenefit-procedure-udi",
+  :fhir/type "reference",
+  :name "procedure-udi",
+  :expr
+  {:ExplanationOfBenefit
+   {:knife [["procedure" "udi"]],
+    :jsonpath ["$.\"procedure\".\"udi\"[*]"],
+    :data-types #{{:type "Reference", :polymorphic? false}},
+    :template :reference}}}}

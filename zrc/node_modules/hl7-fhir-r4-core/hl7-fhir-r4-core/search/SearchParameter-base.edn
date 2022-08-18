@@ -1,0 +1,14 @@
+{ns hl7-fhir-r4-core.search.SearchParameter-base,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "SearchParameter-base",
+  :fhir/url "http://hl7.org/fhir/SearchParameter/SearchParameter-base",
+  :fhir/type "token",
+  :name "base",
+  :expr
+  {:SearchParameter
+   {:knife [["base"]],
+    :jsonpath ["$.\"base\"[*]"],
+    :data-types #{{:type "code", :polymorphic? false}},
+    :template :token}}}}

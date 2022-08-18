@@ -1,0 +1,15 @@
+{ns hl7-fhir-r4-core.search.Specimen-container-id,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "Specimen-container-id",
+  :fhir/url
+  "http://hl7.org/fhir/SearchParameter/Specimen-container-id",
+  :fhir/type "token",
+  :name "container-id",
+  :expr
+  {:Specimen
+   {:knife [["container" "identifier"]],
+    :jsonpath ["$.\"container\".\"identifier\"[*]"],
+    :data-types #{{:type "Identifier", :polymorphic? false}},
+    :template :token}}}}

@@ -1,0 +1,14 @@
+{ns hl7-fhir-r4-core.search.CarePlan-intent,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "CarePlan-intent",
+  :fhir/url "http://hl7.org/fhir/SearchParameter/CarePlan-intent",
+  :fhir/type "token",
+  :name "intent",
+  :expr
+  {:CarePlan
+   {:knife [["intent"]],
+    :jsonpath ["$.\"intent\"[*]"],
+    :data-types #{{:type "code", :polymorphic? false}},
+    :template :token}}}}

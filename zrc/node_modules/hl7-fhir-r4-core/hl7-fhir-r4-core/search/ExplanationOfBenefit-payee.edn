@@ -1,0 +1,15 @@
+{ns hl7-fhir-r4-core.search.ExplanationOfBenefit-payee,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "ExplanationOfBenefit-payee",
+  :fhir/url
+  "http://hl7.org/fhir/SearchParameter/ExplanationOfBenefit-payee",
+  :fhir/type "reference",
+  :name "payee",
+  :expr
+  {:ExplanationOfBenefit
+   {:knife [["payee" "party"]],
+    :jsonpath ["$.\"payee\".\"party\"[*]"],
+    :data-types #{{:type "Reference", :polymorphic? false}},
+    :template :reference}}}}

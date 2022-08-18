@@ -1,0 +1,169 @@
+{ns hl7-fhir-r4-core.search.clinical-patient,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "clinical-patient",
+  :fhir/url "http://hl7.org/fhir/SearchParameter/clinical-patient",
+  :fhir/type "reference",
+  :name "patient",
+  :expr
+  {:DeviceRequest
+   {:knife [["subject" {:resourceType "Patient"}]],
+    :jsonpath ["$.\"subject\"?(@.\"resourceType\"==\"Patient\")[*]"],
+    :data-types #{{:type "Reference", :polymorphic? false}},
+    :template :reference},
+   :ServiceRequest
+   {:knife [["subject" {:resourceType "Patient"}]],
+    :jsonpath ["$.\"subject\"?(@.\"resourceType\"==\"Patient\")[*]"],
+    :data-types #{{:type "Reference", :polymorphic? false}},
+    :template :reference},
+   :CarePlan
+   {:knife [["subject" {:resourceType "Patient"}]],
+    :jsonpath ["$.\"subject\"?(@.\"resourceType\"==\"Patient\")[*]"],
+    :data-types #{{:type "Reference", :polymorphic? false}},
+    :template :reference},
+   :Observation
+   {:knife [["subject" {:resourceType "Patient"}]],
+    :jsonpath ["$.\"subject\"?(@.\"resourceType\"==\"Patient\")[*]"],
+    :data-types #{{:type "Reference", :polymorphic? false}},
+    :template :reference},
+   :EpisodeOfCare
+   {:knife [["patient"]],
+    :jsonpath ["$.\"patient\"[*]"],
+    :data-types #{{:type "Reference", :polymorphic? false}},
+    :template :reference},
+   :SupplyDelivery
+   {:knife [["patient"]],
+    :jsonpath ["$.\"patient\"[*]"],
+    :data-types #{{:type "Reference", :polymorphic? false}},
+    :template :reference},
+   :DetectedIssue
+   {:knife [["patient"]],
+    :jsonpath ["$.\"patient\"[*]"],
+    :data-types #{{:type "Reference", :polymorphic? false}},
+    :template :reference},
+   :MedicationAdministration
+   {:knife [["subject" {:resourceType "Patient"}]],
+    :jsonpath ["$.\"subject\"?(@.\"resourceType\"==\"Patient\")[*]"],
+    :data-types #{{:type "Reference", :polymorphic? false}},
+    :template :reference},
+   :Goal
+   {:knife [["subject" {:resourceType "Patient"}]],
+    :jsonpath ["$.\"subject\"?(@.\"resourceType\"==\"Patient\")[*]"],
+    :data-types #{{:type "Reference", :polymorphic? false}},
+    :template :reference},
+   :DocumentReference
+   {:knife [["subject" {:resourceType "Patient"}]],
+    :jsonpath ["$.\"subject\"?(@.\"resourceType\"==\"Patient\")[*]"],
+    :data-types #{{:type "Reference", :polymorphic? false}},
+    :template :reference},
+   :ClinicalImpression
+   {:knife [["subject" {:resourceType "Patient"}]],
+    :jsonpath ["$.\"subject\"?(@.\"resourceType\"==\"Patient\")[*]"],
+    :data-types #{{:type "Reference", :polymorphic? false}},
+    :template :reference},
+   :FamilyMemberHistory
+   {:knife [["patient"]],
+    :jsonpath ["$.\"patient\"[*]"],
+    :data-types #{{:type "Reference", :polymorphic? false}},
+    :template :reference},
+   :Composition
+   {:knife [["subject" {:resourceType "Patient"}]],
+    :jsonpath ["$.\"subject\"?(@.\"resourceType\"==\"Patient\")[*]"],
+    :data-types #{{:type "Reference", :polymorphic? false}},
+    :template :reference},
+   :MedicationDispense
+   {:knife [["subject" {:resourceType "Patient"}]],
+    :jsonpath ["$.\"subject\"?(@.\"resourceType\"==\"Patient\")[*]"],
+    :data-types #{{:type "Reference", :polymorphic? false}},
+    :template :reference},
+   :DeviceUseStatement
+   {:knife [["subject"]],
+    :jsonpath ["$.\"subject\"[*]"],
+    :data-types #{{:type "Reference", :polymorphic? false}},
+    :template :reference},
+   :DiagnosticReport
+   {:knife [["subject" {:resourceType "Patient"}]],
+    :jsonpath ["$.\"subject\"?(@.\"resourceType\"==\"Patient\")[*]"],
+    :data-types #{{:type "Reference", :polymorphic? false}},
+    :template :reference},
+   :Flag
+   {:knife [["subject" {:resourceType "Patient"}]],
+    :jsonpath ["$.\"subject\"?(@.\"resourceType\"==\"Patient\")[*]"],
+    :data-types #{{:type "Reference", :polymorphic? false}},
+    :template :reference},
+   :Immunization
+   {:knife [["patient"]],
+    :jsonpath ["$.\"patient\"[*]"],
+    :data-types #{{:type "Reference", :polymorphic? false}},
+    :template :reference},
+   :MedicationStatement
+   {:knife [["subject" {:resourceType "Patient"}]],
+    :jsonpath ["$.\"subject\"?(@.\"resourceType\"==\"Patient\")[*]"],
+    :data-types #{{:type "Reference", :polymorphic? false}},
+    :template :reference},
+   :NutritionOrder
+   {:knife [["patient"]],
+    :jsonpath ["$.\"patient\"[*]"],
+    :data-types #{{:type "Reference", :polymorphic? false}},
+    :template :reference},
+   :DocumentManifest
+   {:knife [["subject" {:resourceType "Patient"}]],
+    :jsonpath ["$.\"subject\"?(@.\"resourceType\"==\"Patient\")[*]"],
+    :data-types #{{:type "Reference", :polymorphic? false}},
+    :template :reference},
+   :MedicationRequest
+   {:knife [["subject" {:resourceType "Patient"}]],
+    :jsonpath ["$.\"subject\"?(@.\"resourceType\"==\"Patient\")[*]"],
+    :data-types #{{:type "Reference", :polymorphic? false}},
+    :template :reference},
+   :List
+   {:knife [["subject" {:resourceType "Patient"}]],
+    :jsonpath ["$.\"subject\"?(@.\"resourceType\"==\"Patient\")[*]"],
+    :data-types #{{:type "Reference", :polymorphic? false}},
+    :template :reference},
+   :Encounter
+   {:knife [["subject" {:resourceType "Patient"}]],
+    :jsonpath ["$.\"subject\"?(@.\"resourceType\"==\"Patient\")[*]"],
+    :data-types #{{:type "Reference", :polymorphic? false}},
+    :template :reference},
+   :VisionPrescription
+   {:knife [["patient"]],
+    :jsonpath ["$.\"patient\"[*]"],
+    :data-types #{{:type "Reference", :polymorphic? false}},
+    :template :reference},
+   :RiskAssessment
+   {:knife [["subject" {:resourceType "Patient"}]],
+    :jsonpath ["$.\"subject\"?(@.\"resourceType\"==\"Patient\")[*]"],
+    :data-types #{{:type "Reference", :polymorphic? false}},
+    :template :reference},
+   :Condition
+   {:knife [["subject" {:resourceType "Patient"}]],
+    :jsonpath ["$.\"subject\"?(@.\"resourceType\"==\"Patient\")[*]"],
+    :data-types #{{:type "Reference", :polymorphic? false}},
+    :template :reference},
+   :CareTeam
+   {:knife [["subject" {:resourceType "Patient"}]],
+    :jsonpath ["$.\"subject\"?(@.\"resourceType\"==\"Patient\")[*]"],
+    :data-types #{{:type "Reference", :polymorphic? false}},
+    :template :reference},
+   :Procedure
+   {:knife [["subject" {:resourceType "Patient"}]],
+    :jsonpath ["$.\"subject\"?(@.\"resourceType\"==\"Patient\")[*]"],
+    :data-types #{{:type "Reference", :polymorphic? false}},
+    :template :reference},
+   :Consent
+   {:knife [["patient"]],
+    :jsonpath ["$.\"patient\"[*]"],
+    :data-types #{{:type "Reference", :polymorphic? false}},
+    :template :reference},
+   :AllergyIntolerance
+   {:knife [["patient"]],
+    :jsonpath ["$.\"patient\"[*]"],
+    :data-types #{{:type "Reference", :polymorphic? false}},
+    :template :reference},
+   :ImagingStudy
+   {:knife [["subject" {:resourceType "Patient"}]],
+    :jsonpath ["$.\"subject\"?(@.\"resourceType\"==\"Patient\")[*]"],
+    :data-types #{{:type "Reference", :polymorphic? false}},
+    :template :reference}}}}

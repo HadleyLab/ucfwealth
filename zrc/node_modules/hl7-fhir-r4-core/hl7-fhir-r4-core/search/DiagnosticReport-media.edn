@@ -1,0 +1,15 @@
+{ns hl7-fhir-r4-core.search.DiagnosticReport-media,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "DiagnosticReport-media",
+  :fhir/url
+  "http://hl7.org/fhir/SearchParameter/DiagnosticReport-media",
+  :fhir/type "reference",
+  :name "media",
+  :expr
+  {:DiagnosticReport
+   {:knife [["media" "link"]],
+    :jsonpath ["$.\"media\".\"link\"[*]"],
+    :data-types #{{:type "Reference", :polymorphic? false}},
+    :template :reference}}}}

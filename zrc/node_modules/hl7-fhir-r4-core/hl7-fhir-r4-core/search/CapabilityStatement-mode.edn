@@ -1,0 +1,15 @@
+{ns hl7-fhir-r4-core.search.CapabilityStatement-mode,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "CapabilityStatement-mode",
+  :fhir/url
+  "http://hl7.org/fhir/SearchParameter/CapabilityStatement-mode",
+  :fhir/type "token",
+  :name "mode",
+  :expr
+  {:CapabilityStatement
+   {:knife [["rest" "mode"]],
+    :jsonpath ["$.\"rest\".\"mode\"[*]"],
+    :data-types #{{:type "code", :polymorphic? false}},
+    :template :token}}}}

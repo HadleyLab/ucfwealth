@@ -1,0 +1,14 @@
+{ns hl7-fhir-r4-core.search.Invoice-patient,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "Invoice-patient",
+  :fhir/url "http://hl7.org/fhir/SearchParameter/Invoice-patient",
+  :fhir/type "reference",
+  :name "patient",
+  :expr
+  {:Invoice
+   {:knife [["subject" {:resourceType "Patient"}]],
+    :jsonpath ["$.\"subject\"?(@.\"resourceType\"==\"Patient\")[*]"],
+    :data-types #{{:type "Reference", :polymorphic? false}},
+    :template :reference}}}}

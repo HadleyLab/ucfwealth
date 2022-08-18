@@ -1,0 +1,14 @@
+{ns hl7-fhir-r4-core.search.Bundle-identifier,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "Bundle-identifier",
+  :fhir/url "http://hl7.org/fhir/SearchParameter/Bundle-identifier",
+  :fhir/type "token",
+  :name "identifier",
+  :expr
+  {:Bundle
+   {:knife [["identifier"]],
+    :jsonpath ["$.\"identifier\"[*]"],
+    :data-types #{{:type "Identifier", :polymorphic? false}},
+    :template :token}}}}

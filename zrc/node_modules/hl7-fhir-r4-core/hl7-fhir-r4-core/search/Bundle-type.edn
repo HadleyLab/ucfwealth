@@ -1,0 +1,14 @@
+{ns hl7-fhir-r4-core.search.Bundle-type,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "Bundle-type",
+  :fhir/url "http://hl7.org/fhir/SearchParameter/Bundle-type",
+  :fhir/type "token",
+  :name "type",
+  :expr
+  {:Bundle
+   {:knife [["type"]],
+    :jsonpath ["$.\"type\"[*]"],
+    :data-types #{{:type "code", :polymorphic? false}},
+    :template :token}}}}

@@ -1,0 +1,15 @@
+{ns hl7-fhir-r4-core.search.OrganizationAffiliation-network,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "OrganizationAffiliation-network",
+  :fhir/url
+  "http://hl7.org/fhir/SearchParameter/OrganizationAffiliation-network",
+  :fhir/type "reference",
+  :name "network",
+  :expr
+  {:OrganizationAffiliation
+   {:knife [["network"]],
+    :jsonpath ["$.\"network\"[*]"],
+    :data-types #{{:type "Reference", :polymorphic? false}},
+    :template :reference}}}}

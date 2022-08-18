@@ -1,0 +1,15 @@
+{ns hl7-fhir-r4-core.search.AdverseEvent-resultingcondition,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "AdverseEvent-resultingcondition",
+  :fhir/url
+  "http://hl7.org/fhir/SearchParameter/AdverseEvent-resultingcondition",
+  :fhir/type "reference",
+  :name "resultingcondition",
+  :expr
+  {:AdverseEvent
+   {:knife [["resultingCondition"]],
+    :jsonpath ["$.\"resultingCondition\"[*]"],
+    :data-types #{{:type "Reference", :polymorphic? false}},
+    :template :reference}}}}

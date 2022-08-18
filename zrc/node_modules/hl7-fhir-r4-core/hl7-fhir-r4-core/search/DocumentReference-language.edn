@@ -1,0 +1,15 @@
+{ns hl7-fhir-r4-core.search.DocumentReference-language,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "DocumentReference-language",
+  :fhir/url
+  "http://hl7.org/fhir/SearchParameter/DocumentReference-language",
+  :fhir/type "token",
+  :name "language",
+  :expr
+  {:DocumentReference
+   {:knife [["content" "attachment" "language"]],
+    :jsonpath ["$.\"content\".\"attachment\".\"language\"[*]"],
+    :data-types #{},
+    :template :token}}}}

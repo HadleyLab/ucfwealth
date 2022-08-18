@@ -1,0 +1,15 @@
+{ns hl7-fhir-r4-core.search.ImmunizationEvaluation-immunization-event,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "ImmunizationEvaluation-immunization-event",
+  :fhir/url
+  "http://hl7.org/fhir/SearchParameter/ImmunizationEvaluation-immunization-event",
+  :fhir/type "reference",
+  :name "immunization-event",
+  :expr
+  {:ImmunizationEvaluation
+   {:knife [["immunizationEvent"]],
+    :jsonpath ["$.\"immunizationEvent\"[*]"],
+    :data-types #{{:type "Reference", :polymorphic? false}},
+    :template :reference}}}}

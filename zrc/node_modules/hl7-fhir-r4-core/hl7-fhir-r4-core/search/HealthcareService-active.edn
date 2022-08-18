@@ -1,0 +1,15 @@
+{ns hl7-fhir-r4-core.search.HealthcareService-active,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "HealthcareService-active",
+  :fhir/url
+  "http://hl7.org/fhir/SearchParameter/HealthcareService-active",
+  :fhir/type "token",
+  :name "active",
+  :expr
+  {:HealthcareService
+   {:knife [["active"]],
+    :jsonpath ["$.\"active\"[*]"],
+    :data-types #{{:type "boolean", :polymorphic? false}},
+    :template :token}}}}

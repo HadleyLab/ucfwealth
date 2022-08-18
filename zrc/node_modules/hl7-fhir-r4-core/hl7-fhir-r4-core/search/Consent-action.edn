@@ -1,0 +1,14 @@
+{ns hl7-fhir-r4-core.search.Consent-action,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "Consent-action",
+  :fhir/url "http://hl7.org/fhir/SearchParameter/Consent-action",
+  :fhir/type "token",
+  :name "action",
+  :expr
+  {:Consent
+   {:knife [["provision" "action"]],
+    :jsonpath ["$.\"provision\".\"action\"[*]"],
+    :data-types #{{:type "CodeableConcept", :polymorphic? false}},
+    :template :token}}}}

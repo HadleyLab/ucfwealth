@@ -1,0 +1,15 @@
+{ns hl7-fhir-r4-core.search.AdverseEvent-seriousness,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "AdverseEvent-seriousness",
+  :fhir/url
+  "http://hl7.org/fhir/SearchParameter/AdverseEvent-seriousness",
+  :fhir/type "token",
+  :name "seriousness",
+  :expr
+  {:AdverseEvent
+   {:knife [["seriousness"]],
+    :jsonpath ["$.\"seriousness\"[*]"],
+    :data-types #{{:type "CodeableConcept", :polymorphic? false}},
+    :template :token}}}}

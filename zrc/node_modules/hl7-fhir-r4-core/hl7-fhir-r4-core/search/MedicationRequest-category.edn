@@ -1,0 +1,15 @@
+{ns hl7-fhir-r4-core.search.MedicationRequest-category,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "MedicationRequest-category",
+  :fhir/url
+  "http://hl7.org/fhir/SearchParameter/MedicationRequest-category",
+  :fhir/type "token",
+  :name "category",
+  :expr
+  {:MedicationRequest
+   {:knife [["category"]],
+    :jsonpath ["$.\"category\"[*]"],
+    :data-types #{{:type "CodeableConcept", :polymorphic? false}},
+    :template :token}}}}

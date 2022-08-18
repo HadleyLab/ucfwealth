@@ -1,0 +1,15 @@
+{ns hl7-fhir-r4-core.search.ChargeItemDefinition-context,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "ChargeItemDefinition-context",
+  :fhir/url
+  "http://hl7.org/fhir/SearchParameter/ChargeItemDefinition-context",
+  :fhir/type "token",
+  :name "context",
+  :expr
+  {:ChargeItemDefinition
+   {:knife [["useContext" "value" "CodeableConcept"]],
+    :jsonpath ["$.\"useContext\".\"value\".\"CodeableConcept\"[*]"],
+    :data-types #{},
+    :template :token}}}}

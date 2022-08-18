@@ -1,0 +1,15 @@
+{ns hl7-fhir-r4-core.search.MedicationRequest-intended-performertype,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "MedicationRequest-intended-performertype",
+  :fhir/url
+  "http://hl7.org/fhir/SearchParameter/MedicationRequest-intended-performertype",
+  :fhir/type "token",
+  :name "intended-performertype",
+  :expr
+  {:MedicationRequest
+   {:knife [["performerType"]],
+    :jsonpath ["$.\"performerType\"[*]"],
+    :data-types #{{:type "CodeableConcept", :polymorphic? false}},
+    :template :token}}}}

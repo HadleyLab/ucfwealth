@@ -1,0 +1,15 @@
+{ns hl7-fhir-r4-core.search.ChargeItemDefinition-identifier,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "ChargeItemDefinition-identifier",
+  :fhir/url
+  "http://hl7.org/fhir/SearchParameter/ChargeItemDefinition-identifier",
+  :fhir/type "token",
+  :name "identifier",
+  :expr
+  {:ChargeItemDefinition
+   {:knife [["identifier"]],
+    :jsonpath ["$.\"identifier\"[*]"],
+    :data-types #{{:type "Identifier", :polymorphic? false}},
+    :template :token}}}}

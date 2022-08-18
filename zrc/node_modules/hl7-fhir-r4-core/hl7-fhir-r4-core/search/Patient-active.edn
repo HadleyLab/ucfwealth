@@ -1,0 +1,14 @@
+{ns hl7-fhir-r4-core.search.Patient-active,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "Patient-active",
+  :fhir/url "http://hl7.org/fhir/SearchParameter/Patient-active",
+  :fhir/type "token",
+  :name "active",
+  :expr
+  {:Patient
+   {:knife [["active"]],
+    :jsonpath ["$.\"active\"[*]"],
+    :data-types #{{:type "boolean", :polymorphic? false}},
+    :template :token}}}}

@@ -1,0 +1,14 @@
+{ns hl7-fhir-r4-core.search.AuditEvent-action,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "AuditEvent-action",
+  :fhir/url "http://hl7.org/fhir/SearchParameter/AuditEvent-action",
+  :fhir/type "token",
+  :name "action",
+  :expr
+  {:AuditEvent
+   {:knife [["action"]],
+    :jsonpath ["$.\"action\"[*]"],
+    :data-types #{{:type "code", :polymorphic? false}},
+    :template :token}}}}

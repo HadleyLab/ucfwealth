@@ -1,0 +1,14 @@
+{ns hl7-fhir-r4-core.search.Task-encounter,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "Task-encounter",
+  :fhir/url "http://hl7.org/fhir/SearchParameter/Task-encounter",
+  :fhir/type "reference",
+  :name "encounter",
+  :expr
+  {:Task
+   {:knife [["encounter"]],
+    :jsonpath ["$.\"encounter\"[*]"],
+    :data-types #{{:type "Reference", :polymorphic? false}},
+    :template :reference}}}}

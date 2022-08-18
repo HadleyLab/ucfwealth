@@ -1,0 +1,16 @@
+{ns hl7-fhir-r4-core.search.EvidenceVariable-predecessor,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "EvidenceVariable-predecessor",
+  :fhir/url
+  "http://hl7.org/fhir/SearchParameter/EvidenceVariable-predecessor",
+  :fhir/type "reference",
+  :name "predecessor",
+  :expr
+  {:EvidenceVariable
+   {:knife [["relatedArtifact" {:type "predecessor"} "resource"]],
+    :jsonpath
+    ["$.\"relatedArtifact\"?(@.\"type\"==\"predecessor\").\"resource\"[*]"],
+    :data-types #{},
+    :template :reference}}}}

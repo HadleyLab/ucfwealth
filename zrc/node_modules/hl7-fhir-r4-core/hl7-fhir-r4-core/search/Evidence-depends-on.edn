@@ -1,0 +1,15 @@
+{ns hl7-fhir-r4-core.search.Evidence-depends-on,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "Evidence-depends-on",
+  :fhir/url "http://hl7.org/fhir/SearchParameter/Evidence-depends-on",
+  :fhir/type "reference",
+  :name "depends-on",
+  :expr
+  {:Evidence
+   {:knife [["relatedArtifact" {:type "depends-on"} "resource"]],
+    :jsonpath
+    ["$.\"relatedArtifact\"?(@.\"type\"==\"depends-on\").\"resource\"[*]"],
+    :data-types #{},
+    :template :reference}}}}

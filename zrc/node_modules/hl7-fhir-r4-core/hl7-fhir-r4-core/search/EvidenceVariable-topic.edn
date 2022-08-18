@@ -1,0 +1,15 @@
+{ns hl7-fhir-r4-core.search.EvidenceVariable-topic,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "EvidenceVariable-topic",
+  :fhir/url
+  "http://hl7.org/fhir/SearchParameter/EvidenceVariable-topic",
+  :fhir/type "token",
+  :name "topic",
+  :expr
+  {:EvidenceVariable
+   {:knife [["topic"]],
+    :jsonpath ["$.\"topic\"[*]"],
+    :data-types #{{:type "CodeableConcept", :polymorphic? false}},
+    :template :token}}}}

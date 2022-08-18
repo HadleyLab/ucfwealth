@@ -1,0 +1,14 @@
+{ns hl7-fhir-r4-core.search.Specimen-collector,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "Specimen-collector",
+  :fhir/url "http://hl7.org/fhir/SearchParameter/Specimen-collector",
+  :fhir/type "reference",
+  :name "collector",
+  :expr
+  {:Specimen
+   {:knife [["collection" "collector"]],
+    :jsonpath ["$.\"collection\".\"collector\"[*]"],
+    :data-types #{{:type "Reference", :polymorphic? false}},
+    :template :reference}}}}

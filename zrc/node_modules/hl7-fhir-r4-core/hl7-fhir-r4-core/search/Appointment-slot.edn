@@ -1,0 +1,14 @@
+{ns hl7-fhir-r4-core.search.Appointment-slot,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "Appointment-slot",
+  :fhir/url "http://hl7.org/fhir/SearchParameter/Appointment-slot",
+  :fhir/type "reference",
+  :name "slot",
+  :expr
+  {:Appointment
+   {:knife [["slot"]],
+    :jsonpath ["$.\"slot\"[*]"],
+    :data-types #{{:type "Reference", :polymorphic? false}},
+    :template :reference}}}}

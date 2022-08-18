@@ -1,0 +1,127 @@
+{ns hl7-fhir-r4-core.search.Observation-value-date,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "Observation-value-date",
+  :fhir/url
+  "http://hl7.org/fhir/SearchParameter/Observation-value-date",
+  :fhir/type "date",
+  :name "value-date",
+  :expr
+  {:Observation
+   {:knife [["value" "dateTime"] ["value" "Period"]],
+    :jsonpath
+    ["$.\"value\".\"dateTime\"[*]" "$.\"value\".\"Period\"[*]"],
+    :data-types
+    #{{:type "Period", :polymorphic? false}
+      {:type "dateTime", :polymorphic? false}},
+    :template :date,
+    :sql
+    {:where
+     [:or
+      [:or
+       [:and
+        [:>=
+         [:pg/call :max_text_date_bound [:pg/sql "{{param}}"]]
+         [:pg/call
+          :jsonpath_extract_max_timestamptz
+          [:pg/sql "{{table}}.resource"]
+          "$.\"value\".\"dateTime\"[*].start"]]
+        [:<=
+         [:pg/call :min_text_date_bound [:pg/sql "{{param}}"]]
+         [:pg/call
+          :jsonpath_extract_min_timestamptz
+          [:pg/sql "{{table}}.resource"]
+          "$.\"value\".\"dateTime\"[*].end"]]]
+       [:and
+        [:>=
+         [:pg/call :max_text_date_bound [:pg/sql "{{param}}"]]
+         [:pg/call
+          :jsonpath_extract_max_timestamptz
+          [:pg/sql "{{table}}.resource"]
+          "$.\"value\".\"dateTime\"[*].start"]]
+        [:is
+         [:pg/call
+          :jsonpath_extract_max_timestamptz
+          [:pg/sql "{{table}}.resource"]
+          "$.\"value\".\"dateTime\"[*].end"]
+         nil]]
+       [:and
+        [:<=
+         [:pg/call :min_text_date_bound [:pg/sql "{{param}}"]]
+         [:pg/call
+          :jsonpath_extract_min_timestamptz
+          [:pg/sql "{{table}}.resource"]
+          "$.\"value\".\"dateTime\"[*].end"]]
+        [:is
+         [:pg/call
+          :jsonpath_extract_min_timestamptz
+          [:pg/sql "{{table}}.resource"]
+          "$.\"value\".\"dateTime\"[*].start"]
+         nil]]]
+      [:or
+       [:and
+        [:>=
+         [:pg/call :max_text_date_bound [:pg/sql "{{param}}"]]
+         [:pg/call
+          :jsonpath_extract_max_timestamptz
+          [:pg/sql "{{table}}.resource"]
+          "$.\"value\".\"Period\"[*].start"]]
+        [:<=
+         [:pg/call :min_text_date_bound [:pg/sql "{{param}}"]]
+         [:pg/call
+          :jsonpath_extract_min_timestamptz
+          [:pg/sql "{{table}}.resource"]
+          "$.\"value\".\"Period\"[*].end"]]]
+       [:and
+        [:>=
+         [:pg/call :max_text_date_bound [:pg/sql "{{param}}"]]
+         [:pg/call
+          :jsonpath_extract_max_timestamptz
+          [:pg/sql "{{table}}.resource"]
+          "$.\"value\".\"Period\"[*].start"]]
+        [:is
+         [:pg/call
+          :jsonpath_extract_max_timestamptz
+          [:pg/sql "{{table}}.resource"]
+          "$.\"value\".\"Period\"[*].end"]
+         nil]]
+       [:and
+        [:<=
+         [:pg/call :min_text_date_bound [:pg/sql "{{param}}"]]
+         [:pg/call
+          :jsonpath_extract_min_timestamptz
+          [:pg/sql "{{table}}.resource"]
+          "$.\"value\".\"Period\"[*].end"]]
+        [:is
+         [:pg/call
+          :jsonpath_extract_min_timestamptz
+          [:pg/sql "{{table}}.resource"]
+          "$.\"value\".\"Period\"[*].start"]
+         nil]]]
+      [:and
+       [:>=
+        [:pg/call :max_text_date_bound [:pg/sql "{{param}}"]]
+        [:pg/call
+         :jsonpath_extract_max_timestamptz
+         [:pg/sql "{{table}}.resource"]
+         "$.\"value\".\"dateTime\"[*]"]]
+       [:<=
+        [:pg/call :min_text_date_bound [:pg/sql "{{param}}"]]
+        [:pg/call
+         :jsonpath_extract_min_timestamptz
+         [:pg/sql "{{table}}.resource"]
+         "$.\"value\".\"dateTime\"[*]"]]]
+      [:and
+       [:>=
+        [:pg/call :max_text_date_bound [:pg/sql "{{param}}"]]
+        [:pg/call
+         :jsonpath_extract_max_timestamptz
+         [:pg/sql "{{table}}.resource"]
+         "$.\"value\".\"Period\"[*]"]]
+       [:<=
+        [:pg/call :min_text_date_bound [:pg/sql "{{param}}"]]
+        [:pg/call
+         :jsonpath_extract_min_timestamptz
+         [:pg/sql "{{table}}.resource"]
+         "$.\"value\".\"Period\"[*]"]]]]}}}}}

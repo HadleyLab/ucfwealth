@@ -1,0 +1,15 @@
+{ns hl7-fhir-r4-core.search.MessageHeader-responsible,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "MessageHeader-responsible",
+  :fhir/url
+  "http://hl7.org/fhir/SearchParameter/MessageHeader-responsible",
+  :fhir/type "reference",
+  :name "responsible",
+  :expr
+  {:MessageHeader
+   {:knife [["responsible"]],
+    :jsonpath ["$.\"responsible\"[*]"],
+    :data-types #{{:type "Reference", :polymorphic? false}},
+    :template :reference}}}}

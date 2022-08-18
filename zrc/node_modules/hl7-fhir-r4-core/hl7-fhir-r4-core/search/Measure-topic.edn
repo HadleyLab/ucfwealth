@@ -1,0 +1,14 @@
+{ns hl7-fhir-r4-core.search.Measure-topic,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "Measure-topic",
+  :fhir/url "http://hl7.org/fhir/SearchParameter/Measure-topic",
+  :fhir/type "token",
+  :name "topic",
+  :expr
+  {:Measure
+   {:knife [["topic"]],
+    :jsonpath ["$.\"topic\"[*]"],
+    :data-types #{{:type "CodeableConcept", :polymorphic? false}},
+    :template :token}}}}

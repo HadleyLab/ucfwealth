@@ -1,0 +1,15 @@
+{ns hl7-fhir-r4-core.search.EnrollmentResponse-identifier,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "EnrollmentResponse-identifier",
+  :fhir/url
+  "http://hl7.org/fhir/SearchParameter/EnrollmentResponse-identifier",
+  :fhir/type "token",
+  :name "identifier",
+  :expr
+  {:EnrollmentResponse
+   {:knife [["identifier"]],
+    :jsonpath ["$.\"identifier\"[*]"],
+    :data-types #{{:type "Identifier", :polymorphic? false}},
+    :template :token}}}}

@@ -1,0 +1,15 @@
+{ns hl7-fhir-r4-core.search.Questionnaire-subject-type,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "Questionnaire-subject-type",
+  :fhir/url
+  "http://hl7.org/fhir/SearchParameter/Questionnaire-subject-type",
+  :fhir/type "token",
+  :name "subject-type",
+  :expr
+  {:Questionnaire
+   {:knife [["subjectType"]],
+    :jsonpath ["$.\"subjectType\"[*]"],
+    :data-types #{{:type "code", :polymorphic? false}},
+    :template :token}}}}

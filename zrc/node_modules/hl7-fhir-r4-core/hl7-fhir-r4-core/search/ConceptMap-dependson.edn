@@ -1,0 +1,15 @@
+{ns hl7-fhir-r4-core.search.ConceptMap-dependson,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "ConceptMap-dependson",
+  :fhir/url "http://hl7.org/fhir/SearchParameter/ConceptMap-dependson",
+  :fhir/type "uri",
+  :name "dependson",
+  :expr
+  {:ConceptMap
+   {:knife [["group" "element" "target" "dependsOn" "property"]],
+    :jsonpath
+    ["$.\"group\".\"element\".\"target\".\"dependsOn\".\"property\"[*]"],
+    :data-types #{{:type "uri", :polymorphic? false}},
+    :template :uri}}}}

@@ -1,0 +1,15 @@
+{ns hl7-fhir-r4-core.search.SpecimenDefinition-container,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "SpecimenDefinition-container",
+  :fhir/url
+  "http://hl7.org/fhir/SearchParameter/SpecimenDefinition-container",
+  :fhir/type "token",
+  :name "container",
+  :expr
+  {:SpecimenDefinition
+   {:knife [["typeTested" "container" "type"]],
+    :jsonpath ["$.\"typeTested\".\"container\".\"type\"[*]"],
+    :data-types #{{:type "CodeableConcept", :polymorphic? false}},
+    :template :token}}}}

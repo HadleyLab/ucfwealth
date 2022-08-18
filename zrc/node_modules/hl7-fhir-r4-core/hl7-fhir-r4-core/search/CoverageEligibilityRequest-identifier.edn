@@ -1,0 +1,15 @@
+{ns hl7-fhir-r4-core.search.CoverageEligibilityRequest-identifier,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "CoverageEligibilityRequest-identifier",
+  :fhir/url
+  "http://hl7.org/fhir/SearchParameter/CoverageEligibilityRequest-identifier",
+  :fhir/type "token",
+  :name "identifier",
+  :expr
+  {:CoverageEligibilityRequest
+   {:knife [["identifier"]],
+    :jsonpath ["$.\"identifier\"[*]"],
+    :data-types #{{:type "Identifier", :polymorphic? false}},
+    :template :token}}}}

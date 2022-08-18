@@ -1,0 +1,15 @@
+{ns hl7-fhir-r4-core.search.CoverageEligibilityRequest-patient,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "CoverageEligibilityRequest-patient",
+  :fhir/url
+  "http://hl7.org/fhir/SearchParameter/CoverageEligibilityRequest-patient",
+  :fhir/type "reference",
+  :name "patient",
+  :expr
+  {:CoverageEligibilityRequest
+   {:knife [["patient"]],
+    :jsonpath ["$.\"patient\"[*]"],
+    :data-types #{{:type "Reference", :polymorphic? false}},
+    :template :reference}}}}

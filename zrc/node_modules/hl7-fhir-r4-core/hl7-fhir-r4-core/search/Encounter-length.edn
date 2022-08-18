@@ -1,0 +1,30 @@
+{ns hl7-fhir-r4-core.search.Encounter-length,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "Encounter-length",
+  :fhir/url "http://hl7.org/fhir/SearchParameter/Encounter-length",
+  :fhir/type "quantity",
+  :name "length",
+  :expr
+  {:Encounter
+   {:knife [["length"]],
+    :jsonpath ["$.\"length\"[*]"],
+    :data-types #{{:type "Duration", :polymorphic? false}},
+    :template :quantity,
+    :sql
+    {:where
+     [:or
+      [:and
+       [:>=
+        [:pg/call
+         :jsonpath_extract_max_numeric
+         [:pg/sql "{{table}}.resource"]
+         "$.\"length\"[*].\"value\""]
+        [:pg/cast [:pg/sql "{{param}}"] :numeric]]
+       [:<=
+        [:pg/call
+         :jsonpath_extract_min_numeric
+         [:pg/sql "{{table}}.resource"]
+         "$.\"length\"[*].\"value\""]
+        [:pg/cast [:pg/sql "{{param}}"] :numeric]]]]}}}}}

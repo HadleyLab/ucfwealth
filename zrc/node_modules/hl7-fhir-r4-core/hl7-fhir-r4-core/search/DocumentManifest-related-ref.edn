@@ -1,0 +1,15 @@
+{ns hl7-fhir-r4-core.search.DocumentManifest-related-ref,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "DocumentManifest-related-ref",
+  :fhir/url
+  "http://hl7.org/fhir/SearchParameter/DocumentManifest-related-ref",
+  :fhir/type "reference",
+  :name "related-ref",
+  :expr
+  {:DocumentManifest
+   {:knife [["related" "ref"]],
+    :jsonpath ["$.\"related\".\"ref\"[*]"],
+    :data-types #{{:type "Reference", :polymorphic? false}},
+    :template :reference}}}}

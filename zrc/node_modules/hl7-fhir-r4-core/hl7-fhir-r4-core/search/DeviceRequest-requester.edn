@@ -1,0 +1,15 @@
+{ns hl7-fhir-r4-core.search.DeviceRequest-requester,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "DeviceRequest-requester",
+  :fhir/url
+  "http://hl7.org/fhir/SearchParameter/DeviceRequest-requester",
+  :fhir/type "reference",
+  :name "requester",
+  :expr
+  {:DeviceRequest
+   {:knife [["requester"]],
+    :jsonpath ["$.\"requester\"[*]"],
+    :data-types #{{:type "Reference", :polymorphic? false}},
+    :template :reference}}}}

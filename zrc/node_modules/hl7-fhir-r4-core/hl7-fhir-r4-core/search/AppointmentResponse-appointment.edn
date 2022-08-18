@@ -1,0 +1,15 @@
+{ns hl7-fhir-r4-core.search.AppointmentResponse-appointment,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "AppointmentResponse-appointment",
+  :fhir/url
+  "http://hl7.org/fhir/SearchParameter/AppointmentResponse-appointment",
+  :fhir/type "reference",
+  :name "appointment",
+  :expr
+  {:AppointmentResponse
+   {:knife [["appointment"]],
+    :jsonpath ["$.\"appointment\"[*]"],
+    :data-types #{{:type "Reference", :polymorphic? false}},
+    :template :reference}}}}

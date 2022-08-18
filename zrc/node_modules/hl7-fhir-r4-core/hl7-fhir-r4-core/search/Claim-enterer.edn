@@ -1,0 +1,14 @@
+{ns hl7-fhir-r4-core.search.Claim-enterer,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "Claim-enterer",
+  :fhir/url "http://hl7.org/fhir/SearchParameter/Claim-enterer",
+  :fhir/type "reference",
+  :name "enterer",
+  :expr
+  {:Claim
+   {:knife [["enterer"]],
+    :jsonpath ["$.\"enterer\"[*]"],
+    :data-types #{{:type "Reference", :polymorphic? false}},
+    :template :reference}}}}

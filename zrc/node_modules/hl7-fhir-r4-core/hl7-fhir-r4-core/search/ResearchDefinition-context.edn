@@ -1,0 +1,15 @@
+{ns hl7-fhir-r4-core.search.ResearchDefinition-context,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "ResearchDefinition-context",
+  :fhir/url
+  "http://hl7.org/fhir/SearchParameter/ResearchDefinition-context",
+  :fhir/type "token",
+  :name "context",
+  :expr
+  {:ResearchDefinition
+   {:knife [["useContext" "value" "CodeableConcept"]],
+    :jsonpath ["$.\"useContext\".\"value\".\"CodeableConcept\"[*]"],
+    :data-types #{},
+    :template :token}}}}

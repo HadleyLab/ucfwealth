@@ -1,0 +1,15 @@
+{ns hl7-fhir-r4-core.search.PaymentReconciliation-requestor,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "PaymentReconciliation-requestor",
+  :fhir/url
+  "http://hl7.org/fhir/SearchParameter/PaymentReconciliation-requestor",
+  :fhir/type "reference",
+  :name "requestor",
+  :expr
+  {:PaymentReconciliation
+   {:knife [["requestor"]],
+    :jsonpath ["$.\"requestor\"[*]"],
+    :data-types #{{:type "Reference", :polymorphic? false}},
+    :template :reference}}}}

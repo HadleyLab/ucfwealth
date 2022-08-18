@@ -1,0 +1,15 @@
+{ns hl7-fhir-r4-core.search.Encounter-participant-type,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "Encounter-participant-type",
+  :fhir/url
+  "http://hl7.org/fhir/SearchParameter/Encounter-participant-type",
+  :fhir/type "token",
+  :name "participant-type",
+  :expr
+  {:Encounter
+   {:knife [["participant" "type"]],
+    :jsonpath ["$.\"participant\".\"type\"[*]"],
+    :data-types #{{:type "CodeableConcept", :polymorphic? false}},
+    :template :token}}}}

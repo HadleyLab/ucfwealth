@@ -1,0 +1,14 @@
+{ns hl7-fhir-r4-core.search.Location-near,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "Location-near",
+  :fhir/url "http://hl7.org/fhir/SearchParameter/Location-near",
+  :fhir/type "special",
+  :name "near",
+  :expr
+  {:Location
+   {:knife [["position"]],
+    :jsonpath ["$.\"position\"[*]"],
+    :data-types #{{:type "BackboneElement", :polymorphic? false}},
+    :template :special}}}}

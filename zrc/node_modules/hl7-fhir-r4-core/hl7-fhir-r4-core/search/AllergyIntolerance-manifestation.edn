@@ -1,0 +1,15 @@
+{ns hl7-fhir-r4-core.search.AllergyIntolerance-manifestation,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "AllergyIntolerance-manifestation",
+  :fhir/url
+  "http://hl7.org/fhir/SearchParameter/AllergyIntolerance-manifestation",
+  :fhir/type "token",
+  :name "manifestation",
+  :expr
+  {:AllergyIntolerance
+   {:knife [["reaction" "manifestation"]],
+    :jsonpath ["$.\"reaction\".\"manifestation\"[*]"],
+    :data-types #{{:type "CodeableConcept", :polymorphic? false}},
+    :template :token}}}}

@@ -1,0 +1,28 @@
+{ns hl7-fhir-r4-core.search.NamingSystem-responsible,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "NamingSystem-responsible",
+  :fhir/url
+  "http://hl7.org/fhir/SearchParameter/NamingSystem-responsible",
+  :fhir/type "string",
+  :name "responsible",
+  :expr
+  {:NamingSystem
+   {:knife [["responsible"]],
+    :jsonpath ["$.\"responsible\"[*]"],
+    :data-types #{{:type "string", :polymorphic? false}},
+    :template :string,
+    :sql
+    {:where
+     [:or
+      [:ilike
+       [:pg/cast
+        [:pg/jsonb-path-query-array
+         [:pg/sql "{{table}}.resource"]
+         [:pg/cast
+          "($.\"responsible\"[*]).** ? (@.type() == \"string\")"
+          :jsonpath]]
+        :text]
+       [:pg/sql "{{param}}"]]],
+     :parameter-format "%\"?%"}}}}}

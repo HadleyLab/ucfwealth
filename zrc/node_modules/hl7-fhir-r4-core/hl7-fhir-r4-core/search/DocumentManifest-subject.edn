@@ -1,0 +1,15 @@
+{ns hl7-fhir-r4-core.search.DocumentManifest-subject,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "DocumentManifest-subject",
+  :fhir/url
+  "http://hl7.org/fhir/SearchParameter/DocumentManifest-subject",
+  :fhir/type "reference",
+  :name "subject",
+  :expr
+  {:DocumentManifest
+   {:knife [["subject"]],
+    :jsonpath ["$.\"subject\"[*]"],
+    :data-types #{{:type "Reference", :polymorphic? false}},
+    :template :reference}}}}

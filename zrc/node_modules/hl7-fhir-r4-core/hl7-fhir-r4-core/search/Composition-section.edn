@@ -1,0 +1,14 @@
+{ns hl7-fhir-r4-core.search.Composition-section,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "Composition-section",
+  :fhir/url "http://hl7.org/fhir/SearchParameter/Composition-section",
+  :fhir/type "token",
+  :name "section",
+  :expr
+  {:Composition
+   {:knife [["section" "code"]],
+    :jsonpath ["$.\"section\".\"code\"[*]"],
+    :data-types #{{:type "CodeableConcept", :polymorphic? false}},
+    :template :token}}}}

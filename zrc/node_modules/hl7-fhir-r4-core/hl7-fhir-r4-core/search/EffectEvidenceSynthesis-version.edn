@@ -1,0 +1,15 @@
+{ns hl7-fhir-r4-core.search.EffectEvidenceSynthesis-version,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "EffectEvidenceSynthesis-version",
+  :fhir/url
+  "http://hl7.org/fhir/SearchParameter/EffectEvidenceSynthesis-version",
+  :fhir/type "token",
+  :name "version",
+  :expr
+  {:EffectEvidenceSynthesis
+   {:knife [["version"]],
+    :jsonpath ["$.\"version\"[*]"],
+    :data-types #{{:type "string", :polymorphic? false}},
+    :template :token}}}}

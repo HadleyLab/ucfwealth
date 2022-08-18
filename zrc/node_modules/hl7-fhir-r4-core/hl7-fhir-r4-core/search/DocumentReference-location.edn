@@ -1,0 +1,15 @@
+{ns hl7-fhir-r4-core.search.DocumentReference-location,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "DocumentReference-location",
+  :fhir/url
+  "http://hl7.org/fhir/SearchParameter/DocumentReference-location",
+  :fhir/type "uri",
+  :name "location",
+  :expr
+  {:DocumentReference
+   {:knife [["content" "attachment" "url"]],
+    :jsonpath ["$.\"content\".\"attachment\".\"url\"[*]"],
+    :data-types #{},
+    :template :uri}}}}

@@ -1,0 +1,15 @@
+{ns hl7-fhir-r4-core.search.DocumentReference-relation,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "DocumentReference-relation",
+  :fhir/url
+  "http://hl7.org/fhir/SearchParameter/DocumentReference-relation",
+  :fhir/type "token",
+  :name "relation",
+  :expr
+  {:DocumentReference
+   {:knife [["relatesTo" "code"]],
+    :jsonpath ["$.\"relatesTo\".\"code\"[*]"],
+    :data-types #{{:type "code", :polymorphic? false}},
+    :template :token}}}}

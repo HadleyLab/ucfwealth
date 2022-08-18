@@ -1,0 +1,15 @@
+{ns hl7-fhir-r4-core.search.VisionPrescription-prescriber,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "VisionPrescription-prescriber",
+  :fhir/url
+  "http://hl7.org/fhir/SearchParameter/VisionPrescription-prescriber",
+  :fhir/type "reference",
+  :name "prescriber",
+  :expr
+  {:VisionPrescription
+   {:knife [["prescriber"]],
+    :jsonpath ["$.\"prescriber\"[*]"],
+    :data-types #{{:type "Reference", :polymorphic? false}},
+    :template :reference}}}}

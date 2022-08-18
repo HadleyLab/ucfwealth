@@ -1,0 +1,15 @@
+{ns hl7-fhir-r4-core.search.ResearchStudy-protocol,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "ResearchStudy-protocol",
+  :fhir/url
+  "http://hl7.org/fhir/SearchParameter/ResearchStudy-protocol",
+  :fhir/type "reference",
+  :name "protocol",
+  :expr
+  {:ResearchStudy
+   {:knife [["protocol"]],
+    :jsonpath ["$.\"protocol\"[*]"],
+    :data-types #{{:type "Reference", :polymorphic? false}},
+    :template :reference}}}}

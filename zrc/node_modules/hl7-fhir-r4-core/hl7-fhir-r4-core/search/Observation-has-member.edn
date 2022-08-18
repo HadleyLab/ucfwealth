@@ -1,0 +1,15 @@
+{ns hl7-fhir-r4-core.search.Observation-has-member,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "Observation-has-member",
+  :fhir/url
+  "http://hl7.org/fhir/SearchParameter/Observation-has-member",
+  :fhir/type "reference",
+  :name "has-member",
+  :expr
+  {:Observation
+   {:knife [["hasMember"]],
+    :jsonpath ["$.\"hasMember\"[*]"],
+    :data-types #{{:type "Reference", :polymorphic? false}},
+    :template :reference}}}}

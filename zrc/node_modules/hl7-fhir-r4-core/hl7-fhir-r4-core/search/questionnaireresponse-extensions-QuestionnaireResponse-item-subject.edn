@@ -1,0 +1,14 @@
+{ns
+ hl7-fhir-r4-core.search.questionnaireresponse-extensions-QuestionnaireResponse-item-subject,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id
+  "questionnaireresponse-extensions-QuestionnaireResponse-item-subject",
+  :fhir/url
+  "http://hl7.org/fhir/SearchParameter/questionnaireresponse-extensions-QuestionnaireResponse-item-subject",
+  :fhir/type "reference",
+  :name "item-subject",
+  :expr
+  {:QuestionnaireResponse
+   {:jsonpath [], :data-types #{}, :template :reference}}}}

@@ -1,0 +1,14 @@
+{ns hl7-fhir-r4-core.search.DeviceRequest-intent,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "DeviceRequest-intent",
+  :fhir/url "http://hl7.org/fhir/SearchParameter/DeviceRequest-intent",
+  :fhir/type "token",
+  :name "intent",
+  :expr
+  {:DeviceRequest
+   {:knife [["intent"]],
+    :jsonpath ["$.\"intent\"[*]"],
+    :data-types #{{:type "code", :polymorphic? false}},
+    :template :token}}}}

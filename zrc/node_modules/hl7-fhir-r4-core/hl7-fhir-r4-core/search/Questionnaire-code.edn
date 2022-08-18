@@ -1,0 +1,14 @@
+{ns hl7-fhir-r4-core.search.Questionnaire-code,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "Questionnaire-code",
+  :fhir/url "http://hl7.org/fhir/SearchParameter/Questionnaire-code",
+  :fhir/type "token",
+  :name "code",
+  :expr
+  {:Questionnaire
+   {:knife [["item" "code"]],
+    :jsonpath ["$.\"item\".\"code\"[*]"],
+    :data-types #{{:type "Coding", :polymorphic? false}},
+    :template :token}}}}

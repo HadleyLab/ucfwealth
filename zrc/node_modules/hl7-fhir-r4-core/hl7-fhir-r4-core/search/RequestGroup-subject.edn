@@ -1,0 +1,14 @@
+{ns hl7-fhir-r4-core.search.RequestGroup-subject,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "RequestGroup-subject",
+  :fhir/url "http://hl7.org/fhir/SearchParameter/RequestGroup-subject",
+  :fhir/type "reference",
+  :name "subject",
+  :expr
+  {:RequestGroup
+   {:knife [["subject"]],
+    :jsonpath ["$.\"subject\"[*]"],
+    :data-types #{{:type "Reference", :polymorphic? false}},
+    :template :reference}}}}

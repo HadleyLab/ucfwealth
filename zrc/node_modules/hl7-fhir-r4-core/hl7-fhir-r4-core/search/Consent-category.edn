@@ -1,0 +1,14 @@
+{ns hl7-fhir-r4-core.search.Consent-category,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "Consent-category",
+  :fhir/url "http://hl7.org/fhir/SearchParameter/Consent-category",
+  :fhir/type "token",
+  :name "category",
+  :expr
+  {:Consent
+   {:knife [["category"]],
+    :jsonpath ["$.\"category\"[*]"],
+    :data-types #{{:type "CodeableConcept", :polymorphic? false}},
+    :template :token}}}}

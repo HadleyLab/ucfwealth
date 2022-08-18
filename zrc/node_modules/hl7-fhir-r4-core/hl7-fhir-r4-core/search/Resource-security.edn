@@ -1,0 +1,14 @@
+{ns hl7-fhir-r4-core.search.Resource-security,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "Resource-security",
+  :fhir/url "http://hl7.org/fhir/SearchParameter/Resource-security",
+  :fhir/type "token",
+  :name "_security",
+  :expr
+  {:Resource
+   {:knife [["meta" "security"]],
+    :jsonpath ["$.\"meta\".\"security\"[*]"],
+    :data-types #{},
+    :template :token}}}}

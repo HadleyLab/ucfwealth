@@ -1,0 +1,15 @@
+{ns hl7-fhir-r4-core.search.ExampleScenario-jurisdiction,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "ExampleScenario-jurisdiction",
+  :fhir/url
+  "http://hl7.org/fhir/SearchParameter/ExampleScenario-jurisdiction",
+  :fhir/type "token",
+  :name "jurisdiction",
+  :expr
+  {:ExampleScenario
+   {:knife [["jurisdiction"]],
+    :jsonpath ["$.\"jurisdiction\"[*]"],
+    :data-types #{{:type "CodeableConcept", :polymorphic? false}},
+    :template :token}}}}

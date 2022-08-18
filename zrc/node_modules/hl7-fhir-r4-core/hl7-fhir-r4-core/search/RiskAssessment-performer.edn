@@ -1,0 +1,15 @@
+{ns hl7-fhir-r4-core.search.RiskAssessment-performer,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "RiskAssessment-performer",
+  :fhir/url
+  "http://hl7.org/fhir/SearchParameter/RiskAssessment-performer",
+  :fhir/type "reference",
+  :name "performer",
+  :expr
+  {:RiskAssessment
+   {:knife [["performer"]],
+    :jsonpath ["$.\"performer\"[*]"],
+    :data-types #{{:type "Reference", :polymorphic? false}},
+    :template :reference}}}}

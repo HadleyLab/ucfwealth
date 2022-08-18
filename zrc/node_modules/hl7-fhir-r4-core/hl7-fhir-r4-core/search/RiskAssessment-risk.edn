@@ -1,0 +1,14 @@
+{ns hl7-fhir-r4-core.search.RiskAssessment-risk,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "RiskAssessment-risk",
+  :fhir/url "http://hl7.org/fhir/SearchParameter/RiskAssessment-risk",
+  :fhir/type "token",
+  :name "risk",
+  :expr
+  {:RiskAssessment
+   {:knife [["prediction" "qualitativeRisk"]],
+    :jsonpath ["$.\"prediction\".\"qualitativeRisk\"[*]"],
+    :data-types #{{:type "CodeableConcept", :polymorphic? false}},
+    :template :token}}}}

@@ -1,0 +1,14 @@
+{ns hl7-fhir-r4-core.search.Goal-category,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "Goal-category",
+  :fhir/url "http://hl7.org/fhir/SearchParameter/Goal-category",
+  :fhir/type "token",
+  :name "category",
+  :expr
+  {:Goal
+   {:knife [["category"]],
+    :jsonpath ["$.\"category\"[*]"],
+    :data-types #{{:type "CodeableConcept", :polymorphic? false}},
+    :template :token}}}}

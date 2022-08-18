@@ -1,0 +1,14 @@
+{ns hl7-fhir-r4-core.search.Condition-evidence,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "Condition-evidence",
+  :fhir/url "http://hl7.org/fhir/SearchParameter/Condition-evidence",
+  :fhir/type "token",
+  :name "evidence",
+  :expr
+  {:Condition
+   {:knife [["evidence" "code"]],
+    :jsonpath ["$.\"evidence\".\"code\"[*]"],
+    :data-types #{{:type "CodeableConcept", :polymorphic? false}},
+    :template :token}}}}

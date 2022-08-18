@@ -1,0 +1,15 @@
+{ns hl7-fhir-r4-core.search.DocumentReference-authenticator,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "DocumentReference-authenticator",
+  :fhir/url
+  "http://hl7.org/fhir/SearchParameter/DocumentReference-authenticator",
+  :fhir/type "reference",
+  :name "authenticator",
+  :expr
+  {:DocumentReference
+   {:knife [["authenticator"]],
+    :jsonpath ["$.\"authenticator\"[*]"],
+    :data-types #{{:type "Reference", :polymorphic? false}},
+    :template :reference}}}}

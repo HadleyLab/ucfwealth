@@ -1,0 +1,14 @@
+{ns hl7-fhir-r4-core.search.ResearchStudy-partof,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "ResearchStudy-partof",
+  :fhir/url "http://hl7.org/fhir/SearchParameter/ResearchStudy-partof",
+  :fhir/type "reference",
+  :name "partof",
+  :expr
+  {:ResearchStudy
+   {:knife [["partOf"]],
+    :jsonpath ["$.\"partOf\"[*]"],
+    :data-types #{{:type "Reference", :polymorphic? false}},
+    :template :reference}}}}

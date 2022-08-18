@@ -1,0 +1,16 @@
+{ns hl7-fhir-r4-core.search.MessageHeader-event,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "MessageHeader-event",
+  :fhir/url "http://hl7.org/fhir/SearchParameter/MessageHeader-event",
+  :fhir/type "token",
+  :name "event",
+  :expr
+  {:MessageHeader
+   {:knife [["event"]],
+    :jsonpath ["$.\"event\"[*]"],
+    :data-types
+    #{{:type "uri", :polymorphic? true}
+      {:type "Coding", :polymorphic? true}},
+    :template :token}}}}

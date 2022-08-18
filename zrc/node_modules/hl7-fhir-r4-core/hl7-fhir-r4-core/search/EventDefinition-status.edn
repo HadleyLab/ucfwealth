@@ -1,0 +1,15 @@
+{ns hl7-fhir-r4-core.search.EventDefinition-status,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "EventDefinition-status",
+  :fhir/url
+  "http://hl7.org/fhir/SearchParameter/EventDefinition-status",
+  :fhir/type "token",
+  :name "status",
+  :expr
+  {:EventDefinition
+   {:knife [["status"]],
+    :jsonpath ["$.\"status\"[*]"],
+    :data-types #{{:type "code", :polymorphic? false}},
+    :template :token}}}}

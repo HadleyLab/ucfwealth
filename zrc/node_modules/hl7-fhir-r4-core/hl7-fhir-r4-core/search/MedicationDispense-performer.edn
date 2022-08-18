@@ -1,0 +1,15 @@
+{ns hl7-fhir-r4-core.search.MedicationDispense-performer,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "MedicationDispense-performer",
+  :fhir/url
+  "http://hl7.org/fhir/SearchParameter/MedicationDispense-performer",
+  :fhir/type "reference",
+  :name "performer",
+  :expr
+  {:MedicationDispense
+   {:knife [["performer" "actor"]],
+    :jsonpath ["$.\"performer\".\"actor\"[*]"],
+    :data-types #{{:type "Reference", :polymorphic? false}},
+    :template :reference}}}}

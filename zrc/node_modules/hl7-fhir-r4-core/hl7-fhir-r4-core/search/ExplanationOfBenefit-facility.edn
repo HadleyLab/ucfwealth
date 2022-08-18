@@ -1,0 +1,15 @@
+{ns hl7-fhir-r4-core.search.ExplanationOfBenefit-facility,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "ExplanationOfBenefit-facility",
+  :fhir/url
+  "http://hl7.org/fhir/SearchParameter/ExplanationOfBenefit-facility",
+  :fhir/type "reference",
+  :name "facility",
+  :expr
+  {:ExplanationOfBenefit
+   {:knife [["facility"]],
+    :jsonpath ["$.\"facility\"[*]"],
+    :data-types #{{:type "Reference", :polymorphic? false}},
+    :template :reference}}}}

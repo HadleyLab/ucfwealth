@@ -1,0 +1,14 @@
+{ns hl7-fhir-r4-core.search.MessageHeader-author,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "MessageHeader-author",
+  :fhir/url "http://hl7.org/fhir/SearchParameter/MessageHeader-author",
+  :fhir/type "reference",
+  :name "author",
+  :expr
+  {:MessageHeader
+   {:knife [["author"]],
+    :jsonpath ["$.\"author\"[*]"],
+    :data-types #{{:type "Reference", :polymorphic? false}},
+    :template :reference}}}}

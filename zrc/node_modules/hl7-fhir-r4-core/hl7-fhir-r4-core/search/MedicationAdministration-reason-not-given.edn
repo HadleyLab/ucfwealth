@@ -1,0 +1,15 @@
+{ns hl7-fhir-r4-core.search.MedicationAdministration-reason-not-given,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "MedicationAdministration-reason-not-given",
+  :fhir/url
+  "http://hl7.org/fhir/SearchParameter/MedicationAdministration-reason-not-given",
+  :fhir/type "token",
+  :name "reason-not-given",
+  :expr
+  {:MedicationAdministration
+   {:knife [["statusReason"]],
+    :jsonpath ["$.\"statusReason\"[*]"],
+    :data-types #{{:type "CodeableConcept", :polymorphic? false}},
+    :template :token}}}}

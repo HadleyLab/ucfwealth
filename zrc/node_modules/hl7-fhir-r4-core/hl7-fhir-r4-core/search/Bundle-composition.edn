@@ -1,0 +1,10 @@
+{ns hl7-fhir-r4-core.search.Bundle-composition,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "Bundle-composition",
+  :fhir/url "http://hl7.org/fhir/SearchParameter/Bundle-composition",
+  :fhir/type "reference",
+  :name "composition",
+  :expr
+  {:Bundle {:jsonpath [], :data-types #{}, :template :reference}}}}

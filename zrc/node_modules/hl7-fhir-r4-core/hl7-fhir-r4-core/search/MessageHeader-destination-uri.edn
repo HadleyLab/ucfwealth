@@ -1,0 +1,15 @@
+{ns hl7-fhir-r4-core.search.MessageHeader-destination-uri,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "MessageHeader-destination-uri",
+  :fhir/url
+  "http://hl7.org/fhir/SearchParameter/MessageHeader-destination-uri",
+  :fhir/type "uri",
+  :name "destination-uri",
+  :expr
+  {:MessageHeader
+   {:knife [["destination" "endpoint"]],
+    :jsonpath ["$.\"destination\".\"endpoint\"[*]"],
+    :data-types #{{:type "url", :polymorphic? false}},
+    :template :uri}}}}

@@ -1,0 +1,14 @@
+{ns hl7-fhir-r4-core.search.InsurancePlan-type,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "InsurancePlan-type",
+  :fhir/url "http://hl7.org/fhir/SearchParameter/InsurancePlan-type",
+  :fhir/type "token",
+  :name "type",
+  :expr
+  {:InsurancePlan
+   {:knife [["type"]],
+    :jsonpath ["$.\"type\"[*]"],
+    :data-types #{{:type "CodeableConcept", :polymorphic? false}},
+    :template :token}}}}

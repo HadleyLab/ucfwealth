@@ -1,0 +1,14 @@
+{ns hl7-fhir-r4-core.search.CareTeam-status,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "CareTeam-status",
+  :fhir/url "http://hl7.org/fhir/SearchParameter/CareTeam-status",
+  :fhir/type "token",
+  :name "status",
+  :expr
+  {:CareTeam
+   {:knife [["status"]],
+    :jsonpath ["$.\"status\"[*]"],
+    :data-types #{{:type "code", :polymorphic? false}},
+    :template :token}}}}

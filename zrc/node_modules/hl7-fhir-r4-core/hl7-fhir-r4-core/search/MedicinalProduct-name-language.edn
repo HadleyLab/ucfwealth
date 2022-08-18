@@ -1,0 +1,15 @@
+{ns hl7-fhir-r4-core.search.MedicinalProduct-name-language,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "MedicinalProduct-name-language",
+  :fhir/url
+  "http://hl7.org/fhir/SearchParameter/MedicinalProduct-name-language",
+  :fhir/type "token",
+  :name "name-language",
+  :expr
+  {:MedicinalProduct
+   {:knife [["name" "countryLanguage" "language"]],
+    :jsonpath ["$.\"name\".\"countryLanguage\".\"language\"[*]"],
+    :data-types #{{:type "CodeableConcept", :polymorphic? false}},
+    :template :token}}}}

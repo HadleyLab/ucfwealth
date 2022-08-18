@@ -1,0 +1,14 @@
+{ns hl7-fhir-r4-core.search.Coverage-payor,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "Coverage-payor",
+  :fhir/url "http://hl7.org/fhir/SearchParameter/Coverage-payor",
+  :fhir/type "reference",
+  :name "payor",
+  :expr
+  {:Coverage
+   {:knife [["payor"]],
+    :jsonpath ["$.\"payor\"[*]"],
+    :data-types #{{:type "Reference", :polymorphic? false}},
+    :template :reference}}}}

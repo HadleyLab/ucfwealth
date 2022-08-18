@@ -1,0 +1,14 @@
+{ns hl7-fhir-r4-core.search.Specimen-identifier,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "Specimen-identifier",
+  :fhir/url "http://hl7.org/fhir/SearchParameter/Specimen-identifier",
+  :fhir/type "token",
+  :name "identifier",
+  :expr
+  {:Specimen
+   {:knife [["identifier"]],
+    :jsonpath ["$.\"identifier\"[*]"],
+    :data-types #{{:type "Identifier", :polymorphic? false}},
+    :template :token}}}}

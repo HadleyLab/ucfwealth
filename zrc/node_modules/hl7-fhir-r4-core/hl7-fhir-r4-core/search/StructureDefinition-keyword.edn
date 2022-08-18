@@ -1,0 +1,15 @@
+{ns hl7-fhir-r4-core.search.StructureDefinition-keyword,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "StructureDefinition-keyword",
+  :fhir/url
+  "http://hl7.org/fhir/SearchParameter/StructureDefinition-keyword",
+  :fhir/type "token",
+  :name "keyword",
+  :expr
+  {:StructureDefinition
+   {:knife [["keyword"]],
+    :jsonpath ["$.\"keyword\"[*]"],
+    :data-types #{{:type "Coding", :polymorphic? false}},
+    :template :token}}}}

@@ -1,0 +1,15 @@
+{ns hl7-fhir-r4-core.search.MessageHeader-response-id,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "MessageHeader-response-id",
+  :fhir/url
+  "http://hl7.org/fhir/SearchParameter/MessageHeader-response-id",
+  :fhir/type "token",
+  :name "response-id",
+  :expr
+  {:MessageHeader
+   {:knife [["response" "identifier"]],
+    :jsonpath ["$.\"response\".\"identifier\"[*]"],
+    :data-types #{{:type "id", :polymorphic? false}},
+    :template :token}}}}

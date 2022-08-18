@@ -1,0 +1,15 @@
+{ns hl7-fhir-r4-core.search.Immunization-reaction,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "Immunization-reaction",
+  :fhir/url
+  "http://hl7.org/fhir/SearchParameter/Immunization-reaction",
+  :fhir/type "reference",
+  :name "reaction",
+  :expr
+  {:Immunization
+   {:knife [["reaction" "detail"]],
+    :jsonpath ["$.\"reaction\".\"detail\"[*]"],
+    :data-types #{{:type "Reference", :polymorphic? false}},
+    :template :reference}}}}

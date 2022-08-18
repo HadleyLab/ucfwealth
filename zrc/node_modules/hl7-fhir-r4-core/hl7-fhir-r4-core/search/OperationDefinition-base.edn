@@ -1,0 +1,15 @@
+{ns hl7-fhir-r4-core.search.OperationDefinition-base,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "OperationDefinition-base",
+  :fhir/url
+  "http://hl7.org/fhir/SearchParameter/OperationDefinition-base",
+  :fhir/type "reference",
+  :name "base",
+  :expr
+  {:OperationDefinition
+   {:knife [["base"]],
+    :jsonpath ["$.\"base\"[*]"],
+    :data-types #{{:type "canonical", :polymorphic? false}},
+    :template :reference}}}}

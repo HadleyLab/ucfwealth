@@ -1,0 +1,15 @@
+{ns hl7-fhir-r4-core.search.Endpoint-payload-type,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "Endpoint-payload-type",
+  :fhir/url
+  "http://hl7.org/fhir/SearchParameter/Endpoint-payload-type",
+  :fhir/type "token",
+  :name "payload-type",
+  :expr
+  {:Endpoint
+   {:knife [["payloadType"]],
+    :jsonpath ["$.\"payloadType\"[*]"],
+    :data-types #{{:type "CodeableConcept", :polymorphic? false}},
+    :template :token}}}}

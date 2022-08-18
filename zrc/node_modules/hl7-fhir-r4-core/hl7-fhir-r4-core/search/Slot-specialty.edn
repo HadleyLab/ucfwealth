@@ -1,0 +1,14 @@
+{ns hl7-fhir-r4-core.search.Slot-specialty,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "Slot-specialty",
+  :fhir/url "http://hl7.org/fhir/SearchParameter/Slot-specialty",
+  :fhir/type "token",
+  :name "specialty",
+  :expr
+  {:Slot
+   {:knife [["specialty"]],
+    :jsonpath ["$.\"specialty\"[*]"],
+    :data-types #{{:type "CodeableConcept", :polymorphic? false}},
+    :template :token}}}}

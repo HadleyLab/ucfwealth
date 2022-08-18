@@ -1,0 +1,15 @@
+{ns hl7-fhir-r4-core.search.MedicinalProductUndesirableEffect-subject,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "MedicinalProductUndesirableEffect-subject",
+  :fhir/url
+  "http://hl7.org/fhir/SearchParameter/MedicinalProductUndesirableEffect-subject",
+  :fhir/type "reference",
+  :name "subject",
+  :expr
+  {:MedicinalProductUndesirableEffect
+   {:knife [["subject"]],
+    :jsonpath ["$.\"subject\"[*]"],
+    :data-types #{{:type "Reference", :polymorphic? false}},
+    :template :reference}}}}

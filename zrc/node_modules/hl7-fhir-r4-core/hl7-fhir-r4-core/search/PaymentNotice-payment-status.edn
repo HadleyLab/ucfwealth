@@ -1,0 +1,15 @@
+{ns hl7-fhir-r4-core.search.PaymentNotice-payment-status,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "PaymentNotice-payment-status",
+  :fhir/url
+  "http://hl7.org/fhir/SearchParameter/PaymentNotice-payment-status",
+  :fhir/type "token",
+  :name "payment-status",
+  :expr
+  {:PaymentNotice
+   {:knife [["paymentStatus"]],
+    :jsonpath ["$.\"paymentStatus\"[*]"],
+    :data-types #{{:type "CodeableConcept", :polymorphic? false}},
+    :template :token}}}}

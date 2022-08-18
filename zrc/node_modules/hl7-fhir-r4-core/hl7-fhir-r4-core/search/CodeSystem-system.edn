@@ -1,0 +1,14 @@
+{ns hl7-fhir-r4-core.search.CodeSystem-system,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "CodeSystem-system",
+  :fhir/url "http://hl7.org/fhir/SearchParameter/CodeSystem-system",
+  :fhir/type "uri",
+  :name "system",
+  :expr
+  {:CodeSystem
+   {:knife [["url"]],
+    :jsonpath ["$.\"url\"[*]"],
+    :data-types #{{:type "uri", :polymorphic? false}},
+    :template :uri}}}}

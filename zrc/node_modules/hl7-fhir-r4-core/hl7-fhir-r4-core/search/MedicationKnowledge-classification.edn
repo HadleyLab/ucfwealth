@@ -1,0 +1,15 @@
+{ns hl7-fhir-r4-core.search.MedicationKnowledge-classification,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "MedicationKnowledge-classification",
+  :fhir/url
+  "http://hl7.org/fhir/SearchParameter/MedicationKnowledge-classification",
+  :fhir/type "token",
+  :name "classification",
+  :expr
+  {:MedicationKnowledge
+   {:knife [["medicineClassification" "classification"]],
+    :jsonpath ["$.\"medicineClassification\".\"classification\"[*]"],
+    :data-types #{{:type "CodeableConcept", :polymorphic? false}},
+    :template :token}}}}

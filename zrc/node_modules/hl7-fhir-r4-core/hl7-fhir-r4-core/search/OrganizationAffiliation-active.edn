@@ -1,0 +1,15 @@
+{ns hl7-fhir-r4-core.search.OrganizationAffiliation-active,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "OrganizationAffiliation-active",
+  :fhir/url
+  "http://hl7.org/fhir/SearchParameter/OrganizationAffiliation-active",
+  :fhir/type "token",
+  :name "active",
+  :expr
+  {:OrganizationAffiliation
+   {:knife [["active"]],
+    :jsonpath ["$.\"active\"[*]"],
+    :data-types #{{:type "boolean", :polymorphic? false}},
+    :template :token}}}}

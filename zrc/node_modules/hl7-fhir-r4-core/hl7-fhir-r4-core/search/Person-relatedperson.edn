@@ -1,0 +1,15 @@
+{ns hl7-fhir-r4-core.search.Person-relatedperson,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "Person-relatedperson",
+  :fhir/url "http://hl7.org/fhir/SearchParameter/Person-relatedperson",
+  :fhir/type "reference",
+  :name "relatedperson",
+  :expr
+  {:Person
+   {:knife [["link" "target" {:resourceType "RelatedPerson"}]],
+    :jsonpath
+    ["$.\"link\".\"target\"?(@.\"resourceType\"==\"RelatedPerson\")[*]"],
+    :data-types #{{:type "Reference", :polymorphic? false}},
+    :template :reference}}}}

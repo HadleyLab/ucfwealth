@@ -1,0 +1,15 @@
+{ns hl7-fhir-r4-core.search.ChargeItem-performer-function,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "ChargeItem-performer-function",
+  :fhir/url
+  "http://hl7.org/fhir/SearchParameter/ChargeItem-performer-function",
+  :fhir/type "token",
+  :name "performer-function",
+  :expr
+  {:ChargeItem
+   {:knife [["performer" "function"]],
+    :jsonpath ["$.\"performer\".\"function\"[*]"],
+    :data-types #{{:type "CodeableConcept", :polymorphic? false}},
+    :template :token}}}}

@@ -1,0 +1,15 @@
+{ns hl7-fhir-r4-core.search.DocumentReference-format,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "DocumentReference-format",
+  :fhir/url
+  "http://hl7.org/fhir/SearchParameter/DocumentReference-format",
+  :fhir/type "token",
+  :name "format",
+  :expr
+  {:DocumentReference
+   {:knife [["content" "format"]],
+    :jsonpath ["$.\"content\".\"format\"[*]"],
+    :data-types #{{:type "Coding", :polymorphic? false}},
+    :template :token}}}}

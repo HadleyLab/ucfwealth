@@ -1,0 +1,14 @@
+{ns hl7-fhir-r4-core.search.Task-priority,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "Task-priority",
+  :fhir/url "http://hl7.org/fhir/SearchParameter/Task-priority",
+  :fhir/type "token",
+  :name "priority",
+  :expr
+  {:Task
+   {:knife [["priority"]],
+    :jsonpath ["$.\"priority\"[*]"],
+    :data-types #{{:type "code", :polymorphic? false}},
+    :template :token}}}}

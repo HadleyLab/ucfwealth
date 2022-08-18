@@ -1,0 +1,31 @@
+{ns hl7-fhir-r4-core.search.ChargeItem-price-override,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "ChargeItem-price-override",
+  :fhir/url
+  "http://hl7.org/fhir/SearchParameter/ChargeItem-price-override",
+  :fhir/type "quantity",
+  :name "price-override",
+  :expr
+  {:ChargeItem
+   {:knife [["priceOverride"]],
+    :jsonpath ["$.\"priceOverride\"[*]"],
+    :data-types #{{:type "Money", :polymorphic? false}},
+    :template :quantity,
+    :sql
+    {:where
+     [:or
+      [:and
+       [:>=
+        [:pg/call
+         :jsonpath_extract_max_numeric
+         [:pg/sql "{{table}}.resource"]
+         "$.\"priceOverride\"[*].\"value\""]
+        [:pg/cast [:pg/sql "{{param}}"] :numeric]]
+       [:<=
+        [:pg/call
+         :jsonpath_extract_min_numeric
+         [:pg/sql "{{table}}.resource"]
+         "$.\"priceOverride\"[*].\"value\""]
+        [:pg/cast [:pg/sql "{{param}}"] :numeric]]]]}}}}}

@@ -1,0 +1,15 @@
+{ns hl7-fhir-r4-core.search.MessageHeader-receiver,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "MessageHeader-receiver",
+  :fhir/url
+  "http://hl7.org/fhir/SearchParameter/MessageHeader-receiver",
+  :fhir/type "reference",
+  :name "receiver",
+  :expr
+  {:MessageHeader
+   {:knife [["destination" "receiver"]],
+    :jsonpath ["$.\"destination\".\"receiver\"[*]"],
+    :data-types #{{:type "Reference", :polymorphic? false}},
+    :template :reference}}}}

@@ -1,0 +1,15 @@
+{ns hl7-fhir-r4-core.search.Immunization-status-reason,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "Immunization-status-reason",
+  :fhir/url
+  "http://hl7.org/fhir/SearchParameter/Immunization-status-reason",
+  :fhir/type "token",
+  :name "status-reason",
+  :expr
+  {:Immunization
+   {:knife [["statusReason"]],
+    :jsonpath ["$.\"statusReason\"[*]"],
+    :data-types #{{:type "CodeableConcept", :polymorphic? false}},
+    :template :token}}}}

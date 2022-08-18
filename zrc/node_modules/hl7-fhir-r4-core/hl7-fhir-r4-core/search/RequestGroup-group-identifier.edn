@@ -1,0 +1,15 @@
+{ns hl7-fhir-r4-core.search.RequestGroup-group-identifier,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "RequestGroup-group-identifier",
+  :fhir/url
+  "http://hl7.org/fhir/SearchParameter/RequestGroup-group-identifier",
+  :fhir/type "token",
+  :name "group-identifier",
+  :expr
+  {:RequestGroup
+   {:knife [["groupIdentifier"]],
+    :jsonpath ["$.\"groupIdentifier\"[*]"],
+    :data-types #{{:type "Identifier", :polymorphic? false}},
+    :template :token}}}}

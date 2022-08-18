@@ -1,0 +1,27 @@
+{ns hl7-fhir-r4-core.search.Library-description,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "Library-description",
+  :fhir/url "http://hl7.org/fhir/SearchParameter/Library-description",
+  :fhir/type "string",
+  :name "description",
+  :expr
+  {:Library
+   {:knife [["description"]],
+    :jsonpath ["$.\"description\"[*]"],
+    :data-types #{{:type "markdown", :polymorphic? false}},
+    :template :string,
+    :sql
+    {:where
+     [:or
+      [:ilike
+       [:pg/cast
+        [:pg/jsonb-path-query-array
+         [:pg/sql "{{table}}.resource"]
+         [:pg/cast
+          "($.\"description\"[*]).** ? (@.type() == \"string\")"
+          :jsonpath]]
+        :text]
+       [:pg/sql "{{param}}"]]],
+     :parameter-format "%\"?%"}}}}}

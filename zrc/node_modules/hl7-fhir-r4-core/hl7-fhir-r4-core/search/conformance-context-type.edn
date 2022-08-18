@@ -1,0 +1,80 @@
+{ns hl7-fhir-r4-core.search.conformance-context-type,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "conformance-context-type",
+  :fhir/url
+  "http://hl7.org/fhir/SearchParameter/conformance-context-type",
+  :fhir/type "token",
+  :name "context-type",
+  :expr
+  {:MessageDefinition
+   {:knife [["useContext" "code"]],
+    :jsonpath ["$.\"useContext\".\"code\"[*]"],
+    :data-types #{},
+    :template :token},
+   :CompartmentDefinition
+   {:knife [["useContext" "code"]],
+    :jsonpath ["$.\"useContext\".\"code\"[*]"],
+    :data-types #{},
+    :template :token},
+   :ImplementationGuide
+   {:knife [["useContext" "code"]],
+    :jsonpath ["$.\"useContext\".\"code\"[*]"],
+    :data-types #{},
+    :template :token},
+   :CodeSystem
+   {:knife [["useContext" "code"]],
+    :jsonpath ["$.\"useContext\".\"code\"[*]"],
+    :data-types #{},
+    :template :token},
+   :StructureMap
+   {:knife [["useContext" "code"]],
+    :jsonpath ["$.\"useContext\".\"code\"[*]"],
+    :data-types #{},
+    :template :token},
+   :NamingSystem
+   {:knife [["useContext" "code"]],
+    :jsonpath ["$.\"useContext\".\"code\"[*]"],
+    :data-types #{},
+    :template :token},
+   :ValueSet
+   {:knife [["useContext" "code"]],
+    :jsonpath ["$.\"useContext\".\"code\"[*]"],
+    :data-types #{},
+    :template :token},
+   :CapabilityStatement
+   {:knife [["useContext" "code"]],
+    :jsonpath ["$.\"useContext\".\"code\"[*]"],
+    :data-types #{},
+    :template :token},
+   :ConceptMap
+   {:knife [["useContext" "code"]],
+    :jsonpath ["$.\"useContext\".\"code\"[*]"],
+    :data-types #{},
+    :template :token},
+   :StructureDefinition
+   {:knife [["useContext" "code"]],
+    :jsonpath ["$.\"useContext\".\"code\"[*]"],
+    :data-types #{},
+    :template :token},
+   :SearchParameter
+   {:knife [["useContext" "code"]],
+    :jsonpath ["$.\"useContext\".\"code\"[*]"],
+    :data-types #{},
+    :template :token},
+   :OperationDefinition
+   {:knife [["useContext" "code"]],
+    :jsonpath ["$.\"useContext\".\"code\"[*]"],
+    :data-types #{},
+    :template :token},
+   :GraphDefinition
+   {:knife [["useContext" "code"]],
+    :jsonpath ["$.\"useContext\".\"code\"[*]"],
+    :data-types #{},
+    :template :token},
+   :TerminologyCapabilities
+   {:knife [["useContext" "code"]],
+    :jsonpath ["$.\"useContext\".\"code\"[*]"],
+    :data-types #{},
+    :template :token}}}}

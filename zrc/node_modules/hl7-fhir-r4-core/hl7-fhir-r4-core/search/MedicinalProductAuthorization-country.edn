@@ -1,0 +1,15 @@
+{ns hl7-fhir-r4-core.search.MedicinalProductAuthorization-country,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "MedicinalProductAuthorization-country",
+  :fhir/url
+  "http://hl7.org/fhir/SearchParameter/MedicinalProductAuthorization-country",
+  :fhir/type "token",
+  :name "country",
+  :expr
+  {:MedicinalProductAuthorization
+   {:knife [["country"]],
+    :jsonpath ["$.\"country\"[*]"],
+    :data-types #{{:type "CodeableConcept", :polymorphic? false}},
+    :template :token}}}}

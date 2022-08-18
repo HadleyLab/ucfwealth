@@ -1,0 +1,14 @@
+{ns hl7-fhir-r4-core.search.Contract-patient,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "Contract-patient",
+  :fhir/url "http://hl7.org/fhir/SearchParameter/Contract-patient",
+  :fhir/type "reference",
+  :name "patient",
+  :expr
+  {:Contract
+   {:knife [["subject" {:resourceType "Patient"}]],
+    :jsonpath ["$.\"subject\"?(@.\"resourceType\"==\"Patient\")[*]"],
+    :data-types #{{:type "Reference", :polymorphic? false}},
+    :template :reference}}}}

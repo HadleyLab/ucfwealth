@@ -1,0 +1,15 @@
+{ns hl7-fhir-r4-core.search.EnrollmentRequest-status,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "EnrollmentRequest-status",
+  :fhir/url
+  "http://hl7.org/fhir/SearchParameter/EnrollmentRequest-status",
+  :fhir/type "token",
+  :name "status",
+  :expr
+  {:EnrollmentRequest
+   {:knife [["status"]],
+    :jsonpath ["$.\"status\"[*]"],
+    :data-types #{{:type "code", :polymorphic? false}},
+    :template :token}}}}

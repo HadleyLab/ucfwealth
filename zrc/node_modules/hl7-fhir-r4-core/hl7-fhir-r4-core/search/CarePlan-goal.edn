@@ -1,0 +1,14 @@
+{ns hl7-fhir-r4-core.search.CarePlan-goal,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "CarePlan-goal",
+  :fhir/url "http://hl7.org/fhir/SearchParameter/CarePlan-goal",
+  :fhir/type "reference",
+  :name "goal",
+  :expr
+  {:CarePlan
+   {:knife [["goal"]],
+    :jsonpath ["$.\"goal\"[*]"],
+    :data-types #{{:type "Reference", :polymorphic? false}},
+    :template :reference}}}}

@@ -1,0 +1,28 @@
+{ns hl7-fhir-r4-core.search.EventDefinition-publisher,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "EventDefinition-publisher",
+  :fhir/url
+  "http://hl7.org/fhir/SearchParameter/EventDefinition-publisher",
+  :fhir/type "string",
+  :name "publisher",
+  :expr
+  {:EventDefinition
+   {:knife [["publisher"]],
+    :jsonpath ["$.\"publisher\"[*]"],
+    :data-types #{{:type "string", :polymorphic? false}},
+    :template :string,
+    :sql
+    {:where
+     [:or
+      [:ilike
+       [:pg/cast
+        [:pg/jsonb-path-query-array
+         [:pg/sql "{{table}}.resource"]
+         [:pg/cast
+          "($.\"publisher\"[*]).** ? (@.type() == \"string\")"
+          :jsonpath]]
+        :text]
+       [:pg/sql "{{param}}"]]],
+     :parameter-format "%\"?%"}}}}}

@@ -1,0 +1,15 @@
+{ns hl7-fhir-r4-core.search.RiskEvidenceSynthesis-identifier,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "RiskEvidenceSynthesis-identifier",
+  :fhir/url
+  "http://hl7.org/fhir/SearchParameter/RiskEvidenceSynthesis-identifier",
+  :fhir/type "token",
+  :name "identifier",
+  :expr
+  {:RiskEvidenceSynthesis
+   {:knife [["identifier"]],
+    :jsonpath ["$.\"identifier\"[*]"],
+    :data-types #{{:type "Identifier", :polymorphic? false}},
+    :template :token}}}}

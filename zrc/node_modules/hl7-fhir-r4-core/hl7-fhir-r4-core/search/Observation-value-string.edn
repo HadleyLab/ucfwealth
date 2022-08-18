@@ -1,0 +1,39 @@
+{ns hl7-fhir-r4-core.search.Observation-value-string,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "Observation-value-string",
+  :fhir/url
+  "http://hl7.org/fhir/SearchParameter/Observation-value-string",
+  :fhir/type "string",
+  :name "value-string",
+  :expr
+  {:Observation
+   {:knife [["value" "string"] ["value" "CodeableConcept" "text"]],
+    :jsonpath
+    ["$.\"value\".\"string\"[*]"
+     "$.\"value\".\"CodeableConcept\".\"text\"[*]"],
+    :data-types #{{:type "string", :polymorphic? false}},
+    :template :string,
+    :sql
+    {:where
+     [:or
+      [:ilike
+       [:pg/cast
+        [:pg/jsonb-path-query-array
+         [:pg/sql "{{table}}.resource"]
+         [:pg/cast
+          "($.\"value\".\"string\"[*]).** ? (@.type() == \"string\")"
+          :jsonpath]]
+        :text]
+       [:pg/sql "{{param}}"]]
+      [:ilike
+       [:pg/cast
+        [:pg/jsonb-path-query-array
+         [:pg/sql "{{table}}.resource"]
+         [:pg/cast
+          "($.\"value\".\"CodeableConcept\".\"text\"[*]).** ? (@.type() == \"string\")"
+          :jsonpath]]
+        :text]
+       [:pg/sql "{{param}}"]]],
+     :parameter-format "%\"?%"}}}}}

@@ -1,0 +1,14 @@
+{ns hl7-fhir-r4-core.search.Measure-url,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "Measure-url",
+  :fhir/url "http://hl7.org/fhir/SearchParameter/Measure-url",
+  :fhir/type "uri",
+  :name "url",
+  :expr
+  {:Measure
+   {:knife [["url"]],
+    :jsonpath ["$.\"url\"[*]"],
+    :data-types #{{:type "uri", :polymorphic? false}},
+    :template :uri}}}}

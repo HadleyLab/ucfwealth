@@ -1,0 +1,15 @@
+{ns hl7-fhir-r4-core.search.ImagingStudy-referrer,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "ImagingStudy-referrer",
+  :fhir/url
+  "http://hl7.org/fhir/SearchParameter/ImagingStudy-referrer",
+  :fhir/type "reference",
+  :name "referrer",
+  :expr
+  {:ImagingStudy
+   {:knife [["referrer"]],
+    :jsonpath ["$.\"referrer\"[*]"],
+    :data-types #{{:type "Reference", :polymorphic? false}},
+    :template :reference}}}}

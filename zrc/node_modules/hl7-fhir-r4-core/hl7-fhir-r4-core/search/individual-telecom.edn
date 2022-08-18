@@ -1,0 +1,34 @@
+{ns hl7-fhir-r4-core.search.individual-telecom,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "individual-telecom",
+  :fhir/url "http://hl7.org/fhir/SearchParameter/individual-telecom",
+  :fhir/type "token",
+  :name "telecom",
+  :expr
+  {:Patient
+   {:knife [["telecom"]],
+    :jsonpath ["$.\"telecom\"[*]"],
+    :data-types #{{:type "ContactPoint", :polymorphic? false}},
+    :template :token},
+   :Person
+   {:knife [["telecom"]],
+    :jsonpath ["$.\"telecom\"[*]"],
+    :data-types #{{:type "ContactPoint", :polymorphic? false}},
+    :template :token},
+   :Practitioner
+   {:knife [["telecom"]],
+    :jsonpath ["$.\"telecom\"[*]"],
+    :data-types #{{:type "ContactPoint", :polymorphic? false}},
+    :template :token},
+   :PractitionerRole
+   {:knife [["telecom"]],
+    :jsonpath ["$.\"telecom\"[*]"],
+    :data-types #{{:type "ContactPoint", :polymorphic? false}},
+    :template :token},
+   :RelatedPerson
+   {:knife [["telecom"]],
+    :jsonpath ["$.\"telecom\"[*]"],
+    :data-types #{{:type "ContactPoint", :polymorphic? false}},
+    :template :token}}}}

@@ -1,0 +1,14 @@
+{ns hl7-fhir-r4-core.search.AuditEvent-agent,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "AuditEvent-agent",
+  :fhir/url "http://hl7.org/fhir/SearchParameter/AuditEvent-agent",
+  :fhir/type "reference",
+  :name "agent",
+  :expr
+  {:AuditEvent
+   {:knife [["agent" "who"]],
+    :jsonpath ["$.\"agent\".\"who\"[*]"],
+    :data-types #{{:type "Reference", :polymorphic? false}},
+    :template :reference}}}}

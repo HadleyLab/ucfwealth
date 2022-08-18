@@ -1,0 +1,15 @@
+{ns hl7-fhir-r4-core.search.Appointment-location,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "Appointment-location",
+  :fhir/url "http://hl7.org/fhir/SearchParameter/Appointment-location",
+  :fhir/type "reference",
+  :name "location",
+  :expr
+  {:Appointment
+   {:knife [["participant" "actor" {:resourceType "Location"}]],
+    :jsonpath
+    ["$.\"participant\".\"actor\"?(@.\"resourceType\"==\"Location\")[*]"],
+    :data-types #{{:type "Reference", :polymorphic? false}},
+    :template :reference}}}}

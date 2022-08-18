@@ -1,0 +1,15 @@
+{ns hl7-fhir-r4-core.search.BodyStructure-morphology,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "BodyStructure-morphology",
+  :fhir/url
+  "http://hl7.org/fhir/SearchParameter/BodyStructure-morphology",
+  :fhir/type "token",
+  :name "morphology",
+  :expr
+  {:BodyStructure
+   {:knife [["morphology"]],
+    :jsonpath ["$.\"morphology\"[*]"],
+    :data-types #{{:type "CodeableConcept", :polymorphic? false}},
+    :template :token}}}}

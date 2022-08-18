@@ -1,0 +1,14 @@
+{ns hl7-fhir-r4-core.search.Encounter-account,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "Encounter-account",
+  :fhir/url "http://hl7.org/fhir/SearchParameter/Encounter-account",
+  :fhir/type "reference",
+  :name "account",
+  :expr
+  {:Encounter
+   {:knife [["account"]],
+    :jsonpath ["$.\"account\"[*]"],
+    :data-types #{{:type "Reference", :polymorphic? false}},
+    :template :reference}}}}

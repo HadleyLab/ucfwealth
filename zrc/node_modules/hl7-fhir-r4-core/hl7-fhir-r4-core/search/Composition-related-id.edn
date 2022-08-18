@@ -1,0 +1,15 @@
+{ns hl7-fhir-r4-core.search.Composition-related-id,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "Composition-related-id",
+  :fhir/url
+  "http://hl7.org/fhir/SearchParameter/Composition-related-id",
+  :fhir/type "token",
+  :name "related-id",
+  :expr
+  {:Composition
+   {:knife [["relatesTo" "target" "Identifier"]],
+    :jsonpath ["$.\"relatesTo\".\"target\".\"Identifier\"[*]"],
+    :data-types #{{:type "Identifier", :polymorphic? false}},
+    :template :token}}}}

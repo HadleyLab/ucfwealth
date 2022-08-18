@@ -1,0 +1,14 @@
+{ns hl7-fhir-r4-core.search.Library-type,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "Library-type",
+  :fhir/url "http://hl7.org/fhir/SearchParameter/Library-type",
+  :fhir/type "token",
+  :name "type",
+  :expr
+  {:Library
+   {:knife [["type"]],
+    :jsonpath ["$.\"type\"[*]"],
+    :data-types #{{:type "CodeableConcept", :polymorphic? false}},
+    :template :token}}}}

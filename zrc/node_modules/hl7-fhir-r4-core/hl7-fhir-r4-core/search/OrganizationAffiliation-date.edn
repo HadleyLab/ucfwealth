@@ -1,0 +1,58 @@
+{ns hl7-fhir-r4-core.search.OrganizationAffiliation-date,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "OrganizationAffiliation-date",
+  :fhir/url
+  "http://hl7.org/fhir/SearchParameter/OrganizationAffiliation-date",
+  :fhir/type "date",
+  :name "date",
+  :expr
+  {:OrganizationAffiliation
+   {:knife [["period"]],
+    :jsonpath ["$.\"period\"[*]"],
+    :data-types #{{:type "Period", :polymorphic? false}},
+    :template :date,
+    :sql
+    {:where
+     [:or
+      [:or
+       [:and
+        [:>=
+         [:pg/call :max_text_date_bound [:pg/sql "{{param}}"]]
+         [:pg/call
+          :jsonpath_extract_max_timestamptz
+          [:pg/sql "{{table}}.resource"]
+          "$.\"period\"[*].start"]]
+        [:<=
+         [:pg/call :min_text_date_bound [:pg/sql "{{param}}"]]
+         [:pg/call
+          :jsonpath_extract_min_timestamptz
+          [:pg/sql "{{table}}.resource"]
+          "$.\"period\"[*].end"]]]
+       [:and
+        [:>=
+         [:pg/call :max_text_date_bound [:pg/sql "{{param}}"]]
+         [:pg/call
+          :jsonpath_extract_max_timestamptz
+          [:pg/sql "{{table}}.resource"]
+          "$.\"period\"[*].start"]]
+        [:is
+         [:pg/call
+          :jsonpath_extract_max_timestamptz
+          [:pg/sql "{{table}}.resource"]
+          "$.\"period\"[*].end"]
+         nil]]
+       [:and
+        [:<=
+         [:pg/call :min_text_date_bound [:pg/sql "{{param}}"]]
+         [:pg/call
+          :jsonpath_extract_min_timestamptz
+          [:pg/sql "{{table}}.resource"]
+          "$.\"period\"[*].end"]]
+        [:is
+         [:pg/call
+          :jsonpath_extract_min_timestamptz
+          [:pg/sql "{{table}}.resource"]
+          "$.\"period\"[*].start"]
+         nil]]]]}}}}}

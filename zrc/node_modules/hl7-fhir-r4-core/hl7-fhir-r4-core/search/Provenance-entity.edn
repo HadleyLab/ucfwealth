@@ -1,0 +1,14 @@
+{ns hl7-fhir-r4-core.search.Provenance-entity,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "Provenance-entity",
+  :fhir/url "http://hl7.org/fhir/SearchParameter/Provenance-entity",
+  :fhir/type "reference",
+  :name "entity",
+  :expr
+  {:Provenance
+   {:knife [["entity" "what"]],
+    :jsonpath ["$.\"entity\".\"what\"[*]"],
+    :data-types #{{:type "Reference", :polymorphic? false}},
+    :template :reference}}}}

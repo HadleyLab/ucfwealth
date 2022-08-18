@@ -1,0 +1,15 @@
+{ns hl7-fhir-r4-core.search.FamilyMemberHistory-instantiates-canonical,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "FamilyMemberHistory-instantiates-canonical",
+  :fhir/url
+  "http://hl7.org/fhir/SearchParameter/FamilyMemberHistory-instantiates-canonical",
+  :fhir/type "reference",
+  :name "instantiates-canonical",
+  :expr
+  {:FamilyMemberHistory
+   {:knife [["instantiatesCanonical"]],
+    :jsonpath ["$.\"instantiatesCanonical\"[*]"],
+    :data-types #{{:type "canonical", :polymorphic? false}},
+    :template :reference}}}}

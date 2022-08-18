@@ -1,0 +1,14 @@
+{ns hl7-fhir-r4-core.search.Contract-domain,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "Contract-domain",
+  :fhir/url "http://hl7.org/fhir/SearchParameter/Contract-domain",
+  :fhir/type "reference",
+  :name "domain",
+  :expr
+  {:Contract
+   {:knife [["domain"]],
+    :jsonpath ["$.\"domain\"[*]"],
+    :data-types #{{:type "Reference", :polymorphic? false}},
+    :template :reference}}}}

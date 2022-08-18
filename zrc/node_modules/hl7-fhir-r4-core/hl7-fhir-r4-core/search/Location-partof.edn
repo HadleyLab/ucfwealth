@@ -1,0 +1,14 @@
+{ns hl7-fhir-r4-core.search.Location-partof,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "Location-partof",
+  :fhir/url "http://hl7.org/fhir/SearchParameter/Location-partof",
+  :fhir/type "reference",
+  :name "partof",
+  :expr
+  {:Location
+   {:knife [["partOf"]],
+    :jsonpath ["$.\"partOf\"[*]"],
+    :data-types #{{:type "Reference", :polymorphic? false}},
+    :template :reference}}}}

@@ -1,0 +1,15 @@
+{ns hl7-fhir-r4-core.search.AllergyIntolerance-criticality,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "AllergyIntolerance-criticality",
+  :fhir/url
+  "http://hl7.org/fhir/SearchParameter/AllergyIntolerance-criticality",
+  :fhir/type "token",
+  :name "criticality",
+  :expr
+  {:AllergyIntolerance
+   {:knife [["criticality"]],
+    :jsonpath ["$.\"criticality\"[*]"],
+    :data-types #{{:type "code", :polymorphic? false}},
+    :template :token}}}}

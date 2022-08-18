@@ -1,0 +1,31 @@
+{ns hl7-fhir-r4-core.search.MedicationDispense-whenprepared,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "MedicationDispense-whenprepared",
+  :fhir/url
+  "http://hl7.org/fhir/SearchParameter/MedicationDispense-whenprepared",
+  :fhir/type "date",
+  :name "whenprepared",
+  :expr
+  {:MedicationDispense
+   {:knife [["whenPrepared"]],
+    :jsonpath ["$.\"whenPrepared\"[*]"],
+    :data-types #{{:type "dateTime", :polymorphic? false}},
+    :template :date,
+    :sql
+    {:where
+     [:or
+      [:and
+       [:>=
+        [:pg/call :max_text_date_bound [:pg/sql "{{param}}"]]
+        [:pg/call
+         :jsonpath_extract_max_timestamptz
+         [:pg/sql "{{table}}.resource"]
+         "$.\"whenPrepared\"[*]"]]
+       [:<=
+        [:pg/call :min_text_date_bound [:pg/sql "{{param}}"]]
+        [:pg/call
+         :jsonpath_extract_min_timestamptz
+         [:pg/sql "{{table}}.resource"]
+         "$.\"whenPrepared\"[*]"]]]]}}}}}

@@ -1,0 +1,16 @@
+{ns hl7-fhir-r4-core.search.PlanDefinition-derived-from,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "PlanDefinition-derived-from",
+  :fhir/url
+  "http://hl7.org/fhir/SearchParameter/PlanDefinition-derived-from",
+  :fhir/type "reference",
+  :name "derived-from",
+  :expr
+  {:PlanDefinition
+   {:knife [["relatedArtifact" {:type "derived-from"} "resource"]],
+    :jsonpath
+    ["$.\"relatedArtifact\"?(@.\"type\"==\"derived-from\").\"resource\"[*]"],
+    :data-types #{},
+    :template :reference}}}}

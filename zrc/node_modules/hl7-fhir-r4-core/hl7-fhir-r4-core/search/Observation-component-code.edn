@@ -1,0 +1,15 @@
+{ns hl7-fhir-r4-core.search.Observation-component-code,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "Observation-component-code",
+  :fhir/url
+  "http://hl7.org/fhir/SearchParameter/Observation-component-code",
+  :fhir/type "token",
+  :name "component-code",
+  :expr
+  {:Observation
+   {:knife [["component" "code"]],
+    :jsonpath ["$.\"component\".\"code\"[*]"],
+    :data-types #{{:type "CodeableConcept", :polymorphic? false}},
+    :template :token}}}}

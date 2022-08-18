@@ -1,0 +1,15 @@
+{ns hl7-fhir-r4-core.search.HealthcareService-coverage-area,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "HealthcareService-coverage-area",
+  :fhir/url
+  "http://hl7.org/fhir/SearchParameter/HealthcareService-coverage-area",
+  :fhir/type "reference",
+  :name "coverage-area",
+  :expr
+  {:HealthcareService
+   {:knife [["coverageArea"]],
+    :jsonpath ["$.\"coverageArea\"[*]"],
+    :data-types #{{:type "Reference", :polymorphic? false}},
+    :template :reference}}}}

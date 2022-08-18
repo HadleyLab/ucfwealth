@@ -1,0 +1,15 @@
+{ns hl7-fhir-r4-core.search.QuestionnaireResponse-patient,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "QuestionnaireResponse-patient",
+  :fhir/url
+  "http://hl7.org/fhir/SearchParameter/QuestionnaireResponse-patient",
+  :fhir/type "reference",
+  :name "patient",
+  :expr
+  {:QuestionnaireResponse
+   {:knife [["subject" {:resourceType "Patient"}]],
+    :jsonpath ["$.\"subject\"?(@.\"resourceType\"==\"Patient\")[*]"],
+    :data-types #{{:type "Reference", :polymorphic? false}},
+    :template :reference}}}}

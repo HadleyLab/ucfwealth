@@ -1,0 +1,30 @@
+{ns hl7-fhir-r4-core.search.Invoice-totalgross,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "Invoice-totalgross",
+  :fhir/url "http://hl7.org/fhir/SearchParameter/Invoice-totalgross",
+  :fhir/type "quantity",
+  :name "totalgross",
+  :expr
+  {:Invoice
+   {:knife [["totalGross"]],
+    :jsonpath ["$.\"totalGross\"[*]"],
+    :data-types #{{:type "Money", :polymorphic? false}},
+    :template :quantity,
+    :sql
+    {:where
+     [:or
+      [:and
+       [:>=
+        [:pg/call
+         :jsonpath_extract_max_numeric
+         [:pg/sql "{{table}}.resource"]
+         "$.\"totalGross\"[*].\"value\""]
+        [:pg/cast [:pg/sql "{{param}}"] :numeric]]
+       [:<=
+        [:pg/call
+         :jsonpath_extract_min_numeric
+         [:pg/sql "{{table}}.resource"]
+         "$.\"totalGross\"[*].\"value\""]
+        [:pg/cast [:pg/sql "{{param}}"] :numeric]]]]}}}}}

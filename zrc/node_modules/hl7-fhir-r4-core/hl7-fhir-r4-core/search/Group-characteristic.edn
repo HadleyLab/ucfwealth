@@ -1,0 +1,14 @@
+{ns hl7-fhir-r4-core.search.Group-characteristic,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "Group-characteristic",
+  :fhir/url "http://hl7.org/fhir/SearchParameter/Group-characteristic",
+  :fhir/type "token",
+  :name "characteristic",
+  :expr
+  {:Group
+   {:knife [["characteristic" "code"]],
+    :jsonpath ["$.\"characteristic\".\"code\"[*]"],
+    :data-types #{{:type "CodeableConcept", :polymorphic? false}},
+    :template :token}}}}

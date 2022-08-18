@@ -1,0 +1,15 @@
+{ns hl7-fhir-r4-core.search.NutritionOrder-instantiates-canonical,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "NutritionOrder-instantiates-canonical",
+  :fhir/url
+  "http://hl7.org/fhir/SearchParameter/NutritionOrder-instantiates-canonical",
+  :fhir/type "reference",
+  :name "instantiates-canonical",
+  :expr
+  {:NutritionOrder
+   {:knife [["instantiatesCanonical"]],
+    :jsonpath ["$.\"instantiatesCanonical\"[*]"],
+    :data-types #{{:type "canonical", :polymorphic? false}},
+    :template :reference}}}}

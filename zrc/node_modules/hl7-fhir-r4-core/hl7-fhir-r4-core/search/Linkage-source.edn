@@ -1,0 +1,14 @@
+{ns hl7-fhir-r4-core.search.Linkage-source,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "Linkage-source",
+  :fhir/url "http://hl7.org/fhir/SearchParameter/Linkage-source",
+  :fhir/type "reference",
+  :name "source",
+  :expr
+  {:Linkage
+   {:knife [["item" "resource"]],
+    :jsonpath ["$.\"item\".\"resource\"[*]"],
+    :data-types #{{:type "Reference", :polymorphic? false}},
+    :template :reference}}}}

@@ -1,0 +1,15 @@
+{ns hl7-fhir-r4-core.search.DeviceMetric-identifier,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "DeviceMetric-identifier",
+  :fhir/url
+  "http://hl7.org/fhir/SearchParameter/DeviceMetric-identifier",
+  :fhir/type "token",
+  :name "identifier",
+  :expr
+  {:DeviceMetric
+   {:knife [["identifier"]],
+    :jsonpath ["$.\"identifier\"[*]"],
+    :data-types #{{:type "Identifier", :polymorphic? false}},
+    :template :token}}}}

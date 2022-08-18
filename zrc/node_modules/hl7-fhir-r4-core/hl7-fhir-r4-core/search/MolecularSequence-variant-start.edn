@@ -1,0 +1,31 @@
+{ns hl7-fhir-r4-core.search.MolecularSequence-variant-start,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "MolecularSequence-variant-start",
+  :fhir/url
+  "http://hl7.org/fhir/SearchParameter/MolecularSequence-variant-start",
+  :fhir/type "number",
+  :name "variant-start",
+  :expr
+  {:MolecularSequence
+   {:knife [["variant" "start"]],
+    :jsonpath ["$.\"variant\".\"start\"[*]"],
+    :data-types #{{:type "integer", :polymorphic? false}},
+    :template :number,
+    :sql
+    {:where
+     [:or
+      [:and
+       [:>=
+        [:pg/call
+         :jsonpath_extract_max_numeric
+         [:pg/sql "{{table}}.resource"]
+         "$.\"variant\".\"start\"[*]"]
+        [:pg/cast [:pg/sql "{{param}}"] :numeric]]
+       [:<=
+        [:pg/call
+         :jsonpath_extract_min_numeric
+         [:pg/sql "{{table}}.resource"]
+         "$.\"variant\".\"start\"[*]"]
+        [:pg/cast [:pg/sql "{{param}}"] :numeric]]]]}}}}}

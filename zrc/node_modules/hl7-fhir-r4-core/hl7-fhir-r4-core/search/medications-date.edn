@@ -1,0 +1,15 @@
+{ns hl7-fhir-r4-core.search.medications-date,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "medications-date",
+  :fhir/url "http://hl7.org/fhir/SearchParameter/medications-date",
+  :fhir/type "date",
+  :name "date",
+  :expr
+  {:MedicationRequest
+   {:knife [["dosageInstruction" "timing" "event"]],
+    :jsonpath ["$.\"dosageInstruction\".\"timing\".\"event\"[*]"],
+    :data-types #{},
+    :template :date,
+    :sql {:where [:or]}}}}}

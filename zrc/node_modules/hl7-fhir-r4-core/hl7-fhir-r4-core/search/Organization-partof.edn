@@ -1,0 +1,14 @@
+{ns hl7-fhir-r4-core.search.Organization-partof,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "Organization-partof",
+  :fhir/url "http://hl7.org/fhir/SearchParameter/Organization-partof",
+  :fhir/type "reference",
+  :name "partof",
+  :expr
+  {:Organization
+   {:knife [["partOf"]],
+    :jsonpath ["$.\"partOf\"[*]"],
+    :data-types #{{:type "Reference", :polymorphic? false}},
+    :template :reference}}}}

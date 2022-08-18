@@ -1,0 +1,28 @@
+{ns hl7-fhir-r4-core.search.InsurancePlan-address-city,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "InsurancePlan-address-city",
+  :fhir/url
+  "http://hl7.org/fhir/SearchParameter/InsurancePlan-address-city",
+  :fhir/type "string",
+  :name "address-city",
+  :expr
+  {:InsurancePlan
+   {:knife [["contact" "address" "city"]],
+    :jsonpath ["$.\"contact\".\"address\".\"city\"[*]"],
+    :data-types #{},
+    :template :string,
+    :sql
+    {:where
+     [:or
+      [:ilike
+       [:pg/cast
+        [:pg/jsonb-path-query-array
+         [:pg/sql "{{table}}.resource"]
+         [:pg/cast
+          "($.\"contact\".\"address\".\"city\"[*]).** ? (@.type() == \"string\")"
+          :jsonpath]]
+        :text]
+       [:pg/sql "{{param}}"]]],
+     :parameter-format "%\"?%"}}}}}

@@ -1,0 +1,15 @@
+{ns hl7-fhir-r4-core.search.ClinicalImpression-encounter,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "ClinicalImpression-encounter",
+  :fhir/url
+  "http://hl7.org/fhir/SearchParameter/ClinicalImpression-encounter",
+  :fhir/type "reference",
+  :name "encounter",
+  :expr
+  {:ClinicalImpression
+   {:knife [["encounter"]],
+    :jsonpath ["$.\"encounter\"[*]"],
+    :data-types #{{:type "Reference", :polymorphic? false}},
+    :template :reference}}}}

@@ -1,0 +1,15 @@
+{ns hl7-fhir-r4-core.search.HealthcareService-program,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "HealthcareService-program",
+  :fhir/url
+  "http://hl7.org/fhir/SearchParameter/HealthcareService-program",
+  :fhir/type "token",
+  :name "program",
+  :expr
+  {:HealthcareService
+   {:knife [["program"]],
+    :jsonpath ["$.\"program\"[*]"],
+    :data-types #{{:type "CodeableConcept", :polymorphic? false}},
+    :template :token}}}}

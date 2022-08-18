@@ -1,0 +1,15 @@
+{ns hl7-fhir-r4-core.search.Organization-endpoint,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "Organization-endpoint",
+  :fhir/url
+  "http://hl7.org/fhir/SearchParameter/Organization-endpoint",
+  :fhir/type "reference",
+  :name "endpoint",
+  :expr
+  {:Organization
+   {:knife [["endpoint"]],
+    :jsonpath ["$.\"endpoint\"[*]"],
+    :data-types #{{:type "Reference", :polymorphic? false}},
+    :template :reference}}}}

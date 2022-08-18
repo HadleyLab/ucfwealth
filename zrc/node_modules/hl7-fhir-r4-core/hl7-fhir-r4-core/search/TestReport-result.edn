@@ -1,0 +1,14 @@
+{ns hl7-fhir-r4-core.search.TestReport-result,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "TestReport-result",
+  :fhir/url "http://hl7.org/fhir/SearchParameter/TestReport-result",
+  :fhir/type "token",
+  :name "result",
+  :expr
+  {:TestReport
+   {:knife [["result"]],
+    :jsonpath ["$.\"result\"[*]"],
+    :data-types #{{:type "code", :polymorphic? false}},
+    :template :token}}}}

@@ -1,0 +1,15 @@
+{ns hl7-fhir-r4-core.search.EvidenceVariable-status,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "EvidenceVariable-status",
+  :fhir/url
+  "http://hl7.org/fhir/SearchParameter/EvidenceVariable-status",
+  :fhir/type "token",
+  :name "status",
+  :expr
+  {:EvidenceVariable
+   {:knife [["status"]],
+    :jsonpath ["$.\"status\"[*]"],
+    :data-types #{{:type "code", :polymorphic? false}},
+    :template :token}}}}

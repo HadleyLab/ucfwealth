@@ -1,0 +1,15 @@
+{ns hl7-fhir-r4-core.search.SupplyDelivery-supplier,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "SupplyDelivery-supplier",
+  :fhir/url
+  "http://hl7.org/fhir/SearchParameter/SupplyDelivery-supplier",
+  :fhir/type "reference",
+  :name "supplier",
+  :expr
+  {:SupplyDelivery
+   {:knife [["supplier"]],
+    :jsonpath ["$.\"supplier\"[*]"],
+    :data-types #{{:type "Reference", :polymorphic? false}},
+    :template :reference}}}}

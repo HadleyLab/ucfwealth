@@ -1,0 +1,14 @@
+{ns hl7-fhir-r4-core.search.Invoice-participant,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "Invoice-participant",
+  :fhir/url "http://hl7.org/fhir/SearchParameter/Invoice-participant",
+  :fhir/type "reference",
+  :name "participant",
+  :expr
+  {:Invoice
+   {:knife [["participant" "actor"]],
+    :jsonpath ["$.\"participant\".\"actor\"[*]"],
+    :data-types #{{:type "Reference", :polymorphic? false}},
+    :template :reference}}}}

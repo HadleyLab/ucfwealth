@@ -1,0 +1,14 @@
+{ns hl7-fhir-r4-core.search.List-empty-reason,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "List-empty-reason",
+  :fhir/url "http://hl7.org/fhir/SearchParameter/List-empty-reason",
+  :fhir/type "token",
+  :name "empty-reason",
+  :expr
+  {:List
+   {:knife [["emptyReason"]],
+    :jsonpath ["$.\"emptyReason\"[*]"],
+    :data-types #{{:type "CodeableConcept", :polymorphic? false}},
+    :template :token}}}}

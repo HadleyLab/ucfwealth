@@ -1,0 +1,15 @@
+{ns hl7-fhir-r4-core.search.CapabilityStatement-format,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "CapabilityStatement-format",
+  :fhir/url
+  "http://hl7.org/fhir/SearchParameter/CapabilityStatement-format",
+  :fhir/type "token",
+  :name "format",
+  :expr
+  {:CapabilityStatement
+   {:knife [["format"]],
+    :jsonpath ["$.\"format\"[*]"],
+    :data-types #{{:type "code", :polymorphic? false}},
+    :template :token}}}}

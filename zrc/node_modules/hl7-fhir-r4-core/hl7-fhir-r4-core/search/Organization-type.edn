@@ -1,0 +1,14 @@
+{ns hl7-fhir-r4-core.search.Organization-type,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "Organization-type",
+  :fhir/url "http://hl7.org/fhir/SearchParameter/Organization-type",
+  :fhir/type "token",
+  :name "type",
+  :expr
+  {:Organization
+   {:knife [["type"]],
+    :jsonpath ["$.\"type\"[*]"],
+    :data-types #{{:type "CodeableConcept", :polymorphic? false}},
+    :template :token}}}}

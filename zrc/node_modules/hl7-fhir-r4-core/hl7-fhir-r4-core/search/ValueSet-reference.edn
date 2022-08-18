@@ -1,0 +1,14 @@
+{ns hl7-fhir-r4-core.search.ValueSet-reference,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "ValueSet-reference",
+  :fhir/url "http://hl7.org/fhir/SearchParameter/ValueSet-reference",
+  :fhir/type "uri",
+  :name "reference",
+  :expr
+  {:ValueSet
+   {:knife [["compose" "include" "system"]],
+    :jsonpath ["$.\"compose\".\"include\".\"system\"[*]"],
+    :data-types #{{:type "uri", :polymorphic? false}},
+    :template :uri}}}}

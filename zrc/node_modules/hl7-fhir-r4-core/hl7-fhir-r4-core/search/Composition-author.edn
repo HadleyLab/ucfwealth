@@ -1,0 +1,14 @@
+{ns hl7-fhir-r4-core.search.Composition-author,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "Composition-author",
+  :fhir/url "http://hl7.org/fhir/SearchParameter/Composition-author",
+  :fhir/type "reference",
+  :name "author",
+  :expr
+  {:Composition
+   {:knife [["author"]],
+    :jsonpath ["$.\"author\"[*]"],
+    :data-types #{{:type "Reference", :polymorphic? false}},
+    :template :reference}}}}

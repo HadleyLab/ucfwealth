@@ -1,0 +1,34 @@
+{ns hl7-fhir-r4-core.search.individual-email,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "individual-email",
+  :fhir/url "http://hl7.org/fhir/SearchParameter/individual-email",
+  :fhir/type "token",
+  :name "email",
+  :expr
+  {:Patient
+   {:knife [["telecom" {:system "email"}]],
+    :jsonpath ["$.\"telecom\"?(@.\"system\"==\"email\")[*]"],
+    :data-types #{{:type "ContactPoint", :polymorphic? false}},
+    :template :token},
+   :Person
+   {:knife [["telecom" {:system "email"}]],
+    :jsonpath ["$.\"telecom\"?(@.\"system\"==\"email\")[*]"],
+    :data-types #{{:type "ContactPoint", :polymorphic? false}},
+    :template :token},
+   :Practitioner
+   {:knife [["telecom" {:system "email"}]],
+    :jsonpath ["$.\"telecom\"?(@.\"system\"==\"email\")[*]"],
+    :data-types #{{:type "ContactPoint", :polymorphic? false}},
+    :template :token},
+   :PractitionerRole
+   {:knife [["telecom" {:system "email"}]],
+    :jsonpath ["$.\"telecom\"?(@.\"system\"==\"email\")[*]"],
+    :data-types #{{:type "ContactPoint", :polymorphic? false}},
+    :template :token},
+   :RelatedPerson
+   {:knife [["telecom" {:system "email"}]],
+    :jsonpath ["$.\"telecom\"?(@.\"system\"==\"email\")[*]"],
+    :data-types #{{:type "ContactPoint", :polymorphic? false}},
+    :template :token}}}}

@@ -1,0 +1,15 @@
+{ns hl7-fhir-r4-core.search.OperationDefinition-instance,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "OperationDefinition-instance",
+  :fhir/url
+  "http://hl7.org/fhir/SearchParameter/OperationDefinition-instance",
+  :fhir/type "token",
+  :name "instance",
+  :expr
+  {:OperationDefinition
+   {:knife [["instance"]],
+    :jsonpath ["$.\"instance\"[*]"],
+    :data-types #{{:type "boolean", :polymorphic? false}},
+    :template :token}}}}

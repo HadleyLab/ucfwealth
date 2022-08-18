@@ -1,0 +1,14 @@
+{ns hl7-fhir-r4-core.search.DeviceMetric-source,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "DeviceMetric-source",
+  :fhir/url "http://hl7.org/fhir/SearchParameter/DeviceMetric-source",
+  :fhir/type "reference",
+  :name "source",
+  :expr
+  {:DeviceMetric
+   {:knife [["source"]],
+    :jsonpath ["$.\"source\"[*]"],
+    :data-types #{{:type "Reference", :polymorphic? false}},
+    :template :reference}}}}

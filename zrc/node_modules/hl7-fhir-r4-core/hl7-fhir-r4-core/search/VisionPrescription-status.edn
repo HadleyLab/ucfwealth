@@ -1,0 +1,15 @@
+{ns hl7-fhir-r4-core.search.VisionPrescription-status,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "VisionPrescription-status",
+  :fhir/url
+  "http://hl7.org/fhir/SearchParameter/VisionPrescription-status",
+  :fhir/type "token",
+  :name "status",
+  :expr
+  {:VisionPrescription
+   {:knife [["status"]],
+    :jsonpath ["$.\"status\"[*]"],
+    :data-types #{{:type "code", :polymorphic? false}},
+    :template :token}}}}

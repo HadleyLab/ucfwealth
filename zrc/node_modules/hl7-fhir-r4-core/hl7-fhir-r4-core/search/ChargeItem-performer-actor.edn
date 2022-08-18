@@ -1,0 +1,15 @@
+{ns hl7-fhir-r4-core.search.ChargeItem-performer-actor,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "ChargeItem-performer-actor",
+  :fhir/url
+  "http://hl7.org/fhir/SearchParameter/ChargeItem-performer-actor",
+  :fhir/type "reference",
+  :name "performer-actor",
+  :expr
+  {:ChargeItem
+   {:knife [["performer" "actor"]],
+    :jsonpath ["$.\"performer\".\"actor\"[*]"],
+    :data-types #{{:type "Reference", :polymorphic? false}},
+    :template :reference}}}}

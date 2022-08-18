@@ -1,0 +1,51 @@
+{ns hl7-fhir-r4-core.search.Device-device-name,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "Device-device-name",
+  :fhir/url "http://hl7.org/fhir/SearchParameter/Device-device-name",
+  :fhir/type "string",
+  :name "device-name",
+  :expr
+  {:Device
+   {:knife
+    [["deviceName" "name"]
+     ["type" "coding" "display"]
+     ["type" "text"]],
+    :jsonpath
+    ["$.\"deviceName\".\"name\"[*]"
+     "$.\"type\".\"coding\".\"display\"[*]"
+     "$.\"type\".\"text\"[*]"],
+    :data-types #{{:type "string", :polymorphic? false}},
+    :template :string,
+    :sql
+    {:where
+     [:or
+      [:ilike
+       [:pg/cast
+        [:pg/jsonb-path-query-array
+         [:pg/sql "{{table}}.resource"]
+         [:pg/cast
+          "($.\"deviceName\".\"name\"[*]).** ? (@.type() == \"string\")"
+          :jsonpath]]
+        :text]
+       [:pg/sql "{{param}}"]]
+      [:ilike
+       [:pg/cast
+        [:pg/jsonb-path-query-array
+         [:pg/sql "{{table}}.resource"]
+         [:pg/cast
+          "($.\"type\".\"coding\".\"display\"[*]).** ? (@.type() == \"string\")"
+          :jsonpath]]
+        :text]
+       [:pg/sql "{{param}}"]]
+      [:ilike
+       [:pg/cast
+        [:pg/jsonb-path-query-array
+         [:pg/sql "{{table}}.resource"]
+         [:pg/cast
+          "($.\"type\".\"text\"[*]).** ? (@.type() == \"string\")"
+          :jsonpath]]
+        :text]
+       [:pg/sql "{{param}}"]]],
+     :parameter-format "%\"?%"}}}}}

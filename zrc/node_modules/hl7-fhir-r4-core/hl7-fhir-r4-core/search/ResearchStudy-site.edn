@@ -1,0 +1,14 @@
+{ns hl7-fhir-r4-core.search.ResearchStudy-site,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "ResearchStudy-site",
+  :fhir/url "http://hl7.org/fhir/SearchParameter/ResearchStudy-site",
+  :fhir/type "reference",
+  :name "site",
+  :expr
+  {:ResearchStudy
+   {:knife [["site"]],
+    :jsonpath ["$.\"site\"[*]"],
+    :data-types #{{:type "Reference", :polymorphic? false}},
+    :template :reference}}}}

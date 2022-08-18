@@ -1,0 +1,14 @@
+{ns hl7-fhir-r4-core.search.Library-content-type,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "Library-content-type",
+  :fhir/url "http://hl7.org/fhir/SearchParameter/Library-content-type",
+  :fhir/type "token",
+  :name "content-type",
+  :expr
+  {:Library
+   {:knife [["content" "contentType"]],
+    :jsonpath ["$.\"content\".\"contentType\"[*]"],
+    :data-types #{},
+    :template :token}}}}

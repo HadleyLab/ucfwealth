@@ -1,0 +1,15 @@
+{ns hl7-fhir-r4-core.search.MedicationRequest-priority,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "MedicationRequest-priority",
+  :fhir/url
+  "http://hl7.org/fhir/SearchParameter/MedicationRequest-priority",
+  :fhir/type "token",
+  :name "priority",
+  :expr
+  {:MedicationRequest
+   {:knife [["priority"]],
+    :jsonpath ["$.\"priority\"[*]"],
+    :data-types #{{:type "code", :polymorphic? false}},
+    :template :token}}}}

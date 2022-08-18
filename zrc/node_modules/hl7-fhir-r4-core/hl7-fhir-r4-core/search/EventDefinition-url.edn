@@ -1,0 +1,14 @@
+{ns hl7-fhir-r4-core.search.EventDefinition-url,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "EventDefinition-url",
+  :fhir/url "http://hl7.org/fhir/SearchParameter/EventDefinition-url",
+  :fhir/type "uri",
+  :name "url",
+  :expr
+  {:EventDefinition
+   {:knife [["url"]],
+    :jsonpath ["$.\"url\"[*]"],
+    :data-types #{{:type "uri", :polymorphic? false}},
+    :template :uri}}}}

@@ -1,0 +1,16 @@
+{ns hl7-fhir-r4-core.search.ActivityDefinition-predecessor,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "ActivityDefinition-predecessor",
+  :fhir/url
+  "http://hl7.org/fhir/SearchParameter/ActivityDefinition-predecessor",
+  :fhir/type "reference",
+  :name "predecessor",
+  :expr
+  {:ActivityDefinition
+   {:knife [["relatedArtifact" {:type "predecessor"} "resource"]],
+    :jsonpath
+    ["$.\"relatedArtifact\"?(@.\"type\"==\"predecessor\").\"resource\"[*]"],
+    :data-types #{},
+    :template :reference}}}}

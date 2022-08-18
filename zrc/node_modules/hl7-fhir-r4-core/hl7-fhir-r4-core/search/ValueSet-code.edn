@@ -1,0 +1,18 @@
+{ns hl7-fhir-r4-core.search.ValueSet-code,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "ValueSet-code",
+  :fhir/url "http://hl7.org/fhir/SearchParameter/ValueSet-code",
+  :fhir/type "token",
+  :name "code",
+  :expr
+  {:ValueSet
+   {:knife
+    [["expansion" "contains" "code"]
+     ["compose" "include" "concept" "code"]],
+    :jsonpath
+    ["$.\"expansion\".\"contains\".\"code\"[*]"
+     "$.\"compose\".\"include\".\"concept\".\"code\"[*]"],
+    :data-types #{{:type "code", :polymorphic? false}},
+    :template :token}}}}

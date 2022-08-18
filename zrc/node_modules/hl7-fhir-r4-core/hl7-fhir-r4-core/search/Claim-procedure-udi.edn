@@ -1,0 +1,14 @@
+{ns hl7-fhir-r4-core.search.Claim-procedure-udi,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "Claim-procedure-udi",
+  :fhir/url "http://hl7.org/fhir/SearchParameter/Claim-procedure-udi",
+  :fhir/type "reference",
+  :name "procedure-udi",
+  :expr
+  {:Claim
+   {:knife [["procedure" "udi"]],
+    :jsonpath ["$.\"procedure\".\"udi\"[*]"],
+    :data-types #{{:type "Reference", :polymorphic? false}},
+    :template :reference}}}}

@@ -1,0 +1,15 @@
+{ns hl7-fhir-r4-core.search.Immunization-location,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "Immunization-location",
+  :fhir/url
+  "http://hl7.org/fhir/SearchParameter/Immunization-location",
+  :fhir/type "reference",
+  :name "location",
+  :expr
+  {:Immunization
+   {:knife [["location"]],
+    :jsonpath ["$.\"location\"[*]"],
+    :data-types #{{:type "Reference", :polymorphic? false}},
+    :template :reference}}}}

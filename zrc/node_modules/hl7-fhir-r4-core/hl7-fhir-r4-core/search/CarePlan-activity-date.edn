@@ -1,0 +1,87 @@
+{ns hl7-fhir-r4-core.search.CarePlan-activity-date,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "CarePlan-activity-date",
+  :fhir/url
+  "http://hl7.org/fhir/SearchParameter/CarePlan-activity-date",
+  :fhir/type "date",
+  :name "activity-date",
+  :expr
+  {:CarePlan
+   {:knife [["activity" "detail" "scheduled"]],
+    :jsonpath ["$.\"activity\".\"detail\".\"scheduled\"[*]"],
+    :data-types
+    #{{:type "string", :polymorphic? true}
+      {:type "Period", :polymorphic? true}
+      {:type "Timing", :polymorphic? true}},
+    :template :date,
+    :sql
+    {:where
+     [:or
+      [:and
+       [:>=
+        [:pg/call :max_text_date_bound [:pg/sql "{{param}}"]]
+        [:pg/call
+         :jsonpath_extract_max_timestamptz
+         [:pg/sql "{{table}}.resource"]
+         "$.\"activity\".\"detail\".\"scheduled\"[*].string"]]
+       [:<=
+        [:pg/call :min_text_date_bound [:pg/sql "{{param}}"]]
+        [:pg/call
+         :jsonpath_extract_min_timestamptz
+         [:pg/sql "{{table}}.resource"]
+         "$.\"activity\".\"detail\".\"scheduled\"[*].string"]]]
+      [:or
+       [:and
+        [:>=
+         [:pg/call :max_text_date_bound [:pg/sql "{{param}}"]]
+         [:pg/call
+          :jsonpath_extract_max_timestamptz
+          [:pg/sql "{{table}}.resource"]
+          "$.\"activity\".\"detail\".\"scheduled\"[*].Period.start"]]
+        [:<=
+         [:pg/call :min_text_date_bound [:pg/sql "{{param}}"]]
+         [:pg/call
+          :jsonpath_extract_min_timestamptz
+          [:pg/sql "{{table}}.resource"]
+          "$.\"activity\".\"detail\".\"scheduled\"[*].Period.end"]]]
+       [:and
+        [:>=
+         [:pg/call :max_text_date_bound [:pg/sql "{{param}}"]]
+         [:pg/call
+          :jsonpath_extract_max_timestamptz
+          [:pg/sql "{{table}}.resource"]
+          "$.\"activity\".\"detail\".\"scheduled\"[*].Period.start"]]
+        [:is
+         [:pg/call
+          :jsonpath_extract_max_timestamptz
+          [:pg/sql "{{table}}.resource"]
+          "$.\"activity\".\"detail\".\"scheduled\"[*].Period.end"]
+         nil]]
+       [:and
+        [:<=
+         [:pg/call :min_text_date_bound [:pg/sql "{{param}}"]]
+         [:pg/call
+          :jsonpath_extract_min_timestamptz
+          [:pg/sql "{{table}}.resource"]
+          "$.\"activity\".\"detail\".\"scheduled\"[*].Period.end"]]
+        [:is
+         [:pg/call
+          :jsonpath_extract_min_timestamptz
+          [:pg/sql "{{table}}.resource"]
+          "$.\"activity\".\"detail\".\"scheduled\"[*].Period.start"]
+         nil]]]
+      [:and
+       [:>=
+        [:pg/call :max_text_date_bound [:pg/sql "{{param}}"]]
+        [:pg/call
+         :jsonpath_extract_max_timestamptz
+         [:pg/sql "{{table}}.resource"]
+         "$.\"activity\".\"detail\".\"scheduled\"[*].Timing.event"]]
+       [:<=
+        [:pg/call :min_text_date_bound [:pg/sql "{{param}}"]]
+        [:pg/call
+         :jsonpath_extract_min_timestamptz
+         [:pg/sql "{{table}}.resource"]
+         "$.\"activity\".\"detail\".\"scheduled\"[*].Timing.event"]]]]}}}}}

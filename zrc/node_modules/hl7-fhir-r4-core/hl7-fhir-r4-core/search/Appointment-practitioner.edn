@@ -1,0 +1,16 @@
+{ns hl7-fhir-r4-core.search.Appointment-practitioner,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "Appointment-practitioner",
+  :fhir/url
+  "http://hl7.org/fhir/SearchParameter/Appointment-practitioner",
+  :fhir/type "reference",
+  :name "practitioner",
+  :expr
+  {:Appointment
+   {:knife [["participant" "actor" {:resourceType "Practitioner"}]],
+    :jsonpath
+    ["$.\"participant\".\"actor\"?(@.\"resourceType\"==\"Practitioner\")[*]"],
+    :data-types #{{:type "Reference", :polymorphic? false}},
+    :template :reference}}}}

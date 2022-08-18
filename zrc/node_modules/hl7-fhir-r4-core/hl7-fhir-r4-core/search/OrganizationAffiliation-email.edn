@@ -1,0 +1,15 @@
+{ns hl7-fhir-r4-core.search.OrganizationAffiliation-email,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "OrganizationAffiliation-email",
+  :fhir/url
+  "http://hl7.org/fhir/SearchParameter/OrganizationAffiliation-email",
+  :fhir/type "token",
+  :name "email",
+  :expr
+  {:OrganizationAffiliation
+   {:knife [["telecom" {:system "email"}]],
+    :jsonpath ["$.\"telecom\"?(@.\"system\"==\"email\")[*]"],
+    :data-types #{{:type "ContactPoint", :polymorphic? false}},
+    :template :token}}}}

@@ -1,0 +1,15 @@
+{ns hl7-fhir-r4-core.search.ResearchStudy-keyword,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "ResearchStudy-keyword",
+  :fhir/url
+  "http://hl7.org/fhir/SearchParameter/ResearchStudy-keyword",
+  :fhir/type "token",
+  :name "keyword",
+  :expr
+  {:ResearchStudy
+   {:knife [["keyword"]],
+    :jsonpath ["$.\"keyword\"[*]"],
+    :data-types #{{:type "CodeableConcept", :polymorphic? false}},
+    :template :token}}}}

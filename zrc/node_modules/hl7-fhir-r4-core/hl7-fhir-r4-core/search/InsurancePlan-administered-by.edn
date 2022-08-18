@@ -1,0 +1,15 @@
+{ns hl7-fhir-r4-core.search.InsurancePlan-administered-by,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "InsurancePlan-administered-by",
+  :fhir/url
+  "http://hl7.org/fhir/SearchParameter/InsurancePlan-administered-by",
+  :fhir/type "reference",
+  :name "administered-by",
+  :expr
+  {:InsurancePlan
+   {:knife [["administeredBy"]],
+    :jsonpath ["$.\"administeredBy\"[*]"],
+    :data-types #{{:type "Reference", :polymorphic? false}},
+    :template :reference}}}}

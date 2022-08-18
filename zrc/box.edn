@@ -1,0 +1,6 @@
+{ns box
+ import #{aidbox fhir-ichom-breast-cancer-ig}
+
+ box
+ {:zen/tags #{aidbox/system}
+  :zen/desc "fhir-ichom-breast-cancer-ig"}}

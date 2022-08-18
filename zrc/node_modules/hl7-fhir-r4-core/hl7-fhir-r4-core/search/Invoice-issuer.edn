@@ -1,0 +1,14 @@
+{ns hl7-fhir-r4-core.search.Invoice-issuer,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "Invoice-issuer",
+  :fhir/url "http://hl7.org/fhir/SearchParameter/Invoice-issuer",
+  :fhir/type "reference",
+  :name "issuer",
+  :expr
+  {:Invoice
+   {:knife [["issuer"]],
+    :jsonpath ["$.\"issuer\"[*]"],
+    :data-types #{{:type "Reference", :polymorphic? false}},
+    :template :reference}}}}

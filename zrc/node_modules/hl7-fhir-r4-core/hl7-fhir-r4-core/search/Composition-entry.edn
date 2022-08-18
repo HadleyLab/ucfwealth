@@ -1,0 +1,14 @@
+{ns hl7-fhir-r4-core.search.Composition-entry,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "Composition-entry",
+  :fhir/url "http://hl7.org/fhir/SearchParameter/Composition-entry",
+  :fhir/type "reference",
+  :name "entry",
+  :expr
+  {:Composition
+   {:knife [["section" "entry"]],
+    :jsonpath ["$.\"section\".\"entry\"[*]"],
+    :data-types #{{:type "Reference", :polymorphic? false}},
+    :template :reference}}}}

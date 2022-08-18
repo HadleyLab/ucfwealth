@@ -1,0 +1,15 @@
+{ns hl7-fhir-r4-core.search.Invoice-participant-role,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "Invoice-participant-role",
+  :fhir/url
+  "http://hl7.org/fhir/SearchParameter/Invoice-participant-role",
+  :fhir/type "token",
+  :name "participant-role",
+  :expr
+  {:Invoice
+   {:knife [["participant" "role"]],
+    :jsonpath ["$.\"participant\".\"role\"[*]"],
+    :data-types #{{:type "CodeableConcept", :polymorphic? false}},
+    :template :token}}}}

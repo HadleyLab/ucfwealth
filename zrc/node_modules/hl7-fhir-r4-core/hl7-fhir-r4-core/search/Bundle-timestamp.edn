@@ -1,0 +1,30 @@
+{ns hl7-fhir-r4-core.search.Bundle-timestamp,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "Bundle-timestamp",
+  :fhir/url "http://hl7.org/fhir/SearchParameter/Bundle-timestamp",
+  :fhir/type "date",
+  :name "timestamp",
+  :expr
+  {:Bundle
+   {:knife [["timestamp"]],
+    :jsonpath ["$.\"timestamp\"[*]"],
+    :data-types #{{:type "instant", :polymorphic? false}},
+    :template :date,
+    :sql
+    {:where
+     [:or
+      [:and
+       [:>=
+        [:pg/call :max_text_date_bound [:pg/sql "{{param}}"]]
+        [:pg/call
+         :jsonpath_extract_max_timestamptz
+         [:pg/sql "{{table}}.resource"]
+         "$.\"timestamp\"[*]"]]
+       [:<=
+        [:pg/call :min_text_date_bound [:pg/sql "{{param}}"]]
+        [:pg/call
+         :jsonpath_extract_min_timestamptz
+         [:pg/sql "{{table}}.resource"]
+         "$.\"timestamp\"[*]"]]]]}}}}}

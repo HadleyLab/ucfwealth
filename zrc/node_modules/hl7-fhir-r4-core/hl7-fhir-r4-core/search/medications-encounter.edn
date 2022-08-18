@@ -1,0 +1,15 @@
+{ns hl7-fhir-r4-core.search.medications-encounter,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "medications-encounter",
+  :fhir/url
+  "http://hl7.org/fhir/SearchParameter/medications-encounter",
+  :fhir/type "reference",
+  :name "encounter",
+  :expr
+  {:MedicationRequest
+   {:knife [["encounter"]],
+    :jsonpath ["$.\"encounter\"[*]"],
+    :data-types #{{:type "Reference", :polymorphic? false}},
+    :template :reference}}}}

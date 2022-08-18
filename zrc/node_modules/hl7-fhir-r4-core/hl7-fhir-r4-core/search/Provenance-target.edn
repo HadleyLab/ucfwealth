@@ -1,0 +1,14 @@
+{ns hl7-fhir-r4-core.search.Provenance-target,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "Provenance-target",
+  :fhir/url "http://hl7.org/fhir/SearchParameter/Provenance-target",
+  :fhir/type "reference",
+  :name "target",
+  :expr
+  {:Provenance
+   {:knife [["target"]],
+    :jsonpath ["$.\"target\"[*]"],
+    :data-types #{{:type "Reference", :polymorphic? false}},
+    :template :reference}}}}

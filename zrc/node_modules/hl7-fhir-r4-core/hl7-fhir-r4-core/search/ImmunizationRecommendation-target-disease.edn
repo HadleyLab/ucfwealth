@@ -1,0 +1,15 @@
+{ns hl7-fhir-r4-core.search.ImmunizationRecommendation-target-disease,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "ImmunizationRecommendation-target-disease",
+  :fhir/url
+  "http://hl7.org/fhir/SearchParameter/ImmunizationRecommendation-target-disease",
+  :fhir/type "token",
+  :name "target-disease",
+  :expr
+  {:ImmunizationRecommendation
+   {:knife [["recommendation" "targetDisease"]],
+    :jsonpath ["$.\"recommendation\".\"targetDisease\"[*]"],
+    :data-types #{{:type "CodeableConcept", :polymorphic? false}},
+    :template :token}}}}

@@ -1,0 +1,14 @@
+{ns hl7-fhir-r4-core.search.ChargeItem-context,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "ChargeItem-context",
+  :fhir/url "http://hl7.org/fhir/SearchParameter/ChargeItem-context",
+  :fhir/type "reference",
+  :name "context",
+  :expr
+  {:ChargeItem
+   {:knife [["context"]],
+    :jsonpath ["$.\"context\"[*]"],
+    :data-types #{{:type "Reference", :polymorphic? false}},
+    :template :reference}}}}

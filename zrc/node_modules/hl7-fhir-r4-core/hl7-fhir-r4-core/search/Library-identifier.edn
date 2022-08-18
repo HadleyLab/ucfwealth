@@ -1,0 +1,14 @@
+{ns hl7-fhir-r4-core.search.Library-identifier,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "Library-identifier",
+  :fhir/url "http://hl7.org/fhir/SearchParameter/Library-identifier",
+  :fhir/type "token",
+  :name "identifier",
+  :expr
+  {:Library
+   {:knife [["identifier"]],
+    :jsonpath ["$.\"identifier\"[*]"],
+    :data-types #{{:type "Identifier", :polymorphic? false}},
+    :template :token}}}}

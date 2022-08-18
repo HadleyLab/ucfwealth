@@ -1,0 +1,15 @@
+{ns hl7-fhir-r4-core.search.ImmunizationRecommendation-status,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "ImmunizationRecommendation-status",
+  :fhir/url
+  "http://hl7.org/fhir/SearchParameter/ImmunizationRecommendation-status",
+  :fhir/type "token",
+  :name "status",
+  :expr
+  {:ImmunizationRecommendation
+   {:knife [["recommendation" "forecastStatus"]],
+    :jsonpath ["$.\"recommendation\".\"forecastStatus\"[*]"],
+    :data-types #{{:type "CodeableConcept", :polymorphic? false}},
+    :template :token}}}}

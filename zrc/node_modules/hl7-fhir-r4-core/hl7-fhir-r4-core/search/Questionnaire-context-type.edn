@@ -1,0 +1,15 @@
+{ns hl7-fhir-r4-core.search.Questionnaire-context-type,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "Questionnaire-context-type",
+  :fhir/url
+  "http://hl7.org/fhir/SearchParameter/Questionnaire-context-type",
+  :fhir/type "token",
+  :name "context-type",
+  :expr
+  {:Questionnaire
+   {:knife [["useContext" "code"]],
+    :jsonpath ["$.\"useContext\".\"code\"[*]"],
+    :data-types #{},
+    :template :token}}}}

@@ -1,0 +1,15 @@
+{ns hl7-fhir-r4-core.search.InsurancePlan-address-use,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "InsurancePlan-address-use",
+  :fhir/url
+  "http://hl7.org/fhir/SearchParameter/InsurancePlan-address-use",
+  :fhir/type "token",
+  :name "address-use",
+  :expr
+  {:InsurancePlan
+   {:knife [["contact" "address" "use"]],
+    :jsonpath ["$.\"contact\".\"address\".\"use\"[*]"],
+    :data-types #{},
+    :template :token}}}}

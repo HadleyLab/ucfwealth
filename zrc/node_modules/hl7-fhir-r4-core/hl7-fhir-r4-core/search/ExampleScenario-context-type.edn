@@ -1,0 +1,15 @@
+{ns hl7-fhir-r4-core.search.ExampleScenario-context-type,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "ExampleScenario-context-type",
+  :fhir/url
+  "http://hl7.org/fhir/SearchParameter/ExampleScenario-context-type",
+  :fhir/type "token",
+  :name "context-type",
+  :expr
+  {:ExampleScenario
+   {:knife [["useContext" "code"]],
+    :jsonpath ["$.\"useContext\".\"code\"[*]"],
+    :data-types #{},
+    :template :token}}}}

@@ -1,0 +1,15 @@
+{ns hl7-fhir-r4-core.search.MedicationKnowledge-ingredient,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "MedicationKnowledge-ingredient",
+  :fhir/url
+  "http://hl7.org/fhir/SearchParameter/MedicationKnowledge-ingredient",
+  :fhir/type "reference",
+  :name "ingredient",
+  :expr
+  {:MedicationKnowledge
+   {:knife [["ingredient" "item" "Reference"]],
+    :jsonpath ["$.\"ingredient\".\"item\".\"Reference\"[*]"],
+    :data-types #{{:type "Reference", :polymorphic? false}},
+    :template :reference}}}}

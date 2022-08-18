@@ -1,0 +1,15 @@
+{ns hl7-fhir-r4-core.search.OperationDefinition-kind,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "OperationDefinition-kind",
+  :fhir/url
+  "http://hl7.org/fhir/SearchParameter/OperationDefinition-kind",
+  :fhir/type "token",
+  :name "kind",
+  :expr
+  {:OperationDefinition
+   {:knife [["kind"]],
+    :jsonpath ["$.\"kind\"[*]"],
+    :data-types #{{:type "code", :polymorphic? false}},
+    :template :token}}}}

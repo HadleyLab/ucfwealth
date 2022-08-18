@@ -1,0 +1,14 @@
+{ns hl7-fhir-r4-core.search.Claim-payee,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "Claim-payee",
+  :fhir/url "http://hl7.org/fhir/SearchParameter/Claim-payee",
+  :fhir/type "reference",
+  :name "payee",
+  :expr
+  {:Claim
+   {:knife [["payee" "party"]],
+    :jsonpath ["$.\"payee\".\"party\"[*]"],
+    :data-types #{{:type "Reference", :polymorphic? false}},
+    :template :reference}}}}

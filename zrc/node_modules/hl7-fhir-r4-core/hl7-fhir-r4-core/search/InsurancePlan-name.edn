@@ -1,0 +1,14 @@
+{ns hl7-fhir-r4-core.search.InsurancePlan-name,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "InsurancePlan-name",
+  :fhir/url "http://hl7.org/fhir/SearchParameter/InsurancePlan-name",
+  :fhir/type "string",
+  :name "name",
+  :expr
+  {:InsurancePlan
+   {:jsonpath [],
+    :data-types #{},
+    :template :string,
+    :sql {:where [:or], :parameter-format "%\"?%"}}}}}

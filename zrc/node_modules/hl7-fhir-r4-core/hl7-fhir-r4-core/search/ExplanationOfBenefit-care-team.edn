@@ -1,0 +1,15 @@
+{ns hl7-fhir-r4-core.search.ExplanationOfBenefit-care-team,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "ExplanationOfBenefit-care-team",
+  :fhir/url
+  "http://hl7.org/fhir/SearchParameter/ExplanationOfBenefit-care-team",
+  :fhir/type "reference",
+  :name "care-team",
+  :expr
+  {:ExplanationOfBenefit
+   {:knife [["careTeam" "provider"]],
+    :jsonpath ["$.\"careTeam\".\"provider\"[*]"],
+    :data-types #{{:type "Reference", :polymorphic? false}},
+    :template :reference}}}}

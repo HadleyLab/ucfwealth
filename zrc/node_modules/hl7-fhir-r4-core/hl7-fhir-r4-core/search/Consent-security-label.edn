@@ -1,0 +1,15 @@
+{ns hl7-fhir-r4-core.search.Consent-security-label,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "Consent-security-label",
+  :fhir/url
+  "http://hl7.org/fhir/SearchParameter/Consent-security-label",
+  :fhir/type "token",
+  :name "security-label",
+  :expr
+  {:Consent
+   {:knife [["provision" "securityLabel"]],
+    :jsonpath ["$.\"provision\".\"securityLabel\"[*]"],
+    :data-types #{{:type "Coding", :polymorphic? false}},
+    :template :token}}}}

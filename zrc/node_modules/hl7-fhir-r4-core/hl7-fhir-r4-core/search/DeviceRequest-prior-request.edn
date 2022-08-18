@@ -1,0 +1,15 @@
+{ns hl7-fhir-r4-core.search.DeviceRequest-prior-request,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "DeviceRequest-prior-request",
+  :fhir/url
+  "http://hl7.org/fhir/SearchParameter/DeviceRequest-prior-request",
+  :fhir/type "reference",
+  :name "prior-request",
+  :expr
+  {:DeviceRequest
+   {:knife [["priorRequest"]],
+    :jsonpath ["$.\"priorRequest\"[*]"],
+    :data-types #{{:type "Reference", :polymorphic? false}},
+    :template :reference}}}}

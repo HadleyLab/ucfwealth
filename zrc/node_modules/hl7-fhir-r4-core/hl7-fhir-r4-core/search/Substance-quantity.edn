@@ -1,0 +1,30 @@
+{ns hl7-fhir-r4-core.search.Substance-quantity,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "Substance-quantity",
+  :fhir/url "http://hl7.org/fhir/SearchParameter/Substance-quantity",
+  :fhir/type "quantity",
+  :name "quantity",
+  :expr
+  {:Substance
+   {:knife [["instance" "quantity"]],
+    :jsonpath ["$.\"instance\".\"quantity\"[*]"],
+    :data-types #{{:type "Quantity", :polymorphic? false}},
+    :template :quantity,
+    :sql
+    {:where
+     [:or
+      [:and
+       [:>=
+        [:pg/call
+         :jsonpath_extract_max_numeric
+         [:pg/sql "{{table}}.resource"]
+         "$.\"instance\".\"quantity\"[*].\"value\""]
+        [:pg/cast [:pg/sql "{{param}}"] :numeric]]
+       [:<=
+        [:pg/call
+         :jsonpath_extract_min_numeric
+         [:pg/sql "{{table}}.resource"]
+         "$.\"instance\".\"quantity\"[*].\"value\""]
+        [:pg/cast [:pg/sql "{{param}}"] :numeric]]]]}}}}}

@@ -1,0 +1,15 @@
+{ns hl7-fhir-r4-core.search.PaymentReconciliation-status,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "PaymentReconciliation-status",
+  :fhir/url
+  "http://hl7.org/fhir/SearchParameter/PaymentReconciliation-status",
+  :fhir/type "token",
+  :name "status",
+  :expr
+  {:PaymentReconciliation
+   {:knife [["status"]],
+    :jsonpath ["$.\"status\"[*]"],
+    :data-types #{{:type "code", :polymorphic? false}},
+    :template :token}}}}

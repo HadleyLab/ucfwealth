@@ -1,0 +1,15 @@
+{ns hl7-fhir-r4-core.search.MeasureReport-identifier,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "MeasureReport-identifier",
+  :fhir/url
+  "http://hl7.org/fhir/SearchParameter/MeasureReport-identifier",
+  :fhir/type "token",
+  :name "identifier",
+  :expr
+  {:MeasureReport
+   {:knife [["identifier"]],
+    :jsonpath ["$.\"identifier\"[*]"],
+    :data-types #{{:type "Identifier", :polymorphic? false}},
+    :template :token}}}}

@@ -1,0 +1,14 @@
+{ns hl7-fhir-r4-core.search.Encounter-status,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "Encounter-status",
+  :fhir/url "http://hl7.org/fhir/SearchParameter/Encounter-status",
+  :fhir/type "token",
+  :name "status",
+  :expr
+  {:Encounter
+   {:knife [["status"]],
+    :jsonpath ["$.\"status\"[*]"],
+    :data-types #{{:type "code", :polymorphic? false}},
+    :template :token}}}}

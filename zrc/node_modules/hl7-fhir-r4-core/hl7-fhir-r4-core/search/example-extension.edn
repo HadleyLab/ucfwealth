@@ -1,0 +1,10 @@
+{ns hl7-fhir-r4-core.search.example-extension,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "example-extension",
+  :fhir/url "http://hl7.org/fhir/SearchParameter/example-extension",
+  :fhir/type "reference",
+  :name "part-agree",
+  :expr
+  {:Patient {:jsonpath [], :data-types #{}, :template :reference}}}}

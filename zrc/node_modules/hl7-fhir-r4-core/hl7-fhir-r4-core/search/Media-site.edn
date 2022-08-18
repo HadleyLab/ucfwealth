@@ -1,0 +1,14 @@
+{ns hl7-fhir-r4-core.search.Media-site,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "Media-site",
+  :fhir/url "http://hl7.org/fhir/SearchParameter/Media-site",
+  :fhir/type "token",
+  :name "site",
+  :expr
+  {:Media
+   {:knife [["bodySite"]],
+    :jsonpath ["$.\"bodySite\"[*]"],
+    :data-types #{{:type "CodeableConcept", :polymorphic? false}},
+    :template :token}}}}

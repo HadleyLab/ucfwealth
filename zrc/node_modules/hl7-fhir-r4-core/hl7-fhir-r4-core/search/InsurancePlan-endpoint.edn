@@ -1,0 +1,15 @@
+{ns hl7-fhir-r4-core.search.InsurancePlan-endpoint,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "InsurancePlan-endpoint",
+  :fhir/url
+  "http://hl7.org/fhir/SearchParameter/InsurancePlan-endpoint",
+  :fhir/type "reference",
+  :name "endpoint",
+  :expr
+  {:InsurancePlan
+   {:knife [["endpoint"]],
+    :jsonpath ["$.\"endpoint\"[*]"],
+    :data-types #{{:type "Reference", :polymorphic? false}},
+    :template :reference}}}}

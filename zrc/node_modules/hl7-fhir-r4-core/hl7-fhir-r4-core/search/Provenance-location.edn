@@ -1,0 +1,14 @@
+{ns hl7-fhir-r4-core.search.Provenance-location,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "Provenance-location",
+  :fhir/url "http://hl7.org/fhir/SearchParameter/Provenance-location",
+  :fhir/type "reference",
+  :name "location",
+  :expr
+  {:Provenance
+   {:knife [["location"]],
+    :jsonpath ["$.\"location\"[*]"],
+    :data-types #{{:type "Reference", :polymorphic? false}},
+    :template :reference}}}}

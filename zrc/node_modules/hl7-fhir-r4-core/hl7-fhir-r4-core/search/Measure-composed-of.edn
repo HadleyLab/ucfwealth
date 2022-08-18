@@ -1,0 +1,15 @@
+{ns hl7-fhir-r4-core.search.Measure-composed-of,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "Measure-composed-of",
+  :fhir/url "http://hl7.org/fhir/SearchParameter/Measure-composed-of",
+  :fhir/type "reference",
+  :name "composed-of",
+  :expr
+  {:Measure
+   {:knife [["relatedArtifact" {:type "composed-of"} "resource"]],
+    :jsonpath
+    ["$.\"relatedArtifact\"?(@.\"type\"==\"composed-of\").\"resource\"[*]"],
+    :data-types #{},
+    :template :reference}}}}

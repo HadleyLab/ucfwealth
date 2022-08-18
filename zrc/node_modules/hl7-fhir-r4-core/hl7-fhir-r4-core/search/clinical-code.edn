@@ -1,0 +1,79 @@
+{ns hl7-fhir-r4-core.search.clinical-code,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "clinical-code",
+  :fhir/url "http://hl7.org/fhir/SearchParameter/clinical-code",
+  :fhir/type "token",
+  :name "code",
+  :expr
+  {:DeviceRequest
+   {:knife [["code" "CodeableConcept"]],
+    :jsonpath ["$.\"code\".\"CodeableConcept\"[*]"],
+    :data-types #{{:type "CodeableConcept", :polymorphic? false}},
+    :template :token},
+   :ServiceRequest
+   {:knife [["code"]],
+    :jsonpath ["$.\"code\"[*]"],
+    :data-types #{{:type "CodeableConcept", :polymorphic? false}},
+    :template :token},
+   :Observation
+   {:knife [["code"]],
+    :jsonpath ["$.\"code\"[*]"],
+    :data-types #{{:type "CodeableConcept", :polymorphic? false}},
+    :template :token},
+   :MedicationAdministration
+   {:knife [["medication" "CodeableConcept"]],
+    :jsonpath ["$.\"medication\".\"CodeableConcept\"[*]"],
+    :data-types #{{:type "CodeableConcept", :polymorphic? false}},
+    :template :token},
+   :FamilyMemberHistory
+   {:knife [["condition" "code"]],
+    :jsonpath ["$.\"condition\".\"code\"[*]"],
+    :data-types #{{:type "CodeableConcept", :polymorphic? false}},
+    :template :token},
+   :MedicationDispense
+   {:knife [["medication" "CodeableConcept"]],
+    :jsonpath ["$.\"medication\".\"CodeableConcept\"[*]"],
+    :data-types #{{:type "CodeableConcept", :polymorphic? false}},
+    :template :token},
+   :DiagnosticReport
+   {:knife [["code"]],
+    :jsonpath ["$.\"code\"[*]"],
+    :data-types #{{:type "CodeableConcept", :polymorphic? false}},
+    :template :token},
+   :MedicationStatement
+   {:knife [["medication" "CodeableConcept"]],
+    :jsonpath ["$.\"medication\".\"CodeableConcept\"[*]"],
+    :data-types #{{:type "CodeableConcept", :polymorphic? false}},
+    :template :token},
+   :MedicationRequest
+   {:knife [["medication" "CodeableConcept"]],
+    :jsonpath ["$.\"medication\".\"CodeableConcept\"[*]"],
+    :data-types #{{:type "CodeableConcept", :polymorphic? false}},
+    :template :token},
+   :List
+   {:knife [["code"]],
+    :jsonpath ["$.\"code\"[*]"],
+    :data-types #{{:type "CodeableConcept", :polymorphic? false}},
+    :template :token},
+   :Medication
+   {:knife [["code"]],
+    :jsonpath ["$.\"code\"[*]"],
+    :data-types #{{:type "CodeableConcept", :polymorphic? false}},
+    :template :token},
+   :Condition
+   {:knife [["code"]],
+    :jsonpath ["$.\"code\"[*]"],
+    :data-types #{{:type "CodeableConcept", :polymorphic? false}},
+    :template :token},
+   :Procedure
+   {:knife [["code"]],
+    :jsonpath ["$.\"code\"[*]"],
+    :data-types #{{:type "CodeableConcept", :polymorphic? false}},
+    :template :token},
+   :AllergyIntolerance
+   {:knife [["code"] ["reaction" "substance"]],
+    :jsonpath ["$.\"code\"[*]" "$.\"reaction\".\"substance\"[*]"],
+    :data-types #{{:type "CodeableConcept", :polymorphic? false}},
+    :template :token}}}}

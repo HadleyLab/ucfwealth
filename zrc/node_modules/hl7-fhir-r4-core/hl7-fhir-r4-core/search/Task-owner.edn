@@ -1,0 +1,14 @@
+{ns hl7-fhir-r4-core.search.Task-owner,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "Task-owner",
+  :fhir/url "http://hl7.org/fhir/SearchParameter/Task-owner",
+  :fhir/type "reference",
+  :name "owner",
+  :expr
+  {:Task
+   {:knife [["owner"]],
+    :jsonpath ["$.\"owner\"[*]"],
+    :data-types #{{:type "Reference", :polymorphic? false}},
+    :template :reference}}}}

@@ -1,0 +1,28 @@
+{ns hl7-fhir-r4-core.search.Location-address-state,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "Location-address-state",
+  :fhir/url
+  "http://hl7.org/fhir/SearchParameter/Location-address-state",
+  :fhir/type "string",
+  :name "address-state",
+  :expr
+  {:Location
+   {:knife [["address" "state"]],
+    :jsonpath ["$.\"address\".\"state\"[*]"],
+    :data-types #{},
+    :template :string,
+    :sql
+    {:where
+     [:or
+      [:ilike
+       [:pg/cast
+        [:pg/jsonb-path-query-array
+         [:pg/sql "{{table}}.resource"]
+         [:pg/cast
+          "($.\"address\".\"state\"[*]).** ? (@.type() == \"string\")"
+          :jsonpath]]
+        :text]
+       [:pg/sql "{{param}}"]]],
+     :parameter-format "%\"?%"}}}}}

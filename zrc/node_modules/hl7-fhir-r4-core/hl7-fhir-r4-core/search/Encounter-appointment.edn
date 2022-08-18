@@ -1,0 +1,15 @@
+{ns hl7-fhir-r4-core.search.Encounter-appointment,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "Encounter-appointment",
+  :fhir/url
+  "http://hl7.org/fhir/SearchParameter/Encounter-appointment",
+  :fhir/type "reference",
+  :name "appointment",
+  :expr
+  {:Encounter
+   {:knife [["appointment"]],
+    :jsonpath ["$.\"appointment\"[*]"],
+    :data-types #{{:type "Reference", :polymorphic? false}},
+    :template :reference}}}}

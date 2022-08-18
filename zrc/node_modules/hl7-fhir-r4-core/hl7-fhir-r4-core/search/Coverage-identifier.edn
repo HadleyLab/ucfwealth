@@ -1,0 +1,14 @@
+{ns hl7-fhir-r4-core.search.Coverage-identifier,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "Coverage-identifier",
+  :fhir/url "http://hl7.org/fhir/SearchParameter/Coverage-identifier",
+  :fhir/type "token",
+  :name "identifier",
+  :expr
+  {:Coverage
+   {:knife [["identifier"]],
+    :jsonpath ["$.\"identifier\"[*]"],
+    :data-types #{{:type "Identifier", :polymorphic? false}},
+    :template :token}}}}

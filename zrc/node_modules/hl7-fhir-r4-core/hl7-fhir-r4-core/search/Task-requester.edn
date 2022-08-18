@@ -1,0 +1,14 @@
+{ns hl7-fhir-r4-core.search.Task-requester,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "Task-requester",
+  :fhir/url "http://hl7.org/fhir/SearchParameter/Task-requester",
+  :fhir/type "reference",
+  :name "requester",
+  :expr
+  {:Task
+   {:knife [["requester"]],
+    :jsonpath ["$.\"requester\"[*]"],
+    :data-types #{{:type "Reference", :polymorphic? false}},
+    :template :reference}}}}

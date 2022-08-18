@@ -1,0 +1,15 @@
+{ns hl7-fhir-r4-core.search.EventDefinition-topic,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "EventDefinition-topic",
+  :fhir/url
+  "http://hl7.org/fhir/SearchParameter/EventDefinition-topic",
+  :fhir/type "token",
+  :name "topic",
+  :expr
+  {:EventDefinition
+   {:knife [["topic"]],
+    :jsonpath ["$.\"topic\"[*]"],
+    :data-types #{{:type "CodeableConcept", :polymorphic? false}},
+    :template :token}}}}

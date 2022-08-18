@@ -1,0 +1,15 @@
+{ns hl7-fhir-r4-core.search.QuestionnaireResponse-questionnaire,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "QuestionnaireResponse-questionnaire",
+  :fhir/url
+  "http://hl7.org/fhir/SearchParameter/QuestionnaireResponse-questionnaire",
+  :fhir/type "reference",
+  :name "questionnaire",
+  :expr
+  {:QuestionnaireResponse
+   {:knife [["questionnaire"]],
+    :jsonpath ["$.\"questionnaire\"[*]"],
+    :data-types #{{:type "canonical", :polymorphic? false}},
+    :template :reference}}}}

@@ -1,0 +1,14 @@
+{ns hl7-fhir-r4-core.search.Library-context-type,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "Library-context-type",
+  :fhir/url "http://hl7.org/fhir/SearchParameter/Library-context-type",
+  :fhir/type "token",
+  :name "context-type",
+  :expr
+  {:Library
+   {:knife [["useContext" "code"]],
+    :jsonpath ["$.\"useContext\".\"code\"[*]"],
+    :data-types #{},
+    :template :token}}}}

@@ -1,0 +1,15 @@
+{ns hl7-fhir-r4-core.search.StructureDefinition-kind,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "StructureDefinition-kind",
+  :fhir/url
+  "http://hl7.org/fhir/SearchParameter/StructureDefinition-kind",
+  :fhir/type "token",
+  :name "kind",
+  :expr
+  {:StructureDefinition
+   {:knife [["kind"]],
+    :jsonpath ["$.\"kind\"[*]"],
+    :data-types #{{:type "code", :polymorphic? false}},
+    :template :token}}}}

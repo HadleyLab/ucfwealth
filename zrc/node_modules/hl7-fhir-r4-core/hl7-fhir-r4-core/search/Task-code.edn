@@ -1,0 +1,14 @@
+{ns hl7-fhir-r4-core.search.Task-code,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "Task-code",
+  :fhir/url "http://hl7.org/fhir/SearchParameter/Task-code",
+  :fhir/type "token",
+  :name "code",
+  :expr
+  {:Task
+   {:knife [["code"]],
+    :jsonpath ["$.\"code\"[*]"],
+    :data-types #{{:type "CodeableConcept", :polymorphic? false}},
+    :template :token}}}}

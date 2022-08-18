@@ -1,0 +1,15 @@
+{ns hl7-fhir-r4-core.search.ImplementationGuide-depends-on,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "ImplementationGuide-depends-on",
+  :fhir/url
+  "http://hl7.org/fhir/SearchParameter/ImplementationGuide-depends-on",
+  :fhir/type "reference",
+  :name "depends-on",
+  :expr
+  {:ImplementationGuide
+   {:knife [["dependsOn" "uri"]],
+    :jsonpath ["$.\"dependsOn\".\"uri\"[*]"],
+    :data-types #{{:type "canonical", :polymorphic? false}},
+    :template :reference}}}}

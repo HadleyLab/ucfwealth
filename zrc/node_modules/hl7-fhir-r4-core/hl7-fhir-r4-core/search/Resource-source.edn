@@ -1,0 +1,14 @@
+{ns hl7-fhir-r4-core.search.Resource-source,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "Resource-source",
+  :fhir/url "http://hl7.org/fhir/SearchParameter/Resource-source",
+  :fhir/type "uri",
+  :name "_source",
+  :expr
+  {:Resource
+   {:knife [["meta" "source"]],
+    :jsonpath ["$.\"meta\".\"source\"[*]"],
+    :data-types #{},
+    :template :uri}}}}

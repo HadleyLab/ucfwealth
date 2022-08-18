@@ -1,0 +1,28 @@
+{ns hl7-fhir-r4-core.search.Condition-abatement-string,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "Condition-abatement-string",
+  :fhir/url
+  "http://hl7.org/fhir/SearchParameter/Condition-abatement-string",
+  :fhir/type "string",
+  :name "abatement-string",
+  :expr
+  {:Condition
+   {:knife [["abatement" "string"]],
+    :jsonpath ["$.\"abatement\".\"string\"[*]"],
+    :data-types #{{:type "string", :polymorphic? false}},
+    :template :string,
+    :sql
+    {:where
+     [:or
+      [:ilike
+       [:pg/cast
+        [:pg/jsonb-path-query-array
+         [:pg/sql "{{table}}.resource"]
+         [:pg/cast
+          "($.\"abatement\".\"string\"[*]).** ? (@.type() == \"string\")"
+          :jsonpath]]
+        :text]
+       [:pg/sql "{{param}}"]]],
+     :parameter-format "%\"?%"}}}}}

@@ -1,0 +1,15 @@
+{ns hl7-fhir-r4-core.search.MedicationDispense-receiver,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "MedicationDispense-receiver",
+  :fhir/url
+  "http://hl7.org/fhir/SearchParameter/MedicationDispense-receiver",
+  :fhir/type "reference",
+  :name "receiver",
+  :expr
+  {:MedicationDispense
+   {:knife [["receiver"]],
+    :jsonpath ["$.\"receiver\"[*]"],
+    :data-types #{{:type "Reference", :polymorphic? false}},
+    :template :reference}}}}

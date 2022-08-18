@@ -1,0 +1,14 @@
+{ns hl7-fhir-r4-core.search.Task-part-of,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "Task-part-of",
+  :fhir/url "http://hl7.org/fhir/SearchParameter/Task-part-of",
+  :fhir/type "reference",
+  :name "part-of",
+  :expr
+  {:Task
+   {:knife [["partOf"]],
+    :jsonpath ["$.\"partOf\"[*]"],
+    :data-types #{{:type "Reference", :polymorphic? false}},
+    :template :reference}}}}

@@ -1,0 +1,14 @@
+{ns hl7-fhir-r4-core.search.Subscription-contact,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "Subscription-contact",
+  :fhir/url "http://hl7.org/fhir/SearchParameter/Subscription-contact",
+  :fhir/type "token",
+  :name "contact",
+  :expr
+  {:Subscription
+   {:knife [["contact"]],
+    :jsonpath ["$.\"contact\"[*]"],
+    :data-types #{{:type "ContactPoint", :polymorphic? false}},
+    :template :token}}}}

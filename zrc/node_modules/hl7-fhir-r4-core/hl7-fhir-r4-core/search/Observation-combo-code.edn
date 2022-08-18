@@ -1,0 +1,15 @@
+{ns hl7-fhir-r4-core.search.Observation-combo-code,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "Observation-combo-code",
+  :fhir/url
+  "http://hl7.org/fhir/SearchParameter/Observation-combo-code",
+  :fhir/type "token",
+  :name "combo-code",
+  :expr
+  {:Observation
+   {:knife [["code"] ["component" "code"]],
+    :jsonpath ["$.\"code\"[*]" "$.\"component\".\"code\"[*]"],
+    :data-types #{{:type "CodeableConcept", :polymorphic? false}},
+    :template :token}}}}

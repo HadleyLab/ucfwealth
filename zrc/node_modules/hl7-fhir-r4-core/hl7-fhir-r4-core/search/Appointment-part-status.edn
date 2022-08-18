@@ -1,0 +1,15 @@
+{ns hl7-fhir-r4-core.search.Appointment-part-status,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "Appointment-part-status",
+  :fhir/url
+  "http://hl7.org/fhir/SearchParameter/Appointment-part-status",
+  :fhir/type "token",
+  :name "part-status",
+  :expr
+  {:Appointment
+   {:knife [["participant" "status"]],
+    :jsonpath ["$.\"participant\".\"status\"[*]"],
+    :data-types #{{:type "code", :polymorphic? false}},
+    :template :token}}}}

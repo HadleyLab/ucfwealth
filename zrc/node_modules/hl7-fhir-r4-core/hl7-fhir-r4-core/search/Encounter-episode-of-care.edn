@@ -1,0 +1,15 @@
+{ns hl7-fhir-r4-core.search.Encounter-episode-of-care,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "Encounter-episode-of-care",
+  :fhir/url
+  "http://hl7.org/fhir/SearchParameter/Encounter-episode-of-care",
+  :fhir/type "reference",
+  :name "episode-of-care",
+  :expr
+  {:Encounter
+   {:knife [["episodeOfCare"]],
+    :jsonpath ["$.\"episodeOfCare\"[*]"],
+    :data-types #{{:type "Reference", :polymorphic? false}},
+    :template :reference}}}}

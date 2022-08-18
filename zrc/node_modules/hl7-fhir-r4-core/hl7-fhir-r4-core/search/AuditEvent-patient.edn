@@ -1,0 +1,18 @@
+{ns hl7-fhir-r4-core.search.AuditEvent-patient,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "AuditEvent-patient",
+  :fhir/url "http://hl7.org/fhir/SearchParameter/AuditEvent-patient",
+  :fhir/type "reference",
+  :name "patient",
+  :expr
+  {:AuditEvent
+   {:knife
+    [["agent" "who" {:resourceType "Patient"}]
+     ["entity" "what" {:resourceType "Patient"}]],
+    :jsonpath
+    ["$.\"agent\".\"who\"?(@.\"resourceType\"==\"Patient\")[*]"
+     "$.\"entity\".\"what\"?(@.\"resourceType\"==\"Patient\")[*]"],
+    :data-types #{{:type "Reference", :polymorphic? false}},
+    :template :reference}}}}

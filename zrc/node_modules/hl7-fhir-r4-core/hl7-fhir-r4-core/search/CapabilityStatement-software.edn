@@ -1,0 +1,28 @@
+{ns hl7-fhir-r4-core.search.CapabilityStatement-software,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "CapabilityStatement-software",
+  :fhir/url
+  "http://hl7.org/fhir/SearchParameter/CapabilityStatement-software",
+  :fhir/type "string",
+  :name "software",
+  :expr
+  {:CapabilityStatement
+   {:knife [["software" "name"]],
+    :jsonpath ["$.\"software\".\"name\"[*]"],
+    :data-types #{{:type "string", :polymorphic? false}},
+    :template :string,
+    :sql
+    {:where
+     [:or
+      [:ilike
+       [:pg/cast
+        [:pg/jsonb-path-query-array
+         [:pg/sql "{{table}}.resource"]
+         [:pg/cast
+          "($.\"software\".\"name\"[*]).** ? (@.type() == \"string\")"
+          :jsonpath]]
+        :text]
+       [:pg/sql "{{param}}"]]],
+     :parameter-format "%\"?%"}}}}}

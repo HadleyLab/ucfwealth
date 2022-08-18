@@ -1,0 +1,15 @@
+{ns hl7-fhir-r4-core.search.CapabilityStatement-guide,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "CapabilityStatement-guide",
+  :fhir/url
+  "http://hl7.org/fhir/SearchParameter/CapabilityStatement-guide",
+  :fhir/type "reference",
+  :name "guide",
+  :expr
+  {:CapabilityStatement
+   {:knife [["implementationGuide"]],
+    :jsonpath ["$.\"implementationGuide\"[*]"],
+    :data-types #{{:type "canonical", :polymorphic? false}},
+    :template :reference}}}}

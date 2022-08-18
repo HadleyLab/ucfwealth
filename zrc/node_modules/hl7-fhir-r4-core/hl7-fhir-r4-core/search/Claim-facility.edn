@@ -1,0 +1,14 @@
+{ns hl7-fhir-r4-core.search.Claim-facility,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "Claim-facility",
+  :fhir/url "http://hl7.org/fhir/SearchParameter/Claim-facility",
+  :fhir/type "reference",
+  :name "facility",
+  :expr
+  {:Claim
+   {:knife [["facility"]],
+    :jsonpath ["$.\"facility\"[*]"],
+    :data-types #{{:type "Reference", :polymorphic? false}},
+    :template :reference}}}}

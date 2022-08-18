@@ -1,0 +1,14 @@
+{ns hl7-fhir-r4-core.search.CodeSystem-language,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "CodeSystem-language",
+  :fhir/url "http://hl7.org/fhir/SearchParameter/CodeSystem-language",
+  :fhir/type "token",
+  :name "language",
+  :expr
+  {:CodeSystem
+   {:knife [["concept" "designation" "language"]],
+    :jsonpath ["$.\"concept\".\"designation\".\"language\"[*]"],
+    :data-types #{{:type "code", :polymorphic? false}},
+    :template :token}}}}

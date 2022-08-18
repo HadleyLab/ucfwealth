@@ -1,0 +1,14 @@
+{ns hl7-fhir-r4-core.search.Consent-purpose,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "Consent-purpose",
+  :fhir/url "http://hl7.org/fhir/SearchParameter/Consent-purpose",
+  :fhir/type "token",
+  :name "purpose",
+  :expr
+  {:Consent
+   {:knife [["provision" "purpose"]],
+    :jsonpath ["$.\"provision\".\"purpose\"[*]"],
+    :data-types #{{:type "Coding", :polymorphic? false}},
+    :template :token}}}}

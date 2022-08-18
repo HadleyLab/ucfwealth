@@ -1,0 +1,14 @@
+{ns hl7-fhir-r4-core.search.Task-subject,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "Task-subject",
+  :fhir/url "http://hl7.org/fhir/SearchParameter/Task-subject",
+  :fhir/type "reference",
+  :name "subject",
+  :expr
+  {:Task
+   {:knife [["for"]],
+    :jsonpath ["$.\"for\"[*]"],
+    :data-types #{{:type "Reference", :polymorphic? false}},
+    :template :reference}}}}

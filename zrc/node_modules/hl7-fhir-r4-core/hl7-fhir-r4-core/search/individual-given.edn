@@ -1,0 +1,45 @@
+{ns hl7-fhir-r4-core.search.individual-given,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "individual-given",
+  :fhir/url "http://hl7.org/fhir/SearchParameter/individual-given",
+  :fhir/type "string",
+  :name "given",
+  :expr
+  {:Patient
+   {:knife [["name" "given"]],
+    :jsonpath ["$.\"name\".\"given\"[*]"],
+    :data-types #{},
+    :template :string,
+    :sql
+    {:where
+     [:or
+      [:ilike
+       [:pg/cast
+        [:pg/jsonb-path-query-array
+         [:pg/sql "{{table}}.resource"]
+         [:pg/cast
+          "($.\"name\".\"given\"[*]).** ? (@.type() == \"string\")"
+          :jsonpath]]
+        :text]
+       [:pg/sql "{{param}}"]]],
+     :parameter-format "%\"?%"}},
+   :Practitioner
+   {:knife [["name" "given"]],
+    :jsonpath ["$.\"name\".\"given\"[*]"],
+    :data-types #{},
+    :template :string,
+    :sql
+    {:where
+     [:or
+      [:ilike
+       [:pg/cast
+        [:pg/jsonb-path-query-array
+         [:pg/sql "{{table}}.resource"]
+         [:pg/cast
+          "($.\"name\".\"given\"[*]).** ? (@.type() == \"string\")"
+          :jsonpath]]
+        :text]
+       [:pg/sql "{{param}}"]]],
+     :parameter-format "%\"?%"}}}}}

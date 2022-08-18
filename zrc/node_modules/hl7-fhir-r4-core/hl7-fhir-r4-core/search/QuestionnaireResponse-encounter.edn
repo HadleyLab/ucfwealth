@@ -1,0 +1,15 @@
+{ns hl7-fhir-r4-core.search.QuestionnaireResponse-encounter,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "QuestionnaireResponse-encounter",
+  :fhir/url
+  "http://hl7.org/fhir/SearchParameter/QuestionnaireResponse-encounter",
+  :fhir/type "reference",
+  :name "encounter",
+  :expr
+  {:QuestionnaireResponse
+   {:knife [["encounter"]],
+    :jsonpath ["$.\"encounter\"[*]"],
+    :data-types #{{:type "Reference", :polymorphic? false}},
+    :template :reference}}}}

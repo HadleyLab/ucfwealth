@@ -1,0 +1,15 @@
+{ns hl7-fhir-r4-core.search.CommunicationRequest-patient,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "CommunicationRequest-patient",
+  :fhir/url
+  "http://hl7.org/fhir/SearchParameter/CommunicationRequest-patient",
+  :fhir/type "reference",
+  :name "patient",
+  :expr
+  {:CommunicationRequest
+   {:knife [["subject" {:resourceType "Patient"}]],
+    :jsonpath ["$.\"subject\"?(@.\"resourceType\"==\"Patient\")[*]"],
+    :data-types #{{:type "Reference", :polymorphic? false}},
+    :template :reference}}}}

@@ -1,0 +1,14 @@
+{ns hl7-fhir-r4-core.search.Encounter-class,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "Encounter-class",
+  :fhir/url "http://hl7.org/fhir/SearchParameter/Encounter-class",
+  :fhir/type "token",
+  :name "class",
+  :expr
+  {:Encounter
+   {:knife [["class"]],
+    :jsonpath ["$.\"class\"[*]"],
+    :data-types #{{:type "Coding", :polymorphic? false}},
+    :template :token}}}}

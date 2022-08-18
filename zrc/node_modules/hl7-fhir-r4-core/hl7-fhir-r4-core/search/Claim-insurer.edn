@@ -1,0 +1,14 @@
+{ns hl7-fhir-r4-core.search.Claim-insurer,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "Claim-insurer",
+  :fhir/url "http://hl7.org/fhir/SearchParameter/Claim-insurer",
+  :fhir/type "reference",
+  :name "insurer",
+  :expr
+  {:Claim
+   {:knife [["insurer"]],
+    :jsonpath ["$.\"insurer\"[*]"],
+    :data-types #{{:type "Reference", :polymorphic? false}},
+    :template :reference}}}}

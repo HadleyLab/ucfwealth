@@ -1,0 +1,15 @@
+{ns hl7-fhir-r4-core.search.PaymentNotice-response,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "PaymentNotice-response",
+  :fhir/url
+  "http://hl7.org/fhir/SearchParameter/PaymentNotice-response",
+  :fhir/type "reference",
+  :name "response",
+  :expr
+  {:PaymentNotice
+   {:knife [["response"]],
+    :jsonpath ["$.\"response\"[*]"],
+    :data-types #{{:type "Reference", :polymorphic? false}},
+    :template :reference}}}}

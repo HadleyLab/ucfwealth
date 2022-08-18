@@ -1,0 +1,15 @@
+{ns hl7-fhir-r4-core.search.AdverseEvent-severity,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "AdverseEvent-severity",
+  :fhir/url
+  "http://hl7.org/fhir/SearchParameter/AdverseEvent-severity",
+  :fhir/type "token",
+  :name "severity",
+  :expr
+  {:AdverseEvent
+   {:knife [["severity"]],
+    :jsonpath ["$.\"severity\"[*]"],
+    :data-types #{{:type "CodeableConcept", :polymorphic? false}},
+    :template :token}}}}

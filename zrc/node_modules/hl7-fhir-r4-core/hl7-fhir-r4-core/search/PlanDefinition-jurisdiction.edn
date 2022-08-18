@@ -1,0 +1,15 @@
+{ns hl7-fhir-r4-core.search.PlanDefinition-jurisdiction,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "PlanDefinition-jurisdiction",
+  :fhir/url
+  "http://hl7.org/fhir/SearchParameter/PlanDefinition-jurisdiction",
+  :fhir/type "token",
+  :name "jurisdiction",
+  :expr
+  {:PlanDefinition
+   {:knife [["jurisdiction"]],
+    :jsonpath ["$.\"jurisdiction\"[*]"],
+    :data-types #{{:type "CodeableConcept", :polymorphic? false}},
+    :template :token}}}}

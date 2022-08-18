@@ -1,0 +1,30 @@
+{ns hl7-fhir-r4-core.search.Task-modified,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "Task-modified",
+  :fhir/url "http://hl7.org/fhir/SearchParameter/Task-modified",
+  :fhir/type "date",
+  :name "modified",
+  :expr
+  {:Task
+   {:knife [["lastModified"]],
+    :jsonpath ["$.\"lastModified\"[*]"],
+    :data-types #{{:type "dateTime", :polymorphic? false}},
+    :template :date,
+    :sql
+    {:where
+     [:or
+      [:and
+       [:>=
+        [:pg/call :max_text_date_bound [:pg/sql "{{param}}"]]
+        [:pg/call
+         :jsonpath_extract_max_timestamptz
+         [:pg/sql "{{table}}.resource"]
+         "$.\"lastModified\"[*]"]]
+       [:<=
+        [:pg/call :min_text_date_bound [:pg/sql "{{param}}"]]
+        [:pg/call
+         :jsonpath_extract_min_timestamptz
+         [:pg/sql "{{table}}.resource"]
+         "$.\"lastModified\"[*]"]]]]}}}}}

@@ -1,0 +1,28 @@
+{ns hl7-fhir-r4-core.search.EffectEvidenceSynthesis-title,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "EffectEvidenceSynthesis-title",
+  :fhir/url
+  "http://hl7.org/fhir/SearchParameter/EffectEvidenceSynthesis-title",
+  :fhir/type "string",
+  :name "title",
+  :expr
+  {:EffectEvidenceSynthesis
+   {:knife [["title"]],
+    :jsonpath ["$.\"title\"[*]"],
+    :data-types #{{:type "string", :polymorphic? false}},
+    :template :string,
+    :sql
+    {:where
+     [:or
+      [:ilike
+       [:pg/cast
+        [:pg/jsonb-path-query-array
+         [:pg/sql "{{table}}.resource"]
+         [:pg/cast
+          "($.\"title\"[*]).** ? (@.type() == \"string\")"
+          :jsonpath]]
+        :text]
+       [:pg/sql "{{param}}"]]],
+     :parameter-format "%\"?%"}}}}}

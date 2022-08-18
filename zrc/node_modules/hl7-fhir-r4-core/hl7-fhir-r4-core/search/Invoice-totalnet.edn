@@ -1,0 +1,30 @@
+{ns hl7-fhir-r4-core.search.Invoice-totalnet,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "Invoice-totalnet",
+  :fhir/url "http://hl7.org/fhir/SearchParameter/Invoice-totalnet",
+  :fhir/type "quantity",
+  :name "totalnet",
+  :expr
+  {:Invoice
+   {:knife [["totalNet"]],
+    :jsonpath ["$.\"totalNet\"[*]"],
+    :data-types #{{:type "Money", :polymorphic? false}},
+    :template :quantity,
+    :sql
+    {:where
+     [:or
+      [:and
+       [:>=
+        [:pg/call
+         :jsonpath_extract_max_numeric
+         [:pg/sql "{{table}}.resource"]
+         "$.\"totalNet\"[*].\"value\""]
+        [:pg/cast [:pg/sql "{{param}}"] :numeric]]
+       [:<=
+        [:pg/call
+         :jsonpath_extract_min_numeric
+         [:pg/sql "{{table}}.resource"]
+         "$.\"totalNet\"[*].\"value\""]
+        [:pg/cast [:pg/sql "{{param}}"] :numeric]]]]}}}}}

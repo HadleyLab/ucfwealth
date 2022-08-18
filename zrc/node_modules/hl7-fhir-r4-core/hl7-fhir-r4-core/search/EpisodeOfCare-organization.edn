@@ -1,0 +1,15 @@
+{ns hl7-fhir-r4-core.search.EpisodeOfCare-organization,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "EpisodeOfCare-organization",
+  :fhir/url
+  "http://hl7.org/fhir/SearchParameter/EpisodeOfCare-organization",
+  :fhir/type "reference",
+  :name "organization",
+  :expr
+  {:EpisodeOfCare
+   {:knife [["managingOrganization"]],
+    :jsonpath ["$.\"managingOrganization\"[*]"],
+    :data-types #{{:type "Reference", :polymorphic? false}},
+    :template :reference}}}}

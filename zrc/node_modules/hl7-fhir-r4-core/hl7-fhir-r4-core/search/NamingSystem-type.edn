@@ -1,0 +1,14 @@
+{ns hl7-fhir-r4-core.search.NamingSystem-type,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "NamingSystem-type",
+  :fhir/url "http://hl7.org/fhir/SearchParameter/NamingSystem-type",
+  :fhir/type "token",
+  :name "type",
+  :expr
+  {:NamingSystem
+   {:knife [["type"]],
+    :jsonpath ["$.\"type\"[*]"],
+    :data-types #{{:type "CodeableConcept", :polymorphic? false}},
+    :template :token}}}}

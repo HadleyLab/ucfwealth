@@ -1,0 +1,14 @@
+{ns hl7-fhir-r4-core.search.Invoice-type,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "Invoice-type",
+  :fhir/url "http://hl7.org/fhir/SearchParameter/Invoice-type",
+  :fhir/type "token",
+  :name "type",
+  :expr
+  {:Invoice
+   {:knife [["type"]],
+    :jsonpath ["$.\"type\"[*]"],
+    :data-types #{{:type "CodeableConcept", :polymorphic? false}},
+    :template :token}}}}

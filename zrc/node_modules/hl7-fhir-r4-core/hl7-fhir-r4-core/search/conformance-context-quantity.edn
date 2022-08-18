@@ -1,0 +1,528 @@
+{ns hl7-fhir-r4-core.search.conformance-context-quantity,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "conformance-context-quantity",
+  :fhir/url
+  "http://hl7.org/fhir/SearchParameter/conformance-context-quantity",
+  :fhir/type "quantity",
+  :name "context-quantity",
+  :expr
+  {:MessageDefinition
+   {:knife
+    [["useContext" "value" "Quantity"] ["useContext" "value" "Range"]],
+    :jsonpath
+    ["$.\"useContext\".\"value\".\"Quantity\"[*]"
+     "$.\"useContext\".\"value\".\"Range\"[*]"],
+    :data-types #{},
+    :template :quantity,
+    :sql
+    {:where
+     [:or
+      [:and
+       [:>=
+        [:pg/call
+         :jsonpath_extract_max_numeric
+         [:pg/sql "{{table}}.resource"]
+         "$.\"useContext\".\"value\".\"Quantity\"[*].\"value\""]
+        [:pg/cast [:pg/sql "{{param}}"] :numeric]]
+       [:<=
+        [:pg/call
+         :jsonpath_extract_min_numeric
+         [:pg/sql "{{table}}.resource"]
+         "$.\"useContext\".\"value\".\"Quantity\"[*].\"value\""]
+        [:pg/cast [:pg/sql "{{param}}"] :numeric]]]
+      [:and
+       [:>=
+        [:pg/call
+         :jsonpath_extract_max_numeric
+         [:pg/sql "{{table}}.resource"]
+         "$.\"useContext\".\"value\".\"Range\"[*].\"value\""]
+        [:pg/cast [:pg/sql "{{param}}"] :numeric]]
+       [:<=
+        [:pg/call
+         :jsonpath_extract_min_numeric
+         [:pg/sql "{{table}}.resource"]
+         "$.\"useContext\".\"value\".\"Range\"[*].\"value\""]
+        [:pg/cast [:pg/sql "{{param}}"] :numeric]]]]}},
+   :CompartmentDefinition
+   {:knife
+    [["useContext" "value" "Quantity"] ["useContext" "value" "Range"]],
+    :jsonpath
+    ["$.\"useContext\".\"value\".\"Quantity\"[*]"
+     "$.\"useContext\".\"value\".\"Range\"[*]"],
+    :data-types #{},
+    :template :quantity,
+    :sql
+    {:where
+     [:or
+      [:and
+       [:>=
+        [:pg/call
+         :jsonpath_extract_max_numeric
+         [:pg/sql "{{table}}.resource"]
+         "$.\"useContext\".\"value\".\"Quantity\"[*].\"value\""]
+        [:pg/cast [:pg/sql "{{param}}"] :numeric]]
+       [:<=
+        [:pg/call
+         :jsonpath_extract_min_numeric
+         [:pg/sql "{{table}}.resource"]
+         "$.\"useContext\".\"value\".\"Quantity\"[*].\"value\""]
+        [:pg/cast [:pg/sql "{{param}}"] :numeric]]]
+      [:and
+       [:>=
+        [:pg/call
+         :jsonpath_extract_max_numeric
+         [:pg/sql "{{table}}.resource"]
+         "$.\"useContext\".\"value\".\"Range\"[*].\"value\""]
+        [:pg/cast [:pg/sql "{{param}}"] :numeric]]
+       [:<=
+        [:pg/call
+         :jsonpath_extract_min_numeric
+         [:pg/sql "{{table}}.resource"]
+         "$.\"useContext\".\"value\".\"Range\"[*].\"value\""]
+        [:pg/cast [:pg/sql "{{param}}"] :numeric]]]]}},
+   :ImplementationGuide
+   {:knife
+    [["useContext" "value" "Quantity"] ["useContext" "value" "Range"]],
+    :jsonpath
+    ["$.\"useContext\".\"value\".\"Quantity\"[*]"
+     "$.\"useContext\".\"value\".\"Range\"[*]"],
+    :data-types #{},
+    :template :quantity,
+    :sql
+    {:where
+     [:or
+      [:and
+       [:>=
+        [:pg/call
+         :jsonpath_extract_max_numeric
+         [:pg/sql "{{table}}.resource"]
+         "$.\"useContext\".\"value\".\"Quantity\"[*].\"value\""]
+        [:pg/cast [:pg/sql "{{param}}"] :numeric]]
+       [:<=
+        [:pg/call
+         :jsonpath_extract_min_numeric
+         [:pg/sql "{{table}}.resource"]
+         "$.\"useContext\".\"value\".\"Quantity\"[*].\"value\""]
+        [:pg/cast [:pg/sql "{{param}}"] :numeric]]]
+      [:and
+       [:>=
+        [:pg/call
+         :jsonpath_extract_max_numeric
+         [:pg/sql "{{table}}.resource"]
+         "$.\"useContext\".\"value\".\"Range\"[*].\"value\""]
+        [:pg/cast [:pg/sql "{{param}}"] :numeric]]
+       [:<=
+        [:pg/call
+         :jsonpath_extract_min_numeric
+         [:pg/sql "{{table}}.resource"]
+         "$.\"useContext\".\"value\".\"Range\"[*].\"value\""]
+        [:pg/cast [:pg/sql "{{param}}"] :numeric]]]]}},
+   :CodeSystem
+   {:knife
+    [["useContext" "value" "Quantity"] ["useContext" "value" "Range"]],
+    :jsonpath
+    ["$.\"useContext\".\"value\".\"Quantity\"[*]"
+     "$.\"useContext\".\"value\".\"Range\"[*]"],
+    :data-types #{},
+    :template :quantity,
+    :sql
+    {:where
+     [:or
+      [:and
+       [:>=
+        [:pg/call
+         :jsonpath_extract_max_numeric
+         [:pg/sql "{{table}}.resource"]
+         "$.\"useContext\".\"value\".\"Quantity\"[*].\"value\""]
+        [:pg/cast [:pg/sql "{{param}}"] :numeric]]
+       [:<=
+        [:pg/call
+         :jsonpath_extract_min_numeric
+         [:pg/sql "{{table}}.resource"]
+         "$.\"useContext\".\"value\".\"Quantity\"[*].\"value\""]
+        [:pg/cast [:pg/sql "{{param}}"] :numeric]]]
+      [:and
+       [:>=
+        [:pg/call
+         :jsonpath_extract_max_numeric
+         [:pg/sql "{{table}}.resource"]
+         "$.\"useContext\".\"value\".\"Range\"[*].\"value\""]
+        [:pg/cast [:pg/sql "{{param}}"] :numeric]]
+       [:<=
+        [:pg/call
+         :jsonpath_extract_min_numeric
+         [:pg/sql "{{table}}.resource"]
+         "$.\"useContext\".\"value\".\"Range\"[*].\"value\""]
+        [:pg/cast [:pg/sql "{{param}}"] :numeric]]]]}},
+   :StructureMap
+   {:knife
+    [["useContext" "value" "Quantity"] ["useContext" "value" "Range"]],
+    :jsonpath
+    ["$.\"useContext\".\"value\".\"Quantity\"[*]"
+     "$.\"useContext\".\"value\".\"Range\"[*]"],
+    :data-types #{},
+    :template :quantity,
+    :sql
+    {:where
+     [:or
+      [:and
+       [:>=
+        [:pg/call
+         :jsonpath_extract_max_numeric
+         [:pg/sql "{{table}}.resource"]
+         "$.\"useContext\".\"value\".\"Quantity\"[*].\"value\""]
+        [:pg/cast [:pg/sql "{{param}}"] :numeric]]
+       [:<=
+        [:pg/call
+         :jsonpath_extract_min_numeric
+         [:pg/sql "{{table}}.resource"]
+         "$.\"useContext\".\"value\".\"Quantity\"[*].\"value\""]
+        [:pg/cast [:pg/sql "{{param}}"] :numeric]]]
+      [:and
+       [:>=
+        [:pg/call
+         :jsonpath_extract_max_numeric
+         [:pg/sql "{{table}}.resource"]
+         "$.\"useContext\".\"value\".\"Range\"[*].\"value\""]
+        [:pg/cast [:pg/sql "{{param}}"] :numeric]]
+       [:<=
+        [:pg/call
+         :jsonpath_extract_min_numeric
+         [:pg/sql "{{table}}.resource"]
+         "$.\"useContext\".\"value\".\"Range\"[*].\"value\""]
+        [:pg/cast [:pg/sql "{{param}}"] :numeric]]]]}},
+   :NamingSystem
+   {:knife
+    [["useContext" "value" "Quantity"] ["useContext" "value" "Range"]],
+    :jsonpath
+    ["$.\"useContext\".\"value\".\"Quantity\"[*]"
+     "$.\"useContext\".\"value\".\"Range\"[*]"],
+    :data-types #{},
+    :template :quantity,
+    :sql
+    {:where
+     [:or
+      [:and
+       [:>=
+        [:pg/call
+         :jsonpath_extract_max_numeric
+         [:pg/sql "{{table}}.resource"]
+         "$.\"useContext\".\"value\".\"Quantity\"[*].\"value\""]
+        [:pg/cast [:pg/sql "{{param}}"] :numeric]]
+       [:<=
+        [:pg/call
+         :jsonpath_extract_min_numeric
+         [:pg/sql "{{table}}.resource"]
+         "$.\"useContext\".\"value\".\"Quantity\"[*].\"value\""]
+        [:pg/cast [:pg/sql "{{param}}"] :numeric]]]
+      [:and
+       [:>=
+        [:pg/call
+         :jsonpath_extract_max_numeric
+         [:pg/sql "{{table}}.resource"]
+         "$.\"useContext\".\"value\".\"Range\"[*].\"value\""]
+        [:pg/cast [:pg/sql "{{param}}"] :numeric]]
+       [:<=
+        [:pg/call
+         :jsonpath_extract_min_numeric
+         [:pg/sql "{{table}}.resource"]
+         "$.\"useContext\".\"value\".\"Range\"[*].\"value\""]
+        [:pg/cast [:pg/sql "{{param}}"] :numeric]]]]}},
+   :ValueSet
+   {:knife
+    [["useContext" "value" "Quantity"] ["useContext" "value" "Range"]],
+    :jsonpath
+    ["$.\"useContext\".\"value\".\"Quantity\"[*]"
+     "$.\"useContext\".\"value\".\"Range\"[*]"],
+    :data-types #{},
+    :template :quantity,
+    :sql
+    {:where
+     [:or
+      [:and
+       [:>=
+        [:pg/call
+         :jsonpath_extract_max_numeric
+         [:pg/sql "{{table}}.resource"]
+         "$.\"useContext\".\"value\".\"Quantity\"[*].\"value\""]
+        [:pg/cast [:pg/sql "{{param}}"] :numeric]]
+       [:<=
+        [:pg/call
+         :jsonpath_extract_min_numeric
+         [:pg/sql "{{table}}.resource"]
+         "$.\"useContext\".\"value\".\"Quantity\"[*].\"value\""]
+        [:pg/cast [:pg/sql "{{param}}"] :numeric]]]
+      [:and
+       [:>=
+        [:pg/call
+         :jsonpath_extract_max_numeric
+         [:pg/sql "{{table}}.resource"]
+         "$.\"useContext\".\"value\".\"Range\"[*].\"value\""]
+        [:pg/cast [:pg/sql "{{param}}"] :numeric]]
+       [:<=
+        [:pg/call
+         :jsonpath_extract_min_numeric
+         [:pg/sql "{{table}}.resource"]
+         "$.\"useContext\".\"value\".\"Range\"[*].\"value\""]
+        [:pg/cast [:pg/sql "{{param}}"] :numeric]]]]}},
+   :CapabilityStatement
+   {:knife
+    [["useContext" "value" "Quantity"] ["useContext" "value" "Range"]],
+    :jsonpath
+    ["$.\"useContext\".\"value\".\"Quantity\"[*]"
+     "$.\"useContext\".\"value\".\"Range\"[*]"],
+    :data-types #{},
+    :template :quantity,
+    :sql
+    {:where
+     [:or
+      [:and
+       [:>=
+        [:pg/call
+         :jsonpath_extract_max_numeric
+         [:pg/sql "{{table}}.resource"]
+         "$.\"useContext\".\"value\".\"Quantity\"[*].\"value\""]
+        [:pg/cast [:pg/sql "{{param}}"] :numeric]]
+       [:<=
+        [:pg/call
+         :jsonpath_extract_min_numeric
+         [:pg/sql "{{table}}.resource"]
+         "$.\"useContext\".\"value\".\"Quantity\"[*].\"value\""]
+        [:pg/cast [:pg/sql "{{param}}"] :numeric]]]
+      [:and
+       [:>=
+        [:pg/call
+         :jsonpath_extract_max_numeric
+         [:pg/sql "{{table}}.resource"]
+         "$.\"useContext\".\"value\".\"Range\"[*].\"value\""]
+        [:pg/cast [:pg/sql "{{param}}"] :numeric]]
+       [:<=
+        [:pg/call
+         :jsonpath_extract_min_numeric
+         [:pg/sql "{{table}}.resource"]
+         "$.\"useContext\".\"value\".\"Range\"[*].\"value\""]
+        [:pg/cast [:pg/sql "{{param}}"] :numeric]]]]}},
+   :ConceptMap
+   {:knife
+    [["useContext" "value" "Quantity"] ["useContext" "value" "Range"]],
+    :jsonpath
+    ["$.\"useContext\".\"value\".\"Quantity\"[*]"
+     "$.\"useContext\".\"value\".\"Range\"[*]"],
+    :data-types #{},
+    :template :quantity,
+    :sql
+    {:where
+     [:or
+      [:and
+       [:>=
+        [:pg/call
+         :jsonpath_extract_max_numeric
+         [:pg/sql "{{table}}.resource"]
+         "$.\"useContext\".\"value\".\"Quantity\"[*].\"value\""]
+        [:pg/cast [:pg/sql "{{param}}"] :numeric]]
+       [:<=
+        [:pg/call
+         :jsonpath_extract_min_numeric
+         [:pg/sql "{{table}}.resource"]
+         "$.\"useContext\".\"value\".\"Quantity\"[*].\"value\""]
+        [:pg/cast [:pg/sql "{{param}}"] :numeric]]]
+      [:and
+       [:>=
+        [:pg/call
+         :jsonpath_extract_max_numeric
+         [:pg/sql "{{table}}.resource"]
+         "$.\"useContext\".\"value\".\"Range\"[*].\"value\""]
+        [:pg/cast [:pg/sql "{{param}}"] :numeric]]
+       [:<=
+        [:pg/call
+         :jsonpath_extract_min_numeric
+         [:pg/sql "{{table}}.resource"]
+         "$.\"useContext\".\"value\".\"Range\"[*].\"value\""]
+        [:pg/cast [:pg/sql "{{param}}"] :numeric]]]]}},
+   :StructureDefinition
+   {:knife
+    [["useContext" "value" "Quantity"] ["useContext" "value" "Range"]],
+    :jsonpath
+    ["$.\"useContext\".\"value\".\"Quantity\"[*]"
+     "$.\"useContext\".\"value\".\"Range\"[*]"],
+    :data-types #{},
+    :template :quantity,
+    :sql
+    {:where
+     [:or
+      [:and
+       [:>=
+        [:pg/call
+         :jsonpath_extract_max_numeric
+         [:pg/sql "{{table}}.resource"]
+         "$.\"useContext\".\"value\".\"Quantity\"[*].\"value\""]
+        [:pg/cast [:pg/sql "{{param}}"] :numeric]]
+       [:<=
+        [:pg/call
+         :jsonpath_extract_min_numeric
+         [:pg/sql "{{table}}.resource"]
+         "$.\"useContext\".\"value\".\"Quantity\"[*].\"value\""]
+        [:pg/cast [:pg/sql "{{param}}"] :numeric]]]
+      [:and
+       [:>=
+        [:pg/call
+         :jsonpath_extract_max_numeric
+         [:pg/sql "{{table}}.resource"]
+         "$.\"useContext\".\"value\".\"Range\"[*].\"value\""]
+        [:pg/cast [:pg/sql "{{param}}"] :numeric]]
+       [:<=
+        [:pg/call
+         :jsonpath_extract_min_numeric
+         [:pg/sql "{{table}}.resource"]
+         "$.\"useContext\".\"value\".\"Range\"[*].\"value\""]
+        [:pg/cast [:pg/sql "{{param}}"] :numeric]]]]}},
+   :SearchParameter
+   {:knife
+    [["useContext" "value" "Quantity"] ["useContext" "value" "Range"]],
+    :jsonpath
+    ["$.\"useContext\".\"value\".\"Quantity\"[*]"
+     "$.\"useContext\".\"value\".\"Range\"[*]"],
+    :data-types #{},
+    :template :quantity,
+    :sql
+    {:where
+     [:or
+      [:and
+       [:>=
+        [:pg/call
+         :jsonpath_extract_max_numeric
+         [:pg/sql "{{table}}.resource"]
+         "$.\"useContext\".\"value\".\"Quantity\"[*].\"value\""]
+        [:pg/cast [:pg/sql "{{param}}"] :numeric]]
+       [:<=
+        [:pg/call
+         :jsonpath_extract_min_numeric
+         [:pg/sql "{{table}}.resource"]
+         "$.\"useContext\".\"value\".\"Quantity\"[*].\"value\""]
+        [:pg/cast [:pg/sql "{{param}}"] :numeric]]]
+      [:and
+       [:>=
+        [:pg/call
+         :jsonpath_extract_max_numeric
+         [:pg/sql "{{table}}.resource"]
+         "$.\"useContext\".\"value\".\"Range\"[*].\"value\""]
+        [:pg/cast [:pg/sql "{{param}}"] :numeric]]
+       [:<=
+        [:pg/call
+         :jsonpath_extract_min_numeric
+         [:pg/sql "{{table}}.resource"]
+         "$.\"useContext\".\"value\".\"Range\"[*].\"value\""]
+        [:pg/cast [:pg/sql "{{param}}"] :numeric]]]]}},
+   :OperationDefinition
+   {:knife
+    [["useContext" "value" "Quantity"] ["useContext" "value" "Range"]],
+    :jsonpath
+    ["$.\"useContext\".\"value\".\"Quantity\"[*]"
+     "$.\"useContext\".\"value\".\"Range\"[*]"],
+    :data-types #{},
+    :template :quantity,
+    :sql
+    {:where
+     [:or
+      [:and
+       [:>=
+        [:pg/call
+         :jsonpath_extract_max_numeric
+         [:pg/sql "{{table}}.resource"]
+         "$.\"useContext\".\"value\".\"Quantity\"[*].\"value\""]
+        [:pg/cast [:pg/sql "{{param}}"] :numeric]]
+       [:<=
+        [:pg/call
+         :jsonpath_extract_min_numeric
+         [:pg/sql "{{table}}.resource"]
+         "$.\"useContext\".\"value\".\"Quantity\"[*].\"value\""]
+        [:pg/cast [:pg/sql "{{param}}"] :numeric]]]
+      [:and
+       [:>=
+        [:pg/call
+         :jsonpath_extract_max_numeric
+         [:pg/sql "{{table}}.resource"]
+         "$.\"useContext\".\"value\".\"Range\"[*].\"value\""]
+        [:pg/cast [:pg/sql "{{param}}"] :numeric]]
+       [:<=
+        [:pg/call
+         :jsonpath_extract_min_numeric
+         [:pg/sql "{{table}}.resource"]
+         "$.\"useContext\".\"value\".\"Range\"[*].\"value\""]
+        [:pg/cast [:pg/sql "{{param}}"] :numeric]]]]}},
+   :GraphDefinition
+   {:knife
+    [["useContext" "value" "Quantity"] ["useContext" "value" "Range"]],
+    :jsonpath
+    ["$.\"useContext\".\"value\".\"Quantity\"[*]"
+     "$.\"useContext\".\"value\".\"Range\"[*]"],
+    :data-types #{},
+    :template :quantity,
+    :sql
+    {:where
+     [:or
+      [:and
+       [:>=
+        [:pg/call
+         :jsonpath_extract_max_numeric
+         [:pg/sql "{{table}}.resource"]
+         "$.\"useContext\".\"value\".\"Quantity\"[*].\"value\""]
+        [:pg/cast [:pg/sql "{{param}}"] :numeric]]
+       [:<=
+        [:pg/call
+         :jsonpath_extract_min_numeric
+         [:pg/sql "{{table}}.resource"]
+         "$.\"useContext\".\"value\".\"Quantity\"[*].\"value\""]
+        [:pg/cast [:pg/sql "{{param}}"] :numeric]]]
+      [:and
+       [:>=
+        [:pg/call
+         :jsonpath_extract_max_numeric
+         [:pg/sql "{{table}}.resource"]
+         "$.\"useContext\".\"value\".\"Range\"[*].\"value\""]
+        [:pg/cast [:pg/sql "{{param}}"] :numeric]]
+       [:<=
+        [:pg/call
+         :jsonpath_extract_min_numeric
+         [:pg/sql "{{table}}.resource"]
+         "$.\"useContext\".\"value\".\"Range\"[*].\"value\""]
+        [:pg/cast [:pg/sql "{{param}}"] :numeric]]]]}},
+   :TerminologyCapabilities
+   {:knife
+    [["useContext" "value" "Quantity"] ["useContext" "value" "Range"]],
+    :jsonpath
+    ["$.\"useContext\".\"value\".\"Quantity\"[*]"
+     "$.\"useContext\".\"value\".\"Range\"[*]"],
+    :data-types #{},
+    :template :quantity,
+    :sql
+    {:where
+     [:or
+      [:and
+       [:>=
+        [:pg/call
+         :jsonpath_extract_max_numeric
+         [:pg/sql "{{table}}.resource"]
+         "$.\"useContext\".\"value\".\"Quantity\"[*].\"value\""]
+        [:pg/cast [:pg/sql "{{param}}"] :numeric]]
+       [:<=
+        [:pg/call
+         :jsonpath_extract_min_numeric
+         [:pg/sql "{{table}}.resource"]
+         "$.\"useContext\".\"value\".\"Quantity\"[*].\"value\""]
+        [:pg/cast [:pg/sql "{{param}}"] :numeric]]]
+      [:and
+       [:>=
+        [:pg/call
+         :jsonpath_extract_max_numeric
+         [:pg/sql "{{table}}.resource"]
+         "$.\"useContext\".\"value\".\"Range\"[*].\"value\""]
+        [:pg/cast [:pg/sql "{{param}}"] :numeric]]
+       [:<=
+        [:pg/call
+         :jsonpath_extract_min_numeric
+         [:pg/sql "{{table}}.resource"]
+         "$.\"useContext\".\"value\".\"Range\"[*].\"value\""]
+        [:pg/cast [:pg/sql "{{param}}"] :numeric]]]]}}}}}

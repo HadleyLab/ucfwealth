@@ -1,0 +1,14 @@
+{ns hl7-fhir-r4-core.search.Consent-actor,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "Consent-actor",
+  :fhir/url "http://hl7.org/fhir/SearchParameter/Consent-actor",
+  :fhir/type "reference",
+  :name "actor",
+  :expr
+  {:Consent
+   {:knife [["provision" "actor" "reference"]],
+    :jsonpath ["$.\"provision\".\"actor\".\"reference\"[*]"],
+    :data-types #{{:type "Reference", :polymorphic? false}},
+    :template :reference}}}}

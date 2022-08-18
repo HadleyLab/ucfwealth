@@ -1,0 +1,14 @@
+{ns hl7-fhir-r4-core.search.Endpoint-identifier,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "Endpoint-identifier",
+  :fhir/url "http://hl7.org/fhir/SearchParameter/Endpoint-identifier",
+  :fhir/type "token",
+  :name "identifier",
+  :expr
+  {:Endpoint
+   {:knife [["identifier"]],
+    :jsonpath ["$.\"identifier\"[*]"],
+    :data-types #{{:type "Identifier", :polymorphic? false}},
+    :template :token}}}}

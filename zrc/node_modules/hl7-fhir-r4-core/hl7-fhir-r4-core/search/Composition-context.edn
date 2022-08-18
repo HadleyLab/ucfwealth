@@ -1,0 +1,14 @@
+{ns hl7-fhir-r4-core.search.Composition-context,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "Composition-context",
+  :fhir/url "http://hl7.org/fhir/SearchParameter/Composition-context",
+  :fhir/type "token",
+  :name "context",
+  :expr
+  {:Composition
+   {:knife [["event" "code"]],
+    :jsonpath ["$.\"event\".\"code\"[*]"],
+    :data-types #{{:type "CodeableConcept", :polymorphic? false}},
+    :template :token}}}}

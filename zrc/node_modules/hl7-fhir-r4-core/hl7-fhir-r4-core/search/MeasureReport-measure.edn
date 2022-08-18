@@ -1,0 +1,15 @@
+{ns hl7-fhir-r4-core.search.MeasureReport-measure,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "MeasureReport-measure",
+  :fhir/url
+  "http://hl7.org/fhir/SearchParameter/MeasureReport-measure",
+  :fhir/type "reference",
+  :name "measure",
+  :expr
+  {:MeasureReport
+   {:knife [["measure"]],
+    :jsonpath ["$.\"measure\"[*]"],
+    :data-types #{{:type "canonical", :polymorphic? false}},
+    :template :reference}}}}

@@ -1,0 +1,14 @@
+{ns hl7-fhir-r4-core.search.CarePlan-care-team,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "CarePlan-care-team",
+  :fhir/url "http://hl7.org/fhir/SearchParameter/CarePlan-care-team",
+  :fhir/type "reference",
+  :name "care-team",
+  :expr
+  {:CarePlan
+   {:knife [["careTeam"]],
+    :jsonpath ["$.\"careTeam\"[*]"],
+    :data-types #{{:type "Reference", :polymorphic? false}},
+    :template :reference}}}}

@@ -1,0 +1,15 @@
+{ns hl7-fhir-r4-core.search.Measure-successor,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "Measure-successor",
+  :fhir/url "http://hl7.org/fhir/SearchParameter/Measure-successor",
+  :fhir/type "reference",
+  :name "successor",
+  :expr
+  {:Measure
+   {:knife [["relatedArtifact" {:type "successor"} "resource"]],
+    :jsonpath
+    ["$.\"relatedArtifact\"?(@.\"type\"==\"successor\").\"resource\"[*]"],
+    :data-types #{},
+    :template :reference}}}}

@@ -1,0 +1,15 @@
+{ns hl7-fhir-r4-core.search.CommunicationRequest-requester,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "CommunicationRequest-requester",
+  :fhir/url
+  "http://hl7.org/fhir/SearchParameter/CommunicationRequest-requester",
+  :fhir/type "reference",
+  :name "requester",
+  :expr
+  {:CommunicationRequest
+   {:knife [["requester"]],
+    :jsonpath ["$.\"requester\"[*]"],
+    :data-types #{{:type "Reference", :polymorphic? false}},
+    :template :reference}}}}

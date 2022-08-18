@@ -1,0 +1,15 @@
+{ns hl7-fhir-r4-core.search.ChargeItem-performing-organization,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "ChargeItem-performing-organization",
+  :fhir/url
+  "http://hl7.org/fhir/SearchParameter/ChargeItem-performing-organization",
+  :fhir/type "reference",
+  :name "performing-organization",
+  :expr
+  {:ChargeItem
+   {:knife [["performingOrganization"]],
+    :jsonpath ["$.\"performingOrganization\"[*]"],
+    :data-types #{{:type "Reference", :polymorphic? false}},
+    :template :reference}}}}

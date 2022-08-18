@@ -1,0 +1,15 @@
+{ns hl7-fhir-r4-core.search.ExampleScenario-version,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "ExampleScenario-version",
+  :fhir/url
+  "http://hl7.org/fhir/SearchParameter/ExampleScenario-version",
+  :fhir/type "token",
+  :name "version",
+  :expr
+  {:ExampleScenario
+   {:knife [["version"]],
+    :jsonpath ["$.\"version\"[*]"],
+    :data-types #{{:type "string", :polymorphic? false}},
+    :template :token}}}}

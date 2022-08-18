@@ -1,0 +1,15 @@
+{ns hl7-fhir-r4-core.search.Immunization-target-disease,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "Immunization-target-disease",
+  :fhir/url
+  "http://hl7.org/fhir/SearchParameter/Immunization-target-disease",
+  :fhir/type "token",
+  :name "target-disease",
+  :expr
+  {:Immunization
+   {:knife [["protocolApplied" "targetDisease"]],
+    :jsonpath ["$.\"protocolApplied\".\"targetDisease\"[*]"],
+    :data-types #{{:type "CodeableConcept", :polymorphic? false}},
+    :template :token}}}}

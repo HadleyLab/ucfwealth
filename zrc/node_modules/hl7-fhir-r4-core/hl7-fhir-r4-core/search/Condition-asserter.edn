@@ -1,0 +1,14 @@
+{ns hl7-fhir-r4-core.search.Condition-asserter,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "Condition-asserter",
+  :fhir/url "http://hl7.org/fhir/SearchParameter/Condition-asserter",
+  :fhir/type "reference",
+  :name "asserter",
+  :expr
+  {:Condition
+   {:knife [["asserter"]],
+    :jsonpath ["$.\"asserter\"[*]"],
+    :data-types #{{:type "Reference", :polymorphic? false}},
+    :template :reference}}}}

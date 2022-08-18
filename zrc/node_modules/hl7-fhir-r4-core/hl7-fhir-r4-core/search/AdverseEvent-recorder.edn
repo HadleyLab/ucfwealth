@@ -1,0 +1,15 @@
+{ns hl7-fhir-r4-core.search.AdverseEvent-recorder,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "AdverseEvent-recorder",
+  :fhir/url
+  "http://hl7.org/fhir/SearchParameter/AdverseEvent-recorder",
+  :fhir/type "reference",
+  :name "recorder",
+  :expr
+  {:AdverseEvent
+   {:knife [["recorder"]],
+    :jsonpath ["$.\"recorder\"[*]"],
+    :data-types #{{:type "Reference", :polymorphic? false}},
+    :template :reference}}}}

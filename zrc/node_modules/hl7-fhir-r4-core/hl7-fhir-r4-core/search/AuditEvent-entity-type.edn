@@ -1,0 +1,15 @@
+{ns hl7-fhir-r4-core.search.AuditEvent-entity-type,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "AuditEvent-entity-type",
+  :fhir/url
+  "http://hl7.org/fhir/SearchParameter/AuditEvent-entity-type",
+  :fhir/type "token",
+  :name "entity-type",
+  :expr
+  {:AuditEvent
+   {:knife [["entity" "type"]],
+    :jsonpath ["$.\"entity\".\"type\"[*]"],
+    :data-types #{{:type "Coding", :polymorphic? false}},
+    :template :token}}}}

@@ -1,0 +1,14 @@
+{ns hl7-fhir-r4-core.search.DeviceRequest-device,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "DeviceRequest-device",
+  :fhir/url "http://hl7.org/fhir/SearchParameter/DeviceRequest-device",
+  :fhir/type "reference",
+  :name "device",
+  :expr
+  {:DeviceRequest
+   {:knife [["code" "Reference"]],
+    :jsonpath ["$.\"code\".\"Reference\"[*]"],
+    :data-types #{{:type "Reference", :polymorphic? false}},
+    :template :reference}}}}

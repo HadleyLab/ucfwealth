@@ -1,0 +1,15 @@
+{ns hl7-fhir-r4-core.search.ImagingStudy-bodysite,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "ImagingStudy-bodysite",
+  :fhir/url
+  "http://hl7.org/fhir/SearchParameter/ImagingStudy-bodysite",
+  :fhir/type "token",
+  :name "bodysite",
+  :expr
+  {:ImagingStudy
+   {:knife [["series" "bodySite"]],
+    :jsonpath ["$.\"series\".\"bodySite\"[*]"],
+    :data-types #{{:type "Coding", :polymorphic? false}},
+    :template :token}}}}

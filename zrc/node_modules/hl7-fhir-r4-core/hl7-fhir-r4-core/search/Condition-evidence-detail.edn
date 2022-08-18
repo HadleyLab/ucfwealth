@@ -1,0 +1,15 @@
+{ns hl7-fhir-r4-core.search.Condition-evidence-detail,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "Condition-evidence-detail",
+  :fhir/url
+  "http://hl7.org/fhir/SearchParameter/Condition-evidence-detail",
+  :fhir/type "reference",
+  :name "evidence-detail",
+  :expr
+  {:Condition
+   {:knife [["evidence" "detail"]],
+    :jsonpath ["$.\"evidence\".\"detail\"[*]"],
+    :data-types #{{:type "Reference", :polymorphic? false}},
+    :template :reference}}}}

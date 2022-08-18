@@ -1,0 +1,14 @@
+{ns hl7-fhir-r4-core.search.Schedule-actor,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "Schedule-actor",
+  :fhir/url "http://hl7.org/fhir/SearchParameter/Schedule-actor",
+  :fhir/type "reference",
+  :name "actor",
+  :expr
+  {:Schedule
+   {:knife [["actor"]],
+    :jsonpath ["$.\"actor\"[*]"],
+    :data-types #{{:type "Reference", :polymorphic? false}},
+    :template :reference}}}}

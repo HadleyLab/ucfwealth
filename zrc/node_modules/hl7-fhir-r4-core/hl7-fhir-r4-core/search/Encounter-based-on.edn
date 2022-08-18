@@ -1,0 +1,14 @@
+{ns hl7-fhir-r4-core.search.Encounter-based-on,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "Encounter-based-on",
+  :fhir/url "http://hl7.org/fhir/SearchParameter/Encounter-based-on",
+  :fhir/type "reference",
+  :name "based-on",
+  :expr
+  {:Encounter
+   {:knife [["basedOn"]],
+    :jsonpath ["$.\"basedOn\"[*]"],
+    :data-types #{{:type "Reference", :polymorphic? false}},
+    :template :reference}}}}

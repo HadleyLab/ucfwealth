@@ -1,0 +1,14 @@
+{ns hl7-fhir-r4-core.search.Subscription-url,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "Subscription-url",
+  :fhir/url "http://hl7.org/fhir/SearchParameter/Subscription-url",
+  :fhir/type "uri",
+  :name "url",
+  :expr
+  {:Subscription
+   {:knife [["channel" "endpoint"]],
+    :jsonpath ["$.\"channel\".\"endpoint\"[*]"],
+    :data-types #{{:type "url", :polymorphic? false}},
+    :template :uri}}}}

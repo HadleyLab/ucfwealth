@@ -1,0 +1,14 @@
+{ns hl7-fhir-r4-core.search.Resource-tag,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "Resource-tag",
+  :fhir/url "http://hl7.org/fhir/SearchParameter/Resource-tag",
+  :fhir/type "token",
+  :name "_tag",
+  :expr
+  {:Resource
+   {:knife [["meta" "tag"]],
+    :jsonpath ["$.\"meta\".\"tag\"[*]"],
+    :data-types #{},
+    :template :token}}}}

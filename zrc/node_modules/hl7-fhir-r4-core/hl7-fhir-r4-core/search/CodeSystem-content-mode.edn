@@ -1,0 +1,15 @@
+{ns hl7-fhir-r4-core.search.CodeSystem-content-mode,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "CodeSystem-content-mode",
+  :fhir/url
+  "http://hl7.org/fhir/SearchParameter/CodeSystem-content-mode",
+  :fhir/type "token",
+  :name "content-mode",
+  :expr
+  {:CodeSystem
+   {:knife [["content"]],
+    :jsonpath ["$.\"content\"[*]"],
+    :data-types #{{:type "code", :polymorphic? false}},
+    :template :token}}}}

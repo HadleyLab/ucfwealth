@@ -1,0 +1,14 @@
+{ns hl7-fhir-r4-core.search.Media-view,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "Media-view",
+  :fhir/url "http://hl7.org/fhir/SearchParameter/Media-view",
+  :fhir/type "token",
+  :name "view",
+  :expr
+  {:Media
+   {:knife [["view"]],
+    :jsonpath ["$.\"view\"[*]"],
+    :data-types #{{:type "CodeableConcept", :polymorphic? false}},
+    :template :token}}}}

@@ -1,0 +1,14 @@
+{ns hl7-fhir-r4-core.search.ValueSet-expansion,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "ValueSet-expansion",
+  :fhir/url "http://hl7.org/fhir/SearchParameter/ValueSet-expansion",
+  :fhir/type "uri",
+  :name "expansion",
+  :expr
+  {:ValueSet
+   {:knife [["expansion" "identifier"]],
+    :jsonpath ["$.\"expansion\".\"identifier\"[*]"],
+    :data-types #{{:type "uri", :polymorphic? false}},
+    :template :uri}}}}

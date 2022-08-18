@@ -1,0 +1,14 @@
+{ns hl7-fhir-r4-core.search.List-item,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "List-item",
+  :fhir/url "http://hl7.org/fhir/SearchParameter/List-item",
+  :fhir/type "reference",
+  :name "item",
+  :expr
+  {:List
+   {:knife [["entry" "item"]],
+    :jsonpath ["$.\"entry\".\"item\"[*]"],
+    :data-types #{{:type "Reference", :polymorphic? false}},
+    :template :reference}}}}

@@ -1,0 +1,15 @@
+{ns hl7-fhir-r4-core.search.MedicationStatement-part-of,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "MedicationStatement-part-of",
+  :fhir/url
+  "http://hl7.org/fhir/SearchParameter/MedicationStatement-part-of",
+  :fhir/type "reference",
+  :name "part-of",
+  :expr
+  {:MedicationStatement
+   {:knife [["partOf"]],
+    :jsonpath ["$.\"partOf\"[*]"],
+    :data-types #{{:type "Reference", :polymorphic? false}},
+    :template :reference}}}}

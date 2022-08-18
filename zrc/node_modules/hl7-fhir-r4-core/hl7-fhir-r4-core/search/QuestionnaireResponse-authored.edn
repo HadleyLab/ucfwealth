@@ -1,0 +1,31 @@
+{ns hl7-fhir-r4-core.search.QuestionnaireResponse-authored,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "QuestionnaireResponse-authored",
+  :fhir/url
+  "http://hl7.org/fhir/SearchParameter/QuestionnaireResponse-authored",
+  :fhir/type "date",
+  :name "authored",
+  :expr
+  {:QuestionnaireResponse
+   {:knife [["authored"]],
+    :jsonpath ["$.\"authored\"[*]"],
+    :data-types #{{:type "dateTime", :polymorphic? false}},
+    :template :date,
+    :sql
+    {:where
+     [:or
+      [:and
+       [:>=
+        [:pg/call :max_text_date_bound [:pg/sql "{{param}}"]]
+        [:pg/call
+         :jsonpath_extract_max_timestamptz
+         [:pg/sql "{{table}}.resource"]
+         "$.\"authored\"[*]"]]
+       [:<=
+        [:pg/call :min_text_date_bound [:pg/sql "{{param}}"]]
+        [:pg/call
+         :jsonpath_extract_min_timestamptz
+         [:pg/sql "{{table}}.resource"]
+         "$.\"authored\"[*]"]]]]}}}}}

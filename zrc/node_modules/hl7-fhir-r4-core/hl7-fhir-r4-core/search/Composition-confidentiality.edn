@@ -1,0 +1,15 @@
+{ns hl7-fhir-r4-core.search.Composition-confidentiality,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "Composition-confidentiality",
+  :fhir/url
+  "http://hl7.org/fhir/SearchParameter/Composition-confidentiality",
+  :fhir/type "token",
+  :name "confidentiality",
+  :expr
+  {:Composition
+   {:knife [["confidentiality"]],
+    :jsonpath ["$.\"confidentiality\"[*]"],
+    :data-types #{{:type "code", :polymorphic? false}},
+    :template :token}}}}

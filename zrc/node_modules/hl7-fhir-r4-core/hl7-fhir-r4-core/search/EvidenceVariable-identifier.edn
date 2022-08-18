@@ -1,0 +1,15 @@
+{ns hl7-fhir-r4-core.search.EvidenceVariable-identifier,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "EvidenceVariable-identifier",
+  :fhir/url
+  "http://hl7.org/fhir/SearchParameter/EvidenceVariable-identifier",
+  :fhir/type "token",
+  :name "identifier",
+  :expr
+  {:EvidenceVariable
+   {:knife [["identifier"]],
+    :jsonpath ["$.\"identifier\"[*]"],
+    :data-types #{{:type "Identifier", :polymorphic? false}},
+    :template :token}}}}

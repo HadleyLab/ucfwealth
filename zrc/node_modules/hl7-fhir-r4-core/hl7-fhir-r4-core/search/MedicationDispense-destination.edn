@@ -1,0 +1,15 @@
+{ns hl7-fhir-r4-core.search.MedicationDispense-destination,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "MedicationDispense-destination",
+  :fhir/url
+  "http://hl7.org/fhir/SearchParameter/MedicationDispense-destination",
+  :fhir/type "reference",
+  :name "destination",
+  :expr
+  {:MedicationDispense
+   {:knife [["destination"]],
+    :jsonpath ["$.\"destination\"[*]"],
+    :data-types #{{:type "Reference", :polymorphic? false}},
+    :template :reference}}}}

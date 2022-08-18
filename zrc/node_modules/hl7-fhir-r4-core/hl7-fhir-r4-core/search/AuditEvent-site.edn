@@ -1,0 +1,14 @@
+{ns hl7-fhir-r4-core.search.AuditEvent-site,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "AuditEvent-site",
+  :fhir/url "http://hl7.org/fhir/SearchParameter/AuditEvent-site",
+  :fhir/type "token",
+  :name "site",
+  :expr
+  {:AuditEvent
+   {:knife [["source" "site"]],
+    :jsonpath ["$.\"source\".\"site\"[*]"],
+    :data-types #{{:type "string", :polymorphic? false}},
+    :template :token}}}}

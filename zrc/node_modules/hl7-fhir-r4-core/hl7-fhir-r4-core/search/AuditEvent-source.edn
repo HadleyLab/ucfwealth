@@ -1,0 +1,14 @@
+{ns hl7-fhir-r4-core.search.AuditEvent-source,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "AuditEvent-source",
+  :fhir/url "http://hl7.org/fhir/SearchParameter/AuditEvent-source",
+  :fhir/type "reference",
+  :name "source",
+  :expr
+  {:AuditEvent
+   {:knife [["source" "observer"]],
+    :jsonpath ["$.\"source\".\"observer\"[*]"],
+    :data-types #{{:type "Reference", :polymorphic? false}},
+    :template :reference}}}}

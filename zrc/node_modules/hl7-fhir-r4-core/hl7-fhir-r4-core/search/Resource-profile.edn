@@ -1,0 +1,14 @@
+{ns hl7-fhir-r4-core.search.Resource-profile,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "Resource-profile",
+  :fhir/url "http://hl7.org/fhir/SearchParameter/Resource-profile",
+  :fhir/type "uri",
+  :name "_profile",
+  :expr
+  {:Resource
+   {:knife [["meta" "profile"]],
+    :jsonpath ["$.\"meta\".\"profile\"[*]"],
+    :data-types #{},
+    :template :uri}}}}

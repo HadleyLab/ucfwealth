@@ -1,0 +1,27 @@
+{ns hl7-fhir-r4-core.search.Condition-onset-info,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "Condition-onset-info",
+  :fhir/url "http://hl7.org/fhir/SearchParameter/Condition-onset-info",
+  :fhir/type "string",
+  :name "onset-info",
+  :expr
+  {:Condition
+   {:knife [["onset" "string"]],
+    :jsonpath ["$.\"onset\".\"string\"[*]"],
+    :data-types #{{:type "string", :polymorphic? false}},
+    :template :string,
+    :sql
+    {:where
+     [:or
+      [:ilike
+       [:pg/cast
+        [:pg/jsonb-path-query-array
+         [:pg/sql "{{table}}.resource"]
+         [:pg/cast
+          "($.\"onset\".\"string\"[*]).** ? (@.type() == \"string\")"
+          :jsonpath]]
+        :text]
+       [:pg/sql "{{param}}"]]],
+     :parameter-format "%\"?%"}}}}}

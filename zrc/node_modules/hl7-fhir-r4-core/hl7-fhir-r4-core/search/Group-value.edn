@@ -1,0 +1,20 @@
+{ns hl7-fhir-r4-core.search.Group-value,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "Group-value",
+  :fhir/url "http://hl7.org/fhir/SearchParameter/Group-value",
+  :fhir/type "token",
+  :name "value",
+  :expr
+  {:Group
+   {:knife
+    [["characteristic" "value" "CodeableConcept"]
+     ["characteristic" "value" "boolean"]],
+    :jsonpath
+    ["$.\"characteristic\".\"value\".\"CodeableConcept\"[*]"
+     "$.\"characteristic\".\"value\".\"boolean\"[*]"],
+    :data-types
+    #{{:type "boolean", :polymorphic? false}
+      {:type "CodeableConcept", :polymorphic? false}},
+    :template :token}}}}

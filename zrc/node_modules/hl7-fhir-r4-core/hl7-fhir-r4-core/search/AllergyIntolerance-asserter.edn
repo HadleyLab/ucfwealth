@@ -1,0 +1,15 @@
+{ns hl7-fhir-r4-core.search.AllergyIntolerance-asserter,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "AllergyIntolerance-asserter",
+  :fhir/url
+  "http://hl7.org/fhir/SearchParameter/AllergyIntolerance-asserter",
+  :fhir/type "reference",
+  :name "asserter",
+  :expr
+  {:AllergyIntolerance
+   {:knife [["asserter"]],
+    :jsonpath ["$.\"asserter\"[*]"],
+    :data-types #{{:type "Reference", :polymorphic? false}},
+    :template :reference}}}}

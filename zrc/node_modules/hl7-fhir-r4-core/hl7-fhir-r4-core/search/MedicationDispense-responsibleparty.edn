@@ -1,0 +1,15 @@
+{ns hl7-fhir-r4-core.search.MedicationDispense-responsibleparty,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "MedicationDispense-responsibleparty",
+  :fhir/url
+  "http://hl7.org/fhir/SearchParameter/MedicationDispense-responsibleparty",
+  :fhir/type "reference",
+  :name "responsibleparty",
+  :expr
+  {:MedicationDispense
+   {:knife [["substitution" "responsibleParty"]],
+    :jsonpath ["$.\"substitution\".\"responsibleParty\"[*]"],
+    :data-types #{{:type "Reference", :polymorphic? false}},
+    :template :reference}}}}

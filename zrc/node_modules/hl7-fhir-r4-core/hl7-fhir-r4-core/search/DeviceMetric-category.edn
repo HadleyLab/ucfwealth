@@ -1,0 +1,15 @@
+{ns hl7-fhir-r4-core.search.DeviceMetric-category,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "DeviceMetric-category",
+  :fhir/url
+  "http://hl7.org/fhir/SearchParameter/DeviceMetric-category",
+  :fhir/type "token",
+  :name "category",
+  :expr
+  {:DeviceMetric
+   {:knife [["category"]],
+    :jsonpath ["$.\"category\"[*]"],
+    :data-types #{{:type "code", :polymorphic? false}},
+    :template :token}}}}

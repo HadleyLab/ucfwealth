@@ -1,0 +1,15 @@
+{ns hl7-fhir-r4-core.search.GuidanceResponse-request,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "GuidanceResponse-request",
+  :fhir/url
+  "http://hl7.org/fhir/SearchParameter/GuidanceResponse-request",
+  :fhir/type "token",
+  :name "request",
+  :expr
+  {:GuidanceResponse
+   {:knife [["requestIdentifier"]],
+    :jsonpath ["$.\"requestIdentifier\"[*]"],
+    :data-types #{{:type "Identifier", :polymorphic? false}},
+    :template :token}}}}

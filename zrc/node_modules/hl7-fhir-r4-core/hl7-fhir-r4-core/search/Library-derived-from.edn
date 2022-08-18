@@ -1,0 +1,15 @@
+{ns hl7-fhir-r4-core.search.Library-derived-from,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "Library-derived-from",
+  :fhir/url "http://hl7.org/fhir/SearchParameter/Library-derived-from",
+  :fhir/type "reference",
+  :name "derived-from",
+  :expr
+  {:Library
+   {:knife [["relatedArtifact" {:type "derived-from"} "resource"]],
+    :jsonpath
+    ["$.\"relatedArtifact\"?(@.\"type\"==\"derived-from\").\"resource\"[*]"],
+    :data-types #{},
+    :template :reference}}}}

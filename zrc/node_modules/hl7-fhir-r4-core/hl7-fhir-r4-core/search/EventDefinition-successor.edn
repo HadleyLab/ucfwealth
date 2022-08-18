@@ -1,0 +1,16 @@
+{ns hl7-fhir-r4-core.search.EventDefinition-successor,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "EventDefinition-successor",
+  :fhir/url
+  "http://hl7.org/fhir/SearchParameter/EventDefinition-successor",
+  :fhir/type "reference",
+  :name "successor",
+  :expr
+  {:EventDefinition
+   {:knife [["relatedArtifact" {:type "successor"} "resource"]],
+    :jsonpath
+    ["$.\"relatedArtifact\"?(@.\"type\"==\"successor\").\"resource\"[*]"],
+    :data-types #{},
+    :template :reference}}}}

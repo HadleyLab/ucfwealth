@@ -1,0 +1,15 @@
+{ns hl7-fhir-r4-core.search.Encounter-reason-reference,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "Encounter-reason-reference",
+  :fhir/url
+  "http://hl7.org/fhir/SearchParameter/Encounter-reason-reference",
+  :fhir/type "reference",
+  :name "reason-reference",
+  :expr
+  {:Encounter
+   {:knife [["reasonReference"]],
+    :jsonpath ["$.\"reasonReference\"[*]"],
+    :data-types #{{:type "Reference", :polymorphic? false}},
+    :template :reference}}}}

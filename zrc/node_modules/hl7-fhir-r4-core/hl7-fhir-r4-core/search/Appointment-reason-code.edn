@@ -1,0 +1,15 @@
+{ns hl7-fhir-r4-core.search.Appointment-reason-code,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "Appointment-reason-code",
+  :fhir/url
+  "http://hl7.org/fhir/SearchParameter/Appointment-reason-code",
+  :fhir/type "token",
+  :name "reason-code",
+  :expr
+  {:Appointment
+   {:knife [["reasonCode"]],
+    :jsonpath ["$.\"reasonCode\"[*]"],
+    :data-types #{{:type "CodeableConcept", :polymorphic? false}},
+    :template :token}}}}

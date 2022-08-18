@@ -1,0 +1,15 @@
+{ns hl7-fhir-r4-core.search.Composition-related-ref,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "Composition-related-ref",
+  :fhir/url
+  "http://hl7.org/fhir/SearchParameter/Composition-related-ref",
+  :fhir/type "reference",
+  :name "related-ref",
+  :expr
+  {:Composition
+   {:knife [["relatesTo" "target" "Reference"]],
+    :jsonpath ["$.\"relatesTo\".\"target\".\"Reference\"[*]"],
+    :data-types #{{:type "Reference", :polymorphic? false}},
+    :template :reference}}}}

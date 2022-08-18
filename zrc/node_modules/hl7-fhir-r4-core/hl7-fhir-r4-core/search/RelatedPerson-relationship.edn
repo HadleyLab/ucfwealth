@@ -1,0 +1,15 @@
+{ns hl7-fhir-r4-core.search.RelatedPerson-relationship,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "RelatedPerson-relationship",
+  :fhir/url
+  "http://hl7.org/fhir/SearchParameter/RelatedPerson-relationship",
+  :fhir/type "token",
+  :name "relationship",
+  :expr
+  {:RelatedPerson
+   {:knife [["relationship"]],
+    :jsonpath ["$.\"relationship\"[*]"],
+    :data-types #{{:type "CodeableConcept", :polymorphic? false}},
+    :template :token}}}}

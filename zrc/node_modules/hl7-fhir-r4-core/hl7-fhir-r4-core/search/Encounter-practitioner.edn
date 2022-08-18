@@ -1,0 +1,17 @@
+{ns hl7-fhir-r4-core.search.Encounter-practitioner,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "Encounter-practitioner",
+  :fhir/url
+  "http://hl7.org/fhir/SearchParameter/Encounter-practitioner",
+  :fhir/type "reference",
+  :name "practitioner",
+  :expr
+  {:Encounter
+   {:knife
+    [["participant" "individual" {:resourceType "Practitioner"}]],
+    :jsonpath
+    ["$.\"participant\".\"individual\"?(@.\"resourceType\"==\"Practitioner\")[*]"],
+    :data-types #{{:type "Reference", :polymorphic? false}},
+    :template :reference}}}}

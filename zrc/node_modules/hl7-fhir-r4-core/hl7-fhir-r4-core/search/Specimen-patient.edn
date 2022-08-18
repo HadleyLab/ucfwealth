@@ -1,0 +1,14 @@
+{ns hl7-fhir-r4-core.search.Specimen-patient,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "Specimen-patient",
+  :fhir/url "http://hl7.org/fhir/SearchParameter/Specimen-patient",
+  :fhir/type "reference",
+  :name "patient",
+  :expr
+  {:Specimen
+   {:knife [["subject" {:resourceType "Patient"}]],
+    :jsonpath ["$.\"subject\"?(@.\"resourceType\"==\"Patient\")[*]"],
+    :data-types #{{:type "Reference", :polymorphic? false}},
+    :template :reference}}}}

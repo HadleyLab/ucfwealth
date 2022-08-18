@@ -1,0 +1,82 @@
+{ns hl7-fhir-r4-core.search.individual-address-state,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "individual-address-state",
+  :fhir/url
+  "http://hl7.org/fhir/SearchParameter/individual-address-state",
+  :fhir/type "string",
+  :name "address-state",
+  :expr
+  {:Patient
+   {:knife [["address" "state"]],
+    :jsonpath ["$.\"address\".\"state\"[*]"],
+    :data-types #{},
+    :template :string,
+    :sql
+    {:where
+     [:or
+      [:ilike
+       [:pg/cast
+        [:pg/jsonb-path-query-array
+         [:pg/sql "{{table}}.resource"]
+         [:pg/cast
+          "($.\"address\".\"state\"[*]).** ? (@.type() == \"string\")"
+          :jsonpath]]
+        :text]
+       [:pg/sql "{{param}}"]]],
+     :parameter-format "%\"?%"}},
+   :Person
+   {:knife [["address" "state"]],
+    :jsonpath ["$.\"address\".\"state\"[*]"],
+    :data-types #{},
+    :template :string,
+    :sql
+    {:where
+     [:or
+      [:ilike
+       [:pg/cast
+        [:pg/jsonb-path-query-array
+         [:pg/sql "{{table}}.resource"]
+         [:pg/cast
+          "($.\"address\".\"state\"[*]).** ? (@.type() == \"string\")"
+          :jsonpath]]
+        :text]
+       [:pg/sql "{{param}}"]]],
+     :parameter-format "%\"?%"}},
+   :Practitioner
+   {:knife [["address" "state"]],
+    :jsonpath ["$.\"address\".\"state\"[*]"],
+    :data-types #{},
+    :template :string,
+    :sql
+    {:where
+     [:or
+      [:ilike
+       [:pg/cast
+        [:pg/jsonb-path-query-array
+         [:pg/sql "{{table}}.resource"]
+         [:pg/cast
+          "($.\"address\".\"state\"[*]).** ? (@.type() == \"string\")"
+          :jsonpath]]
+        :text]
+       [:pg/sql "{{param}}"]]],
+     :parameter-format "%\"?%"}},
+   :RelatedPerson
+   {:knife [["address" "state"]],
+    :jsonpath ["$.\"address\".\"state\"[*]"],
+    :data-types #{},
+    :template :string,
+    :sql
+    {:where
+     [:or
+      [:ilike
+       [:pg/cast
+        [:pg/jsonb-path-query-array
+         [:pg/sql "{{table}}.resource"]
+         [:pg/cast
+          "($.\"address\".\"state\"[*]).** ? (@.type() == \"string\")"
+          :jsonpath]]
+        :text]
+       [:pg/sql "{{param}}"]]],
+     :parameter-format "%\"?%"}}}}}

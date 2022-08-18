@@ -1,0 +1,14 @@
+{ns
+ hl7-fhir-r4-core.search.diagnosticreport-genetic-DiagnosticReport-assessed-condition,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id
+  "diagnosticreport-genetic-DiagnosticReport-assessed-condition",
+  :fhir/url
+  "http://hl7.org/fhir/SearchParameter/diagnosticreport-genetic-DiagnosticReport-assessed-condition",
+  :fhir/type "reference",
+  :name "assessed-condition",
+  :expr
+  {:DiagnosticReport
+   {:jsonpath [], :data-types #{}, :template :reference}}}}

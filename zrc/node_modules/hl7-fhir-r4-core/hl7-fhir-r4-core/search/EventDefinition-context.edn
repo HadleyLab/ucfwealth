@@ -1,0 +1,15 @@
+{ns hl7-fhir-r4-core.search.EventDefinition-context,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "EventDefinition-context",
+  :fhir/url
+  "http://hl7.org/fhir/SearchParameter/EventDefinition-context",
+  :fhir/type "token",
+  :name "context",
+  :expr
+  {:EventDefinition
+   {:knife [["useContext" "value" "CodeableConcept"]],
+    :jsonpath ["$.\"useContext\".\"value\".\"CodeableConcept\"[*]"],
+    :data-types #{},
+    :template :token}}}}

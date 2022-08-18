@@ -1,0 +1,15 @@
+{ns hl7-fhir-r4-core.search.ImplementationGuide-experimental,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "ImplementationGuide-experimental",
+  :fhir/url
+  "http://hl7.org/fhir/SearchParameter/ImplementationGuide-experimental",
+  :fhir/type "token",
+  :name "experimental",
+  :expr
+  {:ImplementationGuide
+   {:knife [["experimental"]],
+    :jsonpath ["$.\"experimental\"[*]"],
+    :data-types #{{:type "boolean", :polymorphic? false}},
+    :template :token}}}}

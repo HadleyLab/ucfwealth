@@ -1,0 +1,15 @@
+{ns hl7-fhir-r4-core.search.ConceptMap-product,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "ConceptMap-product",
+  :fhir/url "http://hl7.org/fhir/SearchParameter/ConceptMap-product",
+  :fhir/type "uri",
+  :name "product",
+  :expr
+  {:ConceptMap
+   {:knife [["group" "element" "target" "product" "property"]],
+    :jsonpath
+    ["$.\"group\".\"element\".\"target\".\"product\".\"property\"[*]"],
+    :data-types #{},
+    :template :uri}}}}

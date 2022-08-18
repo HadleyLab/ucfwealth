@@ -1,0 +1,14 @@
+{ns hl7-fhir-r4-core.search.Communication-sender,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "Communication-sender",
+  :fhir/url "http://hl7.org/fhir/SearchParameter/Communication-sender",
+  :fhir/type "reference",
+  :name "sender",
+  :expr
+  {:Communication
+   {:knife [["sender"]],
+    :jsonpath ["$.\"sender\"[*]"],
+    :data-types #{{:type "Reference", :polymorphic? false}},
+    :template :reference}}}}

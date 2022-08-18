@@ -1,0 +1,14 @@
+{ns hl7-fhir-r4-core.search.Person-identifier,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "Person-identifier",
+  :fhir/url "http://hl7.org/fhir/SearchParameter/Person-identifier",
+  :fhir/type "token",
+  :name "identifier",
+  :expr
+  {:Person
+   {:knife [["identifier"]],
+    :jsonpath ["$.\"identifier\"[*]"],
+    :data-types #{{:type "Identifier", :polymorphic? false}},
+    :template :token}}}}

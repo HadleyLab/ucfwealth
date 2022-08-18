@@ -1,0 +1,15 @@
+{ns hl7-fhir-r4-core.search.MedicationRequest-intent,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "MedicationRequest-intent",
+  :fhir/url
+  "http://hl7.org/fhir/SearchParameter/MedicationRequest-intent",
+  :fhir/type "token",
+  :name "intent",
+  :expr
+  {:MedicationRequest
+   {:knife [["intent"]],
+    :jsonpath ["$.\"intent\"[*]"],
+    :data-types #{{:type "code", :polymorphic? false}},
+    :template :token}}}}

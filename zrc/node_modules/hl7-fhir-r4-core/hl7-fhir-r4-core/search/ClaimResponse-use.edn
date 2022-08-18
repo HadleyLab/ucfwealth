@@ -1,0 +1,14 @@
+{ns hl7-fhir-r4-core.search.ClaimResponse-use,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "ClaimResponse-use",
+  :fhir/url "http://hl7.org/fhir/SearchParameter/ClaimResponse-use",
+  :fhir/type "token",
+  :name "use",
+  :expr
+  {:ClaimResponse
+   {:knife [["use"]],
+    :jsonpath ["$.\"use\"[*]"],
+    :data-types #{{:type "code", :polymorphic? false}},
+    :template :token}}}}

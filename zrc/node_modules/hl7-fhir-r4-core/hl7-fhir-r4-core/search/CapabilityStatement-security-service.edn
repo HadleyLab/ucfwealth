@@ -1,0 +1,15 @@
+{ns hl7-fhir-r4-core.search.CapabilityStatement-security-service,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "CapabilityStatement-security-service",
+  :fhir/url
+  "http://hl7.org/fhir/SearchParameter/CapabilityStatement-security-service",
+  :fhir/type "token",
+  :name "security-service",
+  :expr
+  {:CapabilityStatement
+   {:knife [["rest" "security" "service"]],
+    :jsonpath ["$.\"rest\".\"security\".\"service\"[*]"],
+    :data-types #{{:type "CodeableConcept", :polymorphic? false}},
+    :template :token}}}}

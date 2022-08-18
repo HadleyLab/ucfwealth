@@ -1,0 +1,14 @@
+{ns hl7-fhir-r4-core.search.DeviceMetric-parent,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "DeviceMetric-parent",
+  :fhir/url "http://hl7.org/fhir/SearchParameter/DeviceMetric-parent",
+  :fhir/type "reference",
+  :name "parent",
+  :expr
+  {:DeviceMetric
+   {:knife [["parent"]],
+    :jsonpath ["$.\"parent\"[*]"],
+    :data-types #{{:type "Reference", :polymorphic? false}},
+    :template :reference}}}}

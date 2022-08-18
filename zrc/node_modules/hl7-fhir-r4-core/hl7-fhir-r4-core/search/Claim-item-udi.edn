@@ -1,0 +1,14 @@
+{ns hl7-fhir-r4-core.search.Claim-item-udi,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "Claim-item-udi",
+  :fhir/url "http://hl7.org/fhir/SearchParameter/Claim-item-udi",
+  :fhir/type "reference",
+  :name "item-udi",
+  :expr
+  {:Claim
+   {:knife [["item" "udi"]],
+    :jsonpath ["$.\"item\".\"udi\"[*]"],
+    :data-types #{{:type "Reference", :polymorphic? false}},
+    :template :reference}}}}

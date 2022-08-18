@@ -1,0 +1,14 @@
+{ns hl7-fhir-r4-core.search.Observation-method,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "Observation-method",
+  :fhir/url "http://hl7.org/fhir/SearchParameter/Observation-method",
+  :fhir/type "token",
+  :name "method",
+  :expr
+  {:Observation
+   {:knife [["method"]],
+    :jsonpath ["$.\"method\"[*]"],
+    :data-types #{{:type "CodeableConcept", :polymorphic? false}},
+    :template :token}}}}

@@ -1,0 +1,15 @@
+{ns hl7-fhir-r4-core.search.ExampleScenario-context,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "ExampleScenario-context",
+  :fhir/url
+  "http://hl7.org/fhir/SearchParameter/ExampleScenario-context",
+  :fhir/type "token",
+  :name "context",
+  :expr
+  {:ExampleScenario
+   {:knife [["useContext" "value" "CodeableConcept"]],
+    :jsonpath ["$.\"useContext\".\"value\".\"CodeableConcept\"[*]"],
+    :data-types #{},
+    :template :token}}}}

@@ -1,0 +1,15 @@
+{ns hl7-fhir-r4-core.search.MedicationRequest-requester,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "MedicationRequest-requester",
+  :fhir/url
+  "http://hl7.org/fhir/SearchParameter/MedicationRequest-requester",
+  :fhir/type "reference",
+  :name "requester",
+  :expr
+  {:MedicationRequest
+   {:knife [["requester"]],
+    :jsonpath ["$.\"requester\"[*]"],
+    :data-types #{{:type "Reference", :polymorphic? false}},
+    :template :reference}}}}

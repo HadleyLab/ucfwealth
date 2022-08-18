@@ -1,0 +1,15 @@
+{ns hl7-fhir-r4-core.search.Questionnaire-definition,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "Questionnaire-definition",
+  :fhir/url
+  "http://hl7.org/fhir/SearchParameter/Questionnaire-definition",
+  :fhir/type "uri",
+  :name "definition",
+  :expr
+  {:Questionnaire
+   {:knife [["item" "definition"]],
+    :jsonpath ["$.\"item\".\"definition\"[*]"],
+    :data-types #{{:type "uri", :polymorphic? false}},
+    :template :uri}}}}

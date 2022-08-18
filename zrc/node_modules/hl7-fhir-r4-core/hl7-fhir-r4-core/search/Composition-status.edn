@@ -1,0 +1,14 @@
+{ns hl7-fhir-r4-core.search.Composition-status,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "Composition-status",
+  :fhir/url "http://hl7.org/fhir/SearchParameter/Composition-status",
+  :fhir/type "token",
+  :name "status",
+  :expr
+  {:Composition
+   {:knife [["status"]],
+    :jsonpath ["$.\"status\"[*]"],
+    :data-types #{{:type "code", :polymorphic? false}},
+    :template :token}}}}

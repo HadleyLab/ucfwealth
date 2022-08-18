@@ -1,0 +1,15 @@
+{ns hl7-fhir-r4-core.search.MedicationKnowledge-monograph,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "MedicationKnowledge-monograph",
+  :fhir/url
+  "http://hl7.org/fhir/SearchParameter/MedicationKnowledge-monograph",
+  :fhir/type "reference",
+  :name "monograph",
+  :expr
+  {:MedicationKnowledge
+   {:knife [["monograph" "source"]],
+    :jsonpath ["$.\"monograph\".\"source\"[*]"],
+    :data-types #{{:type "Reference", :polymorphic? false}},
+    :template :reference}}}}

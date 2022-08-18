@@ -1,0 +1,15 @@
+{ns hl7-fhir-r4-core.search.OperationDefinition-input-profile,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "OperationDefinition-input-profile",
+  :fhir/url
+  "http://hl7.org/fhir/SearchParameter/OperationDefinition-input-profile",
+  :fhir/type "reference",
+  :name "input-profile",
+  :expr
+  {:OperationDefinition
+   {:knife [["inputProfile"]],
+    :jsonpath ["$.\"inputProfile\"[*]"],
+    :data-types #{{:type "canonical", :polymorphic? false}},
+    :template :reference}}}}

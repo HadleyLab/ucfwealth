@@ -1,0 +1,15 @@
+{ns hl7-fhir-r4-core.search.StructureDefinition-derivation,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "StructureDefinition-derivation",
+  :fhir/url
+  "http://hl7.org/fhir/SearchParameter/StructureDefinition-derivation",
+  :fhir/type "token",
+  :name "derivation",
+  :expr
+  {:StructureDefinition
+   {:knife [["derivation"]],
+    :jsonpath ["$.\"derivation\"[*]"],
+    :data-types #{{:type "code", :polymorphic? false}},
+    :template :token}}}}

@@ -1,0 +1,15 @@
+{ns hl7-fhir-r4-core.search.ConceptMap-target-code,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "ConceptMap-target-code",
+  :fhir/url
+  "http://hl7.org/fhir/SearchParameter/ConceptMap-target-code",
+  :fhir/type "token",
+  :name "target-code",
+  :expr
+  {:ConceptMap
+   {:knife [["group" "element" "target" "code"]],
+    :jsonpath ["$.\"group\".\"element\".\"target\".\"code\"[*]"],
+    :data-types #{{:type "code", :polymorphic? false}},
+    :template :token}}}}

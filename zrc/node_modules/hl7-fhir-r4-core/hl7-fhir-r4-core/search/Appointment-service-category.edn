@@ -1,0 +1,15 @@
+{ns hl7-fhir-r4-core.search.Appointment-service-category,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "Appointment-service-category",
+  :fhir/url
+  "http://hl7.org/fhir/SearchParameter/Appointment-service-category",
+  :fhir/type "token",
+  :name "service-category",
+  :expr
+  {:Appointment
+   {:knife [["serviceCategory"]],
+    :jsonpath ["$.\"serviceCategory\"[*]"],
+    :data-types #{{:type "CodeableConcept", :polymorphic? false}},
+    :template :token}}}}

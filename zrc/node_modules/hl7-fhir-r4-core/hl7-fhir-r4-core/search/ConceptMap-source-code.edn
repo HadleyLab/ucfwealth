@@ -1,0 +1,15 @@
+{ns hl7-fhir-r4-core.search.ConceptMap-source-code,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "ConceptMap-source-code",
+  :fhir/url
+  "http://hl7.org/fhir/SearchParameter/ConceptMap-source-code",
+  :fhir/type "token",
+  :name "source-code",
+  :expr
+  {:ConceptMap
+   {:knife [["group" "element" "code"]],
+    :jsonpath ["$.\"group\".\"element\".\"code\"[*]"],
+    :data-types #{{:type "code", :polymorphic? false}},
+    :template :token}}}}

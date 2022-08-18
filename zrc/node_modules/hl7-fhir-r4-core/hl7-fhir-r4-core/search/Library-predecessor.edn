@@ -1,0 +1,15 @@
+{ns hl7-fhir-r4-core.search.Library-predecessor,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "Library-predecessor",
+  :fhir/url "http://hl7.org/fhir/SearchParameter/Library-predecessor",
+  :fhir/type "reference",
+  :name "predecessor",
+  :expr
+  {:Library
+   {:knife [["relatedArtifact" {:type "predecessor"} "resource"]],
+    :jsonpath
+    ["$.\"relatedArtifact\"?(@.\"type\"==\"predecessor\").\"resource\"[*]"],
+    :data-types #{},
+    :template :reference}}}}

@@ -1,0 +1,15 @@
+{ns hl7-fhir-r4-core.search.BodyStructure-location,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "BodyStructure-location",
+  :fhir/url
+  "http://hl7.org/fhir/SearchParameter/BodyStructure-location",
+  :fhir/type "token",
+  :name "location",
+  :expr
+  {:BodyStructure
+   {:knife [["location"]],
+    :jsonpath ["$.\"location\"[*]"],
+    :data-types #{{:type "CodeableConcept", :polymorphic? false}},
+    :template :token}}}}

@@ -1,0 +1,14 @@
+{ns hl7-fhir-r4-core.search.Procedure-performer,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "Procedure-performer",
+  :fhir/url "http://hl7.org/fhir/SearchParameter/Procedure-performer",
+  :fhir/type "reference",
+  :name "performer",
+  :expr
+  {:Procedure
+   {:knife [["performer" "actor"]],
+    :jsonpath ["$.\"performer\".\"actor\"[*]"],
+    :data-types #{{:type "Reference", :polymorphic? false}},
+    :template :reference}}}}

@@ -1,0 +1,14 @@
+{ns hl7-fhir-r4-core.search.Encounter-diagnosis,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "Encounter-diagnosis",
+  :fhir/url "http://hl7.org/fhir/SearchParameter/Encounter-diagnosis",
+  :fhir/type "reference",
+  :name "diagnosis",
+  :expr
+  {:Encounter
+   {:knife [["diagnosis" "condition"]],
+    :jsonpath ["$.\"diagnosis\".\"condition\"[*]"],
+    :data-types #{{:type "Reference", :polymorphic? false}},
+    :template :reference}}}}

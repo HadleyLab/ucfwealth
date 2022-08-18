@@ -1,0 +1,16 @@
+{ns hl7-fhir-r4-core.search.EvidenceVariable-composed-of,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "EvidenceVariable-composed-of",
+  :fhir/url
+  "http://hl7.org/fhir/SearchParameter/EvidenceVariable-composed-of",
+  :fhir/type "reference",
+  :name "composed-of",
+  :expr
+  {:EvidenceVariable
+   {:knife [["relatedArtifact" {:type "composed-of"} "resource"]],
+    :jsonpath
+    ["$.\"relatedArtifact\"?(@.\"type\"==\"composed-of\").\"resource\"[*]"],
+    :data-types #{},
+    :template :reference}}}}

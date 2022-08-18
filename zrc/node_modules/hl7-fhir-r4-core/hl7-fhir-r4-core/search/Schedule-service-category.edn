@@ -1,0 +1,15 @@
+{ns hl7-fhir-r4-core.search.Schedule-service-category,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "Schedule-service-category",
+  :fhir/url
+  "http://hl7.org/fhir/SearchParameter/Schedule-service-category",
+  :fhir/type "token",
+  :name "service-category",
+  :expr
+  {:Schedule
+   {:knife [["serviceCategory"]],
+    :jsonpath ["$.\"serviceCategory\"[*]"],
+    :data-types #{{:type "CodeableConcept", :polymorphic? false}},
+    :template :token}}}}

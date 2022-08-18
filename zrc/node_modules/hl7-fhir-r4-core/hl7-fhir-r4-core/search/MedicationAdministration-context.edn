@@ -1,0 +1,15 @@
+{ns hl7-fhir-r4-core.search.MedicationAdministration-context,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "MedicationAdministration-context",
+  :fhir/url
+  "http://hl7.org/fhir/SearchParameter/MedicationAdministration-context",
+  :fhir/type "reference",
+  :name "context",
+  :expr
+  {:MedicationAdministration
+   {:knife [["context"]],
+    :jsonpath ["$.\"context\"[*]"],
+    :data-types #{{:type "Reference", :polymorphic? false}},
+    :template :reference}}}}

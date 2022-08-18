@@ -1,0 +1,15 @@
+{ns hl7-fhir-r4-core.search.AllergyIntolerance-verification-status,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "AllergyIntolerance-verification-status",
+  :fhir/url
+  "http://hl7.org/fhir/SearchParameter/AllergyIntolerance-verification-status",
+  :fhir/type "token",
+  :name "verification-status",
+  :expr
+  {:AllergyIntolerance
+   {:knife [["verificationStatus"]],
+    :jsonpath ["$.\"verificationStatus\"[*]"],
+    :data-types #{{:type "CodeableConcept", :polymorphic? false}},
+    :template :token}}}}

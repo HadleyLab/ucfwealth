@@ -1,0 +1,15 @@
+{ns hl7-fhir-r4-core.search.ImmunizationRecommendation-support,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "ImmunizationRecommendation-support",
+  :fhir/url
+  "http://hl7.org/fhir/SearchParameter/ImmunizationRecommendation-support",
+  :fhir/type "reference",
+  :name "support",
+  :expr
+  {:ImmunizationRecommendation
+   {:knife [["recommendation" "supportingImmunization"]],
+    :jsonpath ["$.\"recommendation\".\"supportingImmunization\"[*]"],
+    :data-types #{{:type "Reference", :polymorphic? false}},
+    :template :reference}}}}

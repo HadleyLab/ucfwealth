@@ -1,0 +1,31 @@
+{ns hl7-fhir-r4-core.search.ChargeItem-factor-override,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "ChargeItem-factor-override",
+  :fhir/url
+  "http://hl7.org/fhir/SearchParameter/ChargeItem-factor-override",
+  :fhir/type "number",
+  :name "factor-override",
+  :expr
+  {:ChargeItem
+   {:knife [["factorOverride"]],
+    :jsonpath ["$.\"factorOverride\"[*]"],
+    :data-types #{{:type "decimal", :polymorphic? false}},
+    :template :number,
+    :sql
+    {:where
+     [:or
+      [:and
+       [:>=
+        [:pg/call
+         :jsonpath_extract_max_numeric
+         [:pg/sql "{{table}}.resource"]
+         "$.\"factorOverride\"[*]"]
+        [:pg/cast [:pg/sql "{{param}}"] :numeric]]
+       [:<=
+        [:pg/call
+         :jsonpath_extract_min_numeric
+         [:pg/sql "{{table}}.resource"]
+         "$.\"factorOverride\"[*]"]
+        [:pg/cast [:pg/sql "{{param}}"] :numeric]]]]}}}}}

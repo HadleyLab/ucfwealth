@@ -1,0 +1,15 @@
+{ns hl7-fhir-r4-core.search.ImmunizationRecommendation-patient,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "ImmunizationRecommendation-patient",
+  :fhir/url
+  "http://hl7.org/fhir/SearchParameter/ImmunizationRecommendation-patient",
+  :fhir/type "reference",
+  :name "patient",
+  :expr
+  {:ImmunizationRecommendation
+   {:knife [["patient"]],
+    :jsonpath ["$.\"patient\"[*]"],
+    :data-types #{{:type "Reference", :polymorphic? false}},
+    :template :reference}}}}

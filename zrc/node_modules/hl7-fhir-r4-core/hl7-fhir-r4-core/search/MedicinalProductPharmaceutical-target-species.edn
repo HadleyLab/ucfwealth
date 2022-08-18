@@ -1,0 +1,17 @@
+{ns
+ hl7-fhir-r4-core.search.MedicinalProductPharmaceutical-target-species,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "MedicinalProductPharmaceutical-target-species",
+  :fhir/url
+  "http://hl7.org/fhir/SearchParameter/MedicinalProductPharmaceutical-target-species",
+  :fhir/type "token",
+  :name "target-species",
+  :expr
+  {:MedicinalProductPharmaceutical
+   {:knife [["routeOfAdministration" "targetSpecies" "code"]],
+    :jsonpath
+    ["$.\"routeOfAdministration\".\"targetSpecies\".\"code\"[*]"],
+    :data-types #{{:type "CodeableConcept", :polymorphic? false}},
+    :template :token}}}}

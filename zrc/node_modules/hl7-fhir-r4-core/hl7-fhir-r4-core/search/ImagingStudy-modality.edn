@@ -1,0 +1,15 @@
+{ns hl7-fhir-r4-core.search.ImagingStudy-modality,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "ImagingStudy-modality",
+  :fhir/url
+  "http://hl7.org/fhir/SearchParameter/ImagingStudy-modality",
+  :fhir/type "token",
+  :name "modality",
+  :expr
+  {:ImagingStudy
+   {:knife [["series" "modality"]],
+    :jsonpath ["$.\"series\".\"modality\"[*]"],
+    :data-types #{{:type "Coding", :polymorphic? false}},
+    :template :token}}}}

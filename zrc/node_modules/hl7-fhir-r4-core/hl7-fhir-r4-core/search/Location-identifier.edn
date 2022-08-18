@@ -1,0 +1,14 @@
+{ns hl7-fhir-r4-core.search.Location-identifier,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "Location-identifier",
+  :fhir/url "http://hl7.org/fhir/SearchParameter/Location-identifier",
+  :fhir/type "token",
+  :name "identifier",
+  :expr
+  {:Location
+   {:knife [["identifier"]],
+    :jsonpath ["$.\"identifier\"[*]"],
+    :data-types #{{:type "Identifier", :polymorphic? false}},
+    :template :token}}}}

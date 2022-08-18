@@ -1,0 +1,15 @@
+{ns hl7-fhir-r4-core.search.ClinicalImpression-previous,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "ClinicalImpression-previous",
+  :fhir/url
+  "http://hl7.org/fhir/SearchParameter/ClinicalImpression-previous",
+  :fhir/type "reference",
+  :name "previous",
+  :expr
+  {:ClinicalImpression
+   {:knife [["previous"]],
+    :jsonpath ["$.\"previous\"[*]"],
+    :data-types #{{:type "Reference", :polymorphic? false}},
+    :template :reference}}}}

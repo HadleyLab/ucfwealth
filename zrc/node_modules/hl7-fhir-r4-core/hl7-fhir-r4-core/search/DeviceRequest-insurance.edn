@@ -1,0 +1,15 @@
+{ns hl7-fhir-r4-core.search.DeviceRequest-insurance,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "DeviceRequest-insurance",
+  :fhir/url
+  "http://hl7.org/fhir/SearchParameter/DeviceRequest-insurance",
+  :fhir/type "reference",
+  :name "insurance",
+  :expr
+  {:DeviceRequest
+   {:knife [["insurance"]],
+    :jsonpath ["$.\"insurance\"[*]"],
+    :data-types #{{:type "Reference", :polymorphic? false}},
+    :template :reference}}}}

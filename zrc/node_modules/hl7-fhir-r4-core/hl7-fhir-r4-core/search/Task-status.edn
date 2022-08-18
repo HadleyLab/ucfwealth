@@ -1,0 +1,14 @@
+{ns hl7-fhir-r4-core.search.Task-status,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "Task-status",
+  :fhir/url "http://hl7.org/fhir/SearchParameter/Task-status",
+  :fhir/type "token",
+  :name "status",
+  :expr
+  {:Task
+   {:knife [["status"]],
+    :jsonpath ["$.\"status\"[*]"],
+    :data-types #{{:type "code", :polymorphic? false}},
+    :template :token}}}}

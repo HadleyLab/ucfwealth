@@ -1,0 +1,15 @@
+{ns hl7-fhir-r4-core.search.DocumentReference-relatesto,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "DocumentReference-relatesto",
+  :fhir/url
+  "http://hl7.org/fhir/SearchParameter/DocumentReference-relatesto",
+  :fhir/type "reference",
+  :name "relatesto",
+  :expr
+  {:DocumentReference
+   {:knife [["relatesTo" "target"]],
+    :jsonpath ["$.\"relatesTo\".\"target\"[*]"],
+    :data-types #{{:type "Reference", :polymorphic? false}},
+    :template :reference}}}}

@@ -1,0 +1,19 @@
+{ns hl7-fhir-r4-core.search.StructureDefinition-base-path,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "StructureDefinition-base-path",
+  :fhir/url
+  "http://hl7.org/fhir/SearchParameter/StructureDefinition-base-path",
+  :fhir/type "token",
+  :name "base-path",
+  :expr
+  {:StructureDefinition
+   {:knife
+    [["snapshot" "element" "base" "path"]
+     ["differential" "element" "base" "path"]],
+    :jsonpath
+    ["$.\"snapshot\".\"element\".\"base\".\"path\"[*]"
+     "$.\"differential\".\"element\".\"base\".\"path\"[*]"],
+    :data-types #{},
+    :template :token}}}}

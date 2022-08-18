@@ -1,0 +1,14 @@
+{ns hl7-fhir-r4-core.search.Coverage-beneficiary,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "Coverage-beneficiary",
+  :fhir/url "http://hl7.org/fhir/SearchParameter/Coverage-beneficiary",
+  :fhir/type "reference",
+  :name "beneficiary",
+  :expr
+  {:Coverage
+   {:knife [["beneficiary"]],
+    :jsonpath ["$.\"beneficiary\"[*]"],
+    :data-types #{{:type "Reference", :polymorphic? false}},
+    :template :reference}}}}

@@ -1,0 +1,45 @@
+{ns hl7-fhir-r4-core.search.Condition-onset-age,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "Condition-onset-age",
+  :fhir/url "http://hl7.org/fhir/SearchParameter/Condition-onset-age",
+  :fhir/type "quantity",
+  :name "onset-age",
+  :expr
+  {:Condition
+   {:knife [["onset" "Age"] ["onset" "Range"]],
+    :jsonpath ["$.\"onset\".\"Age\"[*]" "$.\"onset\".\"Range\"[*]"],
+    :data-types
+    #{{:type "Age", :polymorphic? false}
+      {:type "Range", :polymorphic? false}},
+    :template :quantity,
+    :sql
+    {:where
+     [:or
+      [:and
+       [:>=
+        [:pg/call
+         :jsonpath_extract_max_numeric
+         [:pg/sql "{{table}}.resource"]
+         "$.\"onset\".\"Age\"[*].\"value\""]
+        [:pg/cast [:pg/sql "{{param}}"] :numeric]]
+       [:<=
+        [:pg/call
+         :jsonpath_extract_min_numeric
+         [:pg/sql "{{table}}.resource"]
+         "$.\"onset\".\"Age\"[*].\"value\""]
+        [:pg/cast [:pg/sql "{{param}}"] :numeric]]]
+      [:and
+       [:>=
+        [:pg/call
+         :jsonpath_extract_max_numeric
+         [:pg/sql "{{table}}.resource"]
+         "$.\"onset\".\"Range\"[*].\"value\""]
+        [:pg/cast [:pg/sql "{{param}}"] :numeric]]
+       [:<=
+        [:pg/call
+         :jsonpath_extract_min_numeric
+         [:pg/sql "{{table}}.resource"]
+         "$.\"onset\".\"Range\"[*].\"value\""]
+        [:pg/cast [:pg/sql "{{param}}"] :numeric]]]]}}}}}

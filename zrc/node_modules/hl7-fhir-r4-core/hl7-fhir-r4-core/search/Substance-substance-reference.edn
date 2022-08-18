@@ -1,0 +1,15 @@
+{ns hl7-fhir-r4-core.search.Substance-substance-reference,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "Substance-substance-reference",
+  :fhir/url
+  "http://hl7.org/fhir/SearchParameter/Substance-substance-reference",
+  :fhir/type "reference",
+  :name "substance-reference",
+  :expr
+  {:Substance
+   {:knife [["ingredient" "substance" "Reference"]],
+    :jsonpath ["$.\"ingredient\".\"substance\".\"Reference\"[*]"],
+    :data-types #{{:type "Reference", :polymorphic? false}},
+    :template :reference}}}}

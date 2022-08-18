@@ -1,0 +1,15 @@
+{ns hl7-fhir-r4-core.search.NutritionOrder-provider,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "NutritionOrder-provider",
+  :fhir/url
+  "http://hl7.org/fhir/SearchParameter/NutritionOrder-provider",
+  :fhir/type "reference",
+  :name "provider",
+  :expr
+  {:NutritionOrder
+   {:knife [["orderer"]],
+    :jsonpath ["$.\"orderer\"[*]"],
+    :data-types #{{:type "Reference", :polymorphic? false}},
+    :template :reference}}}}

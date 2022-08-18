@@ -1,0 +1,15 @@
+{ns hl7-fhir-r4-core.search.Encounter-service-provider,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "Encounter-service-provider",
+  :fhir/url
+  "http://hl7.org/fhir/SearchParameter/Encounter-service-provider",
+  :fhir/type "reference",
+  :name "service-provider",
+  :expr
+  {:Encounter
+   {:knife [["serviceProvider"]],
+    :jsonpath ["$.\"serviceProvider\"[*]"],
+    :data-types #{{:type "Reference", :polymorphic? false}},
+    :template :reference}}}}

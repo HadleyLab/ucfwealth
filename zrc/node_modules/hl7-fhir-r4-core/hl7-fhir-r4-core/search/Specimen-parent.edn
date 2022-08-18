@@ -1,0 +1,14 @@
+{ns hl7-fhir-r4-core.search.Specimen-parent,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "Specimen-parent",
+  :fhir/url "http://hl7.org/fhir/SearchParameter/Specimen-parent",
+  :fhir/type "reference",
+  :name "parent",
+  :expr
+  {:Specimen
+   {:knife [["parent"]],
+    :jsonpath ["$.\"parent\"[*]"],
+    :data-types #{{:type "Reference", :polymorphic? false}},
+    :template :reference}}}}

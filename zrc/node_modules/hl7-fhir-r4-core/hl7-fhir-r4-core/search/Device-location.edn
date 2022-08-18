@@ -1,0 +1,14 @@
+{ns hl7-fhir-r4-core.search.Device-location,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "Device-location",
+  :fhir/url "http://hl7.org/fhir/SearchParameter/Device-location",
+  :fhir/type "reference",
+  :name "location",
+  :expr
+  {:Device
+   {:knife [["location"]],
+    :jsonpath ["$.\"location\"[*]"],
+    :data-types #{{:type "Reference", :polymorphic? false}},
+    :template :reference}}}}

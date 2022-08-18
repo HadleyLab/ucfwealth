@@ -1,0 +1,15 @@
+{ns hl7-fhir-r4-core.search.Medication-lot-number,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "Medication-lot-number",
+  :fhir/url
+  "http://hl7.org/fhir/SearchParameter/Medication-lot-number",
+  :fhir/type "token",
+  :name "lot-number",
+  :expr
+  {:Medication
+   {:knife [["batch" "lotNumber"]],
+    :jsonpath ["$.\"batch\".\"lotNumber\"[*]"],
+    :data-types #{{:type "string", :polymorphic? false}},
+    :template :token}}}}

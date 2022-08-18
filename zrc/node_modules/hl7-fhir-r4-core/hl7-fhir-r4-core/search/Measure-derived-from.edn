@@ -1,0 +1,15 @@
+{ns hl7-fhir-r4-core.search.Measure-derived-from,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "Measure-derived-from",
+  :fhir/url "http://hl7.org/fhir/SearchParameter/Measure-derived-from",
+  :fhir/type "reference",
+  :name "derived-from",
+  :expr
+  {:Measure
+   {:knife [["relatedArtifact" {:type "derived-from"} "resource"]],
+    :jsonpath
+    ["$.\"relatedArtifact\"?(@.\"type\"==\"derived-from\").\"resource\"[*]"],
+    :data-types #{},
+    :template :reference}}}}

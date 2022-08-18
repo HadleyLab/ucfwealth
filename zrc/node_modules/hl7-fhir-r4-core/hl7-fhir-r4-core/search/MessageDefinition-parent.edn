@@ -1,0 +1,15 @@
+{ns hl7-fhir-r4-core.search.MessageDefinition-parent,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "MessageDefinition-parent",
+  :fhir/url
+  "http://hl7.org/fhir/SearchParameter/MessageDefinition-parent",
+  :fhir/type "reference",
+  :name "parent",
+  :expr
+  {:MessageDefinition
+   {:knife [["parent"]],
+    :jsonpath ["$.\"parent\"[*]"],
+    :data-types #{{:type "canonical", :polymorphic? false}},
+    :template :reference}}}}

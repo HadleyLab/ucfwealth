@@ -1,0 +1,14 @@
+{ns hl7-fhir-r4-core.search.Group-member,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "Group-member",
+  :fhir/url "http://hl7.org/fhir/SearchParameter/Group-member",
+  :fhir/type "reference",
+  :name "member",
+  :expr
+  {:Group
+   {:knife [["member" "entity"]],
+    :jsonpath ["$.\"member\".\"entity\"[*]"],
+    :data-types #{{:type "Reference", :polymorphic? false}},
+    :template :reference}}}}

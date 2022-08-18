@@ -1,0 +1,82 @@
+{ns hl7-fhir-r4-core.search.individual-address-postalcode,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "individual-address-postalcode",
+  :fhir/url
+  "http://hl7.org/fhir/SearchParameter/individual-address-postalcode",
+  :fhir/type "string",
+  :name "address-postalcode",
+  :expr
+  {:Patient
+   {:knife [["address" "postalCode"]],
+    :jsonpath ["$.\"address\".\"postalCode\"[*]"],
+    :data-types #{},
+    :template :string,
+    :sql
+    {:where
+     [:or
+      [:ilike
+       [:pg/cast
+        [:pg/jsonb-path-query-array
+         [:pg/sql "{{table}}.resource"]
+         [:pg/cast
+          "($.\"address\".\"postalCode\"[*]).** ? (@.type() == \"string\")"
+          :jsonpath]]
+        :text]
+       [:pg/sql "{{param}}"]]],
+     :parameter-format "%\"?%"}},
+   :Person
+   {:knife [["address" "postalCode"]],
+    :jsonpath ["$.\"address\".\"postalCode\"[*]"],
+    :data-types #{},
+    :template :string,
+    :sql
+    {:where
+     [:or
+      [:ilike
+       [:pg/cast
+        [:pg/jsonb-path-query-array
+         [:pg/sql "{{table}}.resource"]
+         [:pg/cast
+          "($.\"address\".\"postalCode\"[*]).** ? (@.type() == \"string\")"
+          :jsonpath]]
+        :text]
+       [:pg/sql "{{param}}"]]],
+     :parameter-format "%\"?%"}},
+   :Practitioner
+   {:knife [["address" "postalCode"]],
+    :jsonpath ["$.\"address\".\"postalCode\"[*]"],
+    :data-types #{},
+    :template :string,
+    :sql
+    {:where
+     [:or
+      [:ilike
+       [:pg/cast
+        [:pg/jsonb-path-query-array
+         [:pg/sql "{{table}}.resource"]
+         [:pg/cast
+          "($.\"address\".\"postalCode\"[*]).** ? (@.type() == \"string\")"
+          :jsonpath]]
+        :text]
+       [:pg/sql "{{param}}"]]],
+     :parameter-format "%\"?%"}},
+   :RelatedPerson
+   {:knife [["address" "postalCode"]],
+    :jsonpath ["$.\"address\".\"postalCode\"[*]"],
+    :data-types #{},
+    :template :string,
+    :sql
+    {:where
+     [:or
+      [:ilike
+       [:pg/cast
+        [:pg/jsonb-path-query-array
+         [:pg/sql "{{table}}.resource"]
+         [:pg/cast
+          "($.\"address\".\"postalCode\"[*]).** ? (@.type() == \"string\")"
+          :jsonpath]]
+        :text]
+       [:pg/sql "{{param}}"]]],
+     :parameter-format "%\"?%"}}}}}

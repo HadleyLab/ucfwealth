@@ -1,0 +1,14 @@
+{ns hl7-fhir-r4-core.search.PlanDefinition-topic,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "PlanDefinition-topic",
+  :fhir/url "http://hl7.org/fhir/SearchParameter/PlanDefinition-topic",
+  :fhir/type "token",
+  :name "topic",
+  :expr
+  {:PlanDefinition
+   {:knife [["topic"]],
+    :jsonpath ["$.\"topic\"[*]"],
+    :data-types #{{:type "CodeableConcept", :polymorphic? false}},
+    :template :token}}}}

@@ -1,0 +1,15 @@
+{ns hl7-fhir-r4-core.search.DocumentManifest-related-id,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "DocumentManifest-related-id",
+  :fhir/url
+  "http://hl7.org/fhir/SearchParameter/DocumentManifest-related-id",
+  :fhir/type "token",
+  :name "related-id",
+  :expr
+  {:DocumentManifest
+   {:knife [["related" "identifier"]],
+    :jsonpath ["$.\"related\".\"identifier\"[*]"],
+    :data-types #{{:type "Identifier", :polymorphic? false}},
+    :template :token}}}}

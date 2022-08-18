@@ -1,0 +1,15 @@
+{ns hl7-fhir-r4-core.search.DiagnosticReport-subject,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "DiagnosticReport-subject",
+  :fhir/url
+  "http://hl7.org/fhir/SearchParameter/DiagnosticReport-subject",
+  :fhir/type "reference",
+  :name "subject",
+  :expr
+  {:DiagnosticReport
+   {:knife [["subject"]],
+    :jsonpath ["$.\"subject\"[*]"],
+    :data-types #{{:type "Reference", :polymorphic? false}},
+    :template :reference}}}}

@@ -1,0 +1,15 @@
+{ns hl7-fhir-r4-core.search.NutritionOrder-additive,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "NutritionOrder-additive",
+  :fhir/url
+  "http://hl7.org/fhir/SearchParameter/NutritionOrder-additive",
+  :fhir/type "token",
+  :name "additive",
+  :expr
+  {:NutritionOrder
+   {:knife [["enteralFormula" "additiveType"]],
+    :jsonpath ["$.\"enteralFormula\".\"additiveType\"[*]"],
+    :data-types #{{:type "CodeableConcept", :polymorphic? false}},
+    :template :token}}}}

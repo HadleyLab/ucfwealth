@@ -1,0 +1,15 @@
+{ns hl7-fhir-r4-core.search.RequestGroup-participant,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "RequestGroup-participant",
+  :fhir/url
+  "http://hl7.org/fhir/SearchParameter/RequestGroup-participant",
+  :fhir/type "reference",
+  :name "participant",
+  :expr
+  {:RequestGroup
+   {:knife [["action" "participant"]],
+    :jsonpath ["$.\"action\".\"participant\"[*]"],
+    :data-types #{{:type "Reference", :polymorphic? false}},
+    :template :reference}}}}

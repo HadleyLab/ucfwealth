@@ -1,0 +1,14 @@
+{ns hl7-fhir-r4-core.search.RequestGroup-status,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "RequestGroup-status",
+  :fhir/url "http://hl7.org/fhir/SearchParameter/RequestGroup-status",
+  :fhir/type "token",
+  :name "status",
+  :expr
+  {:RequestGroup
+   {:knife [["status"]],
+    :jsonpath ["$.\"status\"[*]"],
+    :data-types #{{:type "code", :polymorphic? false}},
+    :template :token}}}}

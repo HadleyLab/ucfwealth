@@ -1,0 +1,14 @@
+{ns hl7-fhir-r4-core.search.Patient-language,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "Patient-language",
+  :fhir/url "http://hl7.org/fhir/SearchParameter/Patient-language",
+  :fhir/type "token",
+  :name "language",
+  :expr
+  {:Patient
+   {:knife [["communication" "language"]],
+    :jsonpath ["$.\"communication\".\"language\"[*]"],
+    :data-types #{{:type "CodeableConcept", :polymorphic? false}},
+    :template :token}}}}

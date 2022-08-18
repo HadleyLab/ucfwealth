@@ -1,0 +1,15 @@
+{ns hl7-fhir-r4-core.search.Observation-derived-from,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "Observation-derived-from",
+  :fhir/url
+  "http://hl7.org/fhir/SearchParameter/Observation-derived-from",
+  :fhir/type "reference",
+  :name "derived-from",
+  :expr
+  {:Observation
+   {:knife [["derivedFrom"]],
+    :jsonpath ["$.\"derivedFrom\"[*]"],
+    :data-types #{{:type "Reference", :polymorphic? false}},
+    :template :reference}}}}

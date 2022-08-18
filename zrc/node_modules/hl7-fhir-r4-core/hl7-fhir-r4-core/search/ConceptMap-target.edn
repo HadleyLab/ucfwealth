@@ -1,0 +1,14 @@
+{ns hl7-fhir-r4-core.search.ConceptMap-target,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "ConceptMap-target",
+  :fhir/url "http://hl7.org/fhir/SearchParameter/ConceptMap-target",
+  :fhir/type "reference",
+  :name "target",
+  :expr
+  {:ConceptMap
+   {:knife [["target" "canonical"]],
+    :jsonpath ["$.\"target\".\"canonical\"[*]"],
+    :data-types #{{:type "canonical", :polymorphic? false}},
+    :template :reference}}}}

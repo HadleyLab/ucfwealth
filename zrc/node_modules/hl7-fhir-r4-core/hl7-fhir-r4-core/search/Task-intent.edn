@@ -1,0 +1,14 @@
+{ns hl7-fhir-r4-core.search.Task-intent,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "Task-intent",
+  :fhir/url "http://hl7.org/fhir/SearchParameter/Task-intent",
+  :fhir/type "token",
+  :name "intent",
+  :expr
+  {:Task
+   {:knife [["intent"]],
+    :jsonpath ["$.\"intent\"[*]"],
+    :data-types #{{:type "code", :polymorphic? false}},
+    :template :token}}}}

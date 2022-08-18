@@ -1,0 +1,15 @@
+{ns hl7-fhir-r4-core.search.FamilyMemberHistory-relationship,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "FamilyMemberHistory-relationship",
+  :fhir/url
+  "http://hl7.org/fhir/SearchParameter/FamilyMemberHistory-relationship",
+  :fhir/type "token",
+  :name "relationship",
+  :expr
+  {:FamilyMemberHistory
+   {:knife [["relationship"]],
+    :jsonpath ["$.\"relationship\"[*]"],
+    :data-types #{{:type "CodeableConcept", :polymorphic? false}},
+    :template :token}}}}

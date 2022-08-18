@@ -1,0 +1,15 @@
+{ns hl7-fhir-r4-core.search.ImagingStudy-dicom-class,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "ImagingStudy-dicom-class",
+  :fhir/url
+  "http://hl7.org/fhir/SearchParameter/ImagingStudy-dicom-class",
+  :fhir/type "token",
+  :name "dicom-class",
+  :expr
+  {:ImagingStudy
+   {:knife [["series" "instance" "sopClass"]],
+    :jsonpath ["$.\"series\".\"instance\".\"sopClass\"[*]"],
+    :data-types #{{:type "Coding", :polymorphic? false}},
+    :template :token}}}}

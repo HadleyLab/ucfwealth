@@ -1,0 +1,15 @@
+{ns hl7-fhir-r4-core.search.Library-composed-of,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "Library-composed-of",
+  :fhir/url "http://hl7.org/fhir/SearchParameter/Library-composed-of",
+  :fhir/type "reference",
+  :name "composed-of",
+  :expr
+  {:Library
+   {:knife [["relatedArtifact" {:type "composed-of"} "resource"]],
+    :jsonpath
+    ["$.\"relatedArtifact\"?(@.\"type\"==\"composed-of\").\"resource\"[*]"],
+    :data-types #{},
+    :template :reference}}}}

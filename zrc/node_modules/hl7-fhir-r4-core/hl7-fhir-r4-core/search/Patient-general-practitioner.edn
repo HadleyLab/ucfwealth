@@ -1,0 +1,15 @@
+{ns hl7-fhir-r4-core.search.Patient-general-practitioner,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "Patient-general-practitioner",
+  :fhir/url
+  "http://hl7.org/fhir/SearchParameter/Patient-general-practitioner",
+  :fhir/type "reference",
+  :name "general-practitioner",
+  :expr
+  {:Patient
+   {:knife [["generalPractitioner"]],
+    :jsonpath ["$.\"generalPractitioner\"[*]"],
+    :data-types #{{:type "Reference", :polymorphic? false}},
+    :template :reference}}}}

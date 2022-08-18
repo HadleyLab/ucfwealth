@@ -1,0 +1,15 @@
+{ns hl7-fhir-r4-core.search.Contract-instantiates,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "Contract-instantiates",
+  :fhir/url
+  "http://hl7.org/fhir/SearchParameter/Contract-instantiates",
+  :fhir/type "uri",
+  :name "instantiates",
+  :expr
+  {:Contract
+   {:knife [["instantiatesUri"]],
+    :jsonpath ["$.\"instantiatesUri\"[*]"],
+    :data-types #{{:type "uri", :polymorphic? false}},
+    :template :uri}}}}

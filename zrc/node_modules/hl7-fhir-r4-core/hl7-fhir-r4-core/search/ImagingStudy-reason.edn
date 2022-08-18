@@ -1,0 +1,14 @@
+{ns hl7-fhir-r4-core.search.ImagingStudy-reason,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "ImagingStudy-reason",
+  :fhir/url "http://hl7.org/fhir/SearchParameter/ImagingStudy-reason",
+  :fhir/type "token",
+  :name "reason",
+  :expr
+  {:ImagingStudy
+   {:knife [["reasonCode"]],
+    :jsonpath ["$.\"reasonCode\"[*]"],
+    :data-types #{{:type "CodeableConcept", :polymorphic? false}},
+    :template :token}}}}

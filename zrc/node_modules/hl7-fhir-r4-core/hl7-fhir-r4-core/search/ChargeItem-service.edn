@@ -1,0 +1,14 @@
+{ns hl7-fhir-r4-core.search.ChargeItem-service,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "ChargeItem-service",
+  :fhir/url "http://hl7.org/fhir/SearchParameter/ChargeItem-service",
+  :fhir/type "reference",
+  :name "service",
+  :expr
+  {:ChargeItem
+   {:knife [["service"]],
+    :jsonpath ["$.\"service\"[*]"],
+    :data-types #{{:type "Reference", :polymorphic? false}},
+    :template :reference}}}}

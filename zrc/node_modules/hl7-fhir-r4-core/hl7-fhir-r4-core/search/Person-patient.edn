@@ -1,0 +1,15 @@
+{ns hl7-fhir-r4-core.search.Person-patient,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "Person-patient",
+  :fhir/url "http://hl7.org/fhir/SearchParameter/Person-patient",
+  :fhir/type "reference",
+  :name "patient",
+  :expr
+  {:Person
+   {:knife [["link" "target" {:resourceType "Patient"}]],
+    :jsonpath
+    ["$.\"link\".\"target\"?(@.\"resourceType\"==\"Patient\")[*]"],
+    :data-types #{{:type "Reference", :polymorphic? false}},
+    :template :reference}}}}

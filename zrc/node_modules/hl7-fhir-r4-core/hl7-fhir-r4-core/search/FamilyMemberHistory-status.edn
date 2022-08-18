@@ -1,0 +1,15 @@
+{ns hl7-fhir-r4-core.search.FamilyMemberHistory-status,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "FamilyMemberHistory-status",
+  :fhir/url
+  "http://hl7.org/fhir/SearchParameter/FamilyMemberHistory-status",
+  :fhir/type "token",
+  :name "status",
+  :expr
+  {:FamilyMemberHistory
+   {:knife [["status"]],
+    :jsonpath ["$.\"status\"[*]"],
+    :data-types #{{:type "code", :polymorphic? false}},
+    :template :token}}}}

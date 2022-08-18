@@ -1,0 +1,14 @@
+{ns hl7-fhir-r4-core.search.RelatedPerson-active,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "RelatedPerson-active",
+  :fhir/url "http://hl7.org/fhir/SearchParameter/RelatedPerson-active",
+  :fhir/type "token",
+  :name "active",
+  :expr
+  {:RelatedPerson
+   {:knife [["active"]],
+    :jsonpath ["$.\"active\"[*]"],
+    :data-types #{{:type "boolean", :polymorphic? false}},
+    :template :token}}}}

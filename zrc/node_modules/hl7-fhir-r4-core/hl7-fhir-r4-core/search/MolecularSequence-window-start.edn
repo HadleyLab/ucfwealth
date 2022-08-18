@@ -1,0 +1,31 @@
+{ns hl7-fhir-r4-core.search.MolecularSequence-window-start,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "MolecularSequence-window-start",
+  :fhir/url
+  "http://hl7.org/fhir/SearchParameter/MolecularSequence-window-start",
+  :fhir/type "number",
+  :name "window-start",
+  :expr
+  {:MolecularSequence
+   {:knife [["referenceSeq" "windowStart"]],
+    :jsonpath ["$.\"referenceSeq\".\"windowStart\"[*]"],
+    :data-types #{{:type "integer", :polymorphic? false}},
+    :template :number,
+    :sql
+    {:where
+     [:or
+      [:and
+       [:>=
+        [:pg/call
+         :jsonpath_extract_max_numeric
+         [:pg/sql "{{table}}.resource"]
+         "$.\"referenceSeq\".\"windowStart\"[*]"]
+        [:pg/cast [:pg/sql "{{param}}"] :numeric]]
+       [:<=
+        [:pg/call
+         :jsonpath_extract_min_numeric
+         [:pg/sql "{{table}}.resource"]
+         "$.\"referenceSeq\".\"windowStart\"[*]"]
+        [:pg/cast [:pg/sql "{{param}}"] :numeric]]]]}}}}}

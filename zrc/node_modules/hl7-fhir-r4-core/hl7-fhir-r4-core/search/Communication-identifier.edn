@@ -1,0 +1,15 @@
+{ns hl7-fhir-r4-core.search.Communication-identifier,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "Communication-identifier",
+  :fhir/url
+  "http://hl7.org/fhir/SearchParameter/Communication-identifier",
+  :fhir/type "token",
+  :name "identifier",
+  :expr
+  {:Communication
+   {:knife [["identifier"]],
+    :jsonpath ["$.\"identifier\"[*]"],
+    :data-types #{{:type "Identifier", :polymorphic? false}},
+    :template :token}}}}

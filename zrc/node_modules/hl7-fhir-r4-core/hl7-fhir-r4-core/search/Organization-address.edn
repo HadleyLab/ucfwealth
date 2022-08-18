@@ -1,0 +1,27 @@
+{ns hl7-fhir-r4-core.search.Organization-address,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "Organization-address",
+  :fhir/url "http://hl7.org/fhir/SearchParameter/Organization-address",
+  :fhir/type "string",
+  :name "address",
+  :expr
+  {:Organization
+   {:knife [["address"]],
+    :jsonpath ["$.\"address\"[*]"],
+    :data-types #{{:type "Address", :polymorphic? false}},
+    :template :string,
+    :sql
+    {:where
+     [:or
+      [:ilike
+       [:pg/cast
+        [:pg/jsonb-path-query-array
+         [:pg/sql "{{table}}.resource"]
+         [:pg/cast
+          "($.\"address\"[*]).** ? (@.type() == \"string\")"
+          :jsonpath]]
+        :text]
+       [:pg/sql "{{param}}"]]],
+     :parameter-format "%\"?%"}}}}}

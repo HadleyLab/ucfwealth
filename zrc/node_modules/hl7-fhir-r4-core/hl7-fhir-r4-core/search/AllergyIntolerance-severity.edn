@@ -1,0 +1,15 @@
+{ns hl7-fhir-r4-core.search.AllergyIntolerance-severity,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "AllergyIntolerance-severity",
+  :fhir/url
+  "http://hl7.org/fhir/SearchParameter/AllergyIntolerance-severity",
+  :fhir/type "token",
+  :name "severity",
+  :expr
+  {:AllergyIntolerance
+   {:knife [["reaction" "severity"]],
+    :jsonpath ["$.\"reaction\".\"severity\"[*]"],
+    :data-types #{{:type "code", :polymorphic? false}},
+    :template :token}}}}

@@ -1,0 +1,15 @@
+{ns hl7-fhir-r4-core.search.MessageHeader-enterer,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "MessageHeader-enterer",
+  :fhir/url
+  "http://hl7.org/fhir/SearchParameter/MessageHeader-enterer",
+  :fhir/type "reference",
+  :name "enterer",
+  :expr
+  {:MessageHeader
+   {:knife [["enterer"]],
+    :jsonpath ["$.\"enterer\"[*]"],
+    :data-types #{{:type "Reference", :polymorphic? false}},
+    :template :reference}}}}

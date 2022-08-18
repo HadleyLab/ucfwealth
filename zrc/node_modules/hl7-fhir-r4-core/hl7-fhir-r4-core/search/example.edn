@@ -1,0 +1,9 @@
+{ns hl7-fhir-r4-core.search.example,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "example",
+  :fhir/url "http://hl7.org/fhir/SearchParameter/example",
+  :fhir/type "token",
+  :name "_id",
+  :expr {:Resource {:jsonpath [], :data-types #{}, :template :token}}}}

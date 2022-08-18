@@ -1,0 +1,14 @@
+{ns hl7-fhir-r4-core.search.Consent-scope,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "Consent-scope",
+  :fhir/url "http://hl7.org/fhir/SearchParameter/Consent-scope",
+  :fhir/type "token",
+  :name "scope",
+  :expr
+  {:Consent
+   {:knife [["scope"]],
+    :jsonpath ["$.\"scope\"[*]"],
+    :data-types #{{:type "CodeableConcept", :polymorphic? false}},
+    :template :token}}}}

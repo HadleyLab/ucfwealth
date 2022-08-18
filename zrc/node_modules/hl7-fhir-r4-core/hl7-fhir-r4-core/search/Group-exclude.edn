@@ -1,0 +1,14 @@
+{ns hl7-fhir-r4-core.search.Group-exclude,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "Group-exclude",
+  :fhir/url "http://hl7.org/fhir/SearchParameter/Group-exclude",
+  :fhir/type "token",
+  :name "exclude",
+  :expr
+  {:Group
+   {:knife [["characteristic" "exclude"]],
+    :jsonpath ["$.\"characteristic\".\"exclude\"[*]"],
+    :data-types #{{:type "boolean", :polymorphic? false}},
+    :template :token}}}}

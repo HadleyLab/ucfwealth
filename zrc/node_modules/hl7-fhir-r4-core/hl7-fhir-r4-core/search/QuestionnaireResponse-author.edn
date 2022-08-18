@@ -1,0 +1,15 @@
+{ns hl7-fhir-r4-core.search.QuestionnaireResponse-author,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "QuestionnaireResponse-author",
+  :fhir/url
+  "http://hl7.org/fhir/SearchParameter/QuestionnaireResponse-author",
+  :fhir/type "reference",
+  :name "author",
+  :expr
+  {:QuestionnaireResponse
+   {:knife [["author"]],
+    :jsonpath ["$.\"author\"[*]"],
+    :data-types #{{:type "Reference", :polymorphic? false}},
+    :template :reference}}}}

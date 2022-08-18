@@ -1,0 +1,14 @@
+{ns hl7-fhir-r4-core.search.Condition-stage,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "Condition-stage",
+  :fhir/url "http://hl7.org/fhir/SearchParameter/Condition-stage",
+  :fhir/type "token",
+  :name "stage",
+  :expr
+  {:Condition
+   {:knife [["stage" "summary"]],
+    :jsonpath ["$.\"stage\".\"summary\"[*]"],
+    :data-types #{{:type "CodeableConcept", :polymorphic? false}},
+    :template :token}}}}

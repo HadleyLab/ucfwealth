@@ -1,0 +1,15 @@
+{ns hl7-fhir-r4-core.search.EpisodeOfCare-incoming-referral,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "EpisodeOfCare-incoming-referral",
+  :fhir/url
+  "http://hl7.org/fhir/SearchParameter/EpisodeOfCare-incoming-referral",
+  :fhir/type "reference",
+  :name "incoming-referral",
+  :expr
+  {:EpisodeOfCare
+   {:knife [["referralRequest"]],
+    :jsonpath ["$.\"referralRequest\"[*]"],
+    :data-types #{{:type "Reference", :polymorphic? false}},
+    :template :reference}}}}

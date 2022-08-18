@@ -1,0 +1,15 @@
+{ns hl7-fhir-r4-core.search.ImmunizationEvaluation-dose-status,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "ImmunizationEvaluation-dose-status",
+  :fhir/url
+  "http://hl7.org/fhir/SearchParameter/ImmunizationEvaluation-dose-status",
+  :fhir/type "token",
+  :name "dose-status",
+  :expr
+  {:ImmunizationEvaluation
+   {:knife [["doseStatus"]],
+    :jsonpath ["$.\"doseStatus\"[*]"],
+    :data-types #{{:type "CodeableConcept", :polymorphic? false}},
+    :template :token}}}}

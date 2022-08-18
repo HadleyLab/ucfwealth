@@ -1,0 +1,14 @@
+{ns hl7-fhir-r4-core.search.CarePlan-performer,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "CarePlan-performer",
+  :fhir/url "http://hl7.org/fhir/SearchParameter/CarePlan-performer",
+  :fhir/type "reference",
+  :name "performer",
+  :expr
+  {:CarePlan
+   {:knife [["activity" "detail" "performer"]],
+    :jsonpath ["$.\"activity\".\"detail\".\"performer\"[*]"],
+    :data-types #{{:type "Reference", :polymorphic? false}},
+    :template :reference}}}}

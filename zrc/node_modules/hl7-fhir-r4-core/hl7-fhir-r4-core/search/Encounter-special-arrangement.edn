@@ -1,0 +1,15 @@
+{ns hl7-fhir-r4-core.search.Encounter-special-arrangement,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "Encounter-special-arrangement",
+  :fhir/url
+  "http://hl7.org/fhir/SearchParameter/Encounter-special-arrangement",
+  :fhir/type "token",
+  :name "special-arrangement",
+  :expr
+  {:Encounter
+   {:knife [["hospitalization" "specialArrangement"]],
+    :jsonpath ["$.\"hospitalization\".\"specialArrangement\"[*]"],
+    :data-types #{{:type "CodeableConcept", :polymorphic? false}},
+    :template :token}}}}

@@ -1,0 +1,15 @@
+{ns hl7-fhir-r4-core.search.ResearchDefinition-url,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "ResearchDefinition-url",
+  :fhir/url
+  "http://hl7.org/fhir/SearchParameter/ResearchDefinition-url",
+  :fhir/type "uri",
+  :name "url",
+  :expr
+  {:ResearchDefinition
+   {:knife [["url"]],
+    :jsonpath ["$.\"url\"[*]"],
+    :data-types #{{:type "uri", :polymorphic? false}},
+    :template :uri}}}}

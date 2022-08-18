@@ -1,0 +1,15 @@
+{ns hl7-fhir-r4-core.search.ExplanationOfBenefit-coverage,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "ExplanationOfBenefit-coverage",
+  :fhir/url
+  "http://hl7.org/fhir/SearchParameter/ExplanationOfBenefit-coverage",
+  :fhir/type "reference",
+  :name "coverage",
+  :expr
+  {:ExplanationOfBenefit
+   {:knife [["insurance" "coverage"]],
+    :jsonpath ["$.\"insurance\".\"coverage\"[*]"],
+    :data-types #{{:type "Reference", :polymorphic? false}},
+    :template :reference}}}}

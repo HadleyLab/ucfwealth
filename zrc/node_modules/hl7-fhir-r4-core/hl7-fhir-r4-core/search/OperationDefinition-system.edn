@@ -1,0 +1,15 @@
+{ns hl7-fhir-r4-core.search.OperationDefinition-system,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "OperationDefinition-system",
+  :fhir/url
+  "http://hl7.org/fhir/SearchParameter/OperationDefinition-system",
+  :fhir/type "token",
+  :name "system",
+  :expr
+  {:OperationDefinition
+   {:knife [["system"]],
+    :jsonpath ["$.\"system\"[*]"],
+    :data-types #{{:type "boolean", :polymorphic? false}},
+    :template :token}}}}

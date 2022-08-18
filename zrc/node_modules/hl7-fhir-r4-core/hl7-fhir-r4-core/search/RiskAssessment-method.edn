@@ -1,0 +1,15 @@
+{ns hl7-fhir-r4-core.search.RiskAssessment-method,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "RiskAssessment-method",
+  :fhir/url
+  "http://hl7.org/fhir/SearchParameter/RiskAssessment-method",
+  :fhir/type "token",
+  :name "method",
+  :expr
+  {:RiskAssessment
+   {:knife [["method"]],
+    :jsonpath ["$.\"method\"[*]"],
+    :data-types #{{:type "CodeableConcept", :polymorphic? false}},
+    :template :token}}}}

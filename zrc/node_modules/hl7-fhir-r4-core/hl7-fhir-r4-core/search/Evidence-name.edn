@@ -1,0 +1,27 @@
+{ns hl7-fhir-r4-core.search.Evidence-name,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "Evidence-name",
+  :fhir/url "http://hl7.org/fhir/SearchParameter/Evidence-name",
+  :fhir/type "string",
+  :name "name",
+  :expr
+  {:Evidence
+   {:knife [["name"]],
+    :jsonpath ["$.\"name\"[*]"],
+    :data-types #{{:type "string", :polymorphic? false}},
+    :template :string,
+    :sql
+    {:where
+     [:or
+      [:ilike
+       [:pg/cast
+        [:pg/jsonb-path-query-array
+         [:pg/sql "{{table}}.resource"]
+         [:pg/cast
+          "($.\"name\"[*]).** ? (@.type() == \"string\")"
+          :jsonpath]]
+        :text]
+       [:pg/sql "{{param}}"]]],
+     :parameter-format "%\"?%"}}}}}

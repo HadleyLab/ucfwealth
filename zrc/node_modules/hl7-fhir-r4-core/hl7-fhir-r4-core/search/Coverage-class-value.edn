@@ -1,0 +1,27 @@
+{ns hl7-fhir-r4-core.search.Coverage-class-value,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "Coverage-class-value",
+  :fhir/url "http://hl7.org/fhir/SearchParameter/Coverage-class-value",
+  :fhir/type "string",
+  :name "class-value",
+  :expr
+  {:Coverage
+   {:knife [["class" "value"]],
+    :jsonpath ["$.\"class\".\"value\"[*]"],
+    :data-types #{{:type "string", :polymorphic? false}},
+    :template :string,
+    :sql
+    {:where
+     [:or
+      [:ilike
+       [:pg/cast
+        [:pg/jsonb-path-query-array
+         [:pg/sql "{{table}}.resource"]
+         [:pg/cast
+          "($.\"class\".\"value\"[*]).** ? (@.type() == \"string\")"
+          :jsonpath]]
+        :text]
+       [:pg/sql "{{param}}"]]],
+     :parameter-format "%\"?%"}}}}}

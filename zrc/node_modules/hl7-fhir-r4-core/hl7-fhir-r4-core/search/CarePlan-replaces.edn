@@ -1,0 +1,14 @@
+{ns hl7-fhir-r4-core.search.CarePlan-replaces,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "CarePlan-replaces",
+  :fhir/url "http://hl7.org/fhir/SearchParameter/CarePlan-replaces",
+  :fhir/type "reference",
+  :name "replaces",
+  :expr
+  {:CarePlan
+   {:knife [["replaces"]],
+    :jsonpath ["$.\"replaces\"[*]"],
+    :data-types #{{:type "Reference", :polymorphic? false}},
+    :template :reference}}}}

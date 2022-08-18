@@ -1,0 +1,15 @@
+{ns hl7-fhir-r4-core.search.DiagnosticReport-conclusion,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "DiagnosticReport-conclusion",
+  :fhir/url
+  "http://hl7.org/fhir/SearchParameter/DiagnosticReport-conclusion",
+  :fhir/type "token",
+  :name "conclusion",
+  :expr
+  {:DiagnosticReport
+   {:knife [["conclusionCode"]],
+    :jsonpath ["$.\"conclusionCode\"[*]"],
+    :data-types #{{:type "CodeableConcept", :polymorphic? false}},
+    :template :token}}}}

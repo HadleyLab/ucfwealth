@@ -1,0 +1,15 @@
+{ns hl7-fhir-r4-core.search.ServiceRequest-category,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "ServiceRequest-category",
+  :fhir/url
+  "http://hl7.org/fhir/SearchParameter/ServiceRequest-category",
+  :fhir/type "token",
+  :name "category",
+  :expr
+  {:ServiceRequest
+   {:knife [["category"]],
+    :jsonpath ["$.\"category\"[*]"],
+    :data-types #{{:type "CodeableConcept", :polymorphic? false}},
+    :template :token}}}}

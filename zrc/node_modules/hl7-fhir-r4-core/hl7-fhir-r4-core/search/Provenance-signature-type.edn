@@ -1,0 +1,15 @@
+{ns hl7-fhir-r4-core.search.Provenance-signature-type,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "Provenance-signature-type",
+  :fhir/url
+  "http://hl7.org/fhir/SearchParameter/Provenance-signature-type",
+  :fhir/type "token",
+  :name "signature-type",
+  :expr
+  {:Provenance
+   {:knife [["signature" "type"]],
+    :jsonpath ["$.\"signature\".\"type\"[*]"],
+    :data-types #{},
+    :template :token}}}}

@@ -1,0 +1,14 @@
+{ns hl7-fhir-r4-core.search.Consent-consentor,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "Consent-consentor",
+  :fhir/url "http://hl7.org/fhir/SearchParameter/Consent-consentor",
+  :fhir/type "reference",
+  :name "consentor",
+  :expr
+  {:Consent
+   {:knife [["performer"]],
+    :jsonpath ["$.\"performer\"[*]"],
+    :data-types #{{:type "Reference", :polymorphic? false}},
+    :template :reference}}}}

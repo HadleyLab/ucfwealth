@@ -1,0 +1,14 @@
+{ns hl7-fhir-r4-core.search.Basic-author,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "Basic-author",
+  :fhir/url "http://hl7.org/fhir/SearchParameter/Basic-author",
+  :fhir/type "reference",
+  :name "author",
+  :expr
+  {:Basic
+   {:knife [["author"]],
+    :jsonpath ["$.\"author\"[*]"],
+    :data-types #{{:type "Reference", :polymorphic? false}},
+    :template :reference}}}}

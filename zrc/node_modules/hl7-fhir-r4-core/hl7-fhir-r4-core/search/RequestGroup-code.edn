@@ -1,0 +1,14 @@
+{ns hl7-fhir-r4-core.search.RequestGroup-code,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "RequestGroup-code",
+  :fhir/url "http://hl7.org/fhir/SearchParameter/RequestGroup-code",
+  :fhir/type "token",
+  :name "code",
+  :expr
+  {:RequestGroup
+   {:knife [["code"]],
+    :jsonpath ["$.\"code\"[*]"],
+    :data-types #{{:type "CodeableConcept", :polymorphic? false}},
+    :template :token}}}}

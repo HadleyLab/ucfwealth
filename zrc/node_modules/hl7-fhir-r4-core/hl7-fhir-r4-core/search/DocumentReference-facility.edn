@@ -1,0 +1,15 @@
+{ns hl7-fhir-r4-core.search.DocumentReference-facility,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "DocumentReference-facility",
+  :fhir/url
+  "http://hl7.org/fhir/SearchParameter/DocumentReference-facility",
+  :fhir/type "token",
+  :name "facility",
+  :expr
+  {:DocumentReference
+   {:knife [["context" "facilityType"]],
+    :jsonpath ["$.\"context\".\"facilityType\"[*]"],
+    :data-types #{{:type "CodeableConcept", :polymorphic? false}},
+    :template :token}}}}

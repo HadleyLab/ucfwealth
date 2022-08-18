@@ -1,0 +1,14 @@
+{ns hl7-fhir-r4-core.search.CareTeam-participant,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "CareTeam-participant",
+  :fhir/url "http://hl7.org/fhir/SearchParameter/CareTeam-participant",
+  :fhir/type "reference",
+  :name "participant",
+  :expr
+  {:CareTeam
+   {:knife [["participant" "member"]],
+    :jsonpath ["$.\"participant\".\"member\"[*]"],
+    :data-types #{{:type "Reference", :polymorphic? false}},
+    :template :reference}}}}

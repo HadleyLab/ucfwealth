@@ -1,0 +1,14 @@
+{ns hl7-fhir-r4-core.search.MeasureReport-status,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "MeasureReport-status",
+  :fhir/url "http://hl7.org/fhir/SearchParameter/MeasureReport-status",
+  :fhir/type "token",
+  :name "status",
+  :expr
+  {:MeasureReport
+   {:knife [["status"]],
+    :jsonpath ["$.\"status\"[*]"],
+    :data-types #{{:type "code", :polymorphic? false}},
+    :template :token}}}}

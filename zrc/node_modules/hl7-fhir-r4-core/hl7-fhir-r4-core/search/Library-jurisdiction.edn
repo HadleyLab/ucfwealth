@@ -1,0 +1,14 @@
+{ns hl7-fhir-r4-core.search.Library-jurisdiction,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "Library-jurisdiction",
+  :fhir/url "http://hl7.org/fhir/SearchParameter/Library-jurisdiction",
+  :fhir/type "token",
+  :name "jurisdiction",
+  :expr
+  {:Library
+   {:knife [["jurisdiction"]],
+    :jsonpath ["$.\"jurisdiction\"[*]"],
+    :data-types #{{:type "CodeableConcept", :polymorphic? false}},
+    :template :token}}}}

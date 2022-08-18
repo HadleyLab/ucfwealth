@@ -1,0 +1,14 @@
+{ns hl7-fhir-r4-core.search.Specimen-type,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "Specimen-type",
+  :fhir/url "http://hl7.org/fhir/SearchParameter/Specimen-type",
+  :fhir/type "token",
+  :name "type",
+  :expr
+  {:Specimen
+   {:knife [["type"]],
+    :jsonpath ["$.\"type\"[*]"],
+    :data-types #{{:type "CodeableConcept", :polymorphic? false}},
+    :template :token}}}}

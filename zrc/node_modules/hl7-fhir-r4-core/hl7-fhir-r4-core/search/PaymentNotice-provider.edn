@@ -1,0 +1,15 @@
+{ns hl7-fhir-r4-core.search.PaymentNotice-provider,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "PaymentNotice-provider",
+  :fhir/url
+  "http://hl7.org/fhir/SearchParameter/PaymentNotice-provider",
+  :fhir/type "reference",
+  :name "provider",
+  :expr
+  {:PaymentNotice
+   {:knife [["provider"]],
+    :jsonpath ["$.\"provider\"[*]"],
+    :data-types #{{:type "Reference", :polymorphic? false}},
+    :template :reference}}}}

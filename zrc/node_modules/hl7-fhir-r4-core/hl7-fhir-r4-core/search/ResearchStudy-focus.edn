@@ -1,0 +1,14 @@
+{ns hl7-fhir-r4-core.search.ResearchStudy-focus,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "ResearchStudy-focus",
+  :fhir/url "http://hl7.org/fhir/SearchParameter/ResearchStudy-focus",
+  :fhir/type "token",
+  :name "focus",
+  :expr
+  {:ResearchStudy
+   {:knife [["focus"]],
+    :jsonpath ["$.\"focus\"[*]"],
+    :data-types #{{:type "CodeableConcept", :polymorphic? false}},
+    :template :token}}}}

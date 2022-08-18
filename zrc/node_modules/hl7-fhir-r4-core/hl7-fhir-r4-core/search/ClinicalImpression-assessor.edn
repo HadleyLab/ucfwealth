@@ -1,0 +1,15 @@
+{ns hl7-fhir-r4-core.search.ClinicalImpression-assessor,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "ClinicalImpression-assessor",
+  :fhir/url
+  "http://hl7.org/fhir/SearchParameter/ClinicalImpression-assessor",
+  :fhir/type "reference",
+  :name "assessor",
+  :expr
+  {:ClinicalImpression
+   {:knife [["assessor"]],
+    :jsonpath ["$.\"assessor\"[*]"],
+    :data-types #{{:type "Reference", :polymorphic? false}},
+    :template :reference}}}}

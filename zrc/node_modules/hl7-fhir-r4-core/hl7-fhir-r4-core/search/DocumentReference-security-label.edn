@@ -1,0 +1,15 @@
+{ns hl7-fhir-r4-core.search.DocumentReference-security-label,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "DocumentReference-security-label",
+  :fhir/url
+  "http://hl7.org/fhir/SearchParameter/DocumentReference-security-label",
+  :fhir/type "token",
+  :name "security-label",
+  :expr
+  {:DocumentReference
+   {:knife [["securityLabel"]],
+    :jsonpath ["$.\"securityLabel\"[*]"],
+    :data-types #{{:type "CodeableConcept", :polymorphic? false}},
+    :template :token}}}}

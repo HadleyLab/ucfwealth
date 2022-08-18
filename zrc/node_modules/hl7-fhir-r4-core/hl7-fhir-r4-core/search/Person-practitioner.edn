@@ -1,0 +1,15 @@
+{ns hl7-fhir-r4-core.search.Person-practitioner,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "Person-practitioner",
+  :fhir/url "http://hl7.org/fhir/SearchParameter/Person-practitioner",
+  :fhir/type "reference",
+  :name "practitioner",
+  :expr
+  {:Person
+   {:knife [["link" "target" {:resourceType "Practitioner"}]],
+    :jsonpath
+    ["$.\"link\".\"target\"?(@.\"resourceType\"==\"Practitioner\")[*]"],
+    :data-types #{{:type "Reference", :polymorphic? false}},
+    :template :reference}}}}

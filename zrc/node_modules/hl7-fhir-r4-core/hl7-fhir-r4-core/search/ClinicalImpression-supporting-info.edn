@@ -1,0 +1,15 @@
+{ns hl7-fhir-r4-core.search.ClinicalImpression-supporting-info,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "ClinicalImpression-supporting-info",
+  :fhir/url
+  "http://hl7.org/fhir/SearchParameter/ClinicalImpression-supporting-info",
+  :fhir/type "reference",
+  :name "supporting-info",
+  :expr
+  {:ClinicalImpression
+   {:knife [["supportingInfo"]],
+    :jsonpath ["$.\"supportingInfo\"[*]"],
+    :data-types #{{:type "Reference", :polymorphic? false}},
+    :template :reference}}}}

@@ -1,0 +1,14 @@
+{ns hl7-fhir-r4-core.search.AuditEvent-subtype,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "AuditEvent-subtype",
+  :fhir/url "http://hl7.org/fhir/SearchParameter/AuditEvent-subtype",
+  :fhir/type "token",
+  :name "subtype",
+  :expr
+  {:AuditEvent
+   {:knife [["subtype"]],
+    :jsonpath ["$.\"subtype\"[*]"],
+    :data-types #{{:type "Coding", :polymorphic? false}},
+    :template :token}}}}

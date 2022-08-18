@@ -1,0 +1,14 @@
+{ns hl7-fhir-r4-core.search.Slot-identifier,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "Slot-identifier",
+  :fhir/url "http://hl7.org/fhir/SearchParameter/Slot-identifier",
+  :fhir/type "token",
+  :name "identifier",
+  :expr
+  {:Slot
+   {:knife [["identifier"]],
+    :jsonpath ["$.\"identifier\"[*]"],
+    :data-types #{{:type "Identifier", :polymorphic? false}},
+    :template :token}}}}

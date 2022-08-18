@@ -1,0 +1,15 @@
+{ns hl7-fhir-r4-core.search.DocumentReference-setting,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "DocumentReference-setting",
+  :fhir/url
+  "http://hl7.org/fhir/SearchParameter/DocumentReference-setting",
+  :fhir/type "token",
+  :name "setting",
+  :expr
+  {:DocumentReference
+   {:knife [["context" "practiceSetting"]],
+    :jsonpath ["$.\"context\".\"practiceSetting\"[*]"],
+    :data-types #{{:type "CodeableConcept", :polymorphic? false}},
+    :template :token}}}}

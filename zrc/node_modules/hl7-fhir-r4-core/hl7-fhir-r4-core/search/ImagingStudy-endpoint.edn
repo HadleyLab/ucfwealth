@@ -1,0 +1,15 @@
+{ns hl7-fhir-r4-core.search.ImagingStudy-endpoint,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "ImagingStudy-endpoint",
+  :fhir/url
+  "http://hl7.org/fhir/SearchParameter/ImagingStudy-endpoint",
+  :fhir/type "reference",
+  :name "endpoint",
+  :expr
+  {:ImagingStudy
+   {:knife [["endpoint"] ["series" "endpoint"]],
+    :jsonpath ["$.\"endpoint\"[*]" "$.\"series\".\"endpoint\"[*]"],
+    :data-types #{{:type "Reference", :polymorphic? false}},
+    :template :reference}}}}

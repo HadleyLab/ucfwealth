@@ -1,0 +1,14 @@
+{ns hl7-fhir-r4-core.search.ImagingStudy-basedon,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "ImagingStudy-basedon",
+  :fhir/url "http://hl7.org/fhir/SearchParameter/ImagingStudy-basedon",
+  :fhir/type "reference",
+  :name "basedon",
+  :expr
+  {:ImagingStudy
+   {:knife [["basedOn"]],
+    :jsonpath ["$.\"basedOn\"[*]"],
+    :data-types #{{:type "Reference", :polymorphic? false}},
+    :template :reference}}}}

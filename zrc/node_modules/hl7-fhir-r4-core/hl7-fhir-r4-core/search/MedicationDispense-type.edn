@@ -1,0 +1,15 @@
+{ns hl7-fhir-r4-core.search.MedicationDispense-type,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "MedicationDispense-type",
+  :fhir/url
+  "http://hl7.org/fhir/SearchParameter/MedicationDispense-type",
+  :fhir/type "token",
+  :name "type",
+  :expr
+  {:MedicationDispense
+   {:knife [["type"]],
+    :jsonpath ["$.\"type\"[*]"],
+    :data-types #{{:type "CodeableConcept", :polymorphic? false}},
+    :template :token}}}}

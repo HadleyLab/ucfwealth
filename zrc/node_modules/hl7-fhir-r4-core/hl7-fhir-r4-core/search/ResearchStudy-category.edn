@@ -1,0 +1,15 @@
+{ns hl7-fhir-r4-core.search.ResearchStudy-category,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "ResearchStudy-category",
+  :fhir/url
+  "http://hl7.org/fhir/SearchParameter/ResearchStudy-category",
+  :fhir/type "token",
+  :name "category",
+  :expr
+  {:ResearchStudy
+   {:knife [["category"]],
+    :jsonpath ["$.\"category\"[*]"],
+    :data-types #{{:type "CodeableConcept", :polymorphic? false}},
+    :template :token}}}}

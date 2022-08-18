@@ -1,0 +1,14 @@
+{ns hl7-fhir-r4-core.search.List-status,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "List-status",
+  :fhir/url "http://hl7.org/fhir/SearchParameter/List-status",
+  :fhir/type "token",
+  :name "status",
+  :expr
+  {:List
+   {:knife [["status"]],
+    :jsonpath ["$.\"status\"[*]"],
+    :data-types #{{:type "code", :polymorphic? false}},
+    :template :token}}}}

@@ -1,0 +1,15 @@
+{ns hl7-fhir-r4-core.search.MolecularSequence-chromosome,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "MolecularSequence-chromosome",
+  :fhir/url
+  "http://hl7.org/fhir/SearchParameter/MolecularSequence-chromosome",
+  :fhir/type "token",
+  :name "chromosome",
+  :expr
+  {:MolecularSequence
+   {:knife [["referenceSeq" "chromosome"]],
+    :jsonpath ["$.\"referenceSeq\".\"chromosome\"[*]"],
+    :data-types #{{:type "CodeableConcept", :polymorphic? false}},
+    :template :token}}}}

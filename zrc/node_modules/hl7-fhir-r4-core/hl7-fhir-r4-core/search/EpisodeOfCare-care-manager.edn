@@ -1,0 +1,16 @@
+{ns hl7-fhir-r4-core.search.EpisodeOfCare-care-manager,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "EpisodeOfCare-care-manager",
+  :fhir/url
+  "http://hl7.org/fhir/SearchParameter/EpisodeOfCare-care-manager",
+  :fhir/type "reference",
+  :name "care-manager",
+  :expr
+  {:EpisodeOfCare
+   {:knife [["careManager" {:resourceType "Practitioner"}]],
+    :jsonpath
+    ["$.\"careManager\"?(@.\"resourceType\"==\"Practitioner\")[*]"],
+    :data-types #{{:type "Reference", :polymorphic? false}},
+    :template :reference}}}}

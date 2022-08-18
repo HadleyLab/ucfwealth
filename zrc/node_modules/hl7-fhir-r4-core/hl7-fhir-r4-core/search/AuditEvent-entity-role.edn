@@ -1,0 +1,15 @@
+{ns hl7-fhir-r4-core.search.AuditEvent-entity-role,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "AuditEvent-entity-role",
+  :fhir/url
+  "http://hl7.org/fhir/SearchParameter/AuditEvent-entity-role",
+  :fhir/type "token",
+  :name "entity-role",
+  :expr
+  {:AuditEvent
+   {:knife [["entity" "role"]],
+    :jsonpath ["$.\"entity\".\"role\"[*]"],
+    :data-types #{{:type "Coding", :polymorphic? false}},
+    :template :token}}}}

@@ -1,0 +1,15 @@
+{ns hl7-fhir-r4-core.search.CompartmentDefinition-code,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "CompartmentDefinition-code",
+  :fhir/url
+  "http://hl7.org/fhir/SearchParameter/CompartmentDefinition-code",
+  :fhir/type "token",
+  :name "code",
+  :expr
+  {:CompartmentDefinition
+   {:knife [["code"]],
+    :jsonpath ["$.\"code\"[*]"],
+    :data-types #{{:type "code", :polymorphic? false}},
+    :template :token}}}}

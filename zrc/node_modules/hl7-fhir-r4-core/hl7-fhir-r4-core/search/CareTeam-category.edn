@@ -1,0 +1,14 @@
+{ns hl7-fhir-r4-core.search.CareTeam-category,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "CareTeam-category",
+  :fhir/url "http://hl7.org/fhir/SearchParameter/CareTeam-category",
+  :fhir/type "token",
+  :name "category",
+  :expr
+  {:CareTeam
+   {:knife [["category"]],
+    :jsonpath ["$.\"category\"[*]"],
+    :data-types #{{:type "CodeableConcept", :polymorphic? false}},
+    :template :token}}}}

@@ -1,0 +1,14 @@
+{ns hl7-fhir-r4-core.search.Account-owner,
+ import #{zen.fhir},
+ search
+ {:zen/tags #{zen.fhir/search},
+  :fhir/id "Account-owner",
+  :fhir/url "http://hl7.org/fhir/SearchParameter/Account-owner",
+  :fhir/type "reference",
+  :name "owner",
+  :expr
+  {:Account
+   {:knife [["owner"]],
+    :jsonpath ["$.\"owner\"[*]"],
+    :data-types #{{:type "Reference", :polymorphic? false}},
+    :template :reference}}}}
