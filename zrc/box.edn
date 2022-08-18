@@ -3,4 +3,26 @@
 
  box
  {:zen/tags #{aidbox/system}
-  :zen/desc "fhir-ichom-breast-cancer-ig"}}
+  :zen/desc "fhir-ichom-breast-cancer-ig"
+  :services {:seed-fixtures seed-fixtures}}
+
+ seed-fixtures
+ {:zen/tags  #{aidbox/service}
+  :engine    aidbox/seed
+  :resources{
+             :AidboxQuery {:expand
+                           {:query "
+select jsonb_build_object(
+    'system',resource->'system',
+    'code',resource->'code',
+    'display',resource->'display') as concept
+from concept
+  where (resource->'valueset') @> {{params.valueset}}
+  and resource::text ilike {{params.text}}
+"
+                            :params {:text {:type "string"
+                                            :format "%%%s%%"
+                                            :isRequired true}
+                                     :valueset {:type "string"
+                                                :format "\"%s\""
+                                                :isRequired true}}}}}}}

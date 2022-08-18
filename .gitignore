@@ -17,3 +17,5 @@ htmlcov/
 .coverage
 node_modules/
 .vscode
+zrc/.lsp/
+zrc/.clj-kondo/
