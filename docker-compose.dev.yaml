@@ -13,26 +13,13 @@ services:
       - dcm-to-png
     build:
       context: ./ipfs-nodejs
-    ports:
-      - 8088:8080
   file-uploader-server:
     container_name: file-uploader-server
     image: file-uploader-server
     depends_on:
       - ipfs-nodejs
     build:
-      context: ./file-uploader/server
-    ports:
-      - 8083:8080
-  # file-uploader-client:
-  #   container_name: file-uploader-client
-  #   image: file-uploader-client
-  #   depends_on:
-  #     - file-uploader-server
-  #   build:
-  #     context: ./file-uploader/client
-  #   ports:
-  #     - 3001:3001
+      context: ./file-uploader
   devbox-db:
     image: "healthsamurai/aidboxdb:13.2"
     depends_on:
@@ -54,6 +41,24 @@ services:
     volumes:
       - ./wait-for-it.sh:/usr/local/bin/wait-for-it.sh:cached
       - ./config:/var/config:cached
+  # ------------------------------
+  # build valuesets and concepts
+  # ------------------------------
+  # devbox:
+  #   image: "healthsamurai/devbox:edge"
+  #   depends_on:
+  #     - devbox-db
+  #   links:
+  #     - "devbox-db:database"
+  #   ports:
+  #     - "8080:8080"
+  #   env_file:
+  #     - .env
+  #   volumes:
+  #     - ./wait-for-it.sh:/usr/local/bin/wait-for-it.sh:cached
+  #     - ./zrc:/zrc
+  #     - ./config:/var/config:cached
+  # ------------------------------
   backend:
     build: ./backend
     command: ["wait-for-it.sh", "devbox:8080", "--strict", "--timeout=0", "--", "gunicorn", "main:create_app", "--worker-class", "aiohttp.worker.GunicornWebWorker", "-b", "0.0.0.0:8081", "--reload"]
@@ -71,12 +76,12 @@ services:
     tty: true
     extra_hosts:
       - "host.docker.internal:host-gateway"
-  frontend:
-    container_name: frontend
-    image: frontend
-    depends_on:
-      - backend
-    build:
-      context: ./frontend
-    ports:
-      - 3000:3000
+  # frontend:
+  #   container_name: frontend
+  #   image: frontend
+  #   depends_on:
+  #     - backend
+  #   build:
+  #     context: ./frontend
+  #   ports:
+  #     - 3000:3000
