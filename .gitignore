@@ -19,3 +19,6 @@ node_modules/
 .vscode
 zrc/.lsp/
 zrc/.clj-kondo/
+zrc/node_modules/
+.lsp/
+.clj-kondo/
