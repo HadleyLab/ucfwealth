@@ -1,5 +1,13 @@
 # covidimaging environment
 
+This is a FHIR-first platform which stores all information as first-rate FHIR resources, embracing FOSS paradigm. We used the AidBox platform as a FOSS solution to provide this base FHIR functionality and to satisfy HIPAA safeguards and security. We extended AidBox to capture patient imaging as DICOM files in FHIR when they were available. We allowed for appropriate API access to the data collected to serve patients and study coordinators the questionnaires appropriately. For
+questionnaires such is ICHOM, the system utilizes FHIR SDC (structured data capturing) approach to deal with any kind
+of questionnaires. Moreover, these APIs allow us to ingest FIHR-first data elements from external EHR systems or any
+
+other medical systems in addition to the ICHOM patient-derived questionnaires. The implementation currently supports multiple clinical trials such as https://CovidImaging.US (IRB-approved) and we are pending IRB approval for our recruitment for the breast cancer (pending IRB approval) implantation guide shared on
+GitHub (https://github.com/HL7/fhir-ichom-breast-cancer-ig/)
+
+
 ## Initial setup
 
 Copy `.env.tpl` to `.env` and specify `AIDBOX_LICENSE_ID` and `AIDBOX_LICENSE_KEY`.
