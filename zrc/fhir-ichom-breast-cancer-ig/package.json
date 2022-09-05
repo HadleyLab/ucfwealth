@@ -1,7 +1,0 @@
-{
-  "name" : "@zen-lang/fhir-ichom-breast-cancer-ig",
-  "version" : "0.5.18",
-  "author" : "Health-Samurai",
-  "license" : "MIT",
-  "dependencies" : { }
-}

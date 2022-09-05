@@ -1,0 +1,14 @@
+{ns
+ hl7-fhir-uv-ichom-breastcancer.value-set.SACQPatientComorbidityHistory,
+ import #{zen.fhir},
+ value-set
+ {:zen/tags #{zen.fhir/value-set},
+  :zen/desc "Patient's documented history of comorbidities",
+  :zen.fhir/version "0.5.20",
+  :fhir/code-systems
+  #{{:fhir/url
+     "http://connect.ichom.org/fhir/CodeSystem/sacq-patient-comorbidity-history",
+     :zen.fhir/content :bundled}},
+  :uri
+  "https://connect.ichom.org/fhir/ValueSet/SACQPatientComorbidityHistory",
+  :version "0.0.1"}}

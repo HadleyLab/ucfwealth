@@ -1,0 +1,15 @@
+{ns hl7-fhir-uv-ichom-breastcancer.value-set.BreastSurgeryTypeVS,
+ import #{zen.fhir},
+ value-set
+ {:zen/tags #{zen.fhir/value-set},
+  :zen/desc
+  "Valueset of the types of breast surgery a patient underwent",
+  :zen.fhir/version "0.5.20",
+  :fhir/code-systems
+  #{{:fhir/url "http://terminology.hl7.org/CodeSystem/v3-NullFlavor",
+     :zen.fhir/content :bundled}
+    {:fhir/url
+     "http://connect.ichom.org/fhir/CodeSystem/breast-surgery-types",
+     :zen.fhir/content :bundled}},
+  :uri "https://connect.ichom.org/fhir/ValueSet/BreastSurgeryTypeVS",
+  :version "0.0.1"}}

@@ -1,0 +1,31 @@
+{ns hl7-fhir-uv-ichom-breastcancer.ichom-body-height,
+ import
+ #{hl7-fhir-r4-core.decimal
+   hl7-fhir-r4-core.code
+   zen.fhir
+   hl7-fhir-r4-core.Reference
+   hl7-fhir-r4-core.bodyheight
+   hl7-fhir-r4-core.Element
+   hl7-fhir-uv-ichom-breastcancer.patient},
+ schema
+ {:zen/tags #{zen.fhir/profile-schema zen/schema},
+  :zen/desc
+  "Represents the height of a person diagnosed with breast cancer",
+  :zen.fhir/type "Observation",
+  :zen.fhir/profileUri
+  "https://connect.ichom.org/fhir/StructureDefinition/ichom-body-height",
+  :zen.fhir/version "0.5.20",
+  :confirms #{zen.fhir/Resource hl7-fhir-r4-core.bodyheight/schema},
+  :type zen/map,
+  :keys
+  {:subject
+   {:confirms #{hl7-fhir-r4-core.Reference/schema zen.fhir/Reference},
+    :zen.fhir/reference
+    {:refers #{hl7-fhir-uv-ichom-breastcancer.patient/schema}}},
+   :valueQuantity
+   {:type zen/map,
+    :keys
+    {:value {:confirms #{hl7-fhir-r4-core.decimal/schema}},
+     :_value {:confirms #{hl7-fhir-r4-core.Element/schema}},
+     :code {:confirms #{hl7-fhir-r4-core.code/schema}},
+     :_code {:confirms #{hl7-fhir-r4-core.Element/schema}}}}}}}

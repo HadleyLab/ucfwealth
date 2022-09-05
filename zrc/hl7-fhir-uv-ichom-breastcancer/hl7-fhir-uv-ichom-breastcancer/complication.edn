@@ -1,0 +1,74 @@
+{ns hl7-fhir-uv-ichom-breastcancer.complication,
+ import
+ #{hl7-fhir-uv-ichom-breastcancer.value-set.ComplicationImpactVS
+   hl7-fhir-r4-core.Condition
+   zen.fhir
+   hl7-fhir-r4-core.MedicationAdministration
+   hl7-fhir-r4-core.Immunization
+   hl7-fhir-r4-core.Reference
+   hl7-fhir-r4-core.condition-dueTo
+   hl7-fhir-r4-core.Procedure
+   hl7-fhir-r4-core.CodeableConcept
+   hl7-fhir-uv-ichom-breastcancer.patient
+   hl7-fhir-r4-core.MedicationStatement
+   hl7-fhir-uv-ichom-breastcancer.value-set.ComplicationTypeVS},
+ schema
+ {:zen/tags #{zen.fhir/profile-schema zen/schema},
+  :zen/desc
+  "Represents the type and impact of a complication experienced by a patient",
+  :zen.fhir/type "Condition",
+  :zen.fhir/profileUri
+  "https://connect.ichom.org/fhir/StructureDefinition/complication",
+  :zen.fhir/version "0.5.20",
+  :confirms #{zen.fhir/Resource hl7-fhir-r4-core.Condition/schema},
+  :type zen/map,
+  :keys
+  {:dueTo
+   {:type zen/vector,
+    :every
+    {:confirms #{hl7-fhir-r4-core.condition-dueTo/schema},
+     :fhir/extensionUri
+     "http://hl7.org/fhir/StructureDefinition/condition-dueTo",
+     :type zen/map,
+     :keys
+     {:value
+      {:fhir/polymorphic true,
+       :type zen/map,
+       :keys
+       {:Reference
+        {:confirms
+         #{hl7-fhir-r4-core.Reference/schema zen.fhir/Reference},
+         :zen.fhir/reference
+         {:refers
+          #{hl7-fhir-r4-core.MedicationAdministration/schema
+            hl7-fhir-r4-core.Procedure/schema
+            hl7-fhir-r4-core.Immunization/schema
+            hl7-fhir-r4-core.Condition/schema
+            hl7-fhir-r4-core.MedicationStatement/schema}}}}},
+      :valueReference
+      {:confirms
+       #{hl7-fhir-r4-core.Reference/schema zen.fhir/Reference},
+       :zen.fhir/reference
+       {:refers #{hl7-fhir-r4-core.Procedure/schema}}}},
+     :require #{:valueReference},
+     :fhir/flags #{:MS},
+     :zen/desc "Previous procedure that prompted this complication"}},
+   :severity
+   {:confirms #{hl7-fhir-r4-core.CodeableConcept/schema},
+    :fhir/flags #{:MS},
+    :zen.fhir/value-set
+    {:symbol
+     hl7-fhir-uv-ichom-breastcancer.value-set.ComplicationImpactVS/value-set,
+     :strength :required}},
+   :code
+   {:confirms #{hl7-fhir-r4-core.CodeableConcept/schema},
+    :fhir/flags #{:MS},
+    :zen.fhir/value-set
+    {:symbol
+     hl7-fhir-uv-ichom-breastcancer.value-set.ComplicationTypeVS/value-set,
+     :strength :preferred}},
+   :subject
+   {:confirms #{hl7-fhir-r4-core.Reference/schema zen.fhir/Reference},
+    :fhir/flags #{:MS},
+    :zen.fhir/reference
+    {:refers #{hl7-fhir-uv-ichom-breastcancer.patient/schema}}}}}}

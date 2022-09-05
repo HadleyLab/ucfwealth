@@ -1,0 +1,55 @@
+{ns hl7-fhir-uv-ichom-breastcancer.axillary-clearance,
+ import
+ #{zen.fhir
+   hl7-fhir-r4-core.dateTime
+   hl7-fhir-uv-ichom-breastcancer.axilla-surgery
+   hl7-fhir-r4-core.Reference
+   hl7-fhir-r4-core.Element
+   hl7-fhir-r4-core.Procedure
+   hl7-fhir-r4-core.CodeableConcept
+   hl7-fhir-uv-ichom-breastcancer.patient},
+ schema
+ {:zen/tags #{zen.fhir/profile-schema zen/schema},
+  :zen/desc
+  "Represents if the breast cancer patient received axillary clearance during the last year. Axilla clearance could be due to lymph node involvement after sentinel lymph node biopsy.",
+  :zen.fhir/type "Procedure",
+  :zen.fhir/profileUri
+  "https://connect.ichom.org/fhir/StructureDefinition/axillary-clearance",
+  :zen.fhir/version "0.5.20",
+  :confirms #{hl7-fhir-r4-core.Procedure/schema zen.fhir/Resource},
+  :type zen/map,
+  :keys
+  {:code
+   {:match
+    {:coding
+     #{{:system "http://snomed.info/sct",
+        :code "79544006",
+        :display "Complete axillary lymphadenectomy"}}},
+    :confirms #{hl7-fhir-r4-core.CodeableConcept/schema}},
+   :subject
+   {:confirms #{hl7-fhir-r4-core.Reference/schema zen.fhir/Reference},
+    :fhir/flags #{:MS},
+    :zen.fhir/reference
+    {:refers #{hl7-fhir-uv-ichom-breastcancer.patient/schema}}},
+   :performed {:confirms #{hl7-fhir-r4-core.dateTime/schema}},
+   :_performed
+   {:confirms #{hl7-fhir-r4-core.Element/schema},
+    :type zen/map,
+    :keys
+    {:dateTime
+     {:confirms #{hl7-fhir-r4-core.dateTime/schema},
+      :fhir/flags #{:MS}},
+     :_dateTime {:confirms #{hl7-fhir-r4-core.Element/schema}}}},
+   :reasonReference
+   {:type zen/vector,
+    :every
+    {:confirms #{hl7-fhir-r4-core.Reference/schema zen.fhir/Reference},
+     :fhir/flags #{:MS},
+     :zen.fhir/reference
+     {:refers
+      #{hl7-fhir-uv-ichom-breastcancer.axilla-surgery/schema}}}},
+   :complication
+   {:type zen/vector,
+    :every
+    {:confirms #{hl7-fhir-r4-core.CodeableConcept/schema},
+     :fhir/flags #{:MS}}}}}}

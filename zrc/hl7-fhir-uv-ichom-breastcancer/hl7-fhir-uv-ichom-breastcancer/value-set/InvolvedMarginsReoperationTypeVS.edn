@@ -1,0 +1,16 @@
+{ns
+ hl7-fhir-uv-ichom-breastcancer.value-set.InvolvedMarginsReoperationTypeVS,
+ import #{zen.fhir},
+ value-set
+ {:zen/tags #{zen.fhir/value-set},
+  :zen/desc "Kind of re-operation due to involved margins",
+  :zen.fhir/version "0.5.20",
+  :fhir/code-systems
+  #{{:fhir/url "https://connect.ichom.org/CodeSystem/reop-breast",
+     :zen.fhir/content :bundled}
+    {:fhir/url "http://snomed.info/sct", :zen.fhir/content :bundled}
+    {:fhir/url "http://terminology.hl7.org/CodeSystem/v3-NullFlavor",
+     :zen.fhir/content :bundled}},
+  :uri
+  "https://connect.ichom.org/fhir/ValueSet/InvolvedMarginsReoperationTypeVS",
+  :version "0.0.1"}}

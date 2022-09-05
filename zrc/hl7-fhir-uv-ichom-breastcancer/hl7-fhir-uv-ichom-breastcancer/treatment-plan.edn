@@ -1,0 +1,55 @@
+{ns hl7-fhir-uv-ichom-breastcancer.treatment-plan,
+ import
+ #{hl7-fhir-r4-core.BackboneElement
+   hl7-fhir-r4-core.CarePlan
+   zen.fhir
+   hl7-fhir-r4-core.dateTime
+   hl7-fhir-uv-ichom-breastcancer.value-set.RecommendedTreatmentTypeVS
+   hl7-fhir-r4-core.Reference
+   hl7-fhir-r4-core.Element
+   hl7-fhir-r4-core.CodeableConcept
+   hl7-fhir-uv-ichom-breastcancer.patient},
+ schema
+ {:zen/tags #{zen.fhir/profile-schema zen/schema},
+  :zen/desc
+  "Represents the treatment that a multidisciplinary team recommended during a multidisciplinary meeting",
+  :zen.fhir/type "CarePlan",
+  :zen.fhir/profileUri
+  "https://connect.ichom.org/fhir/StructureDefinition/treatment-plan",
+  :zen.fhir/version "0.5.20",
+  :confirms #{hl7-fhir-r4-core.CarePlan/schema zen.fhir/Resource},
+  :type zen/map,
+  :keys
+  {:category
+   {:type zen/vector,
+    :every
+    {:match
+     {:coding
+      #{{:system "http://snomed.info/sct",
+         :code "312384001",
+         :display "Multidisciplinary assessment"}}},
+     :confirms #{hl7-fhir-r4-core.CodeableConcept/schema}}},
+   :subject
+   {:confirms #{hl7-fhir-r4-core.Reference/schema zen.fhir/Reference},
+    :zen.fhir/reference
+    {:refers #{hl7-fhir-uv-ichom-breastcancer.patient/schema}}},
+   :created
+   {:confirms #{hl7-fhir-r4-core.dateTime/schema}, :fhir/flags #{:MS}},
+   :_created {:confirms #{hl7-fhir-r4-core.Element/schema}},
+   :activity
+   {:type zen/vector,
+    :every
+    {:confirms #{hl7-fhir-r4-core.BackboneElement/schema},
+     :type zen/map,
+     :keys
+     {:detail
+      {:confirms #{hl7-fhir-r4-core.BackboneElement/schema},
+       :type zen/map,
+       :keys
+       {:code
+        {:confirms #{hl7-fhir-r4-core.CodeableConcept/schema},
+         :fhir/flags #{:MS},
+         :zen.fhir/value-set
+         {:symbol
+          hl7-fhir-uv-ichom-breastcancer.value-set.RecommendedTreatmentTypeVS/value-set,
+          :strength :required}}}}}}}}}}

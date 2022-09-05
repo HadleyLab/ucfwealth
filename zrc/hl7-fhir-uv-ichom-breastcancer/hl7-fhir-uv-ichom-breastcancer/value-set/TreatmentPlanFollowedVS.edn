@@ -1,0 +1,14 @@
+{ns hl7-fhir-uv-ichom-breastcancer.value-set.TreatmentPlanFollowedVS,
+ import #{zen.fhir},
+ value-set
+ {:zen/tags #{zen.fhir/value-set},
+  :zen/desc
+  "Valueset of if the patient followed the multidisciplinary recommended treatment plan",
+  :zen.fhir/version "0.5.20",
+  :fhir/code-systems
+  #{{:fhir/url
+     "http://connect.ichom.org/fhir/CodeSystem/TargetedTherapy",
+     :zen.fhir/content :bundled}},
+  :uri
+  "https://connect.ichom.org/fhir/ValueSet/TreatmentPlanFollowedVS",
+  :version "0.0.1"}}

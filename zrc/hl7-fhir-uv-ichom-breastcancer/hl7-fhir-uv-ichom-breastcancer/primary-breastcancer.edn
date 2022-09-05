@@ -1,0 +1,40 @@
+{ns hl7-fhir-uv-ichom-breastcancer.primary-breastcancer,
+ import
+ #{hl7-fhir-r4-core.Condition
+   zen.fhir
+   hl7-fhir-r4-core.Reference
+   hl7-fhir-r4-core.CodeableConcept
+   hl7-fhir-uv-ichom-breastcancer.patient
+   hl7-fhir-uv-ichom-breastcancer.value-set.LateralityVS},
+ schema
+ {:zen/tags #{zen.fhir/profile-schema zen/schema},
+  :zen/desc
+  "Represent the properties of the primary breast cancer diagnosis",
+  :zen.fhir/type "Condition",
+  :zen.fhir/profileUri
+  "https://connect.ichom.org/fhir/StructureDefinition/primary-breastcancer",
+  :zen.fhir/version "0.5.20",
+  :confirms #{zen.fhir/Resource hl7-fhir-r4-core.Condition/schema},
+  :type zen/map,
+  :keys
+  {:clinicalStatus
+   {:confirms #{hl7-fhir-r4-core.CodeableConcept/schema}},
+   :code
+   {:match
+    {:coding
+     #{{:system "http://snomed.info/sct",
+        :code "372137005",
+        :display "Primary malignant neoplasm of breast"}}},
+    :confirms #{hl7-fhir-r4-core.CodeableConcept/schema}},
+   :bodySite
+   {:type zen/vector,
+    :every
+    {:confirms #{hl7-fhir-r4-core.CodeableConcept/schema},
+     :zen.fhir/value-set
+     {:symbol
+      hl7-fhir-uv-ichom-breastcancer.value-set.LateralityVS/value-set,
+      :strength :preferred}}},
+   :subject
+   {:confirms #{hl7-fhir-r4-core.Reference/schema zen.fhir/Reference},
+    :zen.fhir/reference
+    {:refers #{hl7-fhir-uv-ichom-breastcancer.patient/schema}}}}}}

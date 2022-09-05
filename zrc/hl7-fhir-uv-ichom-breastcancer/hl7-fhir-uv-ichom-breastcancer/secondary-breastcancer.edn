@@ -1,0 +1,47 @@
+{ns hl7-fhir-uv-ichom-breastcancer.secondary-breastcancer,
+ import
+ #{hl7-fhir-r4-core.Condition
+   zen.fhir
+   hl7-fhir-r4-core.dateTime
+   hl7-fhir-r4-core.Reference
+   hl7-fhir-r4-core.Element
+   hl7-fhir-uv-ichom-breastcancer.value-set.LateralityNewCancerVS
+   hl7-fhir-r4-core.CodeableConcept
+   hl7-fhir-uv-ichom-breastcancer.patient},
+ schema
+ {:zen/tags #{zen.fhir/profile-schema zen/schema},
+  :zen/desc
+  "Represent the properties of the secondary breast cancer diagnosis",
+  :zen.fhir/type "Condition",
+  :zen.fhir/profileUri
+  "https://connect.ichom.org/fhir/StructureDefinition/secondary-breastcancer",
+  :zen.fhir/version "0.5.20",
+  :confirms #{zen.fhir/Resource hl7-fhir-r4-core.Condition/schema},
+  :type zen/map,
+  :keys
+  {:clinicalStatus
+   {:confirms #{hl7-fhir-r4-core.CodeableConcept/schema},
+    :fhir/flags #{:MS}},
+   :code
+   {:match
+    {:coding
+     #{{:system "http://snomed.info/sct",
+        :code "145501000119108",
+        :display "Secondary malignant neoplasm of breast"}}},
+    :confirms #{hl7-fhir-r4-core.CodeableConcept/schema}},
+   :bodySite
+   {:type zen/vector,
+    :every
+    {:confirms #{hl7-fhir-r4-core.CodeableConcept/schema},
+     :fhir/flags #{:MS},
+     :zen.fhir/value-set
+     {:symbol
+      hl7-fhir-uv-ichom-breastcancer.value-set.LateralityNewCancerVS/value-set,
+      :strength :required}}},
+   :subject
+   {:confirms #{hl7-fhir-r4-core.Reference/schema zen.fhir/Reference},
+    :zen.fhir/reference
+    {:refers #{hl7-fhir-uv-ichom-breastcancer.patient/schema}}},
+   :recordedDate
+   {:confirms #{hl7-fhir-r4-core.dateTime/schema}, :fhir/flags #{:MS}},
+   :_recordedDate {:confirms #{hl7-fhir-r4-core.Element/schema}}}}}

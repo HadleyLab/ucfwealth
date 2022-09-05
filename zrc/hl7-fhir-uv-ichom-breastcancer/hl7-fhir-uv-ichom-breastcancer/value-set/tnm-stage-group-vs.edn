@@ -1,0 +1,11 @@
+{ns hl7-fhir-uv-ichom-breastcancer.value-set.tnm-stage-group-vs,
+ import #{zen.fhir},
+ value-set
+ {:zen/tags #{zen.fhir/value-set},
+  :zen/desc
+  "Valueset indicating the type of staging, clinical or pathological, of breast cancer.",
+  :zen.fhir/version "0.5.20",
+  :fhir/code-systems
+  #{{:fhir/url "http://loinc.org", :zen.fhir/content :bundled}},
+  :uri "https://connect.ichom.org/fhir/ValueSet/tnm-stage-group-vs",
+  :version "0.0.1"}}

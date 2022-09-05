@@ -1,0 +1,11 @@
+{ns hl7-fhir-uv-ichom-breastcancer.value-set.BodyWeightVS,
+ import #{zen.fhir},
+ value-set
+ {:zen/tags #{zen.fhir/value-set},
+  :zen/desc "Valueset of the unit  of the patient's body weight",
+  :zen.fhir/version "0.5.20",
+  :fhir/code-systems
+  #{{:fhir/url "http://unitsofmeasure.org",
+     :zen.fhir/content :bundled}},
+  :uri "https://connect.ichom.org/fhir/ValueSet/BodyWeightVS",
+  :version "0.0.1"}}

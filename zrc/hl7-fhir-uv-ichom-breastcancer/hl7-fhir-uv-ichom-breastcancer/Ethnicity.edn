@@ -1,0 +1,17 @@
+{ns hl7-fhir-uv-ichom-breastcancer.Ethnicity,
+ import
+ #{hl7-fhir-r4-core.value-set.v3-Ethnicity
+   zen.fhir
+   hl7-fhir-r4-core.CodeableConcept},
+ schema
+ {:zen/tags #{zen/schema zen.fhir/structure-schema},
+  :zen/desc
+  "Represents the ethnicity of a patient. This extension is aligned with USCore",
+  :zen.fhir/type "CodeableConcept",
+  :zen.fhir/profileUri
+  "https://connect.ichom.org/fhir/StructureDefinition/Ethnicity",
+  :zen.fhir/version "0.5.20",
+  :confirms #{hl7-fhir-r4-core.CodeableConcept/schema},
+  :zen.fhir/value-set
+  {:symbol hl7-fhir-r4-core.value-set.v3-Ethnicity/value-set,
+   :strength :example}}}

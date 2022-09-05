@@ -1,0 +1,92 @@
+{ns hl7-fhir-uv-ichom-breastcancer.patient,
+ import
+ #{hl7-fhir-r4-core.code
+   zen.fhir
+   hl7-fhir-r4-core.value-set.iso3166-1-3
+   hl7-fhir-uv-ichom-breastcancer.value-set.RelationshipStatusVS
+   hl7-fhir-uv-ichom-breastcancer.Ethnicity
+   hl7-fhir-r4-core.dateTime
+   hl7-fhir-uv-ichom-breastcancer.EducationLevel
+   hl7-fhir-r4-core.string
+   hl7-fhir-r4-core.Patient
+   hl7-fhir-r4-core.date
+   hl7-fhir-uv-ichom-breastcancer.Race
+   hl7-fhir-r4-core.HumanName
+   hl7-fhir-r4-core.Element
+   hl7-fhir-r4-core.CodeableConcept
+   hl7-fhir-r4-core.Identifier
+   hl7-fhir-r4-core.Address},
+ schema
+ {:zen/tags #{zen.fhir/profile-schema zen/schema},
+  :zen/desc
+  "Represents the patient characteristics and demographic factors",
+  :zen.fhir/type "Patient",
+  :zen.fhir/profileUri
+  "https://connect.ichom.org/fhir/StructureDefinition/patient",
+  :zen.fhir/version "0.5.20",
+  :confirms #{hl7-fhir-r4-core.Patient/schema zen.fhir/Resource},
+  :type zen/map,
+  :keys
+  {:address
+   {:type zen/vector,
+    :every
+    {:confirms #{hl7-fhir-r4-core.Address/schema},
+     :type zen/map,
+     :keys
+     {:country
+      {:confirms #{hl7-fhir-r4-core.string/schema},
+       :fhir/flags #{:MS},
+       :zen.fhir/value-set
+       {:symbol hl7-fhir-r4-core.value-set.iso3166-1-3/value-set,
+        :strength :required}},
+      :_country {:confirms #{hl7-fhir-r4-core.Element/schema}}}}},
+   :race
+   {:confirms #{hl7-fhir-uv-ichom-breastcancer.Race/schema},
+    :fhir/extensionUri
+    "https://connect.ichom.org/fhir/StructureDefinition/Race",
+    :fhir/flags #{:MS}},
+   :name
+   {:type zen/vector,
+    :every
+    {:confirms #{hl7-fhir-r4-core.HumanName/schema},
+     :type zen/map,
+     :keys
+     {:family {:confirms #{hl7-fhir-r4-core.string/schema}},
+      :_family {:confirms #{hl7-fhir-r4-core.Element/schema}}}}},
+   :_gender {:confirms #{hl7-fhir-r4-core.Element/schema}},
+   :birthDate
+   {:confirms #{hl7-fhir-r4-core.date/schema}, :fhir/flags #{:MS}},
+   :ethnicity
+   {:confirms #{hl7-fhir-uv-ichom-breastcancer.Ethnicity/schema},
+    :fhir/extensionUri
+    "https://connect.ichom.org/fhir/StructureDefinition/Ethnicity",
+    :fhir/flags #{:MS}},
+   :_birthDate {:confirms #{hl7-fhir-r4-core.Element/schema}},
+   :deceased
+   {:fhir/polymorphic true,
+    :type zen/map,
+    :keys
+    {:dateTime {:confirms #{hl7-fhir-r4-core.dateTime/schema}},
+     :_dateTime {:confirms #{hl7-fhir-r4-core.Element/schema}}},
+    :fhir/flags #{:MS}},
+   :educationLevel
+   {:confirms #{hl7-fhir-uv-ichom-breastcancer.EducationLevel/schema},
+    :fhir/extensionUri
+    "https://connect.ichom.org/fhir/StructureDefinition/EducationLevel",
+    :fhir/flags #{:MS}},
+   :identifier
+   {:type zen/vector,
+    :every
+    {:confirms #{hl7-fhir-r4-core.Identifier/schema},
+     :type zen/map,
+     :keys
+     {:value {:confirms #{hl7-fhir-r4-core.string/schema}},
+      :_value {:confirms #{hl7-fhir-r4-core.Element/schema}}}}},
+   :gender {:confirms #{hl7-fhir-r4-core.code/schema}},
+   :maritalStatus
+   {:confirms #{hl7-fhir-r4-core.CodeableConcept/schema},
+    :fhir/flags #{:MS},
+    :zen.fhir/value-set
+    {:symbol
+     hl7-fhir-uv-ichom-breastcancer.value-set.RelationshipStatusVS/value-set,
+     :strength :required}}}}}

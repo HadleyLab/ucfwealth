@@ -1,0 +1,11 @@
+{ns hl7-fhir-uv-ichom-breastcancer.value-set.NoYesUnknownVS,
+ import #{zen.fhir},
+ value-set
+ {:zen/tags #{zen.fhir/value-set},
+  :zen/desc "Valueset with yes, no and unknown answers",
+  :zen.fhir/version "0.5.20",
+  :fhir/code-systems
+  #{{:fhir/url "http://terminology.hl7.org/CodeSystem/v2-0532",
+     :zen.fhir/content :bundled}},
+  :uri "https://connect.ichom.org/fhir/ValueSet/NoYesUnknownVS",
+  :version "0.0.1"}}

@@ -1,0 +1,34 @@
+{ns hl7-fhir-uv-ichom-breastcancer.death-attr-bc,
+ import
+ #{hl7-fhir-r4-core.Observation
+   zen.fhir
+   hl7-fhir-uv-ichom-breastcancer.value-set.NoYesUnknownVS
+   hl7-fhir-r4-core.CodeableConcept},
+ schema
+ {:zen/tags #{zen.fhir/profile-schema zen/schema},
+  :zen/desc "Represents if breast cancer was the cause of death",
+  :zen.fhir/type "Observation",
+  :zen.fhir/profileUri
+  "https://connect.ichom.org/fhir/StructureDefinition/death-attr-bc",
+  :zen.fhir/version "0.5.20",
+  :confirms #{hl7-fhir-r4-core.Observation/schema zen.fhir/Resource},
+  :type zen/map,
+  :keys
+  {:code
+   {:match
+    {:coding
+     #{{:system "http://snomed.info/sct",
+        :code "419620001:42752001=254837009",
+        :display "Death where Due to = Malignant tumor of breast"}}},
+    :confirms #{hl7-fhir-r4-core.CodeableConcept/schema}},
+   :value
+   {:fhir/polymorphic true,
+    :type zen/map,
+    :keys
+    {:CodeableConcept
+     {:confirms #{hl7-fhir-r4-core.CodeableConcept/schema}}},
+    :fhir/flags #{:MS},
+    :zen.fhir/value-set
+    {:symbol
+     hl7-fhir-uv-ichom-breastcancer.value-set.NoYesUnknownVS/value-set,
+     :strength :required}}}}}

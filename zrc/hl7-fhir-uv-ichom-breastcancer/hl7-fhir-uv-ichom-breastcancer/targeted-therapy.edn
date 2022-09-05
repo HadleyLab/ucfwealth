@@ -1,0 +1,62 @@
+{ns hl7-fhir-uv-ichom-breastcancer.targeted-therapy,
+ import
+ #{hl7-fhir-r4-core.Period
+   zen.fhir
+   hl7-fhir-r4-core.dateTime
+   hl7-fhir-uv-ichom-breastcancer.value-set.TargetedTherapyVS
+   hl7-fhir-r4-core.Reference
+   hl7-fhir-r4-core.Element
+   hl7-fhir-r4-core.Procedure
+   hl7-fhir-r4-core.CodeableConcept
+   hl7-fhir-uv-ichom-breastcancer.patient
+   hl7-fhir-r4-core.procedure-method},
+ schema
+ {:zen/tags #{zen.fhir/profile-schema zen/schema},
+  :zen/desc "Type and duration of targeted therapy",
+  :zen.fhir/type "Procedure",
+  :zen.fhir/profileUri
+  "https://connect.ichom.org/fhir/StructureDefinition/targeted-therapy",
+  :zen.fhir/version "0.5.20",
+  :confirms #{hl7-fhir-r4-core.Procedure/schema zen.fhir/Resource},
+  :type zen/map,
+  :keys
+  {:method
+   {:confirms #{hl7-fhir-r4-core.procedure-method/schema},
+    :fhir/extensionUri
+    "http://hl7.org/fhir/StructureDefinition/procedure-method",
+    :type zen/map,
+    :keys
+    {:valueCodeableConcept
+     {:zen.fhir/value-set
+      {:symbol
+       hl7-fhir-uv-ichom-breastcancer.value-set.TargetedTherapyVS/value-set,
+       :strength :preferred}}},
+    :require #{:valueCodeableConcept},
+    :fhir/flags #{:MS}},
+   :code
+   {:match
+    {:coding
+     #{{:system
+        "http://connect.ichom.org/fhir/CodeSystem/treatment-variables",
+        :code "Targ_Thrpy",
+        :display "Targeted therapy"}}},
+    :confirms #{hl7-fhir-r4-core.CodeableConcept/schema},
+    :fhir/flags #{:MS}},
+   :subject
+   {:confirms #{hl7-fhir-r4-core.Reference/schema zen.fhir/Reference},
+    :fhir/flags #{:MS},
+    :zen.fhir/reference
+    {:refers #{hl7-fhir-uv-ichom-breastcancer.patient/schema}}},
+   :performed
+   {:confirms #{hl7-fhir-r4-core.Period/schema},
+    :type zen/map,
+    :keys
+    {:Period
+     {:confirms #{hl7-fhir-r4-core.Period/schema},
+      :type zen/map,
+      :keys
+      {:start {:confirms #{hl7-fhir-r4-core.dateTime/schema}},
+       :_start {:confirms #{hl7-fhir-r4-core.Element/schema}},
+       :end {:confirms #{hl7-fhir-r4-core.dateTime/schema}},
+       :_end {:confirms #{hl7-fhir-r4-core.Element/schema}}},
+      :fhir/flags #{:MS}}}}}}}

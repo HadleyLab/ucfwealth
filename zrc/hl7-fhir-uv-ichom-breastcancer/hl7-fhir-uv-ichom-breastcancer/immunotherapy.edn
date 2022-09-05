@@ -1,0 +1,53 @@
+{ns hl7-fhir-uv-ichom-breastcancer.immunotherapy,
+ import
+ #{zen.fhir
+   hl7-fhir-r4-core.dateTime
+   hl7-fhir-r4-core.Reference
+   hl7-fhir-r4-core.Element
+   hl7-fhir-r4-core.Procedure
+   hl7-fhir-r4-core.CodeableConcept
+   hl7-fhir-uv-ichom-breastcancer.patient
+   hl7-fhir-uv-ichom-breastcancer.primary-breastcancer},
+ schema
+ {:zen/tags #{zen.fhir/profile-schema zen/schema},
+  :zen/desc
+  "Represents if the breast cancer patient received immunotherapy during the last year.",
+  :zen.fhir/type "Procedure",
+  :zen.fhir/profileUri
+  "https://connect.ichom.org/fhir/StructureDefinition/immunotherapy",
+  :zen.fhir/version "0.5.20",
+  :confirms #{hl7-fhir-r4-core.Procedure/schema zen.fhir/Resource},
+  :type zen/map,
+  :keys
+  {:code
+   {:match
+    {:coding
+     #{{:system "http://snomed.info/sct",
+        :code "76334006",
+        :display "Immunotherapy"}}},
+    :confirms #{hl7-fhir-r4-core.CodeableConcept/schema}},
+   :subject
+   {:confirms #{hl7-fhir-r4-core.Reference/schema zen.fhir/Reference},
+    :zen.fhir/reference
+    {:refers #{hl7-fhir-uv-ichom-breastcancer.patient/schema}}},
+   :performed {:confirms #{hl7-fhir-r4-core.dateTime/schema}},
+   :_performed
+   {:confirms #{hl7-fhir-r4-core.Element/schema},
+    :type zen/map,
+    :keys
+    {:dateTime
+     {:confirms #{hl7-fhir-r4-core.dateTime/schema},
+      :fhir/flags #{:MS}},
+     :_dateTime {:confirms #{hl7-fhir-r4-core.Element/schema}}}},
+   :reasonReference
+   {:type zen/vector,
+    :every
+    {:confirms #{hl7-fhir-r4-core.Reference/schema zen.fhir/Reference},
+     :zen.fhir/reference
+     {:refers
+      #{hl7-fhir-uv-ichom-breastcancer.primary-breastcancer/schema}}}},
+   :complication
+   {:type zen/vector,
+    :every
+    {:confirms #{hl7-fhir-r4-core.CodeableConcept/schema},
+     :fhir/flags #{:MS}}}}}}

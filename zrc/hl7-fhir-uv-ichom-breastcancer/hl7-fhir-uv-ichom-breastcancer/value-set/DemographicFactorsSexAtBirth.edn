@@ -1,0 +1,13 @@
+{ns
+ hl7-fhir-uv-ichom-breastcancer.value-set.DemographicFactorsSexAtBirth,
+ import #{zen.fhir},
+ value-set
+ {:zen/tags #{zen.fhir/value-set},
+  :zen/desc "Valueset of the patient's sex at birth",
+  :zen.fhir/version "0.5.20",
+  :fhir/code-systems
+  #{{:fhir/url "http://hl7.org/fhir/administrative-gender",
+     :zen.fhir/content :bundled}},
+  :uri
+  "https://connect.ichom.org/fhir/ValueSet/DemographicFactorsSexAtBirth",
+  :version "0.0.1"}}

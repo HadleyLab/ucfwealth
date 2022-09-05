@@ -1,0 +1,40 @@
+{ns hl7-fhir-uv-ichom-breastcancer.ichom-body-weight,
+ import
+ #{hl7-fhir-r4-core.decimal
+   hl7-fhir-r4-core.bodyweight
+   hl7-fhir-r4-core.code
+   zen.fhir
+   hl7-fhir-r4-core.string
+   hl7-fhir-uv-ichom-breastcancer.value-set.BodyWeightVS
+   hl7-fhir-r4-core.Reference
+   hl7-fhir-r4-core.Element
+   hl7-fhir-uv-ichom-breastcancer.patient},
+ schema
+ {:zen/tags #{zen.fhir/profile-schema zen/schema},
+  :zen/desc
+  "Represents the weight of a person diagnosed with breastcancer",
+  :zen.fhir/type "Observation",
+  :zen.fhir/profileUri
+  "https://connect.ichom.org/fhir/StructureDefinition/ichom-body-weight",
+  :zen.fhir/version "0.5.20",
+  :confirms #{hl7-fhir-r4-core.bodyweight/schema zen.fhir/Resource},
+  :type zen/map,
+  :keys
+  {:subject
+   {:confirms #{hl7-fhir-r4-core.Reference/schema zen.fhir/Reference},
+    :zen.fhir/reference
+    {:refers #{hl7-fhir-uv-ichom-breastcancer.patient/schema}}},
+   :valueQuantity
+   {:type zen/map,
+    :keys
+    {:value {:confirms #{hl7-fhir-r4-core.decimal/schema}},
+     :_value {:confirms #{hl7-fhir-r4-core.Element/schema}},
+     :unit
+     {:confirms #{hl7-fhir-r4-core.string/schema},
+      :zen.fhir/value-set
+      {:symbol
+       hl7-fhir-uv-ichom-breastcancer.value-set.BodyWeightVS/value-set,
+       :strength :required}},
+     :_unit {:confirms #{hl7-fhir-r4-core.Element/schema}},
+     :code {:confirms #{hl7-fhir-r4-core.code/schema}},
+     :_code {:confirms #{hl7-fhir-r4-core.Element/schema}}}}}}}

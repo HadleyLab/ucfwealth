@@ -1,0 +1,10 @@
+{ns hl7-fhir-uv-ichom-breastcancer.value-set.LateralityVS,
+ import #{zen.fhir},
+ value-set
+ {:zen/tags #{zen.fhir/value-set},
+  :zen/desc "Valueset of the laterality of breast cancer",
+  :zen.fhir/version "0.5.20",
+  :fhir/code-systems
+  #{{:fhir/url "http://snomed.info/sct", :zen.fhir/content :bundled}},
+  :uri "https://connect.ichom.org/fhir/ValueSet/LateralityVS",
+  :version "0.0.1"}}

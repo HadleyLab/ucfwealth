@@ -1,0 +1,16 @@
+{ns hl7-fhir-uv-ichom-breastcancer.value-set.ComplicationImpactVS,
+ import #{zen.fhir},
+ value-set
+ {:zen/tags #{zen.fhir/value-set},
+  :zen/desc
+  "ValueSet of the impact of a complication experienced by the breast cancer patient",
+  :zen.fhir/version "0.5.20",
+  :fhir/code-systems
+  #{{:fhir/url "http://snomed.info/sct", :zen.fhir/content :bundled}
+    {:fhir/url
+     "http://connect.ichom.org/fhir/CodeSystem/complication-impact",
+     :zen.fhir/content :bundled}
+    {:fhir/url "http://terminology.hl7.org/CodeSystem/v3-NullFlavor",
+     :zen.fhir/content :bundled}},
+  :uri "https://connect.ichom.org/fhir/ValueSet/ComplicationImpactVS",
+  :version "0.0.1"}}

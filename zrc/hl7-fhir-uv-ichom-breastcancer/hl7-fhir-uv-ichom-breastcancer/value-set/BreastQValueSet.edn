@@ -1,0 +1,12 @@
+{ns hl7-fhir-uv-ichom-breastcancer.value-set.BreastQValueSet,
+ import #{zen.fhir},
+ value-set
+ {:zen/tags #{zen.fhir/value-set},
+  :zen/desc
+  "Valueset used in the Patient Reported Outcomes Instrument about quality of life of patients with breast cancer",
+  :zen.fhir/version "0.5.20",
+  :fhir/code-systems
+  #{{:fhir/url "http://connect.ichom.org/fhir/CodeSystem/Breast-Q",
+     :zen.fhir/content :bundled}},
+  :uri "https://connect.ichom.org/fhir/ValueSet/BreastQValueSet",
+  :version "0.0.1"}}

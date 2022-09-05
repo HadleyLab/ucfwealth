@@ -1,0 +1,35 @@
+{ns hl7-fhir-uv-ichom-breastcancer.mammaprint-score,
+ import
+ #{hl7-fhir-r4-core.Observation
+   zen.fhir
+   hl7-fhir-r4-core.Quantity
+   hl7-fhir-r4-core.Reference
+   hl7-fhir-r4-core.CodeableConcept
+   hl7-fhir-uv-ichom-breastcancer.patient},
+ schema
+ {:zen/tags #{zen.fhir/profile-schema zen/schema},
+  :zen/desc
+  "Represents the mammaprintscore on a scale of 0.000 to 1.000",
+  :zen.fhir/type "Observation",
+  :zen.fhir/profileUri
+  "https://connect.ichom.org/fhir/StructureDefinition/mammaprint-score",
+  :zen.fhir/version "0.5.20",
+  :confirms #{hl7-fhir-r4-core.Observation/schema zen.fhir/Resource},
+  :type zen/map,
+  :keys
+  {:code
+   {:match
+    {:coding
+     #{{:system
+        "http://connect.ichom.org/fhir/CodeSystem/molecular-profiling",
+        :code "Mammaprint",
+        :display "Mammaprint Score"}}},
+    :confirms #{hl7-fhir-r4-core.CodeableConcept/schema}},
+   :subject
+   {:confirms #{hl7-fhir-r4-core.Reference/schema zen.fhir/Reference},
+    :zen.fhir/reference
+    {:refers #{hl7-fhir-uv-ichom-breastcancer.patient/schema}}},
+   :value
+   {:type zen/map,
+    :keys
+    {:Quantity {:confirms #{hl7-fhir-r4-core.Quantity/schema}}}}}}}

@@ -1,0 +1,9 @@
+{
+  "name" : "@zen-lang/hl7-fhir-uv-ichom-breastcancer",
+  "version" : "0.5.20",
+  "author" : "Health-Samurai",
+  "license" : "MIT",
+  "dependencies" : {
+    "@zen-lang/hl7-fhir-r4-core" : "0.5.20"
+  }
+}

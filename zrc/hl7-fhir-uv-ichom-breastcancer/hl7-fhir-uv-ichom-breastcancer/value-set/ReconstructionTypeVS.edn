@@ -1,0 +1,15 @@
+{ns hl7-fhir-uv-ichom-breastcancer.value-set.ReconstructionTypeVS,
+ import #{zen.fhir},
+ value-set
+ {:zen/tags #{zen.fhir/value-set},
+  :zen/desc
+  "Valueset of the type of reconstruction surgery that is performed",
+  :zen.fhir/version "0.5.20",
+  :fhir/code-systems
+  #{{:fhir/url "http://terminology.hl7.org/CodeSystem/v3-NullFlavor",
+     :zen.fhir/content :bundled}
+    {:fhir/url
+     "http://connect.ichom.org/fhir/CodeSystem/reconstuction-type",
+     :zen.fhir/content :bundled}},
+  :uri "https://connect.ichom.org/fhir/ValueSet/ReconstructionTypeVS",
+  :version "0.0.1"}}

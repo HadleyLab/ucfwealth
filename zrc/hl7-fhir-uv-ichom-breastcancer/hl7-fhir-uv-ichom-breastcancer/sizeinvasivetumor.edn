@@ -1,0 +1,44 @@
+{ns hl7-fhir-uv-ichom-breastcancer.sizeinvasivetumor,
+ import
+ #{hl7-fhir-r4-core.Observation
+   hl7-fhir-r4-core.decimal
+   zen.fhir
+   hl7-fhir-r4-core.string
+   hl7-fhir-r4-core.Quantity
+   hl7-fhir-r4-core.Reference
+   hl7-fhir-r4-core.Element
+   hl7-fhir-r4-core.CodeableConcept
+   hl7-fhir-uv-ichom-breastcancer.patient},
+ schema
+ {:zen/tags #{zen.fhir/profile-schema zen/schema},
+  :zen/desc "Represents the size of the invasive tumor",
+  :zen.fhir/type "Observation",
+  :zen.fhir/profileUri
+  "https://connect.ichom.org/fhir/StructureDefinition/sizeinvasivetumor",
+  :zen.fhir/version "0.5.20",
+  :confirms #{hl7-fhir-r4-core.Observation/schema zen.fhir/Resource},
+  :type zen/map,
+  :keys
+  {:code
+   {:match
+    {:coding
+     #{{:system "http://snomed.info/sct",
+        :code "384630000",
+        :display "Tumor size, invasive component"}}},
+    :confirms #{hl7-fhir-r4-core.CodeableConcept/schema}},
+   :subject
+   {:confirms #{hl7-fhir-r4-core.Reference/schema zen.fhir/Reference},
+    :zen.fhir/reference
+    {:refers #{hl7-fhir-uv-ichom-breastcancer.patient/schema}}},
+   :value
+   {:type zen/map,
+    :keys
+    {:Quantity
+     {:confirms #{hl7-fhir-r4-core.Quantity/schema},
+      :type zen/map,
+      :keys
+      {:value {:confirms #{hl7-fhir-r4-core.decimal/schema}},
+       :_value {:confirms #{hl7-fhir-r4-core.Element/schema}},
+       :unit
+       {:match "mm", :confirms #{hl7-fhir-r4-core.string/schema}},
+       :_unit {:confirms #{hl7-fhir-r4-core.Element/schema}}}}}}}}}

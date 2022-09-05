@@ -1,0 +1,17 @@
+{ns hl7-fhir-uv-ichom-breastcancer.Race,
+ import
+ #{zen.fhir
+   hl7-fhir-r4-core.CodeableConcept
+   hl7-fhir-r4-core.value-set.v3-Race},
+ schema
+ {:zen/tags #{zen/schema zen.fhir/structure-schema},
+  :zen/desc
+  "Represents the race of a patient. This extension is aligned with USCore.",
+  :zen.fhir/type "CodeableConcept",
+  :zen.fhir/profileUri
+  "https://connect.ichom.org/fhir/StructureDefinition/Race",
+  :zen.fhir/version "0.5.20",
+  :confirms #{hl7-fhir-r4-core.CodeableConcept/schema},
+  :zen.fhir/value-set
+  {:symbol hl7-fhir-r4-core.value-set.v3-Race/value-set,
+   :strength :example}}}

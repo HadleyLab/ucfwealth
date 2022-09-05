@@ -1,0 +1,12 @@
+{ns hl7-fhir-uv-ichom-breastcancer.value-set.EORTCQLQValueSet,
+ import #{zen.fhir},
+ value-set
+ {:zen/tags #{zen.fhir/value-set},
+  :zen/desc
+  "Valueset of the European Organization for Research and Treatment of Cancer Quality-of-Life Questionnaire",
+  :zen.fhir/version "0.5.20",
+  :fhir/code-systems
+  #{{:fhir/url "http://connect.ichom.org/fhir/CodeSystem/EORTC-QLQ",
+     :zen.fhir/content :bundled}},
+  :uri "https://connect.ichom.org/fhir/ValueSet/EORTCQLQValueSet",
+  :version "0.0.1"}}

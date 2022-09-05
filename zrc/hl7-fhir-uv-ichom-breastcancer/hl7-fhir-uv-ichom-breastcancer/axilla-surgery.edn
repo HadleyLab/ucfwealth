@@ -1,0 +1,62 @@
+{ns hl7-fhir-uv-ichom-breastcancer.axilla-surgery,
+ import
+ #{zen.fhir
+   hl7-fhir-r4-core.dateTime
+   hl7-fhir-r4-core.Reference
+   hl7-fhir-r4-core.Element
+   hl7-fhir-r4-core.Procedure
+   hl7-fhir-r4-core.CodeableConcept
+   hl7-fhir-uv-ichom-breastcancer.patient
+   hl7-fhir-uv-ichom-breastcancer.value-set.AxillaSurgeryVS
+   hl7-fhir-uv-ichom-breastcancer.primary-breastcancer},
+ schema
+ {:zen/tags #{zen.fhir/profile-schema zen/schema},
+  :zen/desc
+  "Represents if the breast cancer patient received surgery to the axilla during the last year. This profile is in alignment with mCODE.",
+  :zen.fhir/type "Procedure",
+  :zen.fhir/profileUri
+  "https://connect.ichom.org/fhir/StructureDefinition/axilla-surgery",
+  :zen.fhir/version "0.5.20",
+  :confirms #{hl7-fhir-r4-core.Procedure/schema zen.fhir/Resource},
+  :type zen/map,
+  :keys
+  {:category
+   {:match
+    {:coding
+     #{{:system "http://snomed.info/sct",
+        :code "699455008",
+        :display "Operative procedure on axilla"}}},
+    :confirms #{hl7-fhir-r4-core.CodeableConcept/schema}},
+   :code
+   {:confirms #{hl7-fhir-r4-core.CodeableConcept/schema},
+    :zen.fhir/value-set
+    {:symbol
+     hl7-fhir-uv-ichom-breastcancer.value-set.AxillaSurgeryVS/value-set,
+     :strength :required}},
+   :subject
+   {:confirms #{hl7-fhir-r4-core.Reference/schema zen.fhir/Reference},
+    :fhir/flags #{:MS},
+    :zen.fhir/reference
+    {:refers #{hl7-fhir-uv-ichom-breastcancer.patient/schema}}},
+   :performed {:confirms #{hl7-fhir-r4-core.dateTime/schema}},
+   :_performed
+   {:confirms #{hl7-fhir-r4-core.Element/schema},
+    :type zen/map,
+    :keys
+    {:dateTime
+     {:confirms #{hl7-fhir-r4-core.dateTime/schema},
+      :fhir/flags #{:MS}},
+     :_dateTime {:confirms #{hl7-fhir-r4-core.Element/schema}}}},
+   :reasonReference
+   {:type zen/vector,
+    :every
+    {:confirms #{hl7-fhir-r4-core.Reference/schema zen.fhir/Reference},
+     :fhir/flags #{:MS},
+     :zen.fhir/reference
+     {:refers
+      #{hl7-fhir-uv-ichom-breastcancer.primary-breastcancer/schema}}}},
+   :complication
+   {:type zen/vector,
+    :every
+    {:confirms #{hl7-fhir-r4-core.CodeableConcept/schema},
+     :fhir/flags #{:MS}}}}}}

@@ -1,0 +1,12 @@
+{ns hl7-fhir-uv-ichom-breastcancer.value-set.DemographicFactorsCountry,
+ import #{zen.fhir},
+ value-set
+ {:zen/tags #{zen.fhir/value-set},
+  :zen/desc "Valueset of the country (e.g. of residence) of a patient",
+  :zen.fhir/version "0.5.20",
+  :fhir/code-systems
+  #{{:fhir/url "urn:iso:std:iso:3166",
+     :zen.fhir/content :not-present}},
+  :uri
+  "https://connect.ichom.org/fhir/ValueSet/DemographicFactorsCountry",
+  :version "0.0.1"}}

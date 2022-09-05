@@ -1,0 +1,15 @@
+{ns hl7-fhir-uv-ichom-breastcancer.value-set.PatientTreatPrefVS,
+ import #{zen.fhir},
+ value-set
+ {:zen/tags #{zen.fhir/value-set},
+  :zen/desc
+  "Valueset of reason for why the treatment plan was not followed",
+  :zen.fhir/version "0.5.20",
+  :fhir/code-systems
+  #{{:fhir/url
+     "http://connect.ichom.org/fhir/CodeSystem/PatientTreatPref",
+     :zen.fhir/content :bundled}
+    {:fhir/url "http://terminology.hl7.org/CodeSystem/v3-NullFlavor",
+     :zen.fhir/content :bundled}},
+  :uri "https://connect.ichom.org/fhir/ValueSet/PatientTreatPrefVS",
+  :version "0.0.1"}}

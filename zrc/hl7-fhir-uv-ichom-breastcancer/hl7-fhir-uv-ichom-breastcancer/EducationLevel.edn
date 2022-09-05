@@ -1,0 +1,17 @@
+{ns hl7-fhir-uv-ichom-breastcancer.EducationLevel,
+ import
+ #{zen.fhir
+   hl7-fhir-uv-ichom-breastcancer.value-set.EducationLevelVS
+   hl7-fhir-r4-core.CodeableConcept},
+ schema
+ {:zen/tags #{zen/schema zen.fhir/structure-schema},
+  :zen/desc "Represents the level of education of a patient.",
+  :zen.fhir/type "CodeableConcept",
+  :zen.fhir/profileUri
+  "https://connect.ichom.org/fhir/StructureDefinition/EducationLevel",
+  :zen.fhir/version "0.5.20",
+  :confirms #{hl7-fhir-r4-core.CodeableConcept/schema},
+  :zen.fhir/value-set
+  {:symbol
+   hl7-fhir-uv-ichom-breastcancer.value-set.EducationLevelVS/value-set,
+   :strength :required}}}

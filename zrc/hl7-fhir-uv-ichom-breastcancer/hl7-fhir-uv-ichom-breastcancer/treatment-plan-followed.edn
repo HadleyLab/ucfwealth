@@ -1,0 +1,35 @@
+{ns hl7-fhir-uv-ichom-breastcancer.treatment-plan-followed,
+ import
+ #{hl7-fhir-r4-core.Observation
+   zen.fhir
+   hl7-fhir-uv-ichom-breastcancer.value-set.TreatmentPlanFollowedVS
+   hl7-fhir-r4-core.CodeableConcept},
+ schema
+ {:zen/tags #{zen.fhir/profile-schema zen/schema},
+  :zen/desc
+  "Indicate if the patient followed the multidisciplinary recommended treatment plan",
+  :zen.fhir/type "Observation",
+  :zen.fhir/profileUri
+  "https://connect.ichom.org/fhir/StructureDefinition/treatment-plan-followed",
+  :zen.fhir/version "0.5.20",
+  :confirms #{hl7-fhir-r4-core.Observation/schema zen.fhir/Resource},
+  :type zen/map,
+  :keys
+  {:code
+   {:match
+    {:coding
+     #{{:system "http://snomed.info/sct",
+        :code "410110000",
+        :display "Compliance care assessment"}}},
+    :confirms #{hl7-fhir-r4-core.CodeableConcept/schema}},
+   :value
+   {:fhir/polymorphic true,
+    :type zen/map,
+    :keys
+    {:CodeableConcept
+     {:confirms #{hl7-fhir-r4-core.CodeableConcept/schema}}},
+    :fhir/flags #{:MS},
+    :zen.fhir/value-set
+    {:symbol
+     hl7-fhir-uv-ichom-breastcancer.value-set.TreatmentPlanFollowedVS/value-set,
+     :strength :required}}}}}

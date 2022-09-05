@@ -1,0 +1,34 @@
+{ns hl7-fhir-uv-ichom-breastcancer.recr-method,
+ import
+ #{hl7-fhir-r4-core.Observation
+   hl7-fhir-uv-ichom-breastcancer.value-set.RecurrenceMethodVS
+   zen.fhir
+   hl7-fhir-r4-core.CodeableConcept},
+ schema
+ {:zen/tags #{zen.fhir/profile-schema zen/schema},
+  :zen/desc "The method of confirming recurrence breast cancer",
+  :zen.fhir/type "Observation",
+  :zen.fhir/profileUri
+  "https://connect.ichom.org/fhir/StructureDefinition/recr-method",
+  :zen.fhir/version "0.5.20",
+  :confirms #{hl7-fhir-r4-core.Observation/schema zen.fhir/Resource},
+  :type zen/map,
+  :keys
+  {:code
+   {:match
+    {:coding
+     #{{:system "http://snomed.info/sct",
+        :code "103693007",
+        :display "Diagnostic procedure"}}},
+    :confirms #{hl7-fhir-r4-core.CodeableConcept/schema}},
+   :value
+   {:fhir/polymorphic true,
+    :type zen/map,
+    :keys
+    {:CodeableConcept
+     {:confirms #{hl7-fhir-r4-core.CodeableConcept/schema}}},
+    :fhir/flags #{:MS},
+    :zen.fhir/value-set
+    {:symbol
+     hl7-fhir-uv-ichom-breastcancer.value-set.RecurrenceMethodVS/value-set,
+     :strength :required}}}}}

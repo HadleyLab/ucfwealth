@@ -1,0 +1,13 @@
+{ns hl7-fhir-uv-ichom-breastcancer.value-set.ImplantLocationVS,
+ import #{zen.fhir},
+ value-set
+ {:zen/tags #{zen.fhir/value-set},
+  :zen/desc
+  "Valueset of the location of the implant during reconstruction surgery",
+  :zen.fhir/version "0.5.20",
+  :fhir/code-systems
+  #{{:fhir/url
+     "http://connect.ichom.org/fhir/CodeSystem/implant-location",
+     :zen.fhir/content :bundled}},
+  :uri "https://connect.ichom.org/fhir/ValueSet/ImplantLocationVS",
+  :version "0.0.1"}}

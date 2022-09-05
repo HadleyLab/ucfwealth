@@ -1,10 +1,25 @@
 {ns box
- import #{aidbox fhir-ichom-breast-cancer-ig}
+ import #{aidbox
+          hl7-fhir-uv-ichom-breastcancer
+          hl7-fhir-uv-sdc
+          hl7-fhir-uv-sdc.sdc-questionnaire}
 
  box
  {:zen/tags #{aidbox/system}
   :zen/desc "fhir-ichom-breast-cancer-ig"
   :services {:seed-fixtures seed-fixtures}}
+
+
+ QuestionnaireProfile
+ {:zen/tags #{zen.fhir/profile-schema zen/schema}
+
+  :confirms #{hl7-fhir-uv-sdc.sdc-questionnaire/schema}
+  :zen.fhir/type "Questionnaire"
+  :zen.fhir/profileUri "http://covidimaging.com/questionnaire",
+  :type zen/map
+  :zen.fhir/version "0.5.20"
+  :keys {:launchContext {:type zen/vector}
+         :mapping {:type zen/vector}}}
 
  seed-fixtures
  {:zen/tags  #{aidbox/service}
