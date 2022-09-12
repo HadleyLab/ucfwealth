@@ -1,0 +1,9 @@
+[submodule "frontend"]
+	path = frontend
+	url = ../ucfwealth-frontend
+[submodule "backend-nodejs"]
+	path = backend-nodejs
+	url = ../ucfwealth-aidbox-app
+[submodule "dcm-to-png"]
+	path = dcm-to-png
+	url = ../dcm-to-png
