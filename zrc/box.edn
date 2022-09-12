@@ -24,6 +24,7 @@
  seed-fixtures
  {:zen/tags  #{aidbox/service}
   :engine    aidbox/seed
+  :files     ["seeds.ndjson.gz"]
   :resources{
              :AidboxQuery {:expand
                            {:query "

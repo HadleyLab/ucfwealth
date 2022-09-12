@@ -1,0 +1,86 @@
+body:
+  $let:
+    zip: >-
+      $
+      fhirpath("QuestionnaireResponse.repeat(item).where(linkId='personal-information').item.where(linkId='addrZip-q7').answer.value.integer").0
+    city: >-
+      $
+      fhirpath("QuestionnaireResponse.repeat(item).where(linkId='personal-information').item.where(linkId='addrCity-q5').answer.value.string").0
+    line: >-
+      $
+      fhirpath("QuestionnaireResponse.repeat(item).where(linkId='personal-information').item.where(linkId='addrStreet-q4').answer.value.string")
+    state: >-
+      $
+      fhirpath("QuestionnaireResponse.repeat(item).where(linkId='personal-information').item.where(linkId='addrState-q6').answer.value.string").0
+    birthDate: >-
+      $
+      fhirpath("QuestionnaireResponse.repeat(item).where(linkId='personal-information').item.where(linkId='birthDate-q3').answer.value.date").0
+    patientId: >-
+      $
+      fhirpath("QuestionnaireResponse.repeat(item).where(linkId='patientId').answer.children().string").0
+    phoneNumber: >-
+      $
+      fhirpath("QuestionnaireResponse.repeat(item).where(linkId='personal-information').item.where(linkId='phone-q2').answer.value.string").0
+    imagingSites: >-
+      $
+      fhirpath("QuestionnaireResponse.repeat(item).where(linkId='imaging-sites').item.answer")
+  type: transaction
+  $body:
+    entry:
+      $args:
+        - $as:
+            - site
+            - index
+          $map: $ imagingSites
+          $body:
+            $let:
+              siteZip: >-
+                $
+                fhirpath("%context.item.where(linkId='zip-code').answer.value.integer",site).0
+              siteCity: >-
+                $
+                fhirpath("%context.item.where(linkId='city').answer.value.string",site).0
+              siteLine: >-
+                $
+                fhirpath("%context.item.where(linkId='street-address-of-site').answer.value.string",site)
+              siteName: >-
+                $
+                fhirpath("%context.item.where(linkId='name-of-site').answer.value.string",site).0
+              siteState: >-
+                $
+                fhirpath("%context.item.where(linkId='state').answer.value.string",site).0
+            $body:
+              fullUrl: $ "urn:uuid:" + index
+              request:
+                url: >-
+                  $ "/Organization?name=" + siteName + "&address-city=" +
+                  siteCity
+                method: POST
+              resource:
+                name: $ siteName
+                address:
+                  - city: $ siteCity
+                    line: $ siteLine
+                    text: >-
+                      $ siteLine.0 + ", " + siteCity + ", " + siteState + " " +
+                      toString(siteZip)
+                    state: $ siteState
+                    postalCode: $ toString(siteZip)
+                resourceType: Organization
+        - - request:
+              url: $ "/Patient/" + patientId
+              method: PATCH
+            resource:
+              address:
+                - city: $ city
+                  line: $ line
+                  text: $ line.0 + ", " + city + ", " + state + " " + toString(zip)
+                  state: $ state
+                  postalCode: $ toString(zip)
+              telecom:
+                - value: $ phoneNumber
+                  system: phone
+              birthDate: $ birthDate
+      $call: concat
+id: patient-extract
+resourceType: Mapping

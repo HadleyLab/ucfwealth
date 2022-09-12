@@ -1,0 +1,403 @@
+meta:
+  profile: ['http://covidimaging.com/questionnaire']
+launchContext:
+- {name: LaunchPatient, type: Patient}
+item:
+- item:
+  - text: Have you ever been tested for COVID-19? (includes diagnostic molecular and/or antibody test)
+    type: choice
+    linkId: covid-test-q1
+    required: true
+    answerOption:
+    - value:
+        Coding: {code: '373066001', system: 'http://snomed.info/sct', display: 'Yes'}
+    - value:
+        Coding: {code: '373067005', system: 'http://snomed.info/sct', display: 'No'}
+  - text: Are you at least 18 years old?
+    type: choice
+    linkId: 18-years-old-q32
+    required: true
+    enableWhen:
+    - answer:
+        Coding: {code: '373066001', system: 'http://snomed.info/sct', display: 'Yes'}
+      operator: '='
+      question: covid-test-q1
+    answerOption:
+    - value:
+        Coding: {code: '373066001', system: 'http://snomed.info/sct', display: 'Yes'}
+    - value:
+        Coding: {code: '373067005', system: 'http://snomed.info/sct', display: 'No'}
+  - text: Have you had a chest x-ray completed to evaluate for COVID-19?
+    type: choice
+    linkId: chest-x-ray-q33
+    required: true
+    enableWhen:
+    - answer:
+        Coding: {code: '373066001', system: 'http://snomed.info/sct', display: 'Yes'}
+      operator: '='
+      question: covid-test-q1
+    - answer:
+        Coding: {code: '373066001', system: 'http://snomed.info/sct', display: 'Yes'}
+      operator: '='
+      question: 18-years-old-q32
+    answerOption:
+    - value:
+        Coding: {code: '373066001', system: 'http://snomed.info/sct', display: 'Yes'}
+    - value:
+        Coding: {code: '373067005', system: 'http://snomed.info/sct', display: 'No'}
+  text: Inclusion Criteria
+  type: group
+  linkId: inclusion-criteria
+- item:
+  - item:
+    - text: 'Comprehension question: What will you need to do if you agree to take part in this study?'
+      type: choice
+      linkId: necessary actions-q8
+      required: true
+      answerOption:
+      - value:
+          Coding: {code: share, system: 'https://www.covidimaging.com/terms-of-participation', display: Share your COVID-19 chest x-ray and complete a brief survey}
+      - value:
+          Coding: {code: not share, system: 'https://www.covidimaging.com/terms-of-participation', display: Not share your COVID-19 chest x-ray}
+    text: "Title of research study: \n  Crowdsourcing an open COVID-19 chest radiograph imaging repository for artificial intelligence research\n  Investigator: \n  Dexter Hadley, MD, PhD      \n  Co-investigators: \n  Amoy Fraser, PhD, Jennifer Horner, Rachna Sannegowda\n  Key Information: \n  The following is a short summary of this study to help you decide whether or not to be a part of this study. More detailed information is listed later on in this form.\n\n  Why am I being invited to take part in a research study?\n  We invite you to take part in a research study if you are an adult and you have had a molecular COVID-19 diagnostic test with either positive or negative results and a chest radiographic imaging performed in a US institution. Your imaging may have been for screening or diagnostic purposes and may have been either positive or negative for disease. In addition, you need to have an email account with access to a reliable internet connection or smartphone.\n\n  Why is this research being done?\n  The purpose of this study is to develop medical Artificial Intelligence (AI) that may improve our understanding of COVID-19 imaging which may facilitate new ways of detecting and treating disease. To do this, we will ask you to securely provide your consent for your chest X-rays and answer some questions about your health through a secure web application. This study represents one of the first research studies that engages patients to donate their imaging (chest X-rays) to develop medical AI\n\n  How long will the research last and what will I need to do?\n  Your data will remain available to the research team within the web portal unless you choose to withdraw from the study. Although your active participation will be completed upon completion of the survey and signing of the medical release(s), the research itself will be ongoing for an indefinite amount of time. Unless removed by you, your data will remain indefinitely in the repository for ongoing research. If you remove your data/delete your account, we will consider you to have withdrawn from the study. Your participation in this study will involve completing a single brief health survey and signing medical consent for the release of your chest X-rays to the study. More detailed information about the study procedures can be found under “What happens if I say yes, I want to be in this research?”\n"
+    type: group
+    linkId: necessary actions to study
+  - item:
+    - text: 'Comprehension question: What benefits are there for you do be in this study?'
+      type: choice
+      linkId: benefits-q9
+      required: true
+      enableWhen:
+      - answer:
+          Coding: {code: share, system: 'https://www.covidimaging.com/terms-of-participation', display: Share your COVID-19 chest x-ray and complete a brief survey}
+        operator: '='
+        question: necessary actions-q8
+      answerOption:
+      - value:
+          Coding: {code: no benefits, system: 'https://www.covidimaging.com/terms-of-participation', display: There are no benefits}
+      - value:
+          Coding: {code: benefits, system: 'https://www.covidimaging.com/terms-of-participation', display: Gaining access to your own imaging in a portable format and benefiting society by contributing to our understanding of COVID-19}
+    text: |
+      Is there any way being in this study could be bad for me?
+      Although we will do our best to protect your personal information (see below), there is still a very small risk of loss of privacy. We will do our best to make sure that the personal information we collect about you is kept private and secure. This study will never sell, rent, or lease your personal or contact information without your consent. If we do make your information available to other research groups for the purpose of research only, the information will be de-identified and will not be traceable to you.. If information from this study is published or presented at scientific meetings or shared with other researchers, your name and other personal identifiers will never be used. Your personal information may be given out if required by law (e.g., to prevent possible injury to yourself or others).
+      Your information will be transmitted and stored using very secure systems within government-regulated HIPAA privacy guidelines. We label your images and information only with a code, and we keep the key to the code in a password protected database. Only approved staff will be given the password. We use other safeguards at our facilities and for our information technology and systems to protect the privacy and security of your information. However, inherent in any web-based research platform is the possibility of public disclosure of your protected health information and any physical or psychological anxiety that may be associated with this possibility.
+      For more information about risks and side effects, please ask one of the researchers. You can reach Dr. Hadley at dexter.hadley@ucf.edu. If you want to speak to someone not directly involved in the research study, please contact the UCF Institutional Review Board at 407-823-2901.
+      Will being in this study help me in any way?
+      We cannot promise any benefits to you or others from your taking part in this research. However, possible benefits include having access to your medical information across institutions in a single database that you may share with your healthcare provider either in person or through the portal. We hope that society will benefit from your participation – by participating, you will help us contribute to a better understanding of COVID-19, and we may find better ways to predict, prevent, and treat the virus. Participation in research is completely voluntary.
+      We will not provide you with information about your health status or clinical interpretation of your data from the study. This is a research study and is not clinical care. We do not provide medical services. However, you will receive standardized information about COVID-19 risk factors based on the imaging and surveys you provide through a personalized dashboard. Participation in this study does not in any way substitute for professional medical advice, diagnosis, or treatment that your doctor or other healthcare provider may give you. Always ask the advice of your healthcare provider if you have any questions about a medical condition. Do not disregard professional medical advice or delay in seeking care because of something you have read as part of this study. If you think you may have a medical emergency, please call your doctor or dial 911 immediately.
+    type: group
+    linkId: participant's benefits
+    enableWhen:
+    - answer:
+        Coding: {code: share, system: 'https://www.covidimaging.com/terms-of-participation', display: Share your COVID-19 chest x-ray and complete a brief survey}
+      operator: '='
+      question: necessary actions-q8
+  - item:
+    - text: Who can I talk to if I have questions about the study or my participation in this study?
+      type: choice
+      linkId: communication-q10
+      required: true
+      enableWhen:
+      - answer:
+          Coding: {code: share, system: 'https://www.covidimaging.com/terms-of-participation', display: Share your COVID-19 chest x-ray and complete a brief survey}
+        operator: '='
+        question: necessary actions-q8
+      - answer:
+          Coding: {code: no benefits, system: 'https://www.covidimaging.com/terms-of-participation', display: There are no benefits}
+        operator: '='
+        question: benefits-q9
+      answerOption:
+      - value:
+          Coding: {code: contact, system: 'https://www.covidimaging.com/terms-of-participation', display: Dr. Dexter Hadley or the UCF IRB}
+      - value:
+          Coding: {code: no contacts, system: 'https://www.covidimaging.com/terms-of-participation', display: There is no one I can contact}
+    text: "Detailed Information: \n  The following is more detailed information about this study in addition to the information listed above.\n\n  What should I know about a research study?\n  Someone will explain this research study to you.Whether or not you take part is up to you.You can choose not to take part.You can agree to take part and later change your mind.Your decision will not be held against you.You can ask all the questions you want before you decide.\n\n  Who can I talk to?\n  If you have questions, concerns, or complaints, or think the research has hurt you, talk to the research team: dexter.hadley@ucf.edu or call Dr. Dexter Hadley at 407-266-1520.\n  This research has been reviewed and approved by an Institutional Review Board (“IRB”). You may talk to them at 407-823-2901 or irb@ucf.edu if:\n  Your questions, concerns, or complaints are not being answered by the research team.\n  You cannot reach the research team.\n  You want to talk to someone besides the research team.\n  You have questions about your rights as a research subject.\n  You want to get information or provide input about this research.\n"
+    type: group
+    linkId: communication with organizers
+    enableWhen:
+    - answer:
+        Coding: {code: share, system: 'https://www.covidimaging.com/terms-of-participation', display: Share your COVID-19 chest x-ray and complete a brief survey}
+      operator: '='
+      question: necessary actions-q8
+    - answer:
+        Coding: {code: no benefits, system: 'https://www.covidimaging.com/terms-of-participation', display: There are no benefits}
+      operator: '='
+      question: benefits-q9
+  - item:
+    - text: If you decide you no longer want to be in this study, how can you remove yourself from the study?
+      type: choice
+      linkId: removeFromStudy-q11
+      required: true
+      enableWhen:
+      - answer:
+          Coding: {code: share, system: 'https://www.covidimaging.com/terms-of-participation', display: Share your COVID-19 chest x-ray and complete a brief survey}
+        operator: '='
+        question: necessary actions-q8
+      - answer:
+          Coding: {code: no benefits, system: 'https://www.covidimaging.com/terms-of-participation', display: There are no benefits}
+        operator: '='
+        question: benefits-q9
+      - answer:
+          Coding: {code: contact, system: 'https://www.covidimaging.com/terms-of-participation', display: Dr. Dexter Hadley or the UCF IRB}
+        operator: '='
+        question: communication-q10
+      answerOption:
+      - value:
+          Coding: {code: withdraw, system: 'https://www.covidimaging.com/terms-of-participation', display: By deleting your account through your personalized dashboard in the web application portal}
+      - value:
+          Coding: {code: no withdraw, system: 'https://www.covidimaging.com/terms-of-participation', display: I cannot withdraw from the study}
+    text: |
+      How many people will be studied?
+        We expect a maximum of 20,000 people will be in this research study.
+        What happens if I say yes, I want to be in this research?
+        Surveys
+        If you agree to participate in this study, you will be asked to complete a brief survey about your demographics and health using our web application. The survey will ask about your personal and demographic dataand your medical history (such as your smoking habits and your history of cancer, if any). The survey will be brief, and will take you about 10-15 minutes to fill out.
+        Data transfer and sync
+        If you agree to participate in this study, you will be asked to sign medical release(s) for your chest X-rays to be released to us by your imaging site(s). We will use your rinformation to initiate the transfer of your chest X-rays .  We use the MatrixRay (https://matrixray.com) service by Nautilus Medical for secure transfer of imaging and related electronic health records.
+        Personalized dashboard
+        Once you agree to participate in this study, you will have access to a personalized dashboard accessible through our web application portal. Here, your will be able to review all the imaging and medical records that we store for you. We will provide standardized assessments based on your chest X-rays and risk factors that you may find useful to understand your COVID-19 risk.
+        What happens if I say yes, but I change my mind later?
+        You can leave the research at any time. It will not be held against you.
+        To stop participating in the study, you may delete your account (including your images and data). If you delete your account, we will consider you as withdrawn from the study.
+    type: group
+    linkId: remove from study
+    enableWhen:
+    - answer:
+        Coding: {code: share, system: 'https://www.covidimaging.com/terms-of-participation', display: Share your COVID-19 chest x-ray and complete a brief survey}
+      operator: '='
+      question: necessary actions-q8
+    - answer:
+        Coding: {code: no benefits, system: 'https://www.covidimaging.com/terms-of-participation', display: There are no benefits}
+      operator: '='
+      question: benefits-q9
+    - answer:
+        Coding: {code: contact, system: 'https://www.covidimaging.com/terms-of-participation', display: Dr. Dexter Hadley or the UCF IRB}
+      operator: '='
+      question: communication-q10
+  - item:
+    - text: My de-identified data may be used for future research without my additional consent unless I delete my account?
+      type: choice
+      linkId: dataUse-q12
+      required: true
+      enableWhen:
+      - answer:
+          Coding: {code: share, system: 'https://www.covidimaging.com/terms-of-participation', display: Share your COVID-19 chest x-ray and complete a brief survey}
+        operator: '='
+        question: necessary actions-q8
+      - answer:
+          Coding: {code: no benefits, system: 'https://www.covidimaging.com/terms-of-participation', display: There are no benefits}
+        operator: '='
+        question: benefits-q9
+      - answer:
+          Coding: {code: contact, system: 'https://www.covidimaging.com/terms-of-participation', display: Dr. Dexter Hadley or the UCF IRB}
+        operator: '='
+        question: communication-q10
+      - answer:
+          Coding: {code: withdraw, system: 'https://www.covidimaging.com/terms-of-participation', display: By deleting your account through your personalized dashboard in the web application portal}
+        operator: '='
+        question: removeFromStudy-q11
+      answerOption:
+      - value:
+          Coding: {code: 'true', system: 'https://www.covidimaging.com/terms-of-participation', display: 'True'}
+      - value:
+          Coding: {code: 'false', system: 'https://www.covidimaging.com/terms-of-participation', display: 'False'}
+    text: |
+      What happens to the information collected for the research?
+       Efforts will be made to limit the use and disclosure of your personal information, including research study and medical records, to people who have a need to review this information. We cannot promise complete secrecy. Organizations that may inspect and copy your information include the IRB and approved staff members only.
+       De-identified information collected during this research could be used for future research studies or distributed to another investigator for future research studies without your additional informed consent. PHI data will stay on our web servers, while de-identified data will be on Zenodo/GitHub in perpetuity or until you delete your account. The delete function will be available through your personalized dashboard on the application.
+       Federal law provides additional protections of your medical records and related health information. These are described in an attached document.
+    type: group
+    linkId: participant data use
+    enableWhen:
+    - answer:
+        Coding: {code: share, system: 'https://www.covidimaging.com/terms-of-participation', display: Share your COVID-19 chest x-ray and complete a brief survey}
+      operator: '='
+      question: necessary actions-q8
+    - answer:
+        Coding: {code: no benefits, system: 'https://www.covidimaging.com/terms-of-participation', display: There are no benefits}
+      operator: '='
+      question: benefits-q9
+    - answer:
+        Coding: {code: contact, system: 'https://www.covidimaging.com/terms-of-participation', display: Dr. Dexter Hadley or the UCF IRB}
+      operator: '='
+      question: communication-q10
+    - answer:
+        Coding: {code: withdraw, system: 'https://www.covidimaging.com/terms-of-participation', display: By deleting your account through your personalized dashboard in the web application portal}
+      operator: '='
+      question: removeFromStudy-q11
+  - item:
+    - text: Will you be paid to take part in this study?
+      type: choice
+      linkId: paidStudy-q13
+      required: true
+      enableWhen:
+      - answer:
+          Coding: {code: share, system: 'https://www.covidimaging.com/terms-of-participation', display: Share your COVID-19 chest x-ray and complete a brief survey}
+        operator: '='
+        question: necessary actions-q8
+      - answer:
+          Coding: {code: no benefits, system: 'https://www.covidimaging.com/terms-of-participation', display: There are no benefits}
+        operator: '='
+        question: benefits-q9
+      - answer:
+          Coding: {code: contact, system: 'https://www.covidimaging.com/terms-of-participation', display: Dr. Dexter Hadley or the UCF IRB}
+        operator: '='
+        question: communication-q10
+      - answer:
+          Coding: {code: withdraw, system: 'https://www.covidimaging.com/terms-of-participation', display: By deleting your account through your personalized dashboard in the web application portal}
+        operator: '='
+        question: removeFromStudy-q11
+      - answer:
+          Coding: {code: 'true', system: 'https://www.covidimaging.com/terms-of-participation', display: 'True'}
+        operator: '='
+        question: dataUse-q12
+      answerOption:
+      - value:
+          Coding: {code: not be paid, system: 'https://www.covidimaging.com/terms-of-participation', display: I will not be paid to take part in this study and I am responsible for any cell phone charges or cost to release my medical records.}
+      - value:
+          Coding: {code: paid, system: 'https://www.covidimaging.com/terms-of-participation', display: I will be paid or reimbursed for my participation in this study.}
+    - text: Do you give your consent to participate in this research study?
+      type: choice
+      linkId: consentToResearch-q14
+      required: true
+      enableWhen:
+      - answer:
+          Coding: {code: share, system: 'https://www.covidimaging.com/terms-of-participation', display: Share your COVID-19 chest x-ray and complete a brief survey}
+        operator: '='
+        question: necessary actions-q8
+      - answer:
+          Coding: {code: no benefits, system: 'https://www.covidimaging.com/terms-of-participation', display: There are no benefits}
+        operator: '='
+        question: benefits-q9
+      - answer:
+          Coding: {code: contact, system: 'https://www.covidimaging.com/terms-of-participation', display: Dr. Dexter Hadley or the UCF IRB}
+        operator: '='
+        question: communication-q10
+      - answer:
+          Coding: {code: withdraw, system: 'https://www.covidimaging.com/terms-of-participation', display: By deleting your account through your personalized dashboard in the web application portal}
+        operator: '='
+        question: removeFromStudy-q11
+      - answer:
+          Coding: {code: 'true', system: 'https://www.covidimaging.com/terms-of-participation', display: 'True'}
+        operator: '='
+        question: dataUse-q12
+      - answer:
+          Coding: {code: not be paid, system: 'https://www.covidimaging.com/terms-of-participation', display: I will not be paid to take part in this study and I am responsible for any cell phone charges or cost to release my medical records.}
+        operator: '='
+        question: paidStudy-q13
+      answerOption:
+      - value:
+          Coding: {code: consent, system: 'https://www.covidimaging.com/terms-of-participation', display: I consent to take part in this research study}
+      - value:
+          Coding: {code: not-consent, system: 'https://www.covidimaging.com/terms-of-participation', display: I do not consent}
+    text: |
+      What else do I need to know?
+       This research is being led by Dr. Dexter Hadley at the University of Central Florida College of Medicine.
+       The limitations as to who may participate in this research are the same as those applied to who may receive chest x-rays. If your medical health history prohibits (or if your medical care team discourages) chest radiography, you should not participate in this research.
+       If you are experiencing an emergency, call 911. If you believe you have been harmed as a result of participating in this study, it is important that you promptly tell the researcher(s) at the number listed above. UCF will assist you in obtaining necessary medical care. In general, this care will be billed to you or your insurance company.  UCF has no program to pay for medical care for research related injuries.
+       Participation in the study will be free to you, although external charges may be accrued through use of cellular data and/or payment to your healthcare facilities for medical records release, when applicable. You can inquire about any potential costs to you by contacting your cell phone service and by speaking with your local healthcare facility about their procedures for obtaining pertinent medical records.
+       You will not be paid for taking part in this study. Should compensation become available in the future through commercialization, you will be notified.
+       By consenting to participate in this study, you do not waive any of your legal rights. Consenting means that you have been given information about this study and that you agree to participate in the study.
+       You will be informed of any new information or changes in the study that may affect your willingness to continue in the study. If at any time you wish to withdraw from this study, you will not suffer any penalty or lose any benefits to which you are entitled. Your participation is completely voluntary and will not affect your enrollment in any health plan or access to benefits.
+
+       Federal law provides additional protections of your medical records and related health information. These are described in an attached document.
+    type: group
+    linkId: paid to take study
+    enableWhen:
+    - answer:
+        Coding: {code: share, system: 'https://www.covidimaging.com/terms-of-participation', display: Share your COVID-19 chest x-ray and complete a brief survey}
+      operator: '='
+      question: necessary actions-q8
+    - answer:
+        Coding: {code: no benefits, system: 'https://www.covidimaging.com/terms-of-participation', display: There are no benefits}
+      operator: '='
+      question: benefits-q9
+    - answer:
+        Coding: {code: contact, system: 'https://www.covidimaging.com/terms-of-participation', display: Dr. Dexter Hadley or the UCF IRB}
+      operator: '='
+      question: communication-q10
+    - answer:
+        Coding: {code: withdraw, system: 'https://www.covidimaging.com/terms-of-participation', display: By deleting your account through your personalized dashboard in the web application portal}
+      operator: '='
+      question: removeFromStudy-q11
+    - answer:
+        Coding: {code: 'true', system: 'https://www.covidimaging.com/terms-of-participation', display: 'True'}
+      operator: '='
+      question: dataUse-q12
+  text: Informed Consent
+  type: group
+  linkId: terms-group
+  enableWhen:
+  - answer:
+      Coding: {code: '373066001', system: 'http://snomed.info/sct', display: 'Yes'}
+    operator: '='
+    question: covid-test-q1
+  - answer:
+      Coding: {code: '373066001', system: 'http://snomed.info/sct', display: 'Yes'}
+    operator: '='
+    question: 18-years-old-q32
+  - answer:
+      Coding: {code: '373066001', system: 'http://snomed.info/sct', display: 'Yes'}
+    operator: '='
+    question: chest-x-ray-q33
+  enableBehavior: all
+- item:
+  - {text: Name of Site, type: string, linkId: name-of-site, required: true}
+  - {text: Street address of Site, type: string, linkId: street-address-of-site, required: true}
+  - {text: City, type: string, linkId: city, required: true}
+  - {text: State, type: string, linkId: state, required: true}
+  - {text: ZIP code, type: integer, linkId: zip-code}
+  - {text: MRN, type: string, linkId: MRN}
+  text: Imaging Sites Questionnaire
+  type: group
+  linkId: imaging-sites-group
+  repeats: true
+  enableWhen:
+  - answer:
+      Coding: {code: '373066001', system: 'http://snomed.info/sct', display: 'Yes'}
+    operator: '='
+    question: covid-test-q1
+  - answer:
+      Coding: {code: '373066001', system: 'http://snomed.info/sct', display: 'Yes'}
+    operator: '='
+    question: 18-years-old-q32
+  - answer:
+      Coding: {code: '373066001', system: 'http://snomed.info/sct', display: 'Yes'}
+    operator: '='
+    question: chest-x-ray-q33
+  - answer:
+      Coding: {code: share, system: 'https://www.covidimaging.com/terms-of-participation', display: Share your COVID-19 chest x-ray and complete a brief survey}
+    operator: '='
+    question: necessary actions-q8
+  - answer:
+      Coding: {code: no benefits, system: 'https://www.covidimaging.com/terms-of-participation', display: There are no benefits}
+    operator: '='
+    question: benefits-q9
+  - answer:
+      Coding: {code: contact, system: 'https://www.covidimaging.com/terms-of-participation', display: Dr. Dexter Hadley or the UCF IRB}
+    operator: '='
+    question: communication-q10
+  - answer:
+      Coding: {code: withdraw, system: 'https://www.covidimaging.com/terms-of-participation', display: By deleting your account through your personalized dashboard in the web application portal}
+    operator: '='
+    question: removeFromStudy-q11
+  - answer:
+      Coding: {code: 'true', system: 'https://www.covidimaging.com/terms-of-participation', display: 'True'}
+    operator: '='
+    question: dataUse-q12
+  - answer:
+      Coding: {code: not be paid, system: 'https://www.covidimaging.com/terms-of-participation', display: I will not be paid to take part in this study and I am responsible for any cell phone charges or cost to release my medical records.}
+    operator: '='
+    question: paidStudy-q13
+  - answer:
+      Coding: {code: consent, system: 'https://www.covidimaging.com/terms-of-participation', display: I consent to take part in this research study}
+    operator: '='
+    question: consentToResearch-q14
+  enableBehavior: all
+mapping:
+- {id: patient-extract, resourceType: Mapping}
+resourceType: Questionnaire
+title: Pre encunter covid-19 screening questions
+status: active
+id: screening-questions
+url: screening-questions

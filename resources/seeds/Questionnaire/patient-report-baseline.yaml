@@ -1,0 +1,446 @@
+date: '2022-08-05T13:11:42+00:00'
+meta:
+  profile: ['http://covidimaging.com/questionnaire']
+publisher: ICHOM
+jurisdiction:
+- coding:
+  - {code: '001', system: 'http://unstats.un.org/unsd/methods/m49/m49.htm', display: World}
+name: PatientReportedBaseline
+item:
+- item:
+  - {text: 'What is the patient''s medical record number?', type: integer, linkId: N/A-Clinical, required: true}
+  - {text: 'What is the patient''s last name?', type: string, linkId: LastName-Clinical, required: true}
+  text: General information
+  type: group
+  linkId: General-Information-Clinical
+  required: true
+- item:
+  - {text: Please indicate your sex at birth., type: choice, linkId: Sex, required: true, answerValueSet: 'http://hl7.org/fhir/ValueSet/administrative-gender'}
+  - {text: 'What is your country of residence?', type: choice, linkId: COUNTRY, required: true, answerValueSet: 'http://hl7.org/fhir/ValueSet/iso3166-1-2'}
+  - {text: Please indicate the ethnicity that you identify with., type: string, linkId: Ethnicity, required: true, answerValueSet: 'https://connect.ichom.org/fhir/ValueSet/DemographicFactorsEthnicity'}
+  - {text: Please indicate the biological race that you identify with., type: string, linkId: Race, required: true, answerValueSet: 'https://connect.ichom.org/fhir/ValueSet/DemographicFactorsRace'}
+  - text: Please indicate your highest level of schooling.
+    type: choice
+    linkId: EducationLevel
+    required: true
+    answerOption:
+    - value:
+        Coding: {code: '0', system: 'urn:uuid:47dcf78e-3c63-4a6b-8ac7-f4f669be2b96', display: None}
+    - value:
+        Coding: {code: '1', system: 'urn:uuid:47dcf78e-3c63-4a6b-8ac7-f4f669be2b96', display: Primary}
+    - value:
+        Coding: {code: '2', system: 'urn:uuid:47dcf78e-3c63-4a6b-8ac7-f4f669be2b96', display: Secondary}
+    - value:
+        Coding: {code: '3', system: 'urn:uuid:47dcf78e-3c63-4a6b-8ac7-f4f669be2b96', display: Tertiary}
+  - text: Please indicate your current relationship status.
+    type: choice
+    linkId: RelationshipStatus
+    required: true
+    answerOption:
+    - value:
+        Coding: {code: '0', system: 'urn:uuid:98b0862c-ffe9-46a3-ad47-f4e2ede907c3', display: Not married/partnered}
+    - value:
+        Coding: {code: '1', system: 'urn:uuid:98b0862c-ffe9-46a3-ad47-f4e2ede907c3', display: Married/partnered}
+    - value:
+        Coding: {code: '2', system: 'urn:uuid:98b0862c-ffe9-46a3-ad47-f4e2ede907c3', display: Divorced/separated}
+    - value:
+        Coding: {code: '3', system: 'urn:uuid:98b0862c-ffe9-46a3-ad47-f4e2ede907c3', display: Widowed}
+    - value:
+        Coding: {code: '4', system: 'urn:uuid:98b0862c-ffe9-46a3-ad47-f4e2ede907c3', display: unknown}
+  - text: 'Please indicate your current menopausal status:'
+    type: choice
+    linkId: MENOPAUSE
+    required: true
+    enableWhen:
+    - answer:
+        Coding: {code: female, system: 'http://hl7.org/fhir/administrative-gender'}
+      operator: '='
+      question: Sex
+    answerOption:
+    - value:
+        Coding: {code: '0', system: 'urn:uuid:cc3b3106-bc4b-4b9b-bf15-249ae1c3443f', display: Pre-menopause}
+    - value:
+        Coding: {code: '1', system: 'urn:uuid:cc3b3106-bc4b-4b9b-bf15-249ae1c3443f', display: 'Post-menopausei (natural/surgical): if you have not had your period >12 months, caused by natural decline of hormones or due to surgery'}
+    - value:
+        Coding: {code: '3', system: 'urn:uuid:cc3b3106-bc4b-4b9b-bf15-249ae1c3443f', display: I don't know what my current menopausal status is}
+  text: Demographic factors
+  type: group
+  linkId: Demographics
+  required: true
+- item:
+  - {text: 'Have you been told by a doctor that you have any of the following?', type: choice, linkId: ComorbiditiesSACQ, repeats: true, required: true, answerValueSet: 'https://connect.ichom.org/fhir/ValueSet/SACQPatientComorbidityHistory'}
+  - text: Do you receive treatment for heart disease (For example, angina, heart failure, or heart attack)?
+    type: boolean
+    linkId: ComorbiditiesSACQ_HeartDiseaseFU1
+    enableWhen:
+    - answer:
+        Coding: {code: '1', system: 'http://connect.ichom.org/fhir/CodeSystem/sacq-patient-comorbidity-history'}
+      operator: '='
+      question: ComorbiditiesSACQ
+  - text: Does your heart disease limit your activities?
+    type: boolean
+    linkId: ComorbiditiesSACQ_HeartDiseaseFU2
+    enableWhen:
+    - answer:
+        Coding: {code: '1', system: 'http://connect.ichom.org/fhir/CodeSystem/sacq-patient-comorbidity-history'}
+      operator: '='
+      question: ComorbiditiesSACQ
+  - text: Do you receive treatment for high blood pressure?
+    type: boolean
+    linkId: ComorbiditiesSACQ_HighBloodPressureFU1
+    enableWhen:
+    - answer:
+        Coding: {code: '2', system: 'http://connect.ichom.org/fhir/CodeSystem/sacq-patient-comorbidity-history'}
+      operator: '='
+      question: ComorbiditiesSACQ
+  - text: Does your high blood pressure limit your activities?
+    type: boolean
+    linkId: ComorbiditiesSACQ_HighBloodPressureFU2
+    enableWhen:
+    - answer:
+        Coding: {code: '2', system: 'http://connect.ichom.org/fhir/CodeSystem/sacq-patient-comorbidity-history'}
+      operator: '='
+      question: ComorbiditiesSACQ
+  - text: Do you receive treatment for lung disease?
+    type: boolean
+    linkId: ComorbiditiesSACQ_LungDiseaseFU1
+    enableWhen:
+    - answer:
+        Coding: {code: '3', system: 'http://connect.ichom.org/fhir/CodeSystem/sacq-patient-comorbidity-history'}
+      operator: '='
+      question: ComorbiditiesSACQ
+  - text: Does your lung disease limit your activities?
+    type: boolean
+    linkId: ComorbiditiesSACQ_LungDiseaseFU2
+    enableWhen:
+    - answer:
+        Coding: {code: '3', system: 'http://connect.ichom.org/fhir/CodeSystem/sacq-patient-comorbidity-history'}
+      operator: '='
+      question: ComorbiditiesSACQ
+  - text: Do you receive treatment for diabetes?
+    type: boolean
+    linkId: ComorbiditiesSACQ_DiabetesFU1
+    enableWhen:
+    - answer:
+        Coding: {code: '4', system: 'http://connect.ichom.org/fhir/CodeSystem/sacq-patient-comorbidity-history'}
+      operator: '='
+      question: ComorbiditiesSACQ
+  - text: Does your diabetes limit your activities?
+    type: boolean
+    linkId: ComorbiditiesSACQ_DiabetesFU2
+    enableWhen:
+    - answer:
+        Coding: {code: '4', system: 'http://connect.ichom.org/fhir/CodeSystem/sacq-patient-comorbidity-history'}
+      operator: '='
+      question: ComorbiditiesSACQ
+  - text: Do you receive treatment for an ulcer or stomach disease?
+    type: boolean
+    linkId: ComorbiditiesSACQ_StomachDiseaseFU1
+    enableWhen:
+    - answer:
+        Coding: {code: '5', system: 'http://connect.ichom.org/fhir/CodeSystem/sacq-patient-comorbidity-history'}
+      operator: '='
+      question: ComorbiditiesSACQ
+  - text: Does your ulcer or stomach disease limit your activities?
+    type: boolean
+    linkId: ComorbiditiesSACQ_StomachDiseaseFU2
+    enableWhen:
+    - answer:
+        Coding: {code: '5', system: 'http://connect.ichom.org/fhir/CodeSystem/sacq-patient-comorbidity-history'}
+      operator: '='
+      question: ComorbiditiesSACQ
+  - text: Do you receive treatment for kidney disease?
+    type: boolean
+    linkId: ComorbiditiesSACQ_KidneyDiseaseFU1
+    enableWhen:
+    - answer:
+        Coding: {code: '6', system: 'http://connect.ichom.org/fhir/CodeSystem/sacq-patient-comorbidity-history'}
+      operator: '='
+      question: ComorbiditiesSACQ
+  - text: Does your kidney disease limit your activities?
+    type: boolean
+    linkId: ComorbiditiesSACQ_KidneyDiseaseFU2
+    enableWhen:
+    - answer:
+        Coding: {code: '6', system: 'http://connect.ichom.org/fhir/CodeSystem/sacq-patient-comorbidity-history'}
+      operator: '='
+      question: ComorbiditiesSACQ
+  - text: Do you receive treatment for liver disease?
+    type: boolean
+    linkId: ComorbiditiesSACQ_LiverDiseaseFU1
+    enableWhen:
+    - answer:
+        Coding: {code: '7', system: 'http://connect.ichom.org/fhir/CodeSystem/sacq-patient-comorbidity-history'}
+      operator: '='
+      question: ComorbiditiesSACQ
+  - text: Does your liver disease limit your activities?
+    type: boolean
+    linkId: ComorbiditiesSACQ_LiverDiseaseFU2
+    enableWhen:
+    - answer:
+        Coding: {code: '7', system: 'http://connect.ichom.org/fhir/CodeSystem/sacq-patient-comorbidity-history'}
+      operator: '='
+      question: ComorbiditiesSACQ
+  - text: Do you receive treatment for anemia or other blood disease?
+    type: boolean
+    linkId: ComorbiditiesSACQ_BloodDiseaseFU1
+    enableWhen:
+    - answer:
+        Coding: {code: '8', system: 'http://connect.ichom.org/fhir/CodeSystem/sacq-patient-comorbidity-history'}
+      operator: '='
+      question: ComorbiditiesSACQ
+  - text: Does your anemia or other blood disease limit your activities?
+    type: boolean
+    linkId: ComorbiditiesSACQ_BloodDiseaseFU2
+    enableWhen:
+    - answer:
+        Coding: {code: '8', system: 'http://connect.ichom.org/fhir/CodeSystem/sacq-patient-comorbidity-history'}
+      operator: '='
+      question: ComorbiditiesSACQ
+  - text: Do you receive treatment for cancer/another cancer?
+    type: boolean
+    linkId: ComorbiditiesSACQ_CancerFU1
+    enableWhen:
+    - answer:
+        Coding: {code: '9', system: 'http://connect.ichom.org/fhir/CodeSystem/sacq-patient-comorbidity-history'}
+      operator: '='
+      question: ComorbiditiesSACQ
+  - text: Does your cancer/other cancer limit your activities?
+    type: boolean
+    linkId: ComorbiditiesSACQ_CancerFU2
+    enableWhen:
+    - answer:
+        Coding: {code: '9', system: 'http://connect.ichom.org/fhir/CodeSystem/sacq-patient-comorbidity-history'}
+      operator: '='
+      question: ComorbiditiesSACQ
+  - text: Do you receive treatment for depression?
+    type: boolean
+    linkId: ComorbiditiesSACQ_DepressionFU1
+    enableWhen:
+    - answer:
+        Coding: {code: '10', system: 'http://connect.ichom.org/fhir/CodeSystem/sacq-patient-comorbidity-history'}
+      operator: '='
+      question: ComorbiditiesSACQ
+  - text: Does your depression limit your activities?
+    type: boolean
+    linkId: ComorbiditiesSACQ_DepressionFU2
+    enableWhen:
+    - answer:
+        Coding: {code: '10', system: 'http://connect.ichom.org/fhir/CodeSystem/sacq-patient-comorbidity-history'}
+      operator: '='
+      question: ComorbiditiesSACQ
+  - text: Do you receive treatment for osteoarthritis/degenerative arthritis?
+    type: boolean
+    linkId: ComorbiditiesSACQ_OsteoarthritisFU1
+    enableWhen:
+    - answer:
+        Coding: {code: '11', system: 'http://connect.ichom.org/fhir/CodeSystem/sacq-patient-comorbidity-history'}
+      operator: '='
+      question: ComorbiditiesSACQ
+  - text: Does your osteoarthritis/degenerative arthritis limit your activities?
+    type: boolean
+    linkId: ComorbiditiesSACQ_OsteoarthritisFU2
+    enableWhen:
+    - answer:
+        Coding: {code: '11', system: 'http://connect.ichom.org/fhir/CodeSystem/sacq-patient-comorbidity-history'}
+      operator: '='
+      question: ComorbiditiesSACQ
+  - text: Do you receive treatment for back pain?
+    type: boolean
+    linkId: ComorbiditiesSACQ_BackPainFU1
+    enableWhen:
+    - answer:
+        Coding: {code: '12', system: 'http://connect.ichom.org/fhir/CodeSystem/sacq-patient-comorbidity-history'}
+      operator: '='
+      question: ComorbiditiesSACQ
+  - text: Does your back pain limit your activities?
+    type: boolean
+    linkId: ComorbiditiesSACQ_BackPainFU2
+    enableWhen:
+    - answer:
+        Coding: {code: '12', system: 'http://connect.ichom.org/fhir/CodeSystem/sacq-patient-comorbidity-history'}
+      operator: '='
+      question: ComorbiditiesSACQ
+  - text: Do you receive treatment for rheumatoid arthritis?
+    type: boolean
+    linkId: ComorbiditiesSACQ_RheumatoidArthritisFU1
+    enableWhen:
+    - answer:
+        Coding: {code: '13', system: 'http://connect.ichom.org/fhir/CodeSystem/sacq-patient-comorbidity-history'}
+      operator: '='
+      question: ComorbiditiesSACQ
+  - text: Does your rheumatoid arthritis limit your activities?
+    type: boolean
+    linkId: ComorbiditiesSACQ_RheumatoidArthritisFU2
+    enableWhen:
+    - answer:
+        Coding: {code: '13', system: 'http://connect.ichom.org/fhir/CodeSystem/sacq-patient-comorbidity-history'}
+      operator: '='
+      question: ComorbiditiesSACQ
+  - text: What other medical problems are you experiencing?
+    type: text
+    linkId: ComorbiditiesSACQ_Other
+    enableWhen:
+    - answer:
+        Coding: {code: '14', system: 'http://connect.ichom.org/fhir/CodeSystem/sacq-patient-comorbidity-history'}
+      operator: '='
+      question: ComorbiditiesSACQ
+  text: Clinical factors
+  type: group
+  linkId: Baseline-Clinical-Factors
+  required: true
+- item:
+  - item:
+    - {text: 'Do you have any trouble doing strenuous activities, like carrying a heavy shopping bag or a suitcase?', type: choice, linkId: EORTCQLQC30_Q01, required: true, answerValueSet: 'https://connect.ichom.org/fhir/ValueSet/EORTCQLQValueSet'}
+    - {text: 'Do you have any trouble taking a long walk?', type: choice, linkId: EORTCQLQC30_Q02, required: true, answerValueSet: 'https://connect.ichom.org/fhir/ValueSet/EORTCQLQValueSet'}
+    - {text: 'Do you have any trouble taking a short walk outside of the house?', type: choice, linkId: EORTCQLQC30_Q03, required: true, answerValueSet: 'https://connect.ichom.org/fhir/ValueSet/EORTCQLQValueSet'}
+    - {text: 'Do you need to stay in bed or a chair during the day?', type: choice, linkId: EORTCQLQC30_Q04, required: true, answerValueSet: 'https://connect.ichom.org/fhir/ValueSet/EORTCQLQValueSet'}
+    - {text: 'Do you need help with eating, dressing, washing yourself or using the toilet?', type: choice, linkId: EORTCQLQC30_Q05, required: true, answerValueSet: 'https://connect.ichom.org/fhir/ValueSet/EORTCQLQValueSet'}
+    text: We are interested in some things about you and your health. Please answer all of the questions yourself by selecting the answer that best applies to you. There are no 'right' or 'wrong' answers. The information that you provide will remain strictly confidential.
+    type: group
+    linkId: EORTC-QLQ-Q01-Q05
+  - item:
+    - {text: 'Were you limited in doing either your work or other daily activities?', type: choice, linkId: EORTCQLQC30_Q06, required: true, answerValueSet: 'https://connect.ichom.org/fhir/ValueSet/EORTCQLQValueSet'}
+    - {text: 'Were you limited in pursuing your hobbies or other leisure time activities?', type: choice, linkId: EORTCQLQC30_Q07, required: true, answerValueSet: 'https://connect.ichom.org/fhir/ValueSet/EORTCQLQValueSet'}
+    - {text: 'Were you short of breath?', type: choice, linkId: EORTCQLQC30_Q08, required: true, answerValueSet: 'https://connect.ichom.org/fhir/ValueSet/EORTCQLQValueSet'}
+    - {text: 'Have you had pain?', type: choice, linkId: EORTCQLQC30_Q09, required: true, answerValueSet: 'https://connect.ichom.org/fhir/ValueSet/EORTCQLQValueSet'}
+    - {text: 'Did you need to rest?', type: choice, linkId: EORTCQLQC30_Q10, required: true, answerValueSet: 'https://connect.ichom.org/fhir/ValueSet/EORTCQLQValueSet'}
+    - {text: 'Have you had trouble sleeping?', type: choice, linkId: EORTCQLQC30_Q11, required: true, answerValueSet: 'https://connect.ichom.org/fhir/ValueSet/EORTCQLQValueSet'}
+    - {text: 'Have you felt weak?', type: choice, linkId: EORTCQLQC30_Q12, required: true, answerValueSet: 'https://connect.ichom.org/fhir/ValueSet/EORTCQLQValueSet'}
+    - {text: 'Have you lacked appetite?', type: choice, linkId: EORTCQLQC30_Q13, required: true, answerValueSet: 'https://connect.ichom.org/fhir/ValueSet/EORTCQLQValueSet'}
+    - {text: 'Have you felt nauseated?', type: choice, linkId: EORTCQLQC30_Q14, required: true, answerValueSet: 'https://connect.ichom.org/fhir/ValueSet/EORTCQLQValueSet'}
+    - {text: 'Have you vomited?', type: choice, linkId: EORTCQLQC30_Q15, required: true, answerValueSet: 'https://connect.ichom.org/fhir/ValueSet/EORTCQLQValueSet'}
+    - {text: 'Have you been constipated?', type: choice, linkId: EORTCQLQC30_Q16, required: true, answerValueSet: 'https://connect.ichom.org/fhir/ValueSet/EORTCQLQValueSet'}
+    - {text: 'Have you had diarrhea?', type: choice, linkId: EORTCQLQC30_Q17, required: true, answerValueSet: 'https://connect.ichom.org/fhir/ValueSet/EORTCQLQValueSet'}
+    - {text: 'Were you tired?', type: choice, linkId: EORTCQLQC30_Q18, required: true, answerValueSet: 'https://connect.ichom.org/fhir/ValueSet/EORTCQLQValueSet'}
+    - {text: 'Did pain interfere with your daily activities?', type: choice, linkId: EORTCQLQC30_Q19, required: true, answerValueSet: 'https://connect.ichom.org/fhir/ValueSet/EORTCQLQValueSet'}
+    - {text: 'Have you had difficulty in concentrating on things, like reading a newspaper or watching television?', type: choice, linkId: EORTCQLQC30_Q20, required: true, answerValueSet: 'https://connect.ichom.org/fhir/ValueSet/EORTCQLQValueSet'}
+    - {text: 'Did you feel tense?', type: choice, linkId: EORTCQLQC30_Q21, required: true, answerValueSet: 'https://connect.ichom.org/fhir/ValueSet/EORTCQLQValueSet'}
+    - {text: 'Did you worry?', type: choice, linkId: EORTCQLQC30_Q22, required: true, answerValueSet: 'https://connect.ichom.org/fhir/ValueSet/EORTCQLQValueSet'}
+    - {text: 'Did you feel irritable?', type: choice, linkId: EORTCQLQC30_Q23, required: true, answerValueSet: 'https://connect.ichom.org/fhir/ValueSet/EORTCQLQValueSet'}
+    - {text: 'Did you feel depressed?', type: choice, linkId: EORTCQLQC30_Q24, required: true, answerValueSet: 'https://connect.ichom.org/fhir/ValueSet/EORTCQLQValueSet'}
+    - {text: 'Have you had difficulty remembering things?', type: choice, linkId: EORTCQLQC30_Q25, required: true, answerValueSet: 'https://connect.ichom.org/fhir/ValueSet/EORTCQLQValueSet'}
+    - {text: 'Has your physical condition or medical treatment interfered with your family life?', type: choice, linkId: EORTCQLQC30_Q26, required: true, answerValueSet: 'https://connect.ichom.org/fhir/ValueSet/EORTCQLQValueSet'}
+    - {text: 'Has your physical condition or medical treatment interfered with your social activities?', type: choice, linkId: EORTCQLQC30_Q27, required: true, answerValueSet: 'https://connect.ichom.org/fhir/ValueSet/EORTCQLQValueSet'}
+    - {text: 'Has your physical condition or medical treatment caused you financial difficulties?', type: choice, linkId: EORTCQLQC30_Q28, required: true, answerValueSet: 'https://connect.ichom.org/fhir/ValueSet/EORTCQLQValueSet'}
+    text: 'During the past week:'
+    type: group
+    linkId: EORTC-QLQ-Q06-Q28
+  - item:
+    - text: How would you rate your overall health during the past week?
+      type: choice
+      linkId: EORTCQLQC30_Q29
+      required: true
+      answerOption:
+      - value: {integer: 1}
+      - value: {integer: 2}
+      - value: {integer: 3}
+      - value: {integer: 4}
+      - value: {integer: 5}
+      - value: {integer: 6}
+      - value: {integer: 7}
+    - text: How would you rate your overall quality of life during the past week?
+      type: choice
+      linkId: EORTCQLQC30_Q30
+      required: true
+      answerOption:
+      - value: {integer: 1}
+      - value: {integer: 2}
+      - value: {integer: 3}
+      - value: {integer: 4}
+      - value: {integer: 5}
+      - value: {integer: 6}
+      - value: {integer: 7}
+    text: For the following questions please select the number between 1 and 7 that best applies to you, with 1 = Very poor and 7 = Excellent.
+    type: group
+    linkId: EORTC-QLQ-Q29-Q30
+  - item:
+    - {text: 'Did you have a dry mouth?', type: choice, linkId: EORTCQLQBR23_Q31, required: true, answerValueSet: 'https://connect.ichom.org/fhir/ValueSet/EORTCQLQValueSet'}
+    - {text: 'Did food and drink taste different than usual?', type: choice, linkId: EORTCQLQBR23_Q32, required: true, answerValueSet: 'https://connect.ichom.org/fhir/ValueSet/EORTCQLQValueSet'}
+    - {text: 'Were your eyes painful, irritated or watery?', type: choice, linkId: EORTCQLQBR23_Q33, required: true, answerValueSet: 'https://connect.ichom.org/fhir/ValueSet/EORTCQLQValueSet'}
+    - {text: 'Have you lost any hair?', type: choice, linkId: EORTCQLQBR23_Q34, required: true, answerValueSet: 'https://connect.ichom.org/fhir/ValueSet/EORTCQLQValueSet'}
+    - text: Were you upset by the loss of your hair?
+      type: choice
+      linkId: EORTCQLQBR23_Q35
+      enableWhen:
+      - answer: {boolean: true}
+        operator: '='
+        question: EORTCQLQBR23_Q34
+      answerValueSet: https://connect.ichom.org/fhir/ValueSet/EORTCQLQValueSet
+    - {text: 'Did you feel ill or unwell?', type: choice, linkId: EORTCQLQBR23_Q36, required: true, answerValueSet: 'https://connect.ichom.org/fhir/ValueSet/EORTCQLQValueSet'}
+    - {text: 'Did you have hot flushes?', type: choice, linkId: EORTCQLQBR23_Q37, required: true, answerValueSet: 'https://connect.ichom.org/fhir/ValueSet/EORTCQLQValueSet'}
+    - {text: 'Did you have headaches?', type: choice, linkId: EORTCQLQBR23_Q38, required: true, answerValueSet: 'https://connect.ichom.org/fhir/ValueSet/EORTCQLQValueSet'}
+    - {text: 'Have you felt physically less attractive as a result of your disease or treatment?', type: choice, linkId: EORTCQLQBR23_Q39, required: true, answerValueSet: 'https://connect.ichom.org/fhir/ValueSet/EORTCQLQValueSet'}
+    - {text: 'Have you been feeling less feminine as a result of your disease or treatment?', type: choice, linkId: EORTCQLQBR23_Q40, required: true, answerValueSet: 'https://connect.ichom.org/fhir/ValueSet/EORTCQLQValueSet'}
+    - {text: 'Did you find it difficult to look at yourself naked?', type: choice, linkId: EORTCQLQBR23_Q41, required: true, answerValueSet: 'https://connect.ichom.org/fhir/ValueSet/EORTCQLQValueSet'}
+    - {text: 'Have you been dissatisfied with your body?', type: choice, linkId: EORTCQLQBR23_Q42, required: true, answerValueSet: 'https://connect.ichom.org/fhir/ValueSet/EORTCQLQValueSet'}
+    - {text: 'Were you worried about your health in the future?', type: choice, linkId: EORTCQLQBR23_Q43, required: true, answerValueSet: 'https://connect.ichom.org/fhir/ValueSet/EORTCQLQValueSet'}
+    text: "Patients sometimes report that they have the following symptoms or problems. Please indicate the extent to which you have experienced these symptoms or problems during the past week. \n  Please answer by selecting the answer that best applies to you. During the past week:"
+    type: group
+    linkId: EORTC-QLQ-Q31-Q43
+  - item:
+    - {text: 'To what extent were you interested in sex?', type: choice, linkId: EORTCQLQBR23_Q44, required: true, answerValueSet: 'https://connect.ichom.org/fhir/ValueSet/EORTCQLQValueSet'}
+    - {text: 'To what extent were you sexually active? (with or without intercourse)', type: choice, linkId: EORTCQLQBR23_Q45, required: true, answerValueSet: 'https://connect.ichom.org/fhir/ValueSet/EORTCQLQValueSet'}
+    - text: To what extent was sex enjoyable for you?
+      type: choice
+      linkId: EORTCQLQBR23_Q46
+      enableWhen:
+      - answer: {boolean: true}
+        operator: '='
+        question: EORTCQLQBR23_Q45
+      answerValueSet: https://connect.ichom.org/fhir/ValueSet/EORTCQLQValueSet
+    text: 'During the past four weeks:'
+    type: group
+    linkId: EORTC-QLQ-Q44-Q46
+  - item:
+    - {text: 'Did you have a swollen arm or hand?', type: choice, linkId: EORTCQLQBR23_Q48, required: true, answerValueSet: 'https://connect.ichom.org/fhir/ValueSet/EORTCQLQValueSet'}
+    - {text: 'Was it difficult to raise your arm or to move it sideways?', type: choice, linkId: EORTCQLQBR23_Q49, required: true, answerValueSet: 'https://connect.ichom.org/fhir/ValueSet/EORTCQLQValueSet'}
+    - {text: 'Have you had any pain in the area of your affected breast?', type: choice, linkId: EORTCQLQBR23_Q50, required: true, answerValueSet: 'https://connect.ichom.org/fhir/ValueSet/EORTCQLQValueSet'}
+    - {text: 'Was the area of your affected breast swollen?', type: choice, linkId: EORTCQLQBR23_Q51, required: true, answerValueSet: 'https://connect.ichom.org/fhir/ValueSet/EORTCQLQValueSet'}
+    - {text: 'Was the area of your affected breast oversensitive?', type: choice, linkId: EORTCQLQBR23_Q52, required: true, answerValueSet: 'https://connect.ichom.org/fhir/ValueSet/EORTCQLQValueSet'}
+    - {text: 'Have you had skin problems on or in the area of your affected breast (e.g., itchy, dry, flaky)?', type: choice, linkId: EORTCQLQBR23_Q53, required: true, answerValueSet: 'https://connect.ichom.org/fhir/ValueSet/EORTCQLQValueSet'}
+    - {text: 'Have you had tingling hands or feet?', type: choice, linkId: EORTC QLQ-LMC21, required: true, answerValueSet: 'https://connect.ichom.org/fhir/ValueSet/EORTCQLQValueSet'}
+    text: 'During the past week:'
+    type: group
+    linkId: EORTC-QLQ-Q47-Q53
+  text: Degree of Health - EORTC-QLQ
+  type: group
+  linkId: Degree-of-Health-EORTC-QLQ
+- item:
+  - item:
+    - {text: 'How you look in the mirror clothed?', type: choice, linkId: BREASTQMAST_Q01, required: true, answerValueSet: 'https://connect.ichom.org/fhir/ValueSet/BreastQValueSet'}
+    - {text: 'How comfortable your bras fit?', type: choice, linkId: BREASTQMAST_Q02, required: true, answerValueSet: 'https://connect.ichom.org/fhir/ValueSet/BreastQValueSet'}
+    - {text: 'Being able to wear clothing that is more fitted?', type: choice, linkId: BREASTQMAST_Q03, required: true, answerValueSet: 'https://connect.ichom.org/fhir/ValueSet/BreastQValueSet'}
+    - {text: 'How you look in the mirror unclothed?', type: choice, linkId: BREASTQMAST_Q04, required: true, answerValueSet: 'https://connect.ichom.org/fhir/ValueSet/BreastQValueSet'}
+    text: "With your breasts in mind, or if you have had a mastectomy, with your breast area in mind, in the past 2 weeks, \n      how satisfied or dissatisfied have you been with:"
+    type: group
+    linkId: IntroBreastQ
+  text: 'Degree of Health - BreastQ:'
+  type: group
+  linkId: Degree-of-Health-BreastQ
+- item:
+  - item:
+    - {text: I have pain in my joints, type: choice, linkId: FACTES_BRM1, required: true, answerValueSet: 'https://connect.ichom.org/fhir/ValueSet/FACTESValueSet'}
+    - {text: I have vaginal discharge, type: choice, linkId: FACTES_ES4, required: true, answerValueSet: 'https://connect.ichom.org/fhir/ValueSet/FACTESValueSet'}
+    - {text: I have vaginal itching/irritation, type: choice, linkId: FACTES_ES5, required: true, answerValueSet: 'https://connect.ichom.org/fhir/ValueSet/FACTESValueSet'}
+    - {text: I have vaginal bleeding or spotting, type: choice, linkId: FACTES_ES6, required: true, answerValueSet: 'https://connect.ichom.org/fhir/ValueSet/FACTESValueSet'}
+    - {text: I have vaginal dryness, type: choice, linkId: FACTES_ES7, required: true, answerValueSet: 'https://connect.ichom.org/fhir/ValueSet/FACTESValueSet'}
+    - {text: I have pain or discomfort with intercourse, type: choice, linkId: FACTES_ES8, required: true, answerValueSet: 'https://connect.ichom.org/fhir/ValueSet/FACTESValueSet'}
+    text: 'Please indicate your response as it applies to the past 7 days:'
+    type: group
+    linkId: IntroFactes
+  text: Degree of Health - FACTES
+  type: group
+  linkId: Degree-of-Health-FACTES
+experimental: true
+resourceType: Questionnaire
+title: Patient reported response at baseline
+status: draft
+id: patient-report-baseline
+url: https://connect.ichom.org/fhir/Questionnaire/PatientReportedBaseline
+version: 0.0.1
+contact:
+- name: ICHOM
+  telecom:
+  - {value: 'https://ichom.org', system: url}
+  status: generated

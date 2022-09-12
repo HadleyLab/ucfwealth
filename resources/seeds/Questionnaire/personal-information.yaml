@@ -1,0 +1,35 @@
+meta:
+  profile: ['http://covidimaging.com/questionnaire']
+launchContext:
+- {name: LaunchPatient, type: Patient}
+item:
+- item:
+  - {text: First Name, type: string, linkId: firstName-q0, required: true}
+  - {text: Last Name, type: string, linkId: lastName-q0, required: true}
+  - text: Select your sex at birth
+    type: choice
+    linkId: sex-at-birth-q1
+    required: true
+    answerOption:
+    - value:
+        Coding: {code: '10052007', system: 'http://snomed.info/sct', display: Male}
+    - value:
+        Coding: {code: '1086007', system: 'http://snomed.info/sct', display: Female}
+    - value:
+        Coding: {code: '394744001', system: 'http://snomed.info/sct', display: Prefer not to say}
+  - {text: Phone, type: string, linkId: phone-q2, required: true}
+  - {text: Date of birth, type: date, linkId: birthDate-q3, required: true}
+  - {text: Street Address, type: string, linkId: addrStreet-q4, required: true}
+  - {text: City, type: string, linkId: addrCity-q5, required: true}
+  - {text: State, type: string, linkId: addrState-q6, required: true}
+  - {text: Zip, type: integer, linkId: addrZip-q7, required: true}
+  text: Personal information
+  type: group
+  linkId: personal-information
+mapping:
+- {id: patient-extract, resourceType: Mapping}
+resourceType: Questionnaire
+title: Participant personal information
+status: active
+id: personal-information
+url: personal-information
