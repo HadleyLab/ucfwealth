@@ -23,9 +23,7 @@ services:
     env_file:
      - .env.aidbox
     volumes:
-    - ./wait-for-it.sh:/usr/local/bin/wait-for-it.sh:cached
     - ./zrc:/zrc
-    - ./config:/var/config:cached
   devbox-healthcheck:
      image: curlimages/curl
      entrypoint: /bin/sleep 10000
