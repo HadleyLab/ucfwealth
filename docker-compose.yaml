@@ -2,10 +2,8 @@ version: "3.8"
 
 services:
   dcm-to-png:
-    container_name: dcm-to-png
-    image: dcm-to-png
-    build:
-      context: ./dcm-to-png
+    image: bedasoftware/dcm-to-png:latest
+    build: ./dcm-to-png
   devbox-db:
     image: "healthsamurai/aidboxdb:13.2"
     environment:
@@ -38,6 +36,7 @@ services:
        retries: 100
 
   app:
+    image: bedasoftware/ucfwealth-aidbox-app:latest
     build: ./backend-nodejs
     volumes:
     - ./backend-nodejs/src:/usr/src/app/src
