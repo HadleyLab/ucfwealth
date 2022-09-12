@@ -1,9 +1,0 @@
-[submodule "frontend"]
-	path = frontend
-	url = git@gitlab.beda.software:covid-imaging/covidimaging-frontend.git
-[submodule "dcm-to-png"]
-	path = dcm-to-png
-	url = git@gitlab.beda.software:covid-imaging/dcm-to-png.git
-[submodule "backend-nodejs"]
-	path = backend-nodejs
-	url = git@gitlab.beda.software:covid-imaging/backend-nodejs.git
