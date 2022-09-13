@@ -1,0 +1,45 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  annotations:
+    kubernetes.io/ingress.class: alb
+    alb.ingress.kubernetes.io/group.name: ucfwealth
+    alb.ingress.kubernetes.io/listen-ports: '[{"HTTP": 80}, {"HTTPS": 443}]'
+    alb.ingress.kubernetes.io/subnets: subnet-0c3b8fd78ac4dea81, subnet-0d637e0502d740aa5
+    alb.ingress.kubernetes.io/group.name: external-alb
+    alb.ingress.kubernetes.io/scheme: internet-facing
+    alb.ingress.kubernetes.io/certificate-arn: arn:aws:acm:us-east-2:262339618359:certificate/fd542478-cccb-4dac-ae92-869fc5cea3ca, arn:aws:acm:us-east-2:262339618359:certificate/3c655531-cc90-4ed3-b738-a454ace1565a, arn:aws:acm:us-east-2:262339618359:certificate/d4ee522a-1624-4d89-bb2f-dbe45b4f9f6e
+    alb.ingress.kubernetes.io/actions.ssl-redirect: '{"Type": "redirect", "RedirectConfig": { "Protocol": "HTTPS", "Port": "443", "StatusCode": "HTTP_301"}}' 
+  name: ucfwealth-ingress
+spec:
+  rules:
+  - host: aidbox.ucfwealth.app
+    http:
+      paths:
+      - backend:
+          service:
+            name: aidbox
+            port:
+              number: 8080
+        path: /*
+        pathType: ImplementationSpecific
+  - host: ucfwealth.app
+    http:
+      paths:
+      - backend:
+          service:
+            name: frontend
+            port:
+              number: 5000
+        path: /*
+        pathType: ImplementationSpecific
+  - host: dcm-to-png.ucfwealth.app
+    http:
+      paths:
+      - backend:
+          service:
+            name: dcm-to-png
+            port:
+              number: 8080
+        path: /*
+        pathType: ImplementationSpecific

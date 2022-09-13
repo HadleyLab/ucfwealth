@@ -1,0 +1,33 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+namespace: staging
+
+resources:
+  - ../aidbox
+  - ../postgres
+  - ../app
+  - ./ingress.yaml
+
+configMapGenerator:
+  - name: aidbox
+    behavior: merge
+    literals:
+    - PGDATABASE=devbox
+    - PGHOST=postgres-master
+    - PGPORT=5432
+    - AIDBOX_BASE_URL=https://aidbox.ucfwealth.app
+    - FRONTEND_URL_AUTH=https://ucfwealth.app/auth
+    - DISCOURSE_URL_REDIRECT=https://community.ucfwealth.app 
+    - BOX_PROJECT_GIT_PROTOCOL=https
+    - BOX_PROJECT_GIT_URL=https://github.com/HadleyLab/ucfwealth.git
+    - BOX_PROJECT_GIT_SUB__PATH=zrc
+    - AIDBOX_ZEN_ENTRYPOINT=box/box
+  - name: app
+    behavior: merge
+    literals:
+      - APP_ID=ucfwealth
+      - APP_URL=http://app:3000
+      - APP_PORT=3000
+      - AIDBOX_URL=http://aidbox:8080
+      - FRONTEND_URL=https://ucfwealth.app
+      - DCM_TO_PNG_URL=https://dcm-to-png.ucfwealth.app

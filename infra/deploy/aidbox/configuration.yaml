@@ -1,0 +1,70 @@
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: aidbox
+spec:
+  type: NodePort
+  ports:
+    - port: 8080
+      protocol: TCP
+      targetPort: 8080
+  selector:
+    workload: aidbox
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: aidbox-jvm-exporter
+spec:
+  ports:
+    - port: 80
+      protocol: TCP
+      targetPort: 8081
+  selector:
+    workload: aidbox
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: aidbox
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      workload: aidbox
+  template:
+    metadata:
+      labels:
+        workload: aidbox
+    spec:
+      containers:
+      - name: aidbox
+        image: "healthsamurai/aidboxone:stable"
+        imagePullPolicy: Always
+        resources:
+          requests:
+            memory: "2Gi"
+            cpu: "1000m"
+          limits:
+            memory: "3Gi"
+        ports:
+        - containerPort: 8080
+        envFrom:
+          - configMapRef:
+              name: aidbox
+          - secretRef:
+              name: aidbox
+        livenessProbe:
+          httpGet:
+            path: /__healthcheck
+            port: 8080
+          initialDelaySeconds: 30
+          periodSeconds: 10
+          failureThreshold: 6
+        readinessProbe:
+          httpGet:
+            path: /__healthcheck
+            port: 8080
+          periodSeconds: 3
+          failureThreshold: 6

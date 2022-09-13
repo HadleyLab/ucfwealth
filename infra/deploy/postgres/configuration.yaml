@@ -1,0 +1,75 @@
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: postgres-master-data
+spec:
+  resources:
+    requests:
+      storage: 50G
+  accessModes: ["ReadWriteOnce"]
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: postgres-master
+spec:
+  selector:
+    workload: postgres
+  ports:
+    - name: pg
+      port: 5432
+      protocol: TCP
+      targetPort: 5432
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: postgres-master
+spec:
+  replicas: 1
+  strategy:
+    type: Recreate
+  selector:
+    matchLabels:
+      workload: postgres
+  template:
+    metadata:
+      labels:
+        workload: postgres
+    spec:
+      containers:
+        - name: db
+          image: healthsamurai/aidboxdb:13.2
+          imagePullPolicy: Always
+          args: ["-c", "config_file=/etc/configs/postgresql.conf"]
+          resources:
+            requests:
+              memory: "2Gi"
+              cpu: "1000m"
+            limits:
+              memory: "8Gi"
+          envFrom:
+            - configMapRef:
+                name: postgres
+            - secretRef:
+                name: postgres-user
+          ports:
+            - containerPort: 5432
+          volumeMounts:
+            - name: dshm
+              mountPath: /dev/shm
+            - name: postgres-conf
+              mountPath: /etc/configs
+            - name: postgres-master-data
+              mountPath: /data
+              subPath: pg
+      volumes:
+        - name: dshm
+          emptyDir:
+            medium: Memory
+        - name: postgres-conf
+          configMap:
+            name: postgres-conf
+        - name: postgres-master-data
+          persistentVolumeClaim:
+            claimName: postgres-master-data

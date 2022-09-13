@@ -1,0 +1,15 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+resources:
+  - configuration.yaml
+
+configMapGenerator:
+  - name: aidbox
+    literals:
+      - AIDBOX_PORT=8080
+      - AIDBOX_FHIR_VERSION=4.0.0
+      - PGHOST=postgres-master
+      - PGPORT=5432
+      - PGDATABASE=aidbox
+      - PROMETHEUS_JVM_EXPORTER=enable
