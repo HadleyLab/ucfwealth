@@ -25,45 +25,59 @@
  {:zen/tags  #{aidbox/service}
   :engine    aidbox/seed
   :files     ["seeds.ndjson.gz"]
-  :resources{
-             :AccessPolicy {:super_admin
-                            {:engine "json-schema",
-                             :schema
-                             {:required ["user"],
-                              :properties
-                              {:user
-                               {:anyOf
-                                [{:required ["id"], :properties {:id {:constant "admin"}}}
-                                 {:required ["data"],
-                                  :properties {:data {:required ["superAdmin"]}}}]}}}}
-                            :patient {:engine "json-schema",
-                                      :schema
-                                      {:required ["user"],
-                                       :properties
-                                       {:user
-                                        {:anyOf
-                                         [{:required ["id"], :properties {:id {:constant "admin"}}}
-                                          {:required ["data"],
-                                           :properties {:data {:required ["patient"]}}}]}}}}}
-             :AidboxConfig {:provider {:provider { :console { :type "console" }, :default "console" }}}
-             :SearchParameter {:User.email {:name "email"
-                                            :type "string"
-                                            :resource { :resourceType "Entity" :id "User" }
-                                            :expression [["email"]]}}
-             :Client {:SPA {:secret "123456", :grant_types ["password"]},
-                      :discourse
-                      {:auth
-                       {:authorization_code
-                        {:redirect_uri #env DISCOURSE_URL_REDIRECT}}
-                       :first_party true,
-                       :grant_types ["authorization_code"],
-                       :secret #env DISCOURSE_SECRET}
-                      :web
-                      {:auth {:implicit {:redirect_uri #env FRONTEND_URL_AUTH}}
-                       :first_party true,
-                       :grant_types ["implicit"]}}
-             :AidboxQuery {:expand
-                           {:query "
+  :resources
+  {:AuthConfig {:app
+                {:theme {:brand "Hadley Lab",
+                         :title "Covidimaging",
+                         :styleUrl #env AIDBOX_CSS
+                         }}}
+   :AccessPolicy {:super_admin
+                  {:engine "json-schema",
+                   :schema
+                   {:required ["user"],
+                    :properties
+                    {:user
+                     {:anyOf
+                      [{:required ["id"], :properties {:id {:constant "admin"}}}
+                       {:required ["data"],
+                        :properties {:data {:required ["superAdmin"]}}}]}}}}
+                  :patient {:engine "json-schema",
+                            :schema
+                            {:required ["user"],
+                             :properties
+                             {:user
+                              {:anyOf
+                               [{:required ["id"], :properties {:id {:constant "admin"}}}
+                                {:required ["data"],
+                                 :properties {:data {:required ["patient"]}}}]}}}}}
+   :AidboxConfig {:provider {:provider
+                             {:console { :type "console" },
+                              :postmark {:type "smtp",
+                                         :host "smtp.postmarkapp.com",
+                                         :port 585,
+                                         :ssl true,
+                                         :from "no-reply@ucfwealth.app",
+                                         :username #env POSTMARK_TOKEN,
+                                         :password #env POSTMARK_TOKEN}
+                              :default #env SMTP_PROVIDER }}}
+   :SearchParameter {:User.email {:name "email"
+                                  :type "string"
+                                  :resource { :resourceType "Entity" :id "User" }
+                                  :expression [["email"]]}}
+   :Client {:SPA {:secret "123456", :grant_types ["password"]},
+            :discourse
+            {:auth
+             {:authorization_code
+              {:redirect_uri #env DISCOURSE_URL_REDIRECT}}
+             :first_party true,
+             :grant_types ["authorization_code"],
+             :secret #env DISCOURSE_SECRET}
+            :web
+            {:auth {:implicit {:redirect_uri #env FRONTEND_URL_AUTH}}
+             :first_party true,
+             :grant_types ["implicit"]}}
+   :AidboxQuery {:expand
+                 {:query "
 select jsonb_build_object(
     'system',resource->'system',
     'code',resource->'code',
@@ -72,9 +86,9 @@ from concept
   where (resource->'valueset') @> {{params.valueset}}
   and resource::text ilike {{params.text}}
 "
-                            :params {:text {:type "string"
-                                            :format "%%%s%%"
-                                            :isRequired true}
-                                     :valueset {:type "string"
-                                                :format "\"%s\""
-                                                :isRequired true}}}}}}}
+                  :params {:text {:type "string"
+                                  :format "%%%s%%"
+                                  :isRequired true}
+                           :valueset {:type "string"
+                                      :format "\"%s\""
+                                      :isRequired true}}}}}}}

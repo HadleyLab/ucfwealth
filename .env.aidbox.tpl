@@ -22,8 +22,11 @@ PGUSER=postgres
 PGPASSWORD=postgres
 
 FRONTEND_URL_AUTH=http://localhost:3000/auth
+AIDBOX_CSS=http://localhost:3000/aidbox.css
 
 DISCOURSE_URL_REDIRECT="" 
 DISCOURSE_SECRET=""
+
+SMTP_PROVIDER=console
 
 
