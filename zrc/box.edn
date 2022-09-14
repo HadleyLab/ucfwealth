@@ -51,14 +51,10 @@
                                 {:required ["data"],
                                  :properties {:data {:required ["patient"]}}}]}}}}}
    :AidboxConfig {:provider {:provider
-                             {:console { :type "console" },
-                              :postmark {:type "smtp",
-                                         :host "smtp.postmarkapp.com",
-                                         :port 587,
-                                         :ssl true,
-                                         :from "no-reply@ucfwealth.app",
-                                         :username #env POSTMARK_TOKEN,
-                                         :password #env POSTMARK_TOKEN}
+                             {:console { :type "console" }
+                              :postmark {:type "postmark"
+                                         :from "no-reply@ucfwealth.app"
+                                         :api-key #env POSTMARK_TOKEN}
                               :default #env SMTP_PROVIDER }}}
    :SearchParameter {:User.email {:name "email"
                                   :type "string"
