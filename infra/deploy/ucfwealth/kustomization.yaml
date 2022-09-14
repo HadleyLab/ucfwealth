@@ -30,16 +30,16 @@ configMapGenerator:
     behavior: merge
     literals:
       - APP_ID=ucfwealth
-      - APP_URL=http://app:3000
+      - APP_URL=http://backend:3000
       - APP_PORT=3000
       - AIDBOX_URL=http://aidbox:8080
       - FRONTEND_URL=https://ucfwealth.app
       - DCM_TO_PNG_URL=https://dcm-to-png.ucfwealth.app
   - name: sdc
     literals:
-      - APP_INIT_URL=http://aidbbox:8080
+      - APP_INIT_URL=http://aidbox:8080
       - APP_ID=sdc
-      - APP_URL=http://app:8081
+      - APP_URL=http://sdc:8081
       - APP_PORT=8081
       - AIO_PORT=8081
       - AIO_HOST=0.0.0.0
