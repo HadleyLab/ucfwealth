@@ -54,7 +54,7 @@
                              {:console { :type "console" },
                               :postmark {:type "smtp",
                                          :host "smtp.postmarkapp.com",
-                                         :port 585,
+                                         :port 587,
                                          :ssl true,
                                          :from "no-reply@ucfwealth.app",
                                          :username #env POSTMARK_TOKEN,
