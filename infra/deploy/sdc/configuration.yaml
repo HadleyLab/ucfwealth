@@ -1,0 +1,45 @@
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: sdc
+spec:
+  type: NodePort
+  ports:
+    - port: 8081
+      protocol: TCP
+      targetPort: 8081
+  selector:
+    workload: sdc
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: sdc
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      workload: sdc
+  template:
+    metadata:
+      labels:
+        workload: sdc
+    spec:
+      containers:
+      - name: sdc
+        image: bedasoftware/aidbox-sdc:latest
+        imagePullPolicy: Always
+        resources:
+          requests:
+            memory: "500M"
+            cpu: "500m"
+          limits:
+            memory: "1Gi"
+        ports:
+        - containerPort: 8081
+        envFrom:
+          - configMapRef:
+              name: sdc
+          - secretRef:
+              name: sdc

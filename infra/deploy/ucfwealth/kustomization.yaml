@@ -5,6 +5,7 @@ namespace: staging
 resources:
   - ../aidbox
   - ../postgres
+  - ../sdc
   - ../app
   - ./ingress.yaml
 
@@ -17,11 +18,14 @@ configMapGenerator:
     - PGPORT=5432
     - AIDBOX_BASE_URL=https://aidbox.ucfwealth.app
     - FRONTEND_URL_AUTH=https://ucfwealth.app/auth
+    - AIDBOX_CSS=https://ucfwealth.app/aidbox.css
     - DISCOURSE_URL_REDIRECT=https://community.ucfwealth.app 
     - BOX_PROJECT_GIT_PROTOCOL=https
     - BOX_PROJECT_GIT_URL=https://github.com/HadleyLab/ucfwealth.git
     - BOX_PROJECT_GIT_SUB__PATH=zrc
     - AIDBOX_ZEN_ENTRYPOINT=box/box
+    - SMTP_PROVIDER=postmark
+    - AIDBOX_STDOUT_PRETTY=all
   - name: app
     behavior: merge
     literals:
@@ -31,3 +35,14 @@ configMapGenerator:
       - AIDBOX_URL=http://aidbox:8080
       - FRONTEND_URL=https://ucfwealth.app
       - DCM_TO_PNG_URL=https://dcm-to-png.ucfwealth.app
+  - name: sdc
+    literals:
+      - APP_INIT_URL=http://aidbbox:8080
+      - APP_ID=sdc
+      - APP_URL=http://app:8081
+      - APP_PORT=8081
+      - AIO_PORT=8081
+      - AIO_HOST=0.0.0.0
+  - name: frontend
+    literals:
+      - BASE_URL=https:\/\/aidbox.ucfwealth.app

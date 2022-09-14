@@ -96,6 +96,9 @@ spec:
             memory: "512M"
         ports:
         - containerPort: 5000
+        envFrom:
+          - configMapRef:
+              name: frontend
 ---
 apiVersion: apps/v1
 kind: Deployment
