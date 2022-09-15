@@ -58,10 +58,10 @@ spec:
         imagePullPolicy: Always
         resources:
           requests:
-            memory: "2Gi"
+            memory: "4Gi"
             cpu: "1000m"
           limits:
-            memory: "2Gi"
+            memory: "4Gi"
         ports:
         - containerPort: 3000
         envFrom:
