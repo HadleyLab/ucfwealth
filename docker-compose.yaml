@@ -38,6 +38,10 @@ services:
   app:
     image: bedasoftware/ucfwealth-aidbox-app:latest
     build: ./backend-nodejs
+    command:
+    - npm 
+    - run 
+    - dev
     volumes:
     - ./backend-nodejs/src:/usr/src/app/src
     env_file:
