@@ -9,3 +9,6 @@ managedNodeGroups:
   - name: ng-1
     instanceType: t3a.medium
     desiredCapacity: 2
+  - name: ng-2
+    instanceType: t3a.large
+    desiredCapacity: 2
