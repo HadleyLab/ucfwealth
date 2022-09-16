@@ -28,7 +28,7 @@
   :resources
   {:AuthConfig {:app
                 {:theme {:brand "Hadley Lab",
-                         :title "Covidimaging",
+                         :title "Ucfwealth",
                          :styleUrl #env AIDBOX_CSS
                          }}}
    :AccessPolicy {:super_admin
