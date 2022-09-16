@@ -44,10 +44,9 @@ spec:
           args: ["-c", "config_file=/etc/configs/postgresql.conf"]
           resources:
             requests:
-              memory: "2Gi"
-              cpu: "1000m"
+              memory: "1Gi"
             limits:
-              memory: "8Gi"
+              memory: "2Gi"
           envFrom:
             - configMapRef:
                 name: postgres

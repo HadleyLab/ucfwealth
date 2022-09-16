@@ -33,7 +33,6 @@ spec:
         resources:
           requests:
             memory: "500M"
-            cpu: "500m"
           limits:
             memory: "1Gi"
         ports:
