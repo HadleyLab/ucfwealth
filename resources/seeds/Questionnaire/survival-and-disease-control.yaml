@@ -1,0 +1,182 @@
+url: survival-and-disease-control
+item:
+  - item:
+      - text: What is the timing of the response of this questionnaire?
+        type: choice
+        linkId: Survival_Timing
+        required: true
+        answerOption:
+          - value:
+              Coding:
+                code: '0'
+                system: http://terminology.hl7.org/CodeSystem/v3-TimingEvent
+                display: Morning
+          - value:
+              Coding:
+                code: '1'
+                system: urn:uuid:47dcf78e-3c63-4a6b-8ac7-f4f669be2b96
+                display: Early Morning
+          - value:
+              Coding:
+                code: '2'
+                system: urn:uuid:47dcf78e-3c63-4a6b-8ac7-f4f669be2b96
+                display: Late Morning
+          - value:
+              Coding:
+                code: '3'
+                system: urn:uuid:47dcf78e-3c63-4a6b-8ac7-f4f669be2b96
+                display: Noon
+          - value:
+              Coding:
+                code: '4'
+                system: urn:uuid:47dcf78e-3c63-4a6b-8ac7-f4f669be2b96
+                display: Afternoon
+          - value:
+              Coding:
+                code: '5'
+                system: urn:uuid:47dcf78e-3c63-4a6b-8ac7-f4f669be2b96
+                display: Early Afternoon
+          - value:
+              Coding:
+                code: '6'
+                system: urn:uuid:47dcf78e-3c63-4a6b-8ac7-f4f669be2b96
+                display: Late Afternoon
+          - value:
+              Coding:
+                code: '7'
+                system: urn:uuid:47dcf78e-3c63-4a6b-8ac7-f4f669be2b96
+                display: Evening
+          - value:
+              Coding:
+                code: '8'
+                system: urn:uuid:47dcf78e-3c63-4a6b-8ac7-f4f669be2b96
+                display: Early Evening
+          - value:
+              Coding:
+                code: '9'
+                system: urn:uuid:47dcf78e-3c63-4a6b-8ac7-f4f669be2b96
+                display: Late Evening
+          - value:
+              Coding:
+                code: '10'
+                system: urn:uuid:47dcf78e-3c63-4a6b-8ac7-f4f669be2b96
+                display: Night
+          - value:
+              Coding:
+                code: '11'
+                system: urn:uuid:47dcf78e-3c63-4a6b-8ac7-f4f669be2b96
+                display: After Sleep
+      - text: Was the intent of the treatment curative?
+        type: choice
+        linkId: Survival-Q0
+        required: true
+        answerOption:
+          - value:
+              Coding:
+                code: '0'
+                system: urn:uuid:47dcf78e-3c63-4a6b-8ac7-f4f669be2b96
+                display: 'No'
+          - value:
+              Coding:
+                code: '1'
+                system: urn:uuid:47dcf78e-3c63-4a6b-8ac7-f4f669be2b96
+                display: 'Yes'
+      - text: >-
+          Is there evidence of local, regional or distant recurrence of
+          neoplasm? (In case of multiple recurrences, please report the most
+          severe)
+        type: choice
+        linkId: MalignancyRecur
+        answerOption:
+          - value:
+              Coding:
+                code: '0'
+                system: urn:uuid:dc449654-ad57-40af-ae6c-2bcf6b570add
+                display: 'No'
+          - value:
+              Coding:
+                code: '1'
+                system: urn:uuid:dc449654-ad57-40af-ae6c-2bcf6b570add
+                display: Yes, local recurrence
+          - value:
+              Coding:
+                code: '2'
+                system: urn:uuid:dc449654-ad57-40af-ae6c-2bcf6b570add
+                display: Yes, regional recurrence
+          - value:
+              Coding:
+                code: '3'
+                system: urn:uuid:dc449654-ad57-40af-ae6c-2bcf6b570add
+                display: Yes, distant recurrence
+      - text: What was the method of confirming recurrence of neoplasm?
+        type: choice
+        linkId: RecurMethod
+        answerOption:
+          - value:
+              Coding:
+                code: '0'
+                system: urn:uuid:ff0e5d9c-aeba-4415-9f52-f4b36179c648
+                display: Radiological diagnosis
+          - value:
+              Coding:
+                code: '1'
+                system: urn:uuid:ff0e5d9c-aeba-4415-9f52-f4b36179c648
+                display: Histological diagnosis
+          - value:
+              Coding:
+                code: '2'
+                system: urn:uuid:ff0e5d9c-aeba-4415-9f52-f4b36179c648
+                display: Radiological and histological diagnosis
+        enableBehavior: any
+      - text: What is the date of cancer recurrence?
+        type: date
+        linkId: RecurDateCancer
+      - text: Has the patient deceased?
+        type: choice
+        linkId: VitalStatus
+        required: true
+        answerOption:
+          - value:
+              Coding:
+                code: '0'
+                system: urn:uuid:47dcf78e-3c63-4a6b-8ac7-f4f669be2b96
+                display: 'No'
+          - value:
+              Coding:
+                code: '1'
+                system: urn:uuid:47dcf78e-3c63-4a6b-8ac7-f4f669be2b96
+                display: 'Yes'
+      - text: What was the date of death of the patient?
+        type: date
+        linkId: DeceasedDate
+      - text: Is the death attributable to breast cancer?
+        type: choice
+        linkId: DEATHBC
+        required: true
+        answerOption:
+          - value:
+              Coding:
+                code: '0'
+                system: urn:uuid:47dcf78e-3c63-4a6b-8ac7-f4f669be2b96
+                display: 'No'
+          - value:
+              Coding:
+                code: '1'
+                system: urn:uuid:47dcf78e-3c63-4a6b-8ac7-f4f669be2b96
+                display: 'Yes'
+    text: Survival and Disease control
+    type: group
+    linkId: survival-and-disease-control
+meta:
+  profile:
+    - http://covidimaging.com/questionnaire
+  lastUpdated: '2022-09-23T11:43:25.878334Z'
+  createdAt: '2022-09-23T11:34:12.718910Z'
+  versionId: '1023'
+title: Survival and Disease control
+status: draft
+launchContext:
+  - name: LaunchPatient
+    type: Patient
+id: survival-and-disease-control
+resourceType: Questionnaire
