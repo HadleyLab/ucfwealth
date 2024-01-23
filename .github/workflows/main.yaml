@@ -18,7 +18,7 @@ jobs:
       - name: Load zen cli
         run: curl -L  https://github.com/HealthSamurai/ftr/releases/latest/download/zen.jar -o ./zen.jar
       - name: Build zen project
-        run: java -jar ucfwealth/zen.jar zen build zenproject ucfwealth
+        run: java -jar zen.jar zen build zenproject ucfwealth
       - name: Github release
         uses: marvinpinto/action-automatic-releases@latest
         with:
