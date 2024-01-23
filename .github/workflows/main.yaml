@@ -1,0 +1,29 @@
+name: Build Aidbox project
+on:
+  push:
+    branches: [main]
+
+jobs:
+  ZenProject:
+    permissions:
+      contents: write
+      packages: write
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          java-version: 17
+          distribution: "temurin"
+      - name: Load zen cli
+        run: curl -L  https://github.com/HealthSamurai/ftr/releases/latest/download/zen.jar -o ./zen.jar
+      - name: Build zen project
+        run: cd .. && java -jar ucfwealth/zen.jar zen build ucfwealth ucfwealth
+      - name: Github release
+        uses: marvinpinto/action-automatic-releases@latest
+        with:
+          repo_token: "${{ secrets.GITHUB_TOKEN }}"
+          automatic_release_tag: latest
+          title: Development build
+          draft: false
+          files: ucfwealth.zip
