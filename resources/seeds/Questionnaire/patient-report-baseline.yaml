@@ -15,14 +15,13 @@ item:
   linkId: General-Information-Clinical
   required: true
 - item:
-  - {text: Please indicate your sex at birth., type: choice, linkId: Sex, required: true, answerValueSet: 'http://hl7.org/fhir/ValueSet/administrative-gender'}
-  - {text: 'What is your country of residence?', type: choice, linkId: COUNTRY, required: true, answerValueSet: 'http://hl7.org/fhir/ValueSet/iso3166-1-2'}
-  - {text: Please indicate the ethnicity that you identify with., type: string, linkId: Ethnicity, required: true, answerValueSet: 'https://connect.ichom.org/fhir/ValueSet/DemographicFactorsEthnicity'}
-  - {text: Please indicate the biological race that you identify with., type: string, linkId: Race, required: true, answerValueSet: 'https://connect.ichom.org/fhir/ValueSet/DemographicFactorsRace'}
+  - {text: Please indicate your sex at birth., type: choice, linkId: Sex, answerValueSet: 'http://hl7.org/fhir/ValueSet/administrative-gender'}
+  - {text: 'What is your country of residence?', type: choice, linkId: COUNTRY, answerValueSet: 'http://hl7.org/fhir/ValueSet/iso3166-1-2'}
+  - {text: Please indicate the ethnicity that you identify with., type: string, linkId: Ethnicity, answerValueSet: 'https://connect.ichom.org/fhir/ValueSet/DemographicFactorsEthnicity'}
+  - {text: Please indicate the biological race that you identify with., type: string, linkId: Race, answerValueSet: 'https://connect.ichom.org/fhir/ValueSet/DemographicFactorsRace'}
   - text: Please indicate your highest level of schooling.
     type: choice
     linkId: EducationLevel
-    required: true
     answerOption:
     - value:
         Coding: {code: '0', system: 'urn:uuid:47dcf78e-3c63-4a6b-8ac7-f4f669be2b96', display: None}
@@ -35,7 +34,6 @@ item:
   - text: Please indicate your current relationship status.
     type: choice
     linkId: RelationshipStatus
-    required: true
     answerOption:
     - value:
         Coding: {code: '0', system: 'urn:uuid:98b0862c-ffe9-46a3-ad47-f4e2ede907c3', display: Not married/partnered}
@@ -50,7 +48,6 @@ item:
   - text: 'Please indicate your current menopausal status:'
     type: choice
     linkId: MENOPAUSE
-    required: true
     enableWhen:
     - answer:
         Coding: {code: female, system: 'http://hl7.org/fhir/administrative-gender'}
@@ -66,9 +63,8 @@ item:
   text: Demographic factors
   type: group
   linkId: Demographics
-  required: true
 - item:
-  - {text: 'Have you been told by a doctor that you have any of the following?', type: choice, linkId: ComorbiditiesSACQ, repeats: true, required: true, answerValueSet: 'https://connect.ichom.org/fhir/ValueSet/SACQPatientComorbidityHistory'}
+  - {text: 'Have you been told by a doctor that you have any of the following?', type: choice, linkId: ComorbiditiesSACQ, repeats: true, answerValueSet: 'https://connect.ichom.org/fhir/ValueSet/SACQPatientComorbidityHistory'}
   - text: Do you receive treatment for heart disease (For example, angina, heart failure, or heart attack)?
     type: boolean
     linkId: ComorbiditiesSACQ_HeartDiseaseFU1
@@ -288,41 +284,40 @@ item:
   text: Clinical factors
   type: group
   linkId: Baseline-Clinical-Factors
-  required: true
 - item:
   - item:
-    - {text: 'Do you have any trouble doing strenuous activities, like carrying a heavy shopping bag or a suitcase?', type: choice, linkId: EORTCQLQC30_Q01, required: true, answerValueSet: 'https://connect.ichom.org/fhir/ValueSet/EORTCQLQValueSet'}
-    - {text: 'Do you have any trouble taking a long walk?', type: choice, linkId: EORTCQLQC30_Q02, required: true, answerValueSet: 'https://connect.ichom.org/fhir/ValueSet/EORTCQLQValueSet'}
-    - {text: 'Do you have any trouble taking a short walk outside of the house?', type: choice, linkId: EORTCQLQC30_Q03, required: true, answerValueSet: 'https://connect.ichom.org/fhir/ValueSet/EORTCQLQValueSet'}
-    - {text: 'Do you need to stay in bed or a chair during the day?', type: choice, linkId: EORTCQLQC30_Q04, required: true, answerValueSet: 'https://connect.ichom.org/fhir/ValueSet/EORTCQLQValueSet'}
-    - {text: 'Do you need help with eating, dressing, washing yourself or using the toilet?', type: choice, linkId: EORTCQLQC30_Q05, required: true, answerValueSet: 'https://connect.ichom.org/fhir/ValueSet/EORTCQLQValueSet'}
+    - {text: 'Do you have any trouble doing strenuous activities, like carrying a heavy shopping bag or a suitcase?', type: choice, linkId: EORTCQLQC30_Q01, answerValueSet: 'https://connect.ichom.org/fhir/ValueSet/EORTCQLQValueSet'}
+    - {text: 'Do you have any trouble taking a long walk?', type: choice, linkId: EORTCQLQC30_Q02, answerValueSet: 'https://connect.ichom.org/fhir/ValueSet/EORTCQLQValueSet'}
+    - {text: 'Do you have any trouble taking a short walk outside of the house?', type: choice, linkId: EORTCQLQC30_Q03, answerValueSet: 'https://connect.ichom.org/fhir/ValueSet/EORTCQLQValueSet'}
+    - {text: 'Do you need to stay in bed or a chair during the day?', type: choice, linkId: EORTCQLQC30_Q04, answerValueSet: 'https://connect.ichom.org/fhir/ValueSet/EORTCQLQValueSet'}
+    - {text: 'Do you need help with eating, dressing, washing yourself or using the toilet?', type: choice, linkId: EORTCQLQC30_Q05, answerValueSet: 'https://connect.ichom.org/fhir/ValueSet/EORTCQLQValueSet'}
     text: We are interested in some things about you and your health. Please answer all of the questions yourself by selecting the answer that best applies to you. There are no 'right' or 'wrong' answers. The information that you provide will remain strictly confidential.
     type: group
     linkId: EORTC-QLQ-Q01-Q05
   - item:
-    - {text: 'Were you limited in doing either your work or other daily activities?', type: choice, linkId: EORTCQLQC30_Q06, required: true, answerValueSet: 'https://connect.ichom.org/fhir/ValueSet/EORTCQLQValueSet'}
-    - {text: 'Were you limited in pursuing your hobbies or other leisure time activities?', type: choice, linkId: EORTCQLQC30_Q07, required: true, answerValueSet: 'https://connect.ichom.org/fhir/ValueSet/EORTCQLQValueSet'}
-    - {text: 'Were you short of breath?', type: choice, linkId: EORTCQLQC30_Q08, required: true, answerValueSet: 'https://connect.ichom.org/fhir/ValueSet/EORTCQLQValueSet'}
-    - {text: 'Have you had pain?', type: choice, linkId: EORTCQLQC30_Q09, required: true, answerValueSet: 'https://connect.ichom.org/fhir/ValueSet/EORTCQLQValueSet'}
-    - {text: 'Did you need to rest?', type: choice, linkId: EORTCQLQC30_Q10, required: true, answerValueSet: 'https://connect.ichom.org/fhir/ValueSet/EORTCQLQValueSet'}
-    - {text: 'Have you had trouble sleeping?', type: choice, linkId: EORTCQLQC30_Q11, required: true, answerValueSet: 'https://connect.ichom.org/fhir/ValueSet/EORTCQLQValueSet'}
-    - {text: 'Have you felt weak?', type: choice, linkId: EORTCQLQC30_Q12, required: true, answerValueSet: 'https://connect.ichom.org/fhir/ValueSet/EORTCQLQValueSet'}
-    - {text: 'Have you lacked appetite?', type: choice, linkId: EORTCQLQC30_Q13, required: true, answerValueSet: 'https://connect.ichom.org/fhir/ValueSet/EORTCQLQValueSet'}
-    - {text: 'Have you felt nauseated?', type: choice, linkId: EORTCQLQC30_Q14, required: true, answerValueSet: 'https://connect.ichom.org/fhir/ValueSet/EORTCQLQValueSet'}
-    - {text: 'Have you vomited?', type: choice, linkId: EORTCQLQC30_Q15, required: true, answerValueSet: 'https://connect.ichom.org/fhir/ValueSet/EORTCQLQValueSet'}
-    - {text: 'Have you been constipated?', type: choice, linkId: EORTCQLQC30_Q16, required: true, answerValueSet: 'https://connect.ichom.org/fhir/ValueSet/EORTCQLQValueSet'}
-    - {text: 'Have you had diarrhea?', type: choice, linkId: EORTCQLQC30_Q17, required: true, answerValueSet: 'https://connect.ichom.org/fhir/ValueSet/EORTCQLQValueSet'}
-    - {text: 'Were you tired?', type: choice, linkId: EORTCQLQC30_Q18, required: true, answerValueSet: 'https://connect.ichom.org/fhir/ValueSet/EORTCQLQValueSet'}
-    - {text: 'Did pain interfere with your daily activities?', type: choice, linkId: EORTCQLQC30_Q19, required: true, answerValueSet: 'https://connect.ichom.org/fhir/ValueSet/EORTCQLQValueSet'}
-    - {text: 'Have you had difficulty in concentrating on things, like reading a newspaper or watching television?', type: choice, linkId: EORTCQLQC30_Q20, required: true, answerValueSet: 'https://connect.ichom.org/fhir/ValueSet/EORTCQLQValueSet'}
-    - {text: 'Did you feel tense?', type: choice, linkId: EORTCQLQC30_Q21, required: true, answerValueSet: 'https://connect.ichom.org/fhir/ValueSet/EORTCQLQValueSet'}
-    - {text: 'Did you worry?', type: choice, linkId: EORTCQLQC30_Q22, required: true, answerValueSet: 'https://connect.ichom.org/fhir/ValueSet/EORTCQLQValueSet'}
-    - {text: 'Did you feel irritable?', type: choice, linkId: EORTCQLQC30_Q23, required: true, answerValueSet: 'https://connect.ichom.org/fhir/ValueSet/EORTCQLQValueSet'}
-    - {text: 'Did you feel depressed?', type: choice, linkId: EORTCQLQC30_Q24, required: true, answerValueSet: 'https://connect.ichom.org/fhir/ValueSet/EORTCQLQValueSet'}
-    - {text: 'Have you had difficulty remembering things?', type: choice, linkId: EORTCQLQC30_Q25, required: true, answerValueSet: 'https://connect.ichom.org/fhir/ValueSet/EORTCQLQValueSet'}
-    - {text: 'Has your physical condition or medical treatment interfered with your family life?', type: choice, linkId: EORTCQLQC30_Q26, required: true, answerValueSet: 'https://connect.ichom.org/fhir/ValueSet/EORTCQLQValueSet'}
-    - {text: 'Has your physical condition or medical treatment interfered with your social activities?', type: choice, linkId: EORTCQLQC30_Q27, required: true, answerValueSet: 'https://connect.ichom.org/fhir/ValueSet/EORTCQLQValueSet'}
-    - {text: 'Has your physical condition or medical treatment caused you financial difficulties?', type: choice, linkId: EORTCQLQC30_Q28, required: true, answerValueSet: 'https://connect.ichom.org/fhir/ValueSet/EORTCQLQValueSet'}
+    - {text: 'Were you limited in doing either your work or other daily activities?', type: choice, linkId: EORTCQLQC30_Q06, answerValueSet: 'https://connect.ichom.org/fhir/ValueSet/EORTCQLQValueSet'}
+    - {text: 'Were you limited in pursuing your hobbies or other leisure time activities?', type: choice, linkId: EORTCQLQC30_Q07, answerValueSet: 'https://connect.ichom.org/fhir/ValueSet/EORTCQLQValueSet'}
+    - {text: 'Were you short of breath?', type: choice, linkId: EORTCQLQC30_Q08, answerValueSet: 'https://connect.ichom.org/fhir/ValueSet/EORTCQLQValueSet'}
+    - {text: 'Have you had pain?', type: choice, linkId: EORTCQLQC30_Q09, answerValueSet: 'https://connect.ichom.org/fhir/ValueSet/EORTCQLQValueSet'}
+    - {text: 'Did you need to rest?', type: choice, linkId: EORTCQLQC30_Q10, answerValueSet: 'https://connect.ichom.org/fhir/ValueSet/EORTCQLQValueSet'}
+    - {text: 'Have you had trouble sleeping?', type: choice, linkId: EORTCQLQC30_Q11, answerValueSet: 'https://connect.ichom.org/fhir/ValueSet/EORTCQLQValueSet'}
+    - {text: 'Have you felt weak?', type: choice, linkId: EORTCQLQC30_Q12, answerValueSet: 'https://connect.ichom.org/fhir/ValueSet/EORTCQLQValueSet'}
+    - {text: 'Have you lacked appetite?', type: choice, linkId: EORTCQLQC30_Q13, answerValueSet: 'https://connect.ichom.org/fhir/ValueSet/EORTCQLQValueSet'}
+    - {text: 'Have you felt nauseated?', type: choice, linkId: EORTCQLQC30_Q14, answerValueSet: 'https://connect.ichom.org/fhir/ValueSet/EORTCQLQValueSet'}
+    - {text: 'Have you vomited?', type: choice, linkId: EORTCQLQC30_Q15, answerValueSet: 'https://connect.ichom.org/fhir/ValueSet/EORTCQLQValueSet'}
+    - {text: 'Have you been constipated?', type: choice, linkId: EORTCQLQC30_Q16, answerValueSet: 'https://connect.ichom.org/fhir/ValueSet/EORTCQLQValueSet'}
+    - {text: 'Have you had diarrhea?', type: choice, linkId: EORTCQLQC30_Q17, answerValueSet: 'https://connect.ichom.org/fhir/ValueSet/EORTCQLQValueSet'}
+    - {text: 'Were you tired?', type: choice, linkId: EORTCQLQC30_Q18, answerValueSet: 'https://connect.ichom.org/fhir/ValueSet/EORTCQLQValueSet'}
+    - {text: 'Did pain interfere with your daily activities?', type: choice, linkId: EORTCQLQC30_Q19, answerValueSet: 'https://connect.ichom.org/fhir/ValueSet/EORTCQLQValueSet'}
+    - {text: 'Have you had difficulty in concentrating on things, like reading a newspaper or watching television?', type: choice, linkId: EORTCQLQC30_Q20, answerValueSet: 'https://connect.ichom.org/fhir/ValueSet/EORTCQLQValueSet'}
+    - {text: 'Did you feel tense?', type: choice, linkId: EORTCQLQC30_Q21, answerValueSet: 'https://connect.ichom.org/fhir/ValueSet/EORTCQLQValueSet'}
+    - {text: 'Did you worry?', type: choice, linkId: EORTCQLQC30_Q22, answerValueSet: 'https://connect.ichom.org/fhir/ValueSet/EORTCQLQValueSet'}
+    - {text: 'Did you feel irritable?', type: choice, linkId: EORTCQLQC30_Q23, answerValueSet: 'https://connect.ichom.org/fhir/ValueSet/EORTCQLQValueSet'}
+    - {text: 'Did you feel depressed?', type: choice, linkId: EORTCQLQC30_Q24, answerValueSet: 'https://connect.ichom.org/fhir/ValueSet/EORTCQLQValueSet'}
+    - {text: 'Have you had difficulty remembering things?', type: choice, linkId: EORTCQLQC30_Q25, answerValueSet: 'https://connect.ichom.org/fhir/ValueSet/EORTCQLQValueSet'}
+    - {text: 'Has your physical condition or medical treatment interfered with your family life?', type: choice, linkId: EORTCQLQC30_Q26, answerValueSet: 'https://connect.ichom.org/fhir/ValueSet/EORTCQLQValueSet'}
+    - {text: 'Has your physical condition or medical treatment interfered with your social activities?', type: choice, linkId: EORTCQLQC30_Q27, answerValueSet: 'https://connect.ichom.org/fhir/ValueSet/EORTCQLQValueSet'}
+    - {text: 'Has your physical condition or medical treatment caused you financial difficulties?', type: choice, linkId: EORTCQLQC30_Q28, answerValueSet: 'https://connect.ichom.org/fhir/ValueSet/EORTCQLQValueSet'}
     text: 'During the past week:'
     type: group
     linkId: EORTC-QLQ-Q06-Q28
@@ -330,7 +325,6 @@ item:
     - text: How would you rate your overall health during the past week?
       type: choice
       linkId: EORTCQLQC30_Q29
-      required: true
       answerOption:
       - value: {integer: 1}
       - value: {integer: 2}
@@ -342,7 +336,6 @@ item:
     - text: How would you rate your overall quality of life during the past week?
       type: choice
       linkId: EORTCQLQC30_Q30
-      required: true
       answerOption:
       - value: {integer: 1}
       - value: {integer: 2}
@@ -355,63 +348,103 @@ item:
     type: group
     linkId: EORTC-QLQ-Q29-Q30
   - item:
-    - {text: 'Did you have a dry mouth?', type: choice, linkId: EORTCQLQBR23_Q31, required: true, answerValueSet: 'https://connect.ichom.org/fhir/ValueSet/EORTCQLQValueSet'}
-    - {text: 'Did food and drink taste different than usual?', type: choice, linkId: EORTCQLQBR23_Q32, required: true, answerValueSet: 'https://connect.ichom.org/fhir/ValueSet/EORTCQLQValueSet'}
-    - {text: 'Were your eyes painful, irritated or watery?', type: choice, linkId: EORTCQLQBR23_Q33, required: true, answerValueSet: 'https://connect.ichom.org/fhir/ValueSet/EORTCQLQValueSet'}
-    - {text: 'Have you lost any hair?', type: choice, linkId: EORTCQLQBR23_Q34, required: true, answerValueSet: 'https://connect.ichom.org/fhir/ValueSet/EORTCQLQValueSet'}
-    - text: Were you upset by the loss of your hair?
+    - {text: 'Have you had dry mouth?', type: choice, linkId: EORTCQLQBR45_Q31, answerValueSet: 'https://connect.ichom.org/fhir/ValueSet/EORTCQLQValueSet'}
+    - {text: 'Have food and drink tasted different than usual?', type: choice, linkId: EORTCQLQBR45_Q32, answerValueSet: 'https://connect.ichom.org/fhir/ValueSet/EORTCQLQValueSet'}
+    - {text: 'Have your eyes been painful, irritated or watery?', type: choice, linkId: EORTCQLQBR45_Q33, answerValueSet: 'https://connect.ichom.org/fhir/ValueSet/EORTCQLQValueSet'}
+    - {text: 'Have you lost any hair?', type: choice, linkId: EORTCQLQBR45_Q34, answerValueSet: 'https://connect.ichom.org/fhir/ValueSet/EORTCQLQValueSet'}
+    - text: Have you been upset by the loss of your hair?
       type: choice
-      linkId: EORTCQLQBR23_Q35
+      linkId: EORTCQLQBR45_Q35
       enableWhen:
-      - answer: {boolean: true}
-        operator: '='
-        question: EORTCQLQBR23_Q34
-      answerValueSet: https://connect.ichom.org/fhir/ValueSet/EORTCQLQValueSet
-    - {text: 'Did you feel ill or unwell?', type: choice, linkId: EORTCQLQBR23_Q36, required: true, answerValueSet: 'https://connect.ichom.org/fhir/ValueSet/EORTCQLQValueSet'}
-    - {text: 'Did you have hot flushes?', type: choice, linkId: EORTCQLQBR23_Q37, required: true, answerValueSet: 'https://connect.ichom.org/fhir/ValueSet/EORTCQLQValueSet'}
-    - {text: 'Did you have headaches?', type: choice, linkId: EORTCQLQBR23_Q38, required: true, answerValueSet: 'https://connect.ichom.org/fhir/ValueSet/EORTCQLQValueSet'}
-    - {text: 'Have you felt physically less attractive as a result of your disease or treatment?', type: choice, linkId: EORTCQLQBR23_Q39, required: true, answerValueSet: 'https://connect.ichom.org/fhir/ValueSet/EORTCQLQValueSet'}
-    - {text: 'Have you been feeling less feminine as a result of your disease or treatment?', type: choice, linkId: EORTCQLQBR23_Q40, required: true, answerValueSet: 'https://connect.ichom.org/fhir/ValueSet/EORTCQLQValueSet'}
-    - {text: 'Did you find it difficult to look at yourself naked?', type: choice, linkId: EORTCQLQBR23_Q41, required: true, answerValueSet: 'https://connect.ichom.org/fhir/ValueSet/EORTCQLQValueSet'}
-    - {text: 'Have you been dissatisfied with your body?', type: choice, linkId: EORTCQLQBR23_Q42, required: true, answerValueSet: 'https://connect.ichom.org/fhir/ValueSet/EORTCQLQValueSet'}
-    - {text: 'Were you worried about your health in the future?', type: choice, linkId: EORTCQLQBR23_Q43, required: true, answerValueSet: 'https://connect.ichom.org/fhir/ValueSet/EORTCQLQValueSet'}
+      - answer:
+          Coding:
+            code: '1'
+            system: 'http://connect.ichom.org/fhir/CodeSystem/EORTC-QLQ'
+        operator: '!='
+        question: EORTCQLQBR45_Q34
+      answerValueSet: 'https://connect.ichom.org/fhir/ValueSet/EORTCQLQValueSet'
+    - {text: 'Have you felt ill or unwell?', type: choice, linkId: EORTCQLQBR45_Q36, answerValueSet: 'https://connect.ichom.org/fhir/ValueSet/EORTCQLQValueSet'}
+    - {text: 'Have you had hot flushes?', type: choice, linkId: EORTCQLQBR45_Q37, answerValueSet: 'https://connect.ichom.org/fhir/ValueSet/EORTCQLQValueSet'}
+    - {text: 'Have you had headaches?', type: choice, linkId: EORTCQLQBR45_Q38, answerValueSet: 'https://connect.ichom.org/fhir/ValueSet/EORTCQLQValueSet'}
+    - {text: 'Have you felt physically less attractive as a result of your disease or treatment?', type: choice, linkId: EORTCQLQBR45_Q39, answerValueSet: 'https://connect.ichom.org/fhir/ValueSet/EORTCQLQValueSet'}
+    - {text: 'Have you felt less feminine as a result of your disease or treatment?', type: choice, linkId: EORTCQLQBR45_Q40, answerValueSet: 'https://connect.ichom.org/fhir/ValueSet/EORTCQLQValueSet'}
+    - {text: 'Have you had problems looking at yourself naked?', type: choice, linkId: EORTCQLQBR45_Q41, answerValueSet: 'https://connect.ichom.org/fhir/ValueSet/EORTCQLQValueSet'}
+    - {text: 'Have you been dissatisfied with your body?', type: choice, linkId: EORTCQLQBR45_Q42, answerValueSet: 'https://connect.ichom.org/fhir/ValueSet/EORTCQLQValueSet'}
+    - {text: 'Have you worried about your health in the future?', type: choice, linkId: EORTCQLQBR45_Q43, answerValueSet: 'https://connect.ichom.org/fhir/ValueSet/EORTCQLQValueSet'}
     text: "Patients sometimes report that they have the following symptoms or problems. Please indicate the extent to which you have experienced these symptoms or problems during the past week. \n  Please answer by selecting the answer that best applies to you. During the past week:"
     type: group
     linkId: EORTC-QLQ-Q31-Q43
   - item:
-    - {text: 'To what extent were you interested in sex?', type: choice, linkId: EORTCQLQBR23_Q44, required: true, answerValueSet: 'https://connect.ichom.org/fhir/ValueSet/EORTCQLQValueSet'}
-    - {text: 'To what extent were you sexually active? (with or without intercourse)', type: choice, linkId: EORTCQLQBR23_Q45, required: true, answerValueSet: 'https://connect.ichom.org/fhir/ValueSet/EORTCQLQValueSet'}
-    - text: To what extent was sex enjoyable for you?
+    - {text: 'Have you been sexually active? (with or without intercourse)', type: choice, linkId: EORTCQLQBR45_Q44, answerValueSet: 'https://connect.ichom.org/fhir/ValueSet/EORTCQLQValueSet'}
+    - {text: 'To what extent were you sexually active? (with or without intercourse)', type: choice, linkId: EORTCQLQBR45_Q45, answerValueSet: 'https://connect.ichom.org/fhir/ValueSet/EORTCQLQValueSet'}
+    - text: 'Has sex been enjoyable for you?'
       type: choice
-      linkId: EORTCQLQBR23_Q46
+      linkId: EORTCQLQBR45_Q46
       enableWhen:
-      - answer: {boolean: true}
-        operator: '='
-        question: EORTCQLQBR23_Q45
-      answerValueSet: https://connect.ichom.org/fhir/ValueSet/EORTCQLQValueSet
+        - answer:
+            Coding:
+              code: '1'
+              system: http://connect.ichom.org/fhir/CodeSystem/EORTC-QLQ
+          operator: '!='
+          question: EORTCQLQBR45_Q45
+      answerValueSet: 'https://connect.ichom.org/fhir/ValueSet/EORTCQLQValueSet'
     text: 'During the past four weeks:'
     type: group
     linkId: EORTC-QLQ-Q44-Q46
   - item:
-    - {text: 'Did you have a swollen arm or hand?', type: choice, linkId: EORTCQLQBR23_Q48, required: true, answerValueSet: 'https://connect.ichom.org/fhir/ValueSet/EORTCQLQValueSet'}
-    - {text: 'Was it difficult to raise your arm or to move it sideways?', type: choice, linkId: EORTCQLQBR23_Q49, required: true, answerValueSet: 'https://connect.ichom.org/fhir/ValueSet/EORTCQLQValueSet'}
-    - {text: 'Have you had any pain in the area of your affected breast?', type: choice, linkId: EORTCQLQBR23_Q50, required: true, answerValueSet: 'https://connect.ichom.org/fhir/ValueSet/EORTCQLQValueSet'}
-    - {text: 'Was the area of your affected breast swollen?', type: choice, linkId: EORTCQLQBR23_Q51, required: true, answerValueSet: 'https://connect.ichom.org/fhir/ValueSet/EORTCQLQValueSet'}
-    - {text: 'Was the area of your affected breast oversensitive?', type: choice, linkId: EORTCQLQBR23_Q52, required: true, answerValueSet: 'https://connect.ichom.org/fhir/ValueSet/EORTCQLQValueSet'}
-    - {text: 'Have you had skin problems on or in the area of your affected breast (e.g., itchy, dry, flaky)?', type: choice, linkId: EORTCQLQBR23_Q53, required: true, answerValueSet: 'https://connect.ichom.org/fhir/ValueSet/EORTCQLQValueSet'}
-    - {text: 'Have you had tingling hands or feet?', type: choice, linkId: EORTC QLQ-LMC21, required: true, answerValueSet: 'https://connect.ichom.org/fhir/ValueSet/EORTCQLQValueSet'}
+    - {text: 'Have you had any pain in your arm or shoulder?', type: choice, linkId: EORTCQLQBR23_Q47, answerValueSet: 'https://connect.ichom.org/fhir/ValueSet/EORTCQLQValueSet'}
+    - {text: 'Did you have a swollen arm or hand?', type: choice, linkId: EORTCQLQBR23_Q48, answerValueSet: 'https://connect.ichom.org/fhir/ValueSet/EORTCQLQValueSet'}
+    - {text: 'Was it difficult to raise your arm or to move it sideways?', type: choice, linkId: EORTCQLQBR23_Q49, answerValueSet: 'https://connect.ichom.org/fhir/ValueSet/EORTCQLQValueSet'}
+    - {text: 'Have you had any pain in the area of your affected breast?', type: choice, linkId: EORTCQLQBR23_Q50, answerValueSet: 'https://connect.ichom.org/fhir/ValueSet/EORTCQLQValueSet'}
+    - {text: 'Was the area of your affected breast swollen?', type: choice, linkId: EORTCQLQBR23_Q51, answerValueSet: 'https://connect.ichom.org/fhir/ValueSet/EORTCQLQValueSet'}
+    - {text: 'Was the area of your affected breast oversensitive?', type: choice, linkId: EORTCQLQBR23_Q52, answerValueSet: 'https://connect.ichom.org/fhir/ValueSet/EORTCQLQValueSet'}
+    - {text: 'Have you had skin problems on or in the area of your affected breast (e.g., itchy, dry, flaky)?', type: choice, linkId: EORTCQLQBR23_Q53, answerValueSet: 'https://connect.ichom.org/fhir/ValueSet/EORTCQLQValueSet'}
+    - {text: 'Have you sweated excessively?', type: choice, linkId: EORTCQLQBR45_Q54, answerValueSet: 'https://connect.ichom.org/fhir/ValueSet/EORTCQLQValueSet'}
+    - {text: 'Have you had mood swings?', type: choice, linkId: EORTCQLQBR45_Q55, answerValueSet: 'https://connect.ichom.org/fhir/ValueSet/EORTCQLQValueSet'}
+    - {text: 'Have you been dizzy?', type: choice, linkId: EORTCQLQBR45_Q56, answerValueSet: 'https://connect.ichom.org/fhir/ValueSet/EORTCQLQValueSet'}
+    - {text: 'Have you had soreness in your mouth?', type: choice, linkId: EORTCQLQBR45_Q57, answerValueSet: 'https://connect.ichom.org/fhir/ValueSet/EORTCQLQValueSet'}
+    - {text: 'Have you had any reddening in your mouth?', type: choice, linkId: EORTCQLQBR45_Q58, answerValueSet: 'https://connect.ichom.org/fhir/ValueSet/EORTCQLQValueSet'}
+    - {text: 'Have you had pain in your hands or feet?', type: choice, linkId: EORTCQLQBR45_Q59, answerValueSet: 'https://connect.ichom.org/fhir/ValueSet/EORTCQLQValueSet'}
+    - {text: 'Have you had any reddening on your hands or feet?', type: choice, linkId: EORTCQLQBR45_Q60, answerValueSet: 'https://connect.ichom.org/fhir/ValueSet/EORTCQLQValueSet'}
+    - {text: 'Have you had tingling in your fingers or toes?', type: choice, linkId: EORTCQLQBR45_Q61, answerValueSet: 'https://connect.ichom.org/fhir/ValueSet/EORTCQLQValueSet'}
+    - {text: 'Have you had numbness in your fingers or toes?', type: choice, linkId: EORTCQLQBR45_Q62, answerValueSet: 'https://connect.ichom.org/fhir/ValueSet/EORTCQLQValueSet'}
+    - {text: 'Have you had problems with your joints?', type: choice, linkId: EORTCQLQBR45_Q63, answerValueSet: 'https://connect.ichom.org/fhir/ValueSet/EORTCQLQValueSet'}
+    - {text: 'Have you had stiffness in your joints?', type: choice, linkId: EORTCQLQBR45_Q64, answerValueSet: 'https://connect.ichom.org/fhir/ValueSet/EORTCQLQValueSet'}
+    - {text: 'Have you had pain in your joints?', type: choice, linkId: EORTCQLQBR45_Q65, answerValueSet: 'https://connect.ichom.org/fhir/ValueSet/EORTCQLQValueSet'}
+    - {text: 'Have you had aches or pains in your bones?', type: choice, linkId: EORTCQLQBR45_Q66, answerValueSet: 'https://connect.ichom.org/fhir/ValueSet/EORTCQLQValueSet'}
+    - {text: 'Have you had aches or pains in your muscles?', type: choice, linkId: EORTCQLQBR45_Q67, answerValueSet: 'https://connect.ichom.org/fhir/ValueSet/EORTCQLQValueSet'}
+    - {text: 'Have you gained weight?', type: choice, linkId: EORTCQLQBR45_Q68, answerValueSet: 'https://connect.ichom.org/fhir/ValueSet/EORTCQLQValueSet'}
+    - {text: 'Has weight gain been a problem for you?', type: choice, linkId: EORTCQLQBR45_Q69, answerValueSet: 'https://connect.ichom.org/fhir/ValueSet/EORTCQLQValueSet'}
     text: 'During the past week:'
     type: group
-    linkId: EORTC-QLQ-Q47-Q53
+    linkId: EORTC-QLQ-Q47-Q69
+  - item:
+    - {text: 'Have you had a dry vagina?', type: choice, linkId: EORTCQLQBR45_Q70, answerValueSet: 'https://connect.ichom.org/fhir/ValueSet/EORTCQLQValueSet'}
+    - {text: 'Have you had discomfort in your vagina?', type: choice, linkId: EORTCQLQBR45_Q71, answerValueSet: 'https://connect.ichom.org/fhir/ValueSet/EORTCQLQValueSet'}
+    text: 'During the past four weeks:'
+    type: group
+    linkId: EORTC-QLQ-Q70-Q71
+  - item:
+    - {text: 'Have you had pain in your vagina during sexual activity?', type: choice, linkId: EORTCQLQBR45_Q72, answerValueSet: 'https://connect.ichom.org/fhir/ValueSet/EORTCQLQValueSet'}
+    - {text: 'Have you experienced a dry vagina during sexual activity?', type: choice, linkId: EORTCQLQBR45_Q73, answerValueSet: 'https://connect.ichom.org/fhir/ValueSet/EORTCQLQValueSet'}
+    text: 'Please answer the following two questions only if you have been sexually active:'
+    type: group
+    linkId: EORTC-QLQ-Q72-Q73
+  - item:
+    - {text: 'Have you been satisfied with the cosmetic result of the surgery?', type: choice, linkId: EORTCQLQBR45_Q74, answerValueSet: 'https://connect.ichom.org/fhir/ValueSet/EORTCQLQValueSet'}
+    - {text: 'Have you been satisfied with the appearance of the skin of your affected breast (thoracic area)?', type: choice, linkId: EORTCQLQBR45_Q75, answerValueSet: 'https://connect.ichom.org/fhir/ValueSet/EORTCQLQValueSet'}
+    text: 'During the past week:'
+    type: group
+    linkId: EORTC-QLQ-Q74-Q75
   text: Degree of Health - EORTC-QLQ
   type: group
   linkId: Degree-of-Health-EORTC-QLQ
 - item:
   - item:
-    - {text: 'How you look in the mirror clothed?', type: choice, linkId: BREASTQMAST_Q01, required: true, answerValueSet: 'https://connect.ichom.org/fhir/ValueSet/BreastQValueSet'}
-    - {text: 'How comfortable your bras fit?', type: choice, linkId: BREASTQMAST_Q02, required: true, answerValueSet: 'https://connect.ichom.org/fhir/ValueSet/BreastQValueSet'}
-    - {text: 'Being able to wear clothing that is more fitted?', type: choice, linkId: BREASTQMAST_Q03, required: true, answerValueSet: 'https://connect.ichom.org/fhir/ValueSet/BreastQValueSet'}
-    - {text: 'How you look in the mirror unclothed?', type: choice, linkId: BREASTQMAST_Q04, required: true, answerValueSet: 'https://connect.ichom.org/fhir/ValueSet/BreastQValueSet'}
+    - {text: 'How you look in the mirror clothed?', type: choice, linkId: BREASTQMAST_Q01, answerValueSet: 'https://connect.ichom.org/fhir/ValueSet/BreastQValueSet'}
+    - {text: 'How comfortable your bras fit?', type: choice, linkId: BREASTQMAST_Q02, answerValueSet: 'https://connect.ichom.org/fhir/ValueSet/BreastQValueSet'}
+    - {text: 'Being able to wear clothing that is more fitted?', type: choice, linkId: BREASTQMAST_Q03, answerValueSet: 'https://connect.ichom.org/fhir/ValueSet/BreastQValueSet'}
+    - {text: 'How you look in the mirror unclothed?', type: choice, linkId: BREASTQMAST_Q04, answerValueSet: 'https://connect.ichom.org/fhir/ValueSet/BreastQValueSet'}
     text: "With your breasts in mind, or if you have had a mastectomy, with your breast area in mind, in the past 2 weeks, \n      how satisfied or dissatisfied have you been with:"
     type: group
     linkId: IntroBreastQ
@@ -420,12 +453,12 @@ item:
   linkId: Degree-of-Health-BreastQ
 - item:
   - item:
-    - {text: I have pain in my joints, type: choice, linkId: FACTES_BRM1, required: true, answerValueSet: 'https://connect.ichom.org/fhir/ValueSet/FACTESValueSet'}
-    - {text: I have vaginal discharge, type: choice, linkId: FACTES_ES4, required: true, answerValueSet: 'https://connect.ichom.org/fhir/ValueSet/FACTESValueSet'}
-    - {text: I have vaginal itching/irritation, type: choice, linkId: FACTES_ES5, required: true, answerValueSet: 'https://connect.ichom.org/fhir/ValueSet/FACTESValueSet'}
-    - {text: I have vaginal bleeding or spotting, type: choice, linkId: FACTES_ES6, required: true, answerValueSet: 'https://connect.ichom.org/fhir/ValueSet/FACTESValueSet'}
-    - {text: I have vaginal dryness, type: choice, linkId: FACTES_ES7, required: true, answerValueSet: 'https://connect.ichom.org/fhir/ValueSet/FACTESValueSet'}
-    - {text: I have pain or discomfort with intercourse, type: choice, linkId: FACTES_ES8, required: true, answerValueSet: 'https://connect.ichom.org/fhir/ValueSet/FACTESValueSet'}
+    - {text: I have pain in my joints, type: choice, linkId: FACTES_BRM1, answerValueSet: 'https://connect.ichom.org/fhir/ValueSet/FACTESValueSet'}
+    - {text: I have vaginal discharge, type: choice, linkId: FACTES_ES4, answerValueSet: 'https://connect.ichom.org/fhir/ValueSet/FACTESValueSet'}
+    - {text: I have vaginal itching/irritation, type: choice, linkId: FACTES_ES5, answerValueSet: 'https://connect.ichom.org/fhir/ValueSet/FACTESValueSet'}
+    - {text: I have vaginal bleeding or spotting, type: choice, linkId: FACTES_ES6, answerValueSet: 'https://connect.ichom.org/fhir/ValueSet/FACTESValueSet'}
+    - {text: I have vaginal dryness, type: choice, linkId: FACTES_ES7, answerValueSet: 'https://connect.ichom.org/fhir/ValueSet/FACTESValueSet'}
+    - {text: I have pain or discomfort with intercourse, type: choice, linkId: FACTES_ES8, answerValueSet: 'https://connect.ichom.org/fhir/ValueSet/FACTESValueSet'}
     text: 'Please indicate your response as it applies to the past 7 days:'
     type: group
     linkId: IntroFactes

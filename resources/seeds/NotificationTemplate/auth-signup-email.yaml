@@ -1,0 +1,20 @@
+_source: code
+id: auth-signup-email
+module: auth
+resourceType: NotificationTemplate
+template: '
+
+  <h3>Confirm your email address </h3>
+
+  <p>Hello {{params.data.name}}{{params.email}}{{params.username}}!</p>
+
+  <p>We just need to verify that {{params.email}} {{params.username}} is your email
+  address.</p>
+
+  <p><a target="_blank" href="{{params.base-url}}/auth/signup/confirm/{{id}}">Confirm
+  Email Address</a></p>
+
+  <b>Didn’t request this email?</b>
+
+  <p>No worries! Your address may have been entered by mistake. If you ignore or delete
+  this email, nothing further will happen.</p> '
