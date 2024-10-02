@@ -1,0 +1,32 @@
+id: patient-create
+resourceType: Questionnaire
+name: patient-create
+title: Patient create
+status: active
+mapping:
+  - id: patient-create-extract
+    resourceType: Mapping
+item:
+  - linkId: email
+    type: string
+    required: true
+    text: Email
+  - linkId: first-name
+    type: string
+    text: First Name
+    required: true
+  - linkId: last-name
+    type: string
+    text: Last Name
+    required: true
+  - linkId: mobile
+    type: string
+    text: Phone number
+    required: true
+    itemControl:
+      coding:
+        - code: phoneWidget
+meta:
+  profile:
+    - https://beda.software/beda-emr-questionnaire
+url: https://aidbox.emr.beda.software/ui/console#/entities/Questionnaire/patient-create

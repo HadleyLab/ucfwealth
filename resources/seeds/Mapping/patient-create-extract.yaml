@@ -1,0 +1,58 @@
+body:
+  $let:
+    email: >-
+      $
+      fhirpath("QuestionnaireResponse.repeat(item).where(linkId='email').answer.valueString").0
+    firstName: >-
+      $
+      fhirpath("QuestionnaireResponse.repeat(item).where(linkId='first-name').answer.valueString").0
+    lastName: >-
+      $
+      fhirpath("QuestionnaireResponse.repeat(item).where(linkId='last-name').answer.valueString").0
+    mobile: >-
+      $
+      fhirpath("QuestionnaireResponse.repeat(item).where(linkId='mobile').answer.valueString").0
+  $body:
+    type: transaction
+    entry:
+      - fullUrl: urn:uuid:patient-id
+        request:
+          url: /Patient
+          method: POST
+        resource:
+          name:
+            - use: official
+              family: $ lastName
+              given:
+                - $ firstName
+          telecom:
+            - value: $ mobile
+              system: phone
+            - value: $ email
+              system: email
+          active: true
+          resourceType: Patient
+      - fullUrl: urn:uuid:user-id
+        request:
+          url: /User
+          method: POST
+        resource:
+          data:
+            resetPassword: true
+            username: $ email
+          email: $ email
+          resourceType: User
+      - request:
+          url: /Role
+          method: POST
+        resource:
+          name: "patient"
+          user:
+            uri: urn:uuid:user-id
+          links:
+            patient:
+              uri: urn:uuid:patient-id
+          resourceType: Role
+    resourceType: Bundle
+id: patient-create-extract
+resourceType: Mapping
