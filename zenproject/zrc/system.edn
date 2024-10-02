@@ -28,6 +28,9 @@
   {:Client {:web {:auth {:implicit {:redirect_uri #env FHIR_EMR_AUTH_URL}}
                   :first_party true
                   :grant_types [:implicit]}
+            :ucf-app {:secret #env UCF_APP_CLIENT_SECRET
+                      :first_party true
+                      :grant_types [:basic]}
             :sdc-ide {:auth {:implicit {:redirect_uri #env SDC_IDE_AUTH_URL}}
                       :first_party true
                       :grant_types [:implicit]}
