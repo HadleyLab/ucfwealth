@@ -1,0 +1,14 @@
+id: breast-cancer-study-survey
+resourceType: Questionnaire
+name: breast-cancer-study-survey
+title: Breast Cancer study Survey
+status: active
+item:
+  - linkId: question-1
+    text: Question 1
+    type: string
+    required: true
+meta:
+  profile:
+    - https://beda.software/beda-emr-questionnaire
+url: https://aidbox.emr.beda.software/ui/console#/entities/Questionnaire/set-password

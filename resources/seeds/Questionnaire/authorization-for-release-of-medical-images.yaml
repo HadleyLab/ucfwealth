@@ -1,0 +1,14 @@
+id: authorization-for-release-of-medical-images
+resourceType: Questionnaire
+name: authorization-for-release-of-medical-images
+title: Authorization for Release of Medical Images
+status: active
+item:
+  - linkId: question-1
+    text: Question 1
+    type: string
+    required: true
+meta:
+  profile:
+    - https://beda.software/beda-emr-questionnaire
+url: https://aidbox.emr.beda.software/ui/console#/entities/Questionnaire/set-password
