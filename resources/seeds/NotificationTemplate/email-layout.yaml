@@ -1,0 +1,9 @@
+template: |-
+  <style type="text/css">
+  </style>
+
+  <div>
+      {{ body }}
+  </div>
+id: email-layout
+

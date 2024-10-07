@@ -1,6 +1,18 @@
 services:
-    backend:
-        build: ../ucf-app
+    aidbox-2fa:
+        build: ./aidbox-2fa
+        depends_on:
+            devbox-healthcheck:
+                condition: service_healthy
+        links:
+            - devbox
+        env_file:
+            - ./env/aidbox-2fa
+        tty: true
+        volumes:
+            - ./aidbox-2fa:/app
+    ucf-app:
+        build: ./ucf-app
         depends_on:
             devbox-healthcheck:
                 condition: service_healthy
@@ -9,6 +21,8 @@ services:
         env_file:
             - ./env/ucf-app
         tty: true
+        volumes:
+            - ./ucf-app:/app
     sdc-ide:
         image: bedasoftware/sdc-ide:master
         depends_on:

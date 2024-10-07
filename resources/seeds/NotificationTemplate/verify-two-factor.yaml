@@ -1,0 +1,5 @@
+subject: Verify two factor
+template: |-
+  <p>Dear  {{user.name.givenName}},<br />
+     Your code is {{token}} </p>
+id: verify-two-factor

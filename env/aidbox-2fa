@@ -1,0 +1,16 @@
+APP_INIT_CLIENT_ID=root
+APP_INIT_CLIENT_SECRET=secret
+APP_INIT_URL=http://devbox:8080
+
+APP_ID=aidbox-2fa-app
+APP_SECRET=secret
+
+APP_URL=http://aidbox-2fa:8081
+APP_PORT=8081
+AIO_PORT=8081
+AIO_HOST=0.0.0.0
+
+TWO_FACTOR_ISSUER_NAME=MammoChat
+TWO_FACTOR_VALID_PAST_TOKENS_COUNT=5
+TWO_FACTOR_WEBHOOK_URL="http://devbox:8080/webhook/two-factor-confirmation"
+TWO_FACTOR_WEBHOOK_AUTHORIZATION="Basic cm9vdDpzZWNyZXQ=" # root:secret
