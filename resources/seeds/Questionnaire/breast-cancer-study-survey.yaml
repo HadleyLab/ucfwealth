@@ -4,10 +4,140 @@ name: breast-cancer-study-survey
 title: Breast Cancer study Survey
 status: active
 item:
-  - linkId: question-1
-    text: Question 1
+  - item:
+      - text: Q1 Indicate this patient’s medical record number
+        type: string
+        linkId: 8QMw5Ie7
+      - text: Q2 Patient’s last name
+        type: string
+        linkId: FAjDpQF4
+      - text: 'Q3 Please indicate your sex:'
+        type: choice
+        linkId: sex
+        answerOption:
+          - value:
+              Coding:
+                code: '1'
+                display: Male
+          - value:
+              Coding:
+                code: '2'
+                display: Female
+      - text: Q4 What is your date of birth? DD/MM/YYYY
+        type: date
+        linkId: dateOfBirth
+      - text: Q5 What is your country of residence?
+        type: string
+        linkId: countryOfResidence
+      - text: Q6 What is your ethnicity?
+        type: string
+        linkId: ethnicity
+      - text: Q7 Please indicate the highest level of schooling completed.
+        type: choice
+        linkId: schoolingCompleted
+        itemControl:
+          coding:
+            - {}
+        answerOption:
+          - value:
+              Coding:
+                code: '0'
+                display: None
+          - value:
+              Coding:
+                code: '1'
+                system: ''
+                display: Primary
+          - value:
+              Coding:
+                code: '2'
+                system: ''
+                display: Secondary
+          - value:
+              Coding:
+                code: '3'
+                system: ''
+                display: Tertiary
+      - text: Q8 What is your relationship status?
+        type: choice
+        linkId: relationshipStatus
+        itemControl:
+          coding:
+            - {}
+        answerOption:
+          - value:
+              Coding:
+                code: '0'
+                display: Never married/partnered
+          - value:
+              Coding:
+                code: '1'
+                system: ''
+                display: Married/partnered
+          - value:
+              Coding:
+                code: '3'
+                system: ''
+                display: Divorced/separated
+          - value:
+              Coding:
+                code: '4'
+                system: ''
+                display: Widowed
+      - text: Q9 What is your current menopausal status?
+        type: choice
+        linkId: menopausalStatus
+        answerOption:
+          - value:
+              integer: 0
+          - value:
+              integer: 1
+          - value:
+              integer: 3
+    text: Demographic factors
+    type: group
+    linkId: demographicFactors
+  - item:
+      - text: Q10 Have you been told by a doctor that you have any of the following?
+        type: choice
+        linkId: otherDiseases
+        answerOption:
+          - value:
+              integer: 0
+          - value:
+              integer: 1
+          - value:
+              integer: 2
+          - value:
+              integer: 3
+          - value:
+              integer: 4
+          - value:
+              integer: 5
+          - value:
+              integer: 6
+          - value:
+              integer: 7
+          - value:
+              integer: 8
+          - value:
+              integer: 9
+          - value:
+              integer: 10
+          - value:
+              integer: 11
+          - value:
+              integer: 12
+    text: Baseline Clinical Factors
+    type: group
+    linkId: baselineClinicalFactors
+  - text: PatientId
     type: string
-    required: true
+    hidden: true
+    linkId: patientId
+    initialExpression:
+      language: text/fhirpath
+      expression: '%Patient.id'
 meta:
   profile:
     - https://beda.software/beda-emr-questionnaire
