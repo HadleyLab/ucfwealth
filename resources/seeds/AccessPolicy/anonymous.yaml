@@ -1,0 +1,28 @@
+or:
+  - engine: matcho
+    matcho:
+      uri: /fhir/Questionnaire/patient-create/$assemble
+      request-method: get
+  - engine: matcho
+    matcho:
+      uri: /fhir/Questionnaire/set-password/$assemble
+      request-method: get
+  - engine: matcho
+    matcho:
+      uri: /fhir/QuestionnaireResponse/$constraint-check
+      request-method: post
+  - engine: matcho
+    matcho:
+      uri: /fhir/Questionnaire/$extract
+      request-method: post
+  - engine: matcho
+    matcho:
+      uri: /fhir/User
+      request-method: patch
+      params:
+       .data.reset_token: string?
+  - engine: matcho
+    matcho:
+      uri: /fhir/
+      request-method: post
+engine: complex
