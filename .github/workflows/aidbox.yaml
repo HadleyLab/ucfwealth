@@ -33,7 +33,7 @@ jobs:
           - name: Install zen deps
             run: cd zenproject && java -jar ../zen.jar zen pull-deps
           - name: Build seeds
-            run: docker compose run --rm build-seeds
+            run: docker compose -f docker-compose.seeds.yaml run --rm build-seeds
           - name: Build zen project
             run: java -jar zen.jar zen build zenproject emr
           - name: Build and push the Docker image
