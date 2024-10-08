@@ -3,11 +3,86 @@ resourceType: Questionnaire
 name: authorization-for-release-of-medical-images
 title: Authorization for Release of Medical Images
 status: active
+subjectType:
+  - Patient
+launchContext:
+  - name:
+      code: Patient
+    type:
+      - Patient
 item:
-  - linkId: question-1
-    text: Question 1
+  - text: '**Authorization to Use and Disclose Protected Health Information**'
+    type: display
+    linkId: AOjGTi2c
+  - text: >-
+      **Research Study Title: **Elucidating the Impact of Social Wellness and
+      Artificial Intelligence on the Psychological Consequences of Breast Cancer
+      Imaging
+    type: display
+    linkId: researchStudyTitle
+  - text: 'Principal Investigator: Dexter Hadley, MD, PhD'
+    type: display
+    linkId: principalInvestigator
+  - text: 'Co-Investigator: Amoy Fraser, PhD'
+    type: display
+    linkId: coInvestigator
+  - text: Name of Research Participant
     type: string
-    required: true
+    linkId: participantName
+  - text: Date of Birth
+    type: date
+    linkId: dateOfBirth
+  - text: Street Address
+    type: string
+    linkId: streetAddress
+  - text: City, State & Zip Code
+    type: string
+    linkId: cityStateZip
+  - text: >-
+      By signing this form, I voluntarily authorize ____________________________
+      to release my radiographic breast cancer imaging and related health
+      information taken on or
+    type: string
+    linkId: authorizationRelease
+  - text: >-
+      about_____________________ (approximate dates of imaging) to University of
+      Central Florida.
+    type: date
+    linkId: useForResearch
+  - text: >-
+      By signing this form, I voluntarily authorize, give my permission and
+      allow use and disclosure of my radiographic breast cancer imaging and
+      related health information. The radiographic breast cancer images will be
+      used for research purposes as described in the Informed Consent Form for
+      the above research study title. This authorization will remain in effect
+      until described in the Informed Consent Form for the above research study
+      title.
+    type: display
+    linkId: authorizationEffect
+  - text: >-
+      I have read all pages of this form and agree to the disclosures above from
+      the types of sources listed.
+    type: boolean
+    linkId: readAgreeDisclosure
+  - text: >-
+      Print Name of Participant or Participant’s Legal Representative (if
+      applicable)
+    type: string
+    linkId: printName
+  - text: Signature of Participant or Participant’s Legal Representative
+    type: string
+    linkId: signature
+  - text: 'Date Signed '
+    type: date
+    linkId: dateSigned
+  - text: PatientId
+    type: string
+    hidden: true
+    linkId: patientId
+    initialExpression:
+      language: text/fhirpath
+      expression: '%Patient.id'
+
 meta:
   profile:
     - https://beda.software/beda-emr-questionnaire
