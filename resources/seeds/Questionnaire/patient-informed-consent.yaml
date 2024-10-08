@@ -3,11 +3,468 @@ resourceType: Questionnaire
 name: patient-informed-consent
 title: Informed Consent
 status: active
+
+subjectType:
+  - Patient
+launchContext:
+  - name:
+      code: Patient
+    type:
+      - Patient
+      
 item:
-  - linkId: question-1
-    text: Question 1
-    type: string
+  - text: >
+      **Title of research study:** 
+
+      Elucidating the Impact of Social Wellness and Artificial Intelligence on
+      the Psychological Consequences of Breast Cancer Imaging
+
+
+      **Principal Investigator:** Dexter Hadley, MD, PhD
+
+
+      **Co-Investigator(s):** Amoy Fraser, PhD     
+    type: display
+    linkId: z98mm78j
+  - text: >
+      **Key Information: **The following is a short summary of this study to
+      help you decide whether to be a part of this study. More detailed
+      information is listed later in this form.
+    type: display
+    linkId: eYN0akTQ
+  - text: >
+      **Why am I being invited to take part in a research study?**
+
+
+      We invite you to take part in a research data repository and community
+      because you are an adult, and you have had breast cancer imaging (i.e.
+      mammogram, MRI, CT, etc.) performed in a US institution. Your breast
+      imaging may have been for screening or diagnostic purposes and may have
+      been either positive or negative for disease. In addition, you have an
+      email account and access to a reliable internet connection or smartphone.
+      Pregnant women may choose to participate in this data repository and
+      community.
+    type: display
+    linkId: YMacy46Q
+  - text: >-
+      Q1. I have had a breast cancer radiographic imaging performed at an US
+      institution.
+    type: choice
     required: true
+    linkId: radiographicImagingPerformed
+    answerOption:
+      - value:
+          Coding:
+            code: 'yes'
+            display: 'Yes'
+      - value:
+          Coding:
+            code: 'no'
+            display: 'No'
+  - text: >
+      **Why is this research being done?**
+
+
+      With over 40,000,000 mammograms run annually in the US, there are
+      psychological consequences of breast cancer imaging that are well
+      documented among patients such as stress and anxiety from largely false
+      positive or indeterminant readings by radiologists. The research purpose
+      of this project is to determine how we may develop Artificial Intelligence
+      (AI) models of breast imaging that facilitate new ways of detecting and
+      treating disease and improve patient outcomes by assembling a
+      de-identified breast cancer radiographic imaging repository. This project
+      also aims to document how patients may use a trusted social health or
+      wellness network to better understand their imaging.
+    type: display
+    linkId: xKw3sPt1
+  - text: >
+      **How long will the research last and what will I need to do?**
+
+
+      We expect that you will be in this research data repository indefinitely
+      or as long as you chose to remain as a user of the web portal. 
+
+
+      You will be asked to complete a brief health survey and sign a medical
+      consent for the release of your breast imaging to the project. 
+
+
+      Through our secure web application, we will ask you as a patient to
+      securely provide your informed consent for us to access your breast
+      imaging.  We will also ask you to answer standard survey about the
+      psychological consequences you may have experienced. The web application
+      gives you access to our UCF social network for Wellness, Education, AI,
+      Lifestyle & Technology in Health (UCF WEALTH).  In this network, you will
+      be able to access your radiographic imaging from your medical provider and
+      then share the imaging to this trusted social network and then use the
+      stored information and the community communications as you please.  We
+      will also ask you to answer our research survey. 
+
+
+      You will be able to use the UCF WEALTH platform to share your imaging and
+      to ask questions within this trusted digital community.  You can ask these
+      questions to other community participants who are also sharing their data.
+      We will analyze your responses and interactions with the social network to
+      determine the effect of the social wellness interactions on reducing the
+      psychological consequences of breast imaging. We will also train medical
+      artificial intelligence algorithms to predict the medical outcomes,
+      including psychological consequences, directly from your imaging. 
+
+
+      This UCF WEALTH platform is one of the first projects that engages
+      patients to donate their breast cancer imaging in an effort to reduce the
+      psychological consequences of breast cancer imaging using social networks
+      and artificial intelligence.
+
+
+      More detailed information about the study procedures can be found under
+      _**“What happens if I say yes, I want to be in this research?”**_
+    type: display
+    linkId: DPxG6h2h
+  - text: >-
+      **Is there any way being in this study could be bad for me?**
+
+
+      Although we will do our best to protect your personal information, there
+      is still a very small risk of loss of privacy. We will do our best to make
+      sure that the personal information we collect about you is kept private
+      and secure. 
+
+      For more information about risks and side effects, please ask one of the
+      researchers. You can reach Dr. Hadley at Dexter.Hadley@UCF.edu. If you
+      want to speak to someone not directly involved in the research study,
+      please contact the UCF Institutional Review Board at 407-823-2901.
+    type: display
+    linkId: 4-Opo8sT
+  - text: >-
+      Q2. I have read the above and understand the potential risks associated
+      with this research.
+    type: choice
+    required: true
+    linkId: understandRisks
+    answerOption:
+      - value:
+          Coding:
+            code: 'yes'
+            display: 'Yes'
+      - value:
+          Coding:
+            code: 'no'
+            display: 'No'
+  - text: >
+      **Will being in this study help me in any way?**
+
+
+      The latest clinical guidelines suggest that normal risk women start
+      screening for breast cancer by 40 years old.  While we cannot promise any
+      benefits to you or others from your taking part in this research on breast
+      imaging, possible benefits may include having access to your medical
+      information and radiographic images across institutions in a single
+      database that you may share with your healthcare provider either in person
+      or through the UCF WEALTH platform. You will also be able to communicate
+      with other study participants on a trusted social network which may reduce
+      the psychological consequences of breast cancer imaging such as anxiety
+      and stress from false positive interpretations. We hope that society will
+      benefit from your participation – by participating, you will help us
+      contribute to a better understanding of breast cancer, and we may find
+      better ways to predict, prevent, and treat the disease. Participation in
+      research is completely voluntary.
+
+
+
+      We will not provide you with information about your health status or
+      clinical interpretation of your data from this project. This is a research
+      repository platform and is not clinical care. We do not provide medical
+      services. However, you may receive standardized information about breast
+      cancer risk factors based on the breast imaging and the survey you provide
+      through a personalized dashboard. Participation in this repository does
+      not in any way substitute for professional medical advice, diagnosis, or
+      treatment that your doctor or other healthcare provider may give you.
+      Always ask the advice of your healthcare provider if you have any
+      questions about a medical condition. Do not disregard professional medical
+      advice or delay in seeking care because of something you have read as part
+      of this study. If you think you may have a medical emergency, please call
+      your doctor or dial 911 immediately.
+    type: display
+    linkId: NNZeiGGP
+  - text: >+
+      **Detailed Information: **The following is more detailed information about
+      this study in addition to the information listed above.
+
+
+      **What should I know about a research study?**
+
+      - Someone will explain this research study to you.
+
+      - Whether or not you take part is up to you.
+
+      - You can choose not to take part.
+
+      - You can agree to take part and later change your mind.
+
+      - Your decision will not be held against you.
+
+      - You can ask all the questions you want before you decide.
+
+    type: display
+    linkId: wamPwiI7
+  - text: >
+      **Who can I talk to?**
+
+
+      If you have questions, concerns, or complaints, or think this research
+      project  has hurt you, talk to the project team by contacting:
+      dexter.hadley@ucf.edu or call 407 COM TRIALS (407-266-8724).
+
+
+      This research has been reviewed and approved by an Institutional Review
+      Board (“IRB”). You may talk to them at 407-823-2901or irb@ucf.edu if:
+
+
+      - Your questions, concerns, or complaints are not being answered by the
+      research team.
+
+      - You cannot reach the research team.
+
+      - You want to talk to someone besides the research team.
+
+      - You have questions about your rights as a research subject.
+
+      - You want to get information or provide input about this research.
+    type: display
+    linkId: 9y1Uxnvk
+  - text: >-
+      Q3. I have read the above section on who to contact with questions about
+      this study.
+    type: choice
+    required: true
+    linkId: contactInformationRead
+    answerOption:
+      - value:
+          Coding:
+            code: 'yes'
+            display: 'Yes'
+      - value:
+          Coding:
+            code: 'no'
+            display: 'No'
+  - text: >
+      **How many people will be studied?**
+
+
+      We expect a maximum of 20,000 people will take part in this research
+      repository platform.
+
+
+      **What happens if I say yes, I want to be in this research?**
+
+
+      The research platform will collect and store your identifiers (name, date
+      of birth, address, email); demographic data (race, gender, ethnicity,
+      socioeconomic status); radiology images, including date and place of
+      service; quality of life variables in the survey and your activity time in
+      the web application (app).
+
+
+      **Survey**
+
+
+      If you agree to participate in this project, you will be asked to complete
+      a brief survey about your demographics and health using our web
+      application. The survey will ask about your personal and demographic data
+      and your medical history (such as your smoking habits and your history of
+      cancer, if any). The survey will also cover any psychological consequences
+      of breast cancer screening you may have experienced. The survey will be
+      brief and will take you about 30 minutes to fill out. 
+
+
+      **Data Transfer and Sync**
+
+
+      If you agree to participate in this platform, you will be asked to sign
+      medical release(s) for your breast imaging (mammogram, MRI, CT, etc.) to
+      be released to us by your imaging site(s). We will use your information to
+      initiate the transfer of your breast imaging. If the imaging site
+      indicates that there is a fee associated with the radiographic image
+      transfer that will be incurred on you, the transfer request will be
+      cancelled or may be paid by UCF. There will never be a cost to you. We use
+      the MatrixRay or Powershare for secure transfer of imaging and related
+      electronic health records. The electronic signing of the medical release
+      will take you about less than 5 minutes to read and sign. We will also
+      track all IP addresses of all database transactions as a precaution.
+
+
+      **Personalized Dashboard**
+
+
+      Once you agree to participate in this platform, you will have access to a
+      personalized dashboard accessible through our web application portal.
+      Here, you will be able to review all the imaging and survey that we store
+      for you. We will provide standardized assessments based on your breast
+      imaging and risk factors that you may find useful to understand your
+      breast cancer risk. These capabilities are being provided for your use and
+      enjoyment as you please. You may choose to use it as little or as much as
+      you want. 
+
+      The UCF WEALTH platform may be used to share your images with other
+      participants. You may also ask questions to others in the trusted digital
+      community who are sharing their data. Your activity time in the social
+      platform will be analyzed to determine the effect of the activity on your
+      social wellness on reducing the psychological consequences of breast
+      imaging.
+    type: display
+    linkId: 1yaeaXkJ
+  - text: >
+      **What happens if I say yes, but I change my mind later?**
+
+
+      You can leave the research platform at any time. It will not be held
+      against you. To stop participating in the project, you may delete your
+      account. By deleting your account, your identifiable data and identifiable
+      images stored by the researcher will also be deleted. However, your images
+      and data will remain indefinitely in the repository for ongoing research.
+      If you remove your data/delete your account, we will consider you to have
+      withdrawn from the project. The delete function will be available through
+      your personalized dashboard on the application. Your identifiable data
+      will remain available to the research team within the web portal unless
+      you choose to withdraw from the project. Per Florida Law, your
+      identifiable images and data will be retained for 7 years after the
+      closure of the project.
+
+
+      Although your active participation will be completed upon completion of
+      the survey and signing of the medical release(s), the research itself will
+      be ongoing for an indefinite amount of time. Your de-identified data and
+      images will remain indefinitely in the repository for ongoing research.  
+
+
+      **
+
+      What happens to the information collected for the research?**
+
+      Efforts will be made to limit the use and disclosure of your personal
+      information, including research study and medical records, to people who
+      have a need to review this information. We cannot promise complete
+      secrecy. Organizations that may inspect and copy your information include
+      the IRB and approved staff members only.
+
+
+      This study will never sell, rent, or lease your personal or contact
+      information without your consent. If we do make your information available
+      to other research groups for the purpose of research only, the information
+      will be de-identified and will not be traceable to you. If information
+      from this study is published or presented at scientific meetings or shared
+      with other researchers, your name and other personal identifiers will
+      never be used. Your personal information may be given out if required by
+      law (e.g., to prevent possible injury to yourself or others).
+
+
+      Your information will be transmitted and stored using very secure systems
+      within government-regulated HIPAA privacy guidelines. We label your images
+      and information only with a code, and we keep the key to the code in a
+      password protected database. Only approved staff will be given the
+      password. We use other safeguards at our facilities and for our
+      information technology and systems to protect the privacy and security of
+      your information. However, inherent in any web-based research platform is
+      the possibility of public disclosure of your protected health information
+      and any physical or psychological anxiety that may be associated with this
+      possibility.
+
+
+      Personal Health Information (PHI) data will stay on our secure web
+      application, which is hosted on Google Cloud with Aidbox interface. Google
+      Cloud and Aidbox are both HIPAA compliant. Aidbox is also Fast Healthcare
+      Interoperability Resources (FHIR) compliant. All data collected is stored
+      and encrypted behind password authentication. No PHI is ever exposed to an
+      open network.
+
+
+      Your data and images will be de-identified and used for future research
+      studies or distributed to another investigator for future research studies
+      without your additional informed consent. De-identified data and images
+      will be stored on Zenodo/GitHub indefinitely. Zenodo is an open, research
+      repository for storage purposes and GitHub is an AI-powered developer
+      platform. Zenodo/GitHub will be used to develop the AI models of breast
+      imaging and to store and share de-identified data.
+
+      Federal law provides additional protections of your medical records and
+      related health information. These are described in an attached document.
+    type: display
+    linkId: gxZJpO5x
+  - text: >-
+      Q4. I have read the above section on how my data will be used this
+      project.
+    type: choice
+    required: true
+    linkId: dataUsageUnderstanding
+    answerOption:
+      - value:
+          Coding:
+            code: 'yes'
+            display: 'Yes'
+      - value:
+          Coding:
+            code: 'no'
+            display: 'No'
+  - text: >
+      **What else do I need to know?**
+
+
+      Your eligibility to take part in this research project depends on your
+      eligibility to receive breast imaging. If your medical health history
+      prohibits (or if your medical care team discourages) breast imaging, you
+      cannot participate in this research.
+
+
+      Participation in the repository platform will be free to you, although
+      external charges may be accrued through use of cellular data and/or
+      payment to your healthcare facilities for medical records release, when
+      applicable. You can inquire about any potential costs to you by contacting
+      your cell phone service and by speaking with your local healthcare
+      facility about their procedures for obtaining pertinent medical records.
+
+
+      You will not be paid for taking part in this repository platform. Your
+      de-identified information and images may be used to create products or to
+      deliver services, including some that may be sold and/or make money for
+      others. If this happens, there are no plans currently to tell you, pay
+      you, or give any compensation to you or your family.
+
+
+      By consenting to participate in this project, you do not waive any of your
+      legal rights. Consenting means that you have been given information about
+      this repository platform and that you agree to participate in the project.
+
+
+      You will be informed of any new information or changes in the study that
+      may affect your willingness to continue in this project. If at any time
+      you wish to withdraw from the repository platform, you will not suffer any
+      penalty or lose any benefits to which you are entitled. Your participation
+      is completely voluntary and will not affect your enrollment in any health
+      plan or access to benefits.
+    type: display
+    linkId: lD3PAY-3
+  - text: Name of Participant
+    type: string
+    linkId: 3K6koDnv
+  - text: Signature of Participant
+    type: attachment
+    linkId: hgqGGjA5
+    itemControl:
+      coding:
+        - code: signature
+          system: http://aidbox.io/questionnaire-itemControl
+  - text: Date
+    type: date
+    linkId: mskpK4lQ
+  - text: PatientId
+    type: string
+    hidden: true
+    linkId: patientId
+    initialExpression:
+      language: text/fhirpath
+      expression: '%Patient.id'
+      
 meta:
   profile:
     - https://beda.software/beda-emr-questionnaire
