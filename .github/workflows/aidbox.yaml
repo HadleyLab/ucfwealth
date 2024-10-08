@@ -1,7 +1,7 @@
 name: Release Zen Project
 on:
     push:
-        branches: [main]
+        branches: [emr]
 env:
   REGISTRY: ghcr.io
   IMAGE_NAME: hadleylab/ucfwealth-aidbox-config
