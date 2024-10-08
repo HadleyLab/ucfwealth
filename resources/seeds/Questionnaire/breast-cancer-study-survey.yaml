@@ -131,6 +131,445 @@ item:
     text: Baseline Clinical Factors
     type: group
     linkId: baselineClinicalFactors
+    item:
+  - item:
+      - text: >-
+          Q10 Have you been told by a doctor that you have any of the following?
+          (select all that apply)
+        type: choice
+        linkId: diseases
+        answerOption:
+          - value:
+              Coding:
+                code: '0'
+                display: I have no other diseases
+          - value:
+              Coding:
+                code: '1'
+                display: Heart disease
+          - value:
+              Coding:
+                code: '2'
+                display: High blood pressure
+          - value:
+              Coding:
+                code: '3'
+                display: Leg pain when walking due to poor circulation
+          - value:
+              Coding:
+                code: '4'
+                display: Lung disease
+          - value:
+              Coding:
+                code: '5'
+                display: Diabetes
+          - value:
+              Coding:
+                code: '6'
+                display: Kidney disease
+          - value:
+              Coding:
+                code: '7'
+                display: Liver disease
+          - value:
+              Coding:
+                code: '8'
+                display: Problems caused by stroke
+          - value:
+              Coding:
+                code: '9'
+                display: Disease of the nervous system
+          - value:
+              Coding:
+                code: '10'
+                display: Other cancer (within the last 5 years)
+          - value:
+              Coding:
+                code: '11'
+                display: Depression
+          - value:
+              Coding:
+                code: '12'
+                display: Arthritis
+      - text: >-
+          Q11 What is your height? (Please enter as x ft and x inches. For
+          example: 5 ft and 5 inches)
+        type: string
+        linkId: height
+      - text: Q12 What is your weight? (lbs)
+        type: decimal
+        linkId: weight
+      - text: Q13 Indicate the laterality of breast cancer
+        type: choice
+        linkId: laterality
+        answerOption:
+          - value:
+              Coding:
+                code: '0'
+                display: Left breast
+          - value:
+              Coding:
+                code: '1'
+                display: Right breast
+          - value:
+              Coding:
+                code: '2'
+                display: Both breasts
+      - text: >-
+          Q14 Indicate if this is first breast cancer or new cancer on
+          contralateral or ipsilateral breast:
+        type: choice
+        linkId: cancerHistory
+        answerOption:
+          - value:
+              Coding:
+                code: '0'
+                display: Primary tumor
+          - value:
+              Coding:
+                code: '1'
+                display: New ipsilateral
+          - value:
+              Coding:
+                code: '2'
+                display: New contralateral
+    text: Baseline Clinical Factors
+    type: group
+    linkId: baselineClinicalFactors
+  - item:
+      - text: Q15 Initial date of histological diagnosis DD/MM/YYYY
+        type: date
+        linkId: initialDiagnosisDate
+      - text: 'Q16 Indicate histologic type of the tumor (select all that apply):'
+        type: choice
+        linkId: histologicType
+        answerOption:
+          - value:
+              Coding:
+                code: '0'
+                display: Ductal carcinoma in situ
+          - value:
+              Coding:
+                code: '1'
+                display: Invasive ductal carcinoma
+          - value:
+              Coding:
+                code: '2'
+                display: Invasive lobular carcinoma
+          - value:
+              Coding:
+                code: '3'
+                display: Other
+          - value:
+              Coding:
+                code: '999'
+                display: unknown
+      - text: >-
+          Q17 Indicate if the patient carries a genetic mutation predisposing
+          breast cancer:
+        type: choice
+        linkId: geneticMutation
+        answerOption:
+          - value:
+              Coding:
+                code: '0'
+                display: No mutation
+          - value:
+              Coding:
+                code: '1'
+                display: BRCA1
+          - value:
+              Coding:
+                code: '2'
+                display: BRCA2
+          - value:
+              Coding:
+                code: '3'
+                display: Other mutation
+          - value:
+              Coding:
+                code: '4'
+                display: Not tested
+      - text: 'Q18 Indicate grade of invasive component of tumor:'
+        type: choice
+        linkId: invasiveComponentGrade
+        answerOption:
+          - value:
+              Coding:
+                code: '0'
+                display: Grade 1
+          - value:
+              Coding:
+                code: '1'
+                display: Grade 2
+          - value:
+              Coding:
+                code: '2'
+                display: Grade 3
+          - value:
+              Coding:
+                code: '3'
+                display: Not reported
+      - text: Q19 Indicate tumor grade of DCIS component of tumor
+        type: choice
+        linkId: dcisComponentGrade
+        answerOption:
+          - value:
+              Coding:
+                code: '0'
+                display: Low
+          - value:
+              Coding:
+                code: '1'
+                display: Intermediate
+          - value:
+              Coding:
+                code: '2'
+                display: High
+          - value:
+              Coding:
+                code: '3'
+                display: Not reported
+      - text: Q20 Clinical tumor stage
+        type: choice
+        linkId: clinicalTumorStage
+        answerOption:
+          - value:
+              Coding:
+                code: '0'
+                display: cTX
+          - value:
+              Coding:
+                code: '1'
+                display: cT0
+          - value:
+              Coding:
+                code: '2'
+                display: cTis
+          - value:
+              Coding:
+                code: '3'
+                display: cT1
+          - value:
+              Coding:
+                code: '4'
+                display: cT2
+          - value:
+              Coding:
+                code: '5'
+                display: cT3
+          - value:
+              Coding:
+                code: '6'
+                display: cT4
+          - value:
+              Coding:
+                code: '999'
+                display: Unknown
+      - text: Q21 Clinical nodal stage
+        type: choice
+        linkId: clinicalNodalStage
+        answerOption:
+          - value:
+              Coding:
+                code: '0'
+                display: cNX
+          - value:
+              Coding:
+                code: '1'
+                display: cN0
+          - value:
+              Coding:
+                code: '2'
+                display: cN1
+          - value:
+              Coding:
+                code: '3'
+                display: cN2
+          - value:
+              Coding:
+                code: '4'
+                display: cN3
+          - value:
+              Coding:
+                code: '999'
+                display: Unknown
+      - text: Q22 Clinical distant metastasis
+        type: choice
+        linkId: clinicalDistantMetastasis
+        answerOption:
+          - value:
+              Coding:
+                code: '0'
+                display: cMX
+          - value:
+              Coding:
+                code: '1'
+                display: cM0
+          - value:
+              Coding:
+                code: '2'
+                display: cM1
+          - value:
+              Coding:
+                code: '999'
+                display: Unknown
+      - text: Q23 Pathological tumor stage
+        type: choice
+        linkId: pathologicalTumorStage
+        answerOption:
+          - value:
+              Coding:
+                code: '0'
+                display: pTX
+          - value:
+              Coding:
+                code: '1'
+                display: pT0
+          - value:
+              Coding:
+                code: '2'
+                display: pTis
+          - value:
+              Coding:
+                code: '3'
+                display: pT1
+          - value:
+              Coding:
+                code: '4'
+                display: pT2
+          - value:
+              Coding:
+                code: '5'
+                display: pT3
+          - value:
+              Coding:
+                code: '6'
+                display: pT4
+          - value:
+              Coding:
+                code: '999'
+                display: Unknown
+      - text: Q24 Pathological nodal stage
+        type: choice
+        linkId: pathologicalNodalStage
+        answerOption:
+          - value:
+              Coding:
+                code: '0'
+                display: pNX
+          - value:
+              Coding:
+                code: '1'
+                display: pN0
+          - value:
+              Coding:
+                code: '2'
+                display: pN1
+          - value:
+              Coding:
+                code: '3'
+                display: pN2
+          - value:
+              Coding:
+                code: '4'
+                display: pN3
+          - value:
+              Coding:
+                code: '999'
+                display: Unknown
+      - text: Q25 Pathological distant metastasis
+        type: choice
+        linkId: pathologicalDistantMetastasis
+        answerOption:
+          - value:
+              Coding:
+                code: '0'
+                display: pMx
+          - value:
+              Coding:
+                code: '1'
+                display: pM0
+          - value:
+              Coding:
+                code: '2'
+                display: pM1
+          - value:
+              Coding:
+                code: '999'
+                display: Unknown
+      - text: Q26 Size of invasive tumor (in mm)
+        type: decimal
+        linkId: invasiveTumorSize
+      - text: Q27 Number of lymph nodes resected
+        type: integer
+        linkId: lymphNodesResected
+      - text: Q28 Number of lymph nodes involved
+        type: integer
+        linkId: lymphNodesInvolved
+      - text: Q29 Estrogen receptor status
+        type: choice
+        linkId: estrogenReceptorStatus
+        answerOption:
+          - value:
+              Coding:
+                code: '0'
+                display: 'No'
+          - value:
+              Coding:
+                code: '1'
+                display: 'Yes'
+          - value:
+              Coding:
+                code: '2'
+                display: Not performed
+          - value:
+              Coding:
+                code: '999'
+                display: Unknown
+      - text: Q30 Progesterone receptor status
+        type: choice
+        linkId: progesteroneReceptorStatus
+        answerOption:
+          - value:
+              Coding:
+                code: '0'
+                display: 'No'
+          - value:
+              Coding:
+                code: '1'
+                display: 'Yes'
+          - value:
+              Coding:
+                code: '2'
+                display: Not performed
+          - value:
+              Coding:
+                code: '999'
+                display: Unknown
+      - text: Q31 HER2 receptor status
+        type: choice
+        linkId: her2ReceptorStatus
+        answerOption:
+          - value:
+              Coding:
+                code: '0'
+                display: Negative
+          - value:
+              Coding:
+                code: '1'
+                display: Positive
+          - value:
+              Coding:
+                code: '2'
+                display: Equivocal
+          - value:
+              Coding:
+                code: '3'
+                display: Not performed
+    text: Baseline Tumor Factors
+    type: group
+    linkId: baselineTumorFactors
   - text: PatientId
     type: string
     hidden: true
