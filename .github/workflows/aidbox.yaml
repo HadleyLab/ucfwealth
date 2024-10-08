@@ -1,0 +1,54 @@
+name: Release Zen Project
+on:
+    push:
+        branches: [main]
+env:
+  REGISTRY: ghcr.io
+  IMAGE_NAME: hadleylab/ucfwealth-aidbox-config
+jobs:
+    ZenProject:
+        permissions:
+          contents: write
+          packages: write
+        runs-on: ubuntu-latest
+        steps:
+          - uses: actions/checkout@v3
+          - name: Setup QEMU
+            uses: docker/setup-qemu-action@v3
+          - name: Setup Docker builder
+            uses: docker/setup-buildx-action@v3
+          - run: docker run --rm --privileged tonistiigi/binfmt --install all
+          - name: Login to Docker registry
+            uses: docker/login-action@v3
+            with:
+              registry: ${{ env.REGISTRY }}
+              username: ${{ github.actor }}
+              password: ${{ secrets.GITHUB_TOKEN }}
+          - uses: actions/setup-java@v3
+            with:
+              java-version: 17
+              distribution: 'temurin'
+          - name: Load zen cli
+            run: curl -L  https://github.com/HealthSamurai/ftr/releases/latest/download/zen.jar -o ./zen.jar
+          - name: Install zen deps
+            run: cd zenproject && java -jar ../zen.jar zen pull-deps
+          - name: Build seeds
+            run: docker compose run --rm build-seeds
+          - name: Build zen project
+            run: java -jar zen.jar zen build zenproject emr
+          - name: Build and push the Docker image
+            uses: docker/build-push-action@v5
+            with:
+              context: .
+              platforms: linux/amd64,linux/arm64
+              push: true
+              tags: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:latest
+          - uses: ncipollo/release-action@v1
+            with:
+              token: "${{ secrets.GITHUB_TOKEN }}"
+              allowUpdates: true
+              makeLatest: true
+              tag: latest
+              name: Development build
+              artifacts: "zenproject/emr.zip"
+              bodyFile: "README.md"
