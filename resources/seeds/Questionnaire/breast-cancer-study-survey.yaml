@@ -97,7 +97,6 @@ item:
     text: Demographic factors
     type: group
     linkId: demographicFactors
-    item:
   - item:
       - text: >-
           Q10 Have you been told by a doctor that you have any of the following?
