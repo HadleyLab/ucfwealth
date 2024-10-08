@@ -97,40 +97,6 @@ item:
     text: Demographic factors
     type: group
     linkId: demographicFactors
-  - item:
-      - text: Q10 Have you been told by a doctor that you have any of the following?
-        type: choice
-        linkId: otherDiseases
-        answerOption:
-          - value:
-              integer: 0
-          - value:
-              integer: 1
-          - value:
-              integer: 2
-          - value:
-              integer: 3
-          - value:
-              integer: 4
-          - value:
-              integer: 5
-          - value:
-              integer: 6
-          - value:
-              integer: 7
-          - value:
-              integer: 8
-          - value:
-              integer: 9
-          - value:
-              integer: 10
-          - value:
-              integer: 11
-          - value:
-              integer: 12
-    text: Baseline Clinical Factors
-    type: group
-    linkId: baselineClinicalFactors
     item:
   - item:
       - text: >-
