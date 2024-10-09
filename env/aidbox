@@ -35,3 +35,5 @@ TWO_FACTOR_ISSUER_NAME=MammoChat
 TWO_FACTOR_VALID_PAST_TOKENS_COUNT=5
 TWO_FACTOR_WEBHOOK_URL="http://devbox:8080/webhook/two-factor-confirmation"
 TWO_FACTOR_WEBHOOK_AUTHORIZATION="Basic cm9vdDpzZWNyZXQ=" # root:secret
+
+AIDBOX_CSS=http://localhost:3000/aidbox.css

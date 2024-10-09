@@ -40,7 +40,10 @@
                         :secret "secret"}
             :patient-questionnaire {:grant_types [:basic]
                                     :secret "secret"}}
-   :AuthConfig {:app {:twoFactor {:issuerName #env TWO_FACTOR_ISSUER_NAME,
+   :AuthConfig {:app {:theme {:brand "UCF MammoChat",
+                              :title "UCF MammoChat",
+                              :styleUrl #env AIDBOX_CSS}
+                      :twoFactor {:issuerName #env TWO_FACTOR_ISSUER_NAME,
                                   :validPastTokensCount #env-integer TWO_FACTOR_VALID_PAST_TOKENS_COUNT,
                                   :webhook {:endpoint #env TWO_FACTOR_WEBHOOK_URL
                                             :headers {:Authorization #env TWO_FACTOR_WEBHOOK_AUTHORIZATION}}}}},
