@@ -11,11 +11,11 @@ launchContext:
     type:
       - Patient
 item:
-  - text: '**Authorization to Use and Disclose Protected Health Information**'
+  - text: 'Authorization to Use and Disclose Protected Health Information'
     type: display
     linkId: AOjGTi2c
   - text: >-
-      **Research Study Title: **Elucidating the Impact of Social Wellness and
+      Research Study Title: Elucidating the Impact of Social Wellness and
       Artificial Intelligence on the Psychological Consequences of Breast Cancer
       Imaging
     type: display

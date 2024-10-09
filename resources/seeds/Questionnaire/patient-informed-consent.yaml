@@ -14,26 +14,26 @@ launchContext:
       
 item:
   - text: >
-      **Title of research study:** 
+      Title of research study: 
 
       Elucidating the Impact of Social Wellness and Artificial Intelligence on
       the Psychological Consequences of Breast Cancer Imaging
 
 
-      **Principal Investigator:** Dexter Hadley, MD, PhD
+      Principal Investigator: Dexter Hadley, MD, PhD
 
 
-      **Co-Investigator(s):** Amoy Fraser, PhD     
+      Co-Investigator(s): Amoy Fraser, PhD     
     type: display
     linkId: z98mm78j
   - text: >
-      **Key Information: **The following is a short summary of this study to
+      Key Information: The following is a short summary of this study to
       help you decide whether to be a part of this study. More detailed
       information is listed later in this form.
     type: display
     linkId: eYN0akTQ
   - text: >
-      **Why am I being invited to take part in a research study?**
+      Why am I being invited to take part in a research study?
 
 
       We invite you to take part in a research data repository and community
@@ -62,7 +62,7 @@ item:
             code: 'no'
             display: 'No'
   - text: >
-      **Why is this research being done?**
+      Why is this research being done?
 
 
       With over 40,000,000 mammograms run annually in the US, there are
@@ -78,7 +78,7 @@ item:
     type: display
     linkId: xKw3sPt1
   - text: >
-      **How long will the research last and what will I need to do?**
+      How long will the research last and what will I need to do?
 
 
       We expect that you will be in this research data repository indefinitely
@@ -118,11 +118,11 @@ item:
 
 
       More detailed information about the study procedures can be found under
-      _**“What happens if I say yes, I want to be in this research?”**_
+      _“What happens if I say yes, I want to be in this research?”_
     type: display
     linkId: DPxG6h2h
   - text: >-
-      **Is there any way being in this study could be bad for me?**
+      Is there any way being in this study could be bad for me?
 
 
       Although we will do our best to protect your personal information, there
@@ -152,7 +152,7 @@ item:
             code: 'no'
             display: 'No'
   - text: >
-      **Will being in this study help me in any way?**
+      Will being in this study help me in any way?
 
 
       The latest clinical guidelines suggest that normal risk women start
@@ -188,11 +188,11 @@ item:
     type: display
     linkId: NNZeiGGP
   - text: >+
-      **Detailed Information: **The following is more detailed information about
+      Detailed Information: The following is more detailed information about
       this study in addition to the information listed above.
 
 
-      **What should I know about a research study?**
+      What should I know about a research study?
 
       - Someone will explain this research study to you.
 
@@ -209,7 +209,7 @@ item:
     type: display
     linkId: wamPwiI7
   - text: >
-      **Who can I talk to?**
+      Who can I talk to?
 
 
       If you have questions, concerns, or complaints, or think this research
@@ -249,14 +249,14 @@ item:
             code: 'no'
             display: 'No'
   - text: >
-      **How many people will be studied?**
+      How many people will be studied?
 
 
       We expect a maximum of 20,000 people will take part in this research
       repository platform.
 
 
-      **What happens if I say yes, I want to be in this research?**
+      What happens if I say yes, I want to be in this research?
 
 
       The research platform will collect and store your identifiers (name, date
@@ -266,7 +266,7 @@ item:
       the web application (app).
 
 
-      **Survey**
+      Survey
 
 
       If you agree to participate in this project, you will be asked to complete
@@ -278,7 +278,7 @@ item:
       brief and will take you about 30 minutes to fill out. 
 
 
-      **Data Transfer and Sync**
+      Data Transfer and Sync
 
 
       If you agree to participate in this platform, you will be asked to sign
@@ -294,7 +294,7 @@ item:
       track all IP addresses of all database transactions as a precaution.
 
 
-      **Personalized Dashboard**
+      Personalized Dashboard
 
 
       Once you agree to participate in this platform, you will have access to a
@@ -315,7 +315,7 @@ item:
     type: display
     linkId: 1yaeaXkJ
   - text: >
-      **What happens if I say yes, but I change my mind later?**
+      What happens if I say yes, but I change my mind later?
 
 
       You can leave the research platform at any time. It will not be held
@@ -338,9 +338,9 @@ item:
       images will remain indefinitely in the repository for ongoing research.  
 
 
-      **
+      
 
-      What happens to the information collected for the research?**
+      What happens to the information collected for the research?
 
       Efforts will be made to limit the use and disclosure of your personal
       information, including research study and medical records, to people who
@@ -407,7 +407,7 @@ item:
             code: 'no'
             display: 'No'
   - text: >
-      **What else do I need to know?**
+      What else do I need to know?
 
 
       Your eligibility to take part in this research project depends on your
