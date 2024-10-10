@@ -1,8 +1,7 @@
 import uuid
 
 from app.aidbox.sdk import sdk
-from app.config.emr import FRONTEND_URL
-from app.aidbox.notification import notification_sub
+from app.config.emr import FRONTEND_URL, EMAIL_PROVIDER
 
 @sdk.subscription("User")
 async def user_created(event, request):
@@ -16,7 +15,7 @@ async def user_created(event, request):
             notification = aidbox.resource(
                 "Notification",
                 **{
-                    "provider": "smtp-provider",
+                    "provider": EMAIL_PROVIDER,
                     "providerData": {
                         "to": user["email"],
                         "subject": "Password reset",
@@ -32,11 +31,4 @@ async def user_created(event, request):
                 },
             )
             await notification.save()
-
-
-@sdk.subscription("Notification")
-async def notification_handler(event, request):
-    aidbox = request.app["client"]
-    notification = aidbox.resource("Notification", **event["resource"])
-
-    await notification_sub(request.app, event["action"], notification, None)
+            await notification.execute("$send")

@@ -40,6 +40,12 @@
                         :secret "secret"}
             :patient-questionnaire {:grant_types [:basic]
                                     :secret "secret"}}
+   :AidboxConfig {:provider {:provider
+                             {:console { :type "console" }
+                              :postmark {:type "postmark"
+                                         :from "no-reply@ucfwealth.app"
+                                         :api-key #env POSTMARK_TOKEN}
+                              :default #env SMTP_PROVIDER }}}
    :AuthConfig {:app {:theme {:brand "UCF MammoChat",
                               :title "UCF MammoChat",
                               :styleUrl #env AIDBOX_CSS}
