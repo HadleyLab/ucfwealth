@@ -13,4 +13,4 @@ AIO_HOST=0.0.0.0
 TWO_FACTOR_ISSUER_NAME=MammoChat
 TWO_FACTOR_VALID_PAST_TOKENS_COUNT=5
 TWO_FACTOR_WEBHOOK_URL="http://devbox:8080/webhook/two-factor-confirmation"
-TWO_FACTOR_WEBHOOK_AUTHORIZATION="Basic cm9vdDpzZWNyZXQ=" # root:secret
+TWO_FACTOR_WEBHOOK_AUTHORIZATION="Basic dHdvZmF3ZWJob29rOnNlY3JldA==" # twofawebhook:secret

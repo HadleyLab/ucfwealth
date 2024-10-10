@@ -38,6 +38,8 @@
                        :secret "123456"}
             :anonymous {:grant_types [:basic]
                         :secret "secret"}
+            :twofawebhook {:grant_types [:basic]
+                           :secret #env TWO_FA_SECRET}
             :patient-questionnaire {:grant_types [:basic]
                                     :secret "secret"}}
    :AidboxConfig {:provider {:provider
@@ -97,6 +99,9 @@
                                                    :roleName "patient"}
                              :receptionist-role-policy {:engine "allow"
                                                         :roleName "receptionist"}
+                             :twofawebhookaccess
+                             {:engine "allow"
+                              :link [{:resourceType "Client" :id "twofawebhook"}]}
                              :public-appointment-policy
                              {:engine "allow"
                               :link [{:resourceType "Client" :id "anonymous"}]}

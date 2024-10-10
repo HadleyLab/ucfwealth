@@ -37,3 +37,4 @@ TWO_FACTOR_WEBHOOK_URL="http://devbox:8080/webhook/two-factor-confirmation"
 TWO_FACTOR_WEBHOOK_AUTHORIZATION="Basic cm9vdDpzZWNyZXQ=" # root:secret
 AIDBOX_CSS=http://localhost:3000/aidbox.css
 SMTP_PROVIDER=console
+TWO_FA_SECRET=secret
