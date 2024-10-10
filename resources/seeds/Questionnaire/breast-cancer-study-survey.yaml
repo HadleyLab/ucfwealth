@@ -76,24 +76,32 @@ item:
                 display: Married/partnered
           - value:
               Coding:
-                code: '3'
+                code: '2'
                 system: ''
                 display: Divorced/separated
           - value:
               Coding:
-                code: '4'
+                code: '3'
                 system: ''
                 display: Widowed
       - text: Q9 What is your current menopausal status?
         type: choice
         linkId: menopausalStatus
         answerOption:
+           - value:
+              Coding:
+                code: '0'
+                display: Pre-menopause
           - value:
-              integer: 0
+              Coding:
+                code: '1'
+                system: ''
+                display: Post-menopause (natural/surgical)
           - value:
-              integer: 1
-          - value:
-              integer: 3
+              Coding:
+                code: '3'
+                system: ''
+                display: "I don't know what my current menopausal status is"
     text: Demographic factors
     type: group
     linkId: demographicFactors
