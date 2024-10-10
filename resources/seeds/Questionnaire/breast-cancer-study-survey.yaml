@@ -88,7 +88,7 @@ item:
         type: choice
         linkId: menopausalStatus
         answerOption:
-           - value:
+          - value:
               Coding:
                 code: '0'
                 display: Pre-menopause
