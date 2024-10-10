@@ -23,6 +23,7 @@ item:
   - linkId: first-name
     type: string
     text: First name
+    required: true
     initialExpression:
       language: text/fhirpath
       expression: "%Patient.name.given[0]"

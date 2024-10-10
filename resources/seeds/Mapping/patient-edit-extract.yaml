@@ -20,6 +20,9 @@ body:
     firstName: >-
       $
       fhirpath("QuestionnaireResponse.repeat(item).where(linkId='first-name').answer.valueString").0
+    address: >-
+      $
+      fhirpath("QuestionnaireResponse.repeat(item).where(linkId='address').answer.valueString").0
     patientId: >-
       $
       fhirpath("QuestionnaireResponse.repeat(item).where(linkId='patient-id').answer.valueString").0
@@ -29,7 +32,7 @@ body:
     entry:
       - request:
           url: $ "/Patient/" + patientId
-          method: PUT
+          method: PATCH
         resource:
           name:
             - given:
@@ -45,5 +48,7 @@ body:
           identifier:
               - $ appleIdentifier
           active: true
+          address:
+            - text: $ address
           resourceType: Patient
     resourceType: Bundle

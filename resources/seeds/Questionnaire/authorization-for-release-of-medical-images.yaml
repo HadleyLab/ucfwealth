@@ -10,10 +10,21 @@ launchContext:
       code: Patient
     type:
       - Patient
+mapping:
+  - id: patient-edit-extract
+    resourceType: Mapping
 item:
+  - linkId: patient-id
+    type: string
+    text: patientId
+    readOnly: true
+    hidden: true
+    initialExpression:
+      language: text/fhirpath
+      expression: "%Patient.id"
   - text: 'Authorization to Use and Disclose Protected Health Information'
     type: display
-    linkId: AOjGTi2c
+    linkId: authorizationToUse
   - text: >-
       Research Study Title: Elucidating the Impact of Social Wellness and
       Artificial Intelligence on the Psychological Consequences of Breast Cancer
@@ -26,28 +37,49 @@ item:
   - text: 'Co-Investigator: Amoy Fraser, PhD'
     type: display
     linkId: coInvestigator
-  - text: Name of Research Participant
+  - text: Research Participant
+    type: display
+    linkId: researchParticipant
+  - linkId: first-name
     type: string
-    linkId: participantName
-  - text: Date of Birth
+    text: First name
+    required: true
+    initialExpression:
+      language: text/fhirpath
+      expression: "%Patient.name.given[0]"
+  - linkId: last-name
+    type: string
+    text: Last name
+    required: true
+    initialExpression:
+      language: text/fhirpath
+      expression: "%Patient.name.family"
+  - linkId: birth-date
     type: date
-    linkId: dateOfBirth
-  - text: Street Address
+    text: Birth date
+    required: true
+    initialExpression:
+      language: text/fhirpath
+      expression: "%Patient.birthDate"
+  - text: Street Address, City, State & Zip Code
     type: string
-    linkId: streetAddress
-  - text: City, State & Zip Code
-    type: string
-    linkId: cityStateZip
+    linkId: address
+    required: true
+    initialExpression:
+      language: text/fhirpath
+      expression: "%Patient.address.text"
   - text: >-
       By signing this form, I voluntarily authorize ____________________________
       to release my radiographic breast cancer imaging and related health
       information taken on or
     type: string
+    required: true
     linkId: authorizationRelease
   - text: >-
       about_____________________ (approximate dates of imaging) to University of
       Central Florida.
     type: date
+    required: true
     linkId: useForResearch
   - text: >-
       By signing this form, I voluntarily authorize, give my permission and
@@ -63,26 +95,22 @@ item:
       I have read all pages of this form and agree to the disclosures above from
       the types of sources listed.
     type: boolean
+    required: true
     linkId: readAgreeDisclosure
   - text: >-
       Print Name of Participant or Participant’s Legal Representative (if
       applicable)
     type: string
+    required: true
     linkId: printName
   - text: Signature of Participant or Participant’s Legal Representative
     type: string
+    required: true
     linkId: signature
   - text: 'Date Signed '
     type: date
+    required: true
     linkId: dateSigned
-  - text: PatientId
-    type: string
-    hidden: true
-    linkId: patientId
-    initialExpression:
-      language: text/fhirpath
-      expression: '%Patient.id'
-
 meta:
   profile:
     - https://beda.software/beda-emr-questionnaire
