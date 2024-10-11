@@ -1,0 +1,7 @@
+link:
+ - resourceType: Client
+   id: twofawebhook
+engine: matcho
+matcho:
+  uri: /webhook/two-factor-confirmation
+  request-method: post
