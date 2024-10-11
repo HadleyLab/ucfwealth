@@ -1,0 +1,87 @@
+or:
+  - engine: matcho
+    matcho:
+      params:
+        resource/type: QuestionnaireResponse
+      resource:
+        id: nil?
+        subject:
+          $reference:
+            id: .role.links.patient.id
+      operation:
+        id: FhirCreate
+        resourceType: Operation
+  - engine: matcho
+    matcho:
+      params:
+        resource/id: .role.links.patient.id
+        resource/type: Patient
+      operation:
+        id: FhirPatch
+        resourceType: Operation
+  - engine: matcho
+    matcho:
+      operation:
+        id: FhirTransaction
+        resourceType: Operation
+  - engine: matcho
+    matcho:
+      params:
+        resource/type: QuestionnaireResponse
+      resource:
+        id: nil?
+        subject: nil?
+      operation:
+        id: FhirCreate
+        resourceType: Operation
+  - engine: matcho
+    matcho:
+      params:
+        subject:
+          $reference:
+            id: .role.links.patient.id
+        resource/type: QuestionnaireResponse
+      operation:
+        id: FhirSearch
+        resourceType: Operation
+  - engine: matcho
+    matcho:
+      params:
+        resource/type: Questionnaire
+      operation:
+        id: FhirSearch
+        resourceType: Operation
+  - engine: matcho
+    matcho:
+      params:
+        _id: .role.links.patient.id
+        active:not: 'false'
+        _revinclude: CarePlan:subject
+        resource/type: Patient
+      operation:
+        id: FhirSearch
+        resourceType: Operation
+  - engine: matcho
+    matcho:
+      params:
+        resource/id: .role.links.patient.id
+        resource/type: Patient
+      operation:
+        id: FhirRead
+        resourceType: Operation
+  - engine: matcho
+    matcho:
+      uri:
+        $one-of:
+          - /app/auth/two-factor/request
+          - /app/auth/two-factor/confirm
+          - /fhir/Questionnaire/$populate
+      request-method: post
+  - engine: matcho
+    matcho:
+      uri:
+        $one-of:
+          - '#^/fhir/Questionnaire/.*/\$assemble'
+      request-method: get
+engine: complex
+roleName: patient
