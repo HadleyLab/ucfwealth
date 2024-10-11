@@ -1,11 +1,11 @@
 or:
   - engine: matcho
     matcho:
-      uri: /fhir/Questionnaire/patient-create/$assemble
+      uri: /fhir/Questionnaire/patient-create
       request-method: get
   - engine: matcho
     matcho:
-      uri: /fhir/Questionnaire/set-password/$assemble
+      uri: /fhir/Questionnaire/set-password
       request-method: get
   - engine: matcho
     matcho:
@@ -18,11 +18,36 @@ or:
   - engine: matcho
     matcho:
       uri: /fhir/User
-      request-method: patch
       params:
-       .data.reset_token: string?
+        .data.reset_token: string?
+      request-method: patch
   - engine: matcho
     matcho:
       uri: /fhir/
       request-method: post
+  - engine: matcho
+    matcho:
+      params:
+        resource/type: Patient
+      operation:
+        id: FhirCreate
+        resourceType: Operation
+  - engine: matcho
+    matcho:
+      params:
+        password: nil?
+        resource/type: User
+      operation:
+        id: FhirCreate
+        resourceType: Operation
+  - engine: matcho
+    matcho:
+      body:
+        id: nil?
+        name: patient
+      params:
+        resource/type: Role
+      operation:
+        id: FhirCreate
+        resourceType: Operation
 engine: complex
