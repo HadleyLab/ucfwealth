@@ -9,6 +9,10 @@ or:
       request-method: get
   - engine: matcho
     matcho:
+      uri: /fhir/Questionnaire/forgot-password
+      request-method: get
+  - engine: matcho
+    matcho:
       uri: /fhir/QuestionnaireResponse/$constraint-check
       request-method: post
   - engine: matcho
