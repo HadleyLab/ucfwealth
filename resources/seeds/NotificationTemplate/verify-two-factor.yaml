@@ -1,5 +1,12 @@
-subject: Verify two factor
+subject: UCF MammoChat Two-Factor Authentication
 template: |-
-  <p>Dear  {{user.name.givenName}},<br />
-     Your code is {{token}} </p>
+  <p>
+  Hi {{user.name.givenName}} {{user.name.familyName}},<br />
+  To ensure the security of your account, we require a two-factor authentication (2FA) process.
+  Please use the verification code below to complete your login:<br />
+  Your Verification Code: {{token}}<br />
+  <a href="mailto:Dexter.Hadley@ucf.edu>Dexter.Hadley@ucf.edu</a> <br />
+  Best, <br />
+  The UCF MammoChat Team
+  </p>
 id: verify-two-factor

@@ -42,6 +42,9 @@ body:
             username: $ email
           email: $ email
           resourceType: User
+          name:
+            familyName: $ lastName
+            givenName: $ firstName
       - request:
           url: /Role
           method: POST

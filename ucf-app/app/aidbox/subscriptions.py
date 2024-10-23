@@ -18,9 +18,9 @@ async def user_created(event, request):
                     "provider": EMAIL_PROVIDER,
                     "providerData": {
                         "to": user["email"],
-                        "subject": "Password reset",
+                        "subject": "Welcome to UCF Mammogram Research Study!",
                         "template": {
-                            "id": "reset-user-password",
+                            "id": "new-user",
                             "resourceType": "NotificationTemplate",
                         },
                         "payload": {
