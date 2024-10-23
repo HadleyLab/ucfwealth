@@ -23,7 +23,11 @@ async def send_confirmation_token(client: AsyncAidboxClient, user: AsyncAidboxRe
         "OTP for user {email}: {token}".format(email=user["email"], token=token)
     )
 
-    await send_email(client, user["email"], "verify-two-factor", {
-        "token": token,
-        "user": user.serialize()
-    })
+    await send_email(
+        client, user["email"],
+        "verify-two-factor",
+        "UCF MammoChat Two-Factor Authentication",
+        {
+            "token": token,
+            "user": user.serialize()
+        })

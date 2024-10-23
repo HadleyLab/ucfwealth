@@ -4,7 +4,7 @@ from aidbox_python_sdk.aidboxpy import AsyncAidboxClient
 from app.config import emr as emr_config
 
 async def send_email(
-    client: AsyncAidboxClient, to, template_id, payload, attachments=None, *, save=True
+        client: AsyncAidboxClient, to, template_id, subject, payload, attachments=None, *, save=True
 ):
     notification = client.resource(
         "Notification",
@@ -13,6 +13,7 @@ async def send_email(
             "fromApp": True,
             "type": "email",
             "to": to,
+            "subject": subject,
             "payload": payload,
             "template": {"resourceType": "NotificationTemplate", "id": template_id},
             "attachments": attachments or [],
