@@ -1,6 +1,7 @@
 from aidbox_python_sdk.main import create_app
 from aiohttp import web
 import app.aidbox
+import app.auth
 
 from app.aidbox.sdk import sdk
 

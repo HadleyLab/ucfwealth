@@ -1,0 +1,8 @@
+name: email
+where: lower({{table}}.resource#>>'{email}') = lower({{param}})
+format: '?'
+resource:
+  id: User
+  resourceType: Entity
+id: User.email
+resourceType: Search
