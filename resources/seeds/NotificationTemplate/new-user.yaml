@@ -2,10 +2,14 @@ subject: Welcome to UCF Mammogram Research Study!
 template: |-
   <p>
   Hi {{user.name.givenName}} {{user.name.familyName}},<br />
+  <br />
   Welcome aboard the MammoChat train! We're excited you have taken the first to being part of UCF’s Mammogram Research Study. <br />
+  <br />
   Get started by set your password: <a href="{{confirm-href}}">{{ confirm-href }}</a> <br />
+  <br />
   If you have any questions, please contact us at Dexter.Hadley@ucf.edu <br />
   Enjoy your journey! <br />
+  <br />
   Best, <br />
   The UCF MammoChat Team
   </p>
