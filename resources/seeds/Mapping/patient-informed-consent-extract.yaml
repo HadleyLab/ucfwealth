@@ -1,0 +1,45 @@
+resourceType: Mapping
+id: patient-informed-consent-extract
+body:
+  $let:
+    patientId: >-
+      $
+      fhirpath("QuestionnaireResponse.repeat(item).where(linkId='patient-id').answer.valueString").0
+    qrId: $ fhirpath("QuestionnaireResponse.id")
+  $body:
+    resourceType: Bundle
+    type: transaction
+    entry:
+      - request:
+          url: /Consent
+          method: POST
+        resource:
+          resourceType: Consent
+          status: active
+          patient:
+            reference: $ "Patient/" + patientId
+          scope:
+            coding:
+              - code: patient-privacy
+                system: http://terminology.hl7.org/CodeSystem/consentscope
+                display: Privacy Consent
+          performer:
+            - reference: $ "Patient/" + patientId
+          sourceReference:
+            reference: $ "QuestionnaireResponse/" + qrId
+          category:
+            - coding:
+                - code: npp
+                  system: http://terminology.hl7.org/CodeSystem/consentcategorycodes
+              text: Terms and Conditions
+          provision:
+            type: permit
+            action:
+              - coding:
+                  - code: collect
+                    display: Collect
+                    system: http://terminology.hl7.org/CodeSystem/consentaction
+              - coding:
+                  - code: use
+                    display: Use
+                    system: http://terminology.hl7.org/CodeSystem/consentaction

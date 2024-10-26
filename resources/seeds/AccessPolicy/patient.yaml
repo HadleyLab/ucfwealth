@@ -71,6 +71,23 @@ or:
         resourceType: Operation
   - engine: matcho
     matcho:
+      params:
+        patient:
+          $reference:
+            id: .role.links.patient.id
+        resource/type: Consent
+      request-method: get
+  - engine: matcho
+    matcho:
+      params:
+        resource/type: Consent
+      resource:
+        patient:
+          $reference:
+            id: .role.links.patient.id
+      request-method: post
+  - engine: matcho
+    matcho:
       uri:
         $one-of:
           - /app/auth/two-factor/request

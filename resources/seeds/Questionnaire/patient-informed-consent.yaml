@@ -3,7 +3,9 @@ resourceType: Questionnaire
 name: patient-informed-consent
 title: Informed Consent
 status: active
-
+mapping:
+  - id: patient-informed-consent-extract
+    resourceType: Mapping
 subjectType:
   - Patient
 launchContext:
@@ -13,6 +15,14 @@ launchContext:
       - Patient
       
 item:
+  - linkId: patient-id
+    type: string
+    text: patientId
+    readOnly: true
+    hidden: true
+    initialExpression:
+      language: text/fhirpath
+      expression: "%Patient.id"
   - text: >
       Title of research study: 
 
