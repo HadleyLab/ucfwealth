@@ -2,6 +2,13 @@ or:
   - engine: matcho
     matcho:
       params:
+        query: provenance-by-source
+      operation:
+        id: CustomQuery
+        resourceType: Operation
+  - engine: matcho
+    matcho:
+      params:
         resource/type: QuestionnaireResponse
       resource:
         id: nil?
