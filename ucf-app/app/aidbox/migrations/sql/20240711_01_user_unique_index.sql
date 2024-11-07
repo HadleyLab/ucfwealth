@@ -1,0 +1,1 @@
+CREATE UNIQUE INDEX user_email_unique_index ON public.user ((jsonb_path_query_first(resource, '$.email')));
