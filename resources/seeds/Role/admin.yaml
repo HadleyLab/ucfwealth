@@ -4,7 +4,7 @@ user:
   resourceType: User
 links:
   organization:
-    id: beda-emr
+    id: mammochat
     resourceType: Organization
 id: admin
 resourceType: Role
