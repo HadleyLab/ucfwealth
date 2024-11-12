@@ -6,6 +6,8 @@ from app.config.emr import FRONTEND_URL, EMAIL_PROVIDER
 from datetime import timedelta
 
 from app.fhirdate import format_fhir_date_time, get_now
+from fhirpathpy import evaluate
+import logging
 
 
 @sdk.subscription("User")
@@ -46,4 +48,65 @@ async def user_created(event, request):
                 },
             )
             await notification.save()
+            await notification.execute("$send")
+
+
+study_coordinator_email = 'Amoy.Fraser@ucf.edu'
+
+@sdk.subscription("QuestionnaireResponse")
+async def send_qr_notification(event, request):
+    qr = event["resource"]
+    aidbox = request.app["client"]
+    if event["action"] == "create" and qr["status"] == "completed":
+        logging.debug("QR created %s", qr["id"])
+        if qr["questionnaire"] in ["patient-informed-consent", "authorization-for-release-of-medical-images"]:
+            logging.debug("Processing %s", qr["id"])
+            patient_id = qr["subject"]["id"]
+            qr_id = qr["id"]
+            patient = await aidbox.reference("Patient", patient_id).to_resource()
+            questionnaire = await aidbox.reference("Questionnaire", qr["questionnaire"]).to_resource()
+            emails = evaluate(patient, "Patient.telecom.where(system='email').value")
+            if len(emails) == 1:
+                patient_email = emails[0]
+                notification = aidbox.resource(
+                    "Notification",
+                    **{
+                        "provider": EMAIL_PROVIDER,
+                        "providerData": {
+                            "to": patient_email,
+                            "subject": f"Copy of your {questionnaire['title']}",
+                            "template": {
+                                "id": "questionnaire-pdf",
+                                "resourceType": "NotificationTemplate",
+                            },
+                            "payload": {
+                                "print-href": f"{FRONTEND_URL}/print-patient-document/{patient_id}/{qr_id}",
+                            },
+                        },
+                    },
+                )
+                await notification.save()
+                logging.debug("Notifing patient %s", notification['id'])
+                await notification.execute("$send")
+
+            patient_name = evaluate(patient, "Patient.name.given + ' ' + Patient.name.family")[0]
+            notification = aidbox.resource(
+                "Notification",
+                **{
+                    "provider": EMAIL_PROVIDER,
+                    "providerData": {
+                        "to": study_coordinator_email,
+                        "subject": f"Copy of {patient_name} {questionnaire['title']}",
+                        "template": {
+                            "id": "questionnaire-pdf",
+                            "resourceType": "NotificationTemplate",
+                        },
+                        "payload": {
+                            "print-href": f"{FRONTEND_URL}/print-patient-document/{patient_id}/{qr_id}",
+                        },
+                    },
+                },
+            )
+            await notification.save()
+            logging.debug("Notifing study coordinator %s", notification['id'])
             await notification.execute("$send")
