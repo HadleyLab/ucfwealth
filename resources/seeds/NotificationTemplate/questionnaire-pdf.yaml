@@ -1,0 +1,6 @@
+subject: Copy of your questionanire
+template: |-
+  <p>
+  New questionnaire response on MammoChat: {{ print-href }}
+  </p>
+id: questionnaire-pdf
