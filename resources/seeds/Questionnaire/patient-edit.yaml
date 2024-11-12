@@ -57,6 +57,12 @@ item:
     initialExpression:
       language: text/fhirpath
       expression: "%Questionnaire.repeat(item).where(linkId='gender').answerOption.valueCoding.where(code=%Patient.gender)"
+  - text: Street Address, City, State & Zip Code
+    type: string
+    linkId: address
+    initialExpression:
+      language: text/fhirpath
+      expression: "%Patient.address.text"
   - linkId: mobile
     type: string
     text: Phone number

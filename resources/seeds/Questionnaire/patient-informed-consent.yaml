@@ -456,7 +456,11 @@ item:
     linkId: lD3PAY-3
   - text: Name of Participant
     type: string
-    linkId: 3K6koDnv
+    linkId: participant-name
+    initialExpression:
+      language: text/fhirpath
+      expression: >-
+        %Patient.name.first().given.first() + ' ' + %Patient.name.first().family
   - text: Signature of Participant
     type: attachment
     linkId: hgqGGjA5
