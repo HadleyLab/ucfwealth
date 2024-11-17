@@ -17,6 +17,9 @@ item:
           - text: Q2 Patient’s last name
             type: string
             linkId: FAjDpQF4
+            initialExpression:
+              language: text/fhirpath
+              expression: "%Patient.name.family"
           - text: 'Q3 Please indicate your sex:'
             type: choice
             linkId: sex
@@ -32,6 +35,9 @@ item:
           - text: Q4 What is your date of birth? DD/MM/YYYY
             type: date
             linkId: dateOfBirth
+            initialExpression:
+              language: text/fhirpath
+              expression: "%Patient.birthDate"
           - text: Q5 What is your country of residence?
             type: string
             linkId: countryOfResidence
