@@ -71,19 +71,24 @@ item:
   - text: >-
       By signing this form, I voluntarily authorize <input/>
       to release my radiographic breast cancer imaging and related health
-      information taken on or
+      information taken on or about
     type: string
     required: true
     linkId: authorizationRelease
     itemControl:
       coding:
         - code: input-inside-text
-  - text: >-
-      about_____________________ (approximate dates of imaging) to University of
-      Central Florida.
+  - text: Date from
     type: date
     required: true
-    linkId: useForResearch
+    linkId: dateFrom
+  - text: Date to
+    type: date
+    required: true
+    linkId: dateTo
+  - text: (approximate dates of imaging) to University of Central Florida.
+    type: display
+    linkId: approximate-dates-display
   - text: >-
       By signing this form, I voluntarily authorize, give my permission and
       allow use and disclosure of my radiographic breast cancer imaging and
