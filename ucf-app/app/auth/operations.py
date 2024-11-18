@@ -112,7 +112,7 @@ async def set_password_op(operation, request):
         await client.resources("SetPasswordToken").search(_id=set_password_token_id).first()
     )
     if not is_set_password_token_valid(set_password_token):
-        raise OperationOutcome(reason="Invalid request")
+        raise OperationOutcome(reason="The reset password link is expired, please request a new one")
     user = await set_password_token["user"].to_resource()
 
     await user.patch(**{"password": password})
