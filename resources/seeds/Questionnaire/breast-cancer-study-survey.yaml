@@ -11,15 +11,6 @@ item:
         - code: wizard
     item:
       - item:
-          - text: Q1 Indicate this patient’s medical record number
-            type: string
-            linkId: 8QMw5Ie7
-          - text: Q2 Patient’s last name
-            type: string
-            linkId: FAjDpQF4
-            initialExpression:
-              language: text/fhirpath
-              expression: "%Patient.name.family"
           - text: 'Q3 Please indicate your sex:'
             type: choice
             linkId: sex
