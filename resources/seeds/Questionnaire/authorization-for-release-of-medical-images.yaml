@@ -106,12 +106,11 @@ item:
     required: true
     linkId: readAgreeDisclosure
   - text: >-
-      Print Name of Participant or Participant’s Legal Representative (if
-      applicable)
+      Print Name of Participant
     type: string
     required: true
     linkId: printName
-  - text: Signature of Participant or Participant’s Legal Representative
+  - text: Signature of Participant
     type: string
     required: true
     linkId: signature
