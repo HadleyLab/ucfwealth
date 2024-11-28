@@ -8,7 +8,7 @@ item:
     linkId: wizard
     itemControl:
       coding:
-        - code: wizard
+        - code: wizard-with-tooltips
     item:
       - item:
           - text: 'Q3 Please indicate your sex:'
