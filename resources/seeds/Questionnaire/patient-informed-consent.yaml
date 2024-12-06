@@ -462,12 +462,8 @@ item:
       expression: >-
         %Patient.name.first().given.first() + ' ' + %Patient.name.first().family
   - text: Signature of Participant
-    type: attachment
+    type: string
     linkId: hgqGGjA5
-    itemControl:
-      coding:
-        - code: signature
-          system: http://aidbox.io/questionnaire-itemControl
   - text: Date
     type: date
     linkId: mskpK4lQ
