@@ -13,7 +13,6 @@ launchContext:
       code: Patient
     type:
       - Patient
-      
 item:
   - linkId: patient-id
     type: string
@@ -24,7 +23,7 @@ item:
       language: text/fhirpath
       expression: "%Patient.id"
   - text: >
-      Title of research study: 
+      Title of research study:  
 
       Elucidating the Impact of Social Wellness and Artificial Intelligence on
       the Psychological Consequences of Breast Cancer Imaging
@@ -33,7 +32,10 @@ item:
       Principal Investigator: Dexter Hadley, MD, PhD
 
 
-      Co-Investigator(s): Amoy Fraser, PhD     
+      Co-Investigator(s): Amoy Fraser, PhD
+    itemControl:
+      coding:
+      - code: markdown
     type: display
     linkId: z98mm78j
   - text: >
