@@ -56,6 +56,9 @@ item:
       email account and access to a reliable internet connection or smartphone.
       Pregnant women may choose to participate in this data repository and
       community.
+    itemControl:
+      coding:
+      - code: markdown
     type: display
     linkId: YMacy46Q
   - text: >-
@@ -87,6 +90,9 @@ item:
       de-identified breast cancer radiographic imaging repository. This project
       also aims to document how patients may use a trusted social health or
       wellness network to better understand their imaging.
+    itemControl:
+      coding:
+      - code: markdown
     type: display
     linkId: xKw3sPt1
   - text: >
@@ -131,6 +137,9 @@ item:
 
       More detailed information about the study procedures can be found under
       _“What happens if I say yes, I want to be in this research?”_
+    itemControl:
+      coding:
+      - code: markdown
     type: display
     linkId: DPxG6h2h
   - text: >-
@@ -146,6 +155,9 @@ item:
       researchers. You can reach Dr. Hadley at Dexter.Hadley@UCF.edu. If you
       want to speak to someone not directly involved in the research study,
       please contact the UCF Institutional Review Board at 407-823-2901.
+    itemControl:
+      coding:
+      - code: markdown
     type: display
     linkId: 4-Opo8sT
   - text: >-
@@ -197,6 +209,9 @@ item:
       advice or delay in seeking care because of something you have read as part
       of this study. If you think you may have a medical emergency, please call
       your doctor or dial 911 immediately.
+    itemControl:
+      coding:
+      - code: markdown
     type: display
     linkId: NNZeiGGP
   - text: >+
@@ -218,6 +233,9 @@ item:
 
       - You can ask all the questions you want before you decide.
 
+    itemControl:
+      coding:
+      - code: markdown
     type: display
     linkId: wamPwiI7
   - text: >
@@ -243,6 +261,9 @@ item:
       - You have questions about your rights as a research subject.
 
       - You want to get information or provide input about this research.
+    itemControl:
+      coding:
+      - code: markdown
     type: display
     linkId: 9y1Uxnvk
   - text: >-
@@ -324,6 +345,9 @@ item:
       platform will be analyzed to determine the effect of the activity on your
       social wellness on reducing the psychological consequences of breast
       imaging.
+    itemControl:
+      coding:
+      - code: markdown
     type: display
     linkId: 1yaeaXkJ
   - text: >
@@ -401,6 +425,9 @@ item:
 
       Federal law provides additional protections of your medical records and
       related health information. These are described in an attached document.
+    itemControl:
+      coding:
+      - code: markdown
     type: display
     linkId: gxZJpO5x
   - text: >-
@@ -454,6 +481,9 @@ item:
       penalty or lose any benefits to which you are entitled. Your participation
       is completely voluntary and will not affect your enrollment in any health
       plan or access to benefits.
+    itemControl:
+      coding:
+      - code: markdown
     type: display
     linkId: lD3PAY-3
   - text: Name of Participant
