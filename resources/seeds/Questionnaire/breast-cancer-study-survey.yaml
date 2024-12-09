@@ -33,9 +33,10 @@ item:
             type: string
             linkId: countryOfResidence
           - text: Q6 What is your ethnicity?
-            type: choice
+            # type: choice
+            type: string
             linkId: ethnicity
-            answerValueSet: https://connect.ichom.org/fhir/ValueSet/DemographicFactorsEthnicity
+            # answerValueSet: https://connect.ichom.org/fhir/ValueSet/DemographicFactorsEthnicity
           - text: Q7 Please indicate the highest level of schooling completed.
             type: choice
             linkId: schoolingCompleted
