@@ -34,7 +34,7 @@ async def user_created(event, request):
                     "provider": EMAIL_PROVIDER,
                     "providerData": {
                         "to": user["email"],
-                        "subject": "Welcome to UCF Mammogram Research Study!",
+                        "subject": "Welcome to UCF MammoChat Research Study!",
                         "template": {
                             "id": "new-user",
                             "resourceType": "NotificationTemplate",
