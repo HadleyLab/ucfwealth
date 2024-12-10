@@ -35,7 +35,7 @@ item:
           - text: Q6 What is your ethnicity?
             type: choice
             linkId: ethnicity
-            answerValueSet: https://connect.ichom.org/fhir/ValueSet/DemographicFactorsEthnicity
+            answerValueSet: http://terminology.hl7.org/ValueSet/v3-Ethnicity
           - text: Q7 Please indicate the highest level of schooling completed.
             type: choice
             linkId: schoolingCompleted
