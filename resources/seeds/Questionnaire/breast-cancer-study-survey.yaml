@@ -1,7 +1,7 @@
 id: breast-cancer-study-survey
 resourceType: Questionnaire
 name: breast-cancer-study-survey
-title: Breast Cancer study Survey
+title: Breast Cancer Study Survey
 status: active
 item:
   - type: group
