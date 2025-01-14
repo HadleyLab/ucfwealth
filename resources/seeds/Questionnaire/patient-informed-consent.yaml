@@ -496,17 +496,13 @@ item:
   - text: Signature of Participant
     type: string
     linkId: hgqGGjA5
+    initialExpression:
+      language: text/fhirpath
+      expression: >-
+        %Patient.name.first().given.first() + ' ' + %Patient.name.first().family
   - text: Date
     type: date
     linkId: mskpK4lQ
-  - text: PatientId
-    type: string
-    hidden: true
-    linkId: patientId
-    initialExpression:
-      language: text/fhirpath
-      expression: '%Patient.id'
-      
 meta:
   profile:
     - https://beda.software/beda-emr-questionnaire
