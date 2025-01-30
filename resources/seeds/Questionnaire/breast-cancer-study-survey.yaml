@@ -222,6 +222,17 @@ item:
         type: group
         linkId: baselineClinicalFactors
       - item:
+          - text: >-
+              Instructions:
+            linkId: instruction-1
+            type: display
+          - text: >-
+              If you have never been diagnosed with breast cancer, please proceed to the next page.
+            linkId: instruction-2
+            type: display
+          - text: If you have been diagnosed with breast, please complete the questions below.
+            linkId: instruction-3
+            type: display
           - text: Q15 Initial date of histological diagnosis DD/MM/YYYY
             type: date
             linkId: initialDiagnosisDate
@@ -556,17 +567,6 @@ item:
         type: group
         linkId: baselineTumorFactors
       - item:
-          - text: >-
-              Instructions:
-            linkId: instruction-1
-            type: display
-          - text: >-
-              If you have never been diagnosed with breast cancer, please proceed to the next page.
-            linkId: instruction-2
-            type: display
-          - text: If you have been diagnosed with breast, please complete the questions below.
-            linkId: instruction-3
-            type: display
           - text: >-
               Q32 Do you have any trouble doing strenuous activities, like carrying
               a heavy shopping bag or a suitcase?
