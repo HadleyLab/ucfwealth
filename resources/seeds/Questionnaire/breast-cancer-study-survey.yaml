@@ -1483,15 +1483,15 @@ item:
                     display: Very much
           - text: >-
               Instructions:
-            linkId: instruction-3
-            type: display
-          - text: >-
-              If you have never been diagnosed with breast cancer, please proceed to the next page.
             linkId: instruction-4
             type: display
           - text: >-
-              If you have been diagnosed with breast, please complete the questions below.
+              If you have never been diagnosed with breast cancer, please proceed to the next page.
             linkId: instruction-5
+            type: display
+          - text: >-
+              If you have been diagnosed with breast, please complete the questions below.
+            linkId: instruction-6
             type: display
           - text: >-
               Q40 During the past week: Did you have any pain in your arm or
