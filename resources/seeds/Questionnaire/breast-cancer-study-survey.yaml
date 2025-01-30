@@ -11,17 +11,17 @@ item:
         - code: wizard-with-tooltips
     item:
       - item:
-          - text: 'Q3 Please indicate your sex:'
+          - text: "Q3 Please indicate your sex:"
             type: choice
             linkId: sex
             answerOption:
               - value:
                   Coding:
-                    code: '1'
+                    code: "1"
                     display: Male
               - value:
                   Coding:
-                    code: '2'
+                    code: "2"
                     display: Female
           - text: Q4 What is your date of birth? DD/MM/YYYY
             type: date
@@ -45,22 +45,22 @@ item:
             answerOption:
               - value:
                   Coding:
-                    code: '0'
+                    code: "0"
                     display: None
               - value:
                   Coding:
-                    code: '1'
-                    system: ''
+                    code: "1"
+                    system: ""
                     display: Primary
               - value:
                   Coding:
-                    code: '2'
-                    system: ''
+                    code: "2"
+                    system: ""
                     display: Secondary
               - value:
                   Coding:
-                    code: '3'
-                    system: ''
+                    code: "3"
+                    system: ""
                     display: Tertiary
           - text: Q8 What is your relationship status?
             type: choice
@@ -71,22 +71,22 @@ item:
             answerOption:
               - value:
                   Coding:
-                    code: '0'
+                    code: "0"
                     display: Never married/partnered
               - value:
                   Coding:
-                    code: '1'
-                    system: ''
+                    code: "1"
+                    system: ""
                     display: Married/partnered
               - value:
                   Coding:
-                    code: '2'
-                    system: ''
+                    code: "2"
+                    system: ""
                     display: Divorced/separated
               - value:
                   Coding:
-                    code: '3'
-                    system: ''
+                    code: "3"
+                    system: ""
                     display: Widowed
           - text: Q9 What is your current menopausal status?
             type: choice
@@ -94,17 +94,17 @@ item:
             answerOption:
               - value:
                   Coding:
-                    code: '0'
+                    code: "0"
                     display: Pre-menopause
               - value:
                   Coding:
-                    code: '1'
-                    system: ''
+                    code: "1"
+                    system: ""
                     display: Post-menopause (natural/surgical)
               - value:
                   Coding:
-                    code: '3'
-                    system: ''
+                    code: "3"
+                    system: ""
                     display: "I don't know what my current menopausal status is"
         text: Demographic factors
         type: group
@@ -118,55 +118,55 @@ item:
             answerOption:
               - value:
                   Coding:
-                    code: '0'
+                    code: "0"
                     display: I have no other diseases
               - value:
                   Coding:
-                    code: '1'
+                    code: "1"
                     display: Heart disease
               - value:
                   Coding:
-                    code: '2'
+                    code: "2"
                     display: High blood pressure
               - value:
                   Coding:
-                    code: '3'
+                    code: "3"
                     display: Leg pain when walking due to poor circulation
               - value:
                   Coding:
-                    code: '4'
+                    code: "4"
                     display: Lung disease
               - value:
                   Coding:
-                    code: '5'
+                    code: "5"
                     display: Diabetes
               - value:
                   Coding:
-                    code: '6'
+                    code: "6"
                     display: Kidney disease
               - value:
                   Coding:
-                    code: '7'
+                    code: "7"
                     display: Liver disease
               - value:
                   Coding:
-                    code: '8'
+                    code: "8"
                     display: Problems caused by stroke
               - value:
                   Coding:
-                    code: '9'
+                    code: "9"
                     display: Disease of the nervous system
               - value:
                   Coding:
-                    code: '10'
+                    code: "10"
                     display: Other cancer (within the last 5 years)
               - value:
                   Coding:
-                    code: '11'
+                    code: "11"
                     display: Depression
               - value:
                   Coding:
-                    code: '12'
+                    code: "12"
                     display: Arthritis
           - text: >-
               Q11 What is your height? (Please enter as x ft and x inches. For
@@ -182,16 +182,20 @@ item:
             answerOption:
               - value:
                   Coding:
-                    code: '0'
+                    code: "0"
                     display: Left breast
               - value:
                   Coding:
-                    code: '1'
+                    code: "1"
                     display: Right breast
               - value:
                   Coding:
-                    code: '2'
+                    code: "2"
                     display: Both breasts
+              - value:
+                  Coding:
+                    code: "3"
+                    display: I have never been diagnosed with breast cancer
           - text: >-
               Q14 Indicate if this is first breast cancer or new cancer on
               contralateral or ipsilateral breast:
@@ -200,16 +204,20 @@ item:
             answerOption:
               - value:
                   Coding:
-                    code: '0'
+                    code: "0"
                     display: Primary tumor
               - value:
                   Coding:
-                    code: '1'
+                    code: "1"
                     display: New ipsilateral
               - value:
                   Coding:
-                    code: '2'
+                    code: "2"
                     display: New contralateral
+              - value:
+                  Coding:
+                    code: "3"
+                    display: I have never been diagnosed with breast cancer
         text: Baseline Clinical Factors
         type: group
         linkId: baselineClinicalFactors
@@ -217,30 +225,30 @@ item:
           - text: Q15 Initial date of histological diagnosis DD/MM/YYYY
             type: date
             linkId: initialDiagnosisDate
-          - text: 'Q16 Indicate histologic type of the tumor (select all that apply):'
+          - text: "Q16 Indicate histologic type of the tumor (select all that apply):"
             type: choice
             linkId: histologicType
             answerOption:
               - value:
                   Coding:
-                    code: '0'
+                    code: "0"
                     display: Ductal carcinoma in situ
               - value:
                   Coding:
-                    code: '1'
+                    code: "1"
                     display: Invasive ductal carcinoma
               - value:
                   Coding:
-                    code: '2'
+                    code: "2"
                     display: Invasive lobular carcinoma
               - value:
                   Coding:
-                    code: '3'
+                    code: "3"
                     display: Other
               - value:
                   Coding:
-                    code: '999'
-                    display: unknown
+                    code: "999"
+                    display: Unknown
           - text: >-
               Q17 Indicate if the patient carries a genetic mutation predisposing
               breast cancer:
@@ -249,43 +257,43 @@ item:
             answerOption:
               - value:
                   Coding:
-                    code: '0'
+                    code: "0"
                     display: No mutation
               - value:
                   Coding:
-                    code: '1'
+                    code: "1"
                     display: BRCA1
               - value:
                   Coding:
-                    code: '2'
+                    code: "2"
                     display: BRCA2
               - value:
                   Coding:
-                    code: '3'
+                    code: "3"
                     display: Other mutation
               - value:
                   Coding:
-                    code: '4'
+                    code: "4"
                     display: Not tested
-          - text: 'Q18 Indicate grade of invasive component of tumor:'
+          - text: "Q18 Indicate grade of invasive component of tumor:"
             type: choice
             linkId: invasiveComponentGrade
             answerOption:
               - value:
                   Coding:
-                    code: '0'
+                    code: "0"
                     display: Grade 1
               - value:
                   Coding:
-                    code: '1'
+                    code: "1"
                     display: Grade 2
               - value:
                   Coding:
-                    code: '2'
+                    code: "2"
                     display: Grade 3
               - value:
                   Coding:
-                    code: '3'
+                    code: "3"
                     display: Not reported
           - text: Q19 Indicate tumor grade of DCIS component of tumor
             type: choice
@@ -293,19 +301,19 @@ item:
             answerOption:
               - value:
                   Coding:
-                    code: '0'
+                    code: "0"
                     display: Low
               - value:
                   Coding:
-                    code: '1'
+                    code: "1"
                     display: Intermediate
               - value:
                   Coding:
-                    code: '2'
+                    code: "2"
                     display: High
               - value:
                   Coding:
-                    code: '3'
+                    code: "3"
                     display: Not reported
           - text: Q20 Clinical tumor stage
             type: choice
@@ -313,35 +321,35 @@ item:
             answerOption:
               - value:
                   Coding:
-                    code: '0'
+                    code: "0"
                     display: cTX
               - value:
                   Coding:
-                    code: '1'
+                    code: "1"
                     display: cT0
               - value:
                   Coding:
-                    code: '2'
+                    code: "2"
                     display: cTis
               - value:
                   Coding:
-                    code: '3'
+                    code: "3"
                     display: cT1
               - value:
                   Coding:
-                    code: '4'
+                    code: "4"
                     display: cT2
               - value:
                   Coding:
-                    code: '5'
+                    code: "5"
                     display: cT3
               - value:
                   Coding:
-                    code: '6'
+                    code: "6"
                     display: cT4
               - value:
                   Coding:
-                    code: '999'
+                    code: "999"
                     display: Unknown
           - text: Q21 Clinical nodal stage
             type: choice
@@ -349,27 +357,27 @@ item:
             answerOption:
               - value:
                   Coding:
-                    code: '0'
+                    code: "0"
                     display: cNX
               - value:
                   Coding:
-                    code: '1'
+                    code: "1"
                     display: cN0
               - value:
                   Coding:
-                    code: '2'
+                    code: "2"
                     display: cN1
               - value:
                   Coding:
-                    code: '3'
+                    code: "3"
                     display: cN2
               - value:
                   Coding:
-                    code: '4'
+                    code: "4"
                     display: cN3
               - value:
                   Coding:
-                    code: '999'
+                    code: "999"
                     display: Unknown
           - text: Q22 Clinical distant metastasis
             type: choice
@@ -377,19 +385,19 @@ item:
             answerOption:
               - value:
                   Coding:
-                    code: '0'
+                    code: "0"
                     display: cMX
               - value:
                   Coding:
-                    code: '1'
+                    code: "1"
                     display: cM0
               - value:
                   Coding:
-                    code: '2'
+                    code: "2"
                     display: cM1
               - value:
                   Coding:
-                    code: '999'
+                    code: "999"
                     display: Unknown
           - text: Q23 Pathological tumor stage
             type: choice
@@ -397,35 +405,35 @@ item:
             answerOption:
               - value:
                   Coding:
-                    code: '0'
+                    code: "0"
                     display: pTX
               - value:
                   Coding:
-                    code: '1'
+                    code: "1"
                     display: pT0
               - value:
                   Coding:
-                    code: '2'
+                    code: "2"
                     display: pTis
               - value:
                   Coding:
-                    code: '3'
+                    code: "3"
                     display: pT1
               - value:
                   Coding:
-                    code: '4'
+                    code: "4"
                     display: pT2
               - value:
                   Coding:
-                    code: '5'
+                    code: "5"
                     display: pT3
               - value:
                   Coding:
-                    code: '6'
+                    code: "6"
                     display: pT4
               - value:
                   Coding:
-                    code: '999'
+                    code: "999"
                     display: Unknown
           - text: Q24 Pathological nodal stage
             type: choice
@@ -433,27 +441,27 @@ item:
             answerOption:
               - value:
                   Coding:
-                    code: '0'
+                    code: "0"
                     display: pNX
               - value:
                   Coding:
-                    code: '1'
+                    code: "1"
                     display: pN0
               - value:
                   Coding:
-                    code: '2'
+                    code: "2"
                     display: pN1
               - value:
                   Coding:
-                    code: '3'
+                    code: "3"
                     display: pN2
               - value:
                   Coding:
-                    code: '4'
+                    code: "4"
                     display: pN3
               - value:
                   Coding:
-                    code: '999'
+                    code: "999"
                     display: Unknown
           - text: Q25 Pathological distant metastasis
             type: choice
@@ -461,19 +469,19 @@ item:
             answerOption:
               - value:
                   Coding:
-                    code: '0'
+                    code: "0"
                     display: pMx
               - value:
                   Coding:
-                    code: '1'
+                    code: "1"
                     display: pM0
               - value:
                   Coding:
-                    code: '2'
+                    code: "2"
                     display: pM1
               - value:
                   Coding:
-                    code: '999'
+                    code: "999"
                     display: Unknown
           - text: Q26 Size of invasive tumor (in mm)
             type: decimal
@@ -490,19 +498,19 @@ item:
             answerOption:
               - value:
                   Coding:
-                    code: '0'
-                    display: 'No'
+                    code: "0"
+                    display: "No"
               - value:
                   Coding:
-                    code: '1'
-                    display: 'Yes'
+                    code: "1"
+                    display: "Yes"
               - value:
                   Coding:
-                    code: '2'
+                    code: "2"
                     display: Not performed
               - value:
                   Coding:
-                    code: '999'
+                    code: "999"
                     display: Unknown
           - text: Q30 Progesterone receptor status
             type: choice
@@ -510,19 +518,19 @@ item:
             answerOption:
               - value:
                   Coding:
-                    code: '0'
-                    display: 'No'
+                    code: "0"
+                    display: "No"
               - value:
                   Coding:
-                    code: '1'
-                    display: 'Yes'
+                    code: "1"
+                    display: "Yes"
               - value:
                   Coding:
-                    code: '2'
+                    code: "2"
                     display: Not performed
               - value:
                   Coding:
-                    code: '999'
+                    code: "999"
                     display: Unknown
           - text: Q31 HER2 receptor status
             type: choice
@@ -530,24 +538,35 @@ item:
             answerOption:
               - value:
                   Coding:
-                    code: '0'
+                    code: "0"
                     display: Negative
               - value:
                   Coding:
-                    code: '1'
+                    code: "1"
                     display: Positive
               - value:
                   Coding:
-                    code: '2'
+                    code: "2"
                     display: Equivocal
               - value:
                   Coding:
-                    code: '3'
+                    code: "3"
                     display: Not performed
         text: Baseline Tumor Factors
         type: group
         linkId: baselineTumorFactors
       - item:
+          - text: >-
+              Instructions:
+            linkId: instruction-1
+            type: display
+          - text: >-
+              If you have never been diagnosed with breast cancer, please proceed to the next page.
+            linkId: instruction-2
+            type: display
+          - text: If you have been diagnosed with breast, please complete the questions below.
+            linkId: instruction-3
+            type: display
           - text: >-
               Q32 Do you have any trouble doing strenuous activities, like carrying
               a heavy shopping bag or a suitcase?
@@ -556,19 +575,19 @@ item:
             answerOption:
               - value:
                   Coding:
-                    code: '0'
+                    code: "0"
                     display: Not at all
               - value:
                   Coding:
-                    code: '1'
+                    code: "1"
                     display: A little
               - value:
                   Coding:
-                    code: '2'
+                    code: "2"
                     display: Quite a bit
               - value:
                   Coding:
-                    code: '3'
+                    code: "3"
                     display: Very much
           - text: Q33 Do you have any trouble taking a long walk?
             type: choice
@@ -576,19 +595,19 @@ item:
             answerOption:
               - value:
                   Coding:
-                    code: '0'
+                    code: "0"
                     display: Not at all
               - value:
                   Coding:
-                    code: '1'
+                    code: "1"
                     display: A little
               - value:
                   Coding:
-                    code: '2'
+                    code: "2"
                     display: Quite a bit
               - value:
                   Coding:
-                    code: '3'
+                    code: "3"
                     display: Very much
           - text: Q34 Do you have any trouble taking a short walk outside of the house?
             type: choice
@@ -596,19 +615,19 @@ item:
             answerOption:
               - value:
                   Coding:
-                    code: '0'
+                    code: "0"
                     display: Not at all
               - value:
                   Coding:
-                    code: '1'
+                    code: "1"
                     display: A little
               - value:
                   Coding:
-                    code: '2'
+                    code: "2"
                     display: Quite a bit
               - value:
                   Coding:
-                    code: '3'
+                    code: "3"
                     display: Very much
           - text: Q35 Do you need to stay in bed or a chair during the day?
             type: choice
@@ -616,19 +635,19 @@ item:
             answerOption:
               - value:
                   Coding:
-                    code: '0'
+                    code: "0"
                     display: Not at all
               - value:
                   Coding:
-                    code: '1'
+                    code: "1"
                     display: A little
               - value:
                   Coding:
-                    code: '2'
+                    code: "2"
                     display: Quite a bit
               - value:
                   Coding:
-                    code: '3'
+                    code: "3"
                     display: Very much
           - text: >-
               Q36 Do you need help with eating, dressing, washing yourself or using
@@ -638,19 +657,19 @@ item:
             answerOption:
               - value:
                   Coding:
-                    code: '0'
+                    code: "0"
                     display: Not at all
               - value:
                   Coding:
-                    code: '1'
+                    code: "1"
                     display: A little
               - value:
                   Coding:
-                    code: '2'
+                    code: "2"
                     display: Quite a bit
               - value:
                   Coding:
-                    code: '3'
+                    code: "3"
                     display: Very much
           - text: >-
               Q37 During the past week: Were you limited in doing either your work
@@ -660,19 +679,19 @@ item:
             answerOption:
               - value:
                   Coding:
-                    code: '0'
+                    code: "0"
                     display: Not at all
               - value:
                   Coding:
-                    code: '1'
+                    code: "1"
                     display: A little
               - value:
                   Coding:
-                    code: '2'
+                    code: "2"
                     display: Quite a bit
               - value:
                   Coding:
-                    code: '3'
+                    code: "3"
                     display: Very much
           - text: >-
               Were you limited in pursuing your hobbies or other leisure time
@@ -682,19 +701,19 @@ item:
             answerOption:
               - value:
                   Coding:
-                    code: '0'
+                    code: "0"
                     display: Not at all
               - value:
                   Coding:
-                    code: '1'
+                    code: "1"
                     display: A little
               - value:
                   Coding:
-                    code: '2'
+                    code: "2"
                     display: Quite a bit
               - value:
                   Coding:
-                    code: '3'
+                    code: "3"
                     display: Very much
           - text: Were you short of breath?
             type: choice
@@ -702,19 +721,19 @@ item:
             answerOption:
               - value:
                   Coding:
-                    code: '0'
+                    code: "0"
                     display: Not at all
               - value:
                   Coding:
-                    code: '1'
+                    code: "1"
                     display: A little
               - value:
                   Coding:
-                    code: '2'
+                    code: "2"
                     display: Quite a bit
               - value:
                   Coding:
-                    code: '3'
+                    code: "3"
                     display: Very much
           - text: Have you had pain?
             type: choice
@@ -722,19 +741,19 @@ item:
             answerOption:
               - value:
                   Coding:
-                    code: '0'
+                    code: "0"
                     display: Not at all
               - value:
                   Coding:
-                    code: '1'
+                    code: "1"
                     display: A little
               - value:
                   Coding:
-                    code: '2'
+                    code: "2"
                     display: Quite a bit
               - value:
                   Coding:
-                    code: '3'
+                    code: "3"
                     display: Very much
           - text: Did you need to rest?
             type: choice
@@ -742,19 +761,19 @@ item:
             answerOption:
               - value:
                   Coding:
-                    code: '0'
+                    code: "0"
                     display: Not at all
               - value:
                   Coding:
-                    code: '1'
+                    code: "1"
                     display: A little
               - value:
                   Coding:
-                    code: '2'
+                    code: "2"
                     display: Quite a bit
               - value:
                   Coding:
-                    code: '3'
+                    code: "3"
                     display: Very much
           - text: Have you had trouble sleeping?
             type: choice
@@ -762,19 +781,19 @@ item:
             answerOption:
               - value:
                   Coding:
-                    code: '0'
+                    code: "0"
                     display: Not at all
               - value:
                   Coding:
-                    code: '1'
+                    code: "1"
                     display: A little
               - value:
                   Coding:
-                    code: '2'
+                    code: "2"
                     display: Quite a bit
               - value:
                   Coding:
-                    code: '3'
+                    code: "3"
                     display: Very much
           - text: Have you felt weak?
             type: choice
@@ -782,19 +801,19 @@ item:
             answerOption:
               - value:
                   Coding:
-                    code: '0'
+                    code: "0"
                     display: Not at all
               - value:
                   Coding:
-                    code: '1'
+                    code: "1"
                     display: A little
               - value:
                   Coding:
-                    code: '2'
+                    code: "2"
                     display: Quite a bit
               - value:
                   Coding:
-                    code: '3'
+                    code: "3"
                     display: Very much
           - text: Have you lacked appetite?
             type: choice
@@ -802,19 +821,19 @@ item:
             answerOption:
               - value:
                   Coding:
-                    code: '0'
+                    code: "0"
                     display: Not at all
               - value:
                   Coding:
-                    code: '1'
+                    code: "1"
                     display: A little
               - value:
                   Coding:
-                    code: '2'
+                    code: "2"
                     display: Quite a bit
               - value:
                   Coding:
-                    code: '3'
+                    code: "3"
                     display: Very much
           - text: Have you felt nauseated?
             type: choice
@@ -822,19 +841,19 @@ item:
             answerOption:
               - value:
                   Coding:
-                    code: '0'
+                    code: "0"
                     display: Not at all
               - value:
                   Coding:
-                    code: '1'
+                    code: "1"
                     display: A little
               - value:
                   Coding:
-                    code: '2'
+                    code: "2"
                     display: Quite a bit
               - value:
                   Coding:
-                    code: '3'
+                    code: "3"
                     display: Very much
           - text: Have you vomited?
             type: choice
@@ -842,19 +861,19 @@ item:
             answerOption:
               - value:
                   Coding:
-                    code: '0'
+                    code: "0"
                     display: Not at all
               - value:
                   Coding:
-                    code: '1'
+                    code: "1"
                     display: A little
               - value:
                   Coding:
-                    code: '2'
+                    code: "2"
                     display: Quite a bit
               - value:
                   Coding:
-                    code: '3'
+                    code: "3"
                     display: Very much
           - text: Have you been constipated?
             type: choice
@@ -862,19 +881,19 @@ item:
             answerOption:
               - value:
                   Coding:
-                    code: '0'
+                    code: "0"
                     display: Not at all
               - value:
                   Coding:
-                    code: '1'
+                    code: "1"
                     display: A little
               - value:
                   Coding:
-                    code: '2'
+                    code: "2"
                     display: Quite a bit
               - value:
                   Coding:
-                    code: '3'
+                    code: "3"
                     display: Very much
           - text: Have you had diarrhea?
             type: choice
@@ -882,19 +901,19 @@ item:
             answerOption:
               - value:
                   Coding:
-                    code: '0'
+                    code: "0"
                     display: Not at all
               - value:
                   Coding:
-                    code: '1'
+                    code: "1"
                     display: A little
               - value:
                   Coding:
-                    code: '2'
+                    code: "2"
                     display: Quite a bit
               - value:
                   Coding:
-                    code: '3'
+                    code: "3"
                     display: Very much
           - text: Were you tired?
             type: choice
@@ -902,19 +921,19 @@ item:
             answerOption:
               - value:
                   Coding:
-                    code: '0'
+                    code: "0"
                     display: Not at all
               - value:
                   Coding:
-                    code: '1'
+                    code: "1"
                     display: A little
               - value:
                   Coding:
-                    code: '2'
+                    code: "2"
                     display: Quite a bit
               - value:
                   Coding:
-                    code: '3'
+                    code: "3"
                     display: Very much
           - text: Did pain interfere with your daily activities?
             type: choice
@@ -922,19 +941,19 @@ item:
             answerOption:
               - value:
                   Coding:
-                    code: '0'
+                    code: "0"
                     display: Not at all
               - value:
                   Coding:
-                    code: '1'
+                    code: "1"
                     display: A little
               - value:
                   Coding:
-                    code: '2'
+                    code: "2"
                     display: Quite a bit
               - value:
                   Coding:
-                    code: '3'
+                    code: "3"
                     display: Very much
           - text: >-
               Have you had difficulty in concentrating on things, like reading a
@@ -944,19 +963,19 @@ item:
             answerOption:
               - value:
                   Coding:
-                    code: '0'
+                    code: "0"
                     display: Not at all
               - value:
                   Coding:
-                    code: '1'
+                    code: "1"
                     display: A little
               - value:
                   Coding:
-                    code: '2'
+                    code: "2"
                     display: Quite a bit
               - value:
                   Coding:
-                    code: '3'
+                    code: "3"
                     display: Very much
           - text: Did you feel tense?
             type: choice
@@ -964,19 +983,19 @@ item:
             answerOption:
               - value:
                   Coding:
-                    code: '0'
+                    code: "0"
                     display: Not at all
               - value:
                   Coding:
-                    code: '1'
+                    code: "1"
                     display: A little
               - value:
                   Coding:
-                    code: '2'
+                    code: "2"
                     display: Quite a bit
               - value:
                   Coding:
-                    code: '3'
+                    code: "3"
                     display: Very much
           - text: Did you worry?
             type: choice
@@ -984,19 +1003,19 @@ item:
             answerOption:
               - value:
                   Coding:
-                    code: '0'
+                    code: "0"
                     display: Not at all
               - value:
                   Coding:
-                    code: '1'
+                    code: "1"
                     display: A little
               - value:
                   Coding:
-                    code: '2'
+                    code: "2"
                     display: Quite a bit
               - value:
                   Coding:
-                    code: '3'
+                    code: "3"
                     display: Very much
           - text: Did you feel irritable?
             type: choice
@@ -1004,19 +1023,19 @@ item:
             answerOption:
               - value:
                   Coding:
-                    code: '0'
+                    code: "0"
                     display: Not at all
               - value:
                   Coding:
-                    code: '1'
+                    code: "1"
                     display: A little
               - value:
                   Coding:
-                    code: '2'
+                    code: "2"
                     display: Quite a bit
               - value:
                   Coding:
-                    code: '3'
+                    code: "3"
                     display: Very much
           - text: Did you feel depressed?
             type: choice
@@ -1024,19 +1043,19 @@ item:
             answerOption:
               - value:
                   Coding:
-                    code: '0'
+                    code: "0"
                     display: Not at all
               - value:
                   Coding:
-                    code: '1'
+                    code: "1"
                     display: A little
               - value:
                   Coding:
-                    code: '2'
+                    code: "2"
                     display: Quite a bit
               - value:
                   Coding:
-                    code: '3'
+                    code: "3"
                     display: Very much
           - text: Have you had difficulty remembering things?
             type: choice
@@ -1044,19 +1063,19 @@ item:
             answerOption:
               - value:
                   Coding:
-                    code: '0'
+                    code: "0"
                     display: Not at all
               - value:
                   Coding:
-                    code: '1'
+                    code: "1"
                     display: A little
               - value:
                   Coding:
-                    code: '2'
+                    code: "2"
                     display: Quite a bit
               - value:
                   Coding:
-                    code: '3'
+                    code: "3"
                     display: Very much
           - text: >-
               Has your physical condition or medical treatment interfered with your
@@ -1066,19 +1085,19 @@ item:
             answerOption:
               - value:
                   Coding:
-                    code: '0'
+                    code: "0"
                     display: Not at all
               - value:
                   Coding:
-                    code: '1'
+                    code: "1"
                     display: A little
               - value:
                   Coding:
-                    code: '2'
+                    code: "2"
                     display: Quite a bit
               - value:
                   Coding:
-                    code: '3'
+                    code: "3"
                     display: Very much
           - text: >-
               Has your physical condition or medical treatment caused you financial
@@ -1088,19 +1107,19 @@ item:
             answerOption:
               - value:
                   Coding:
-                    code: '0'
+                    code: "0"
                     display: Not at all
               - value:
                   Coding:
-                    code: '1'
+                    code: "1"
                     display: A little
               - value:
                   Coding:
-                    code: '2'
+                    code: "2"
                     display: Quite a bit
               - value:
                   Coding:
-                    code: '3'
+                    code: "3"
                     display: Very much
           - text: Q38 How would you rate your overall health during the past week?
             type: choice
@@ -1144,19 +1163,19 @@ item:
             answerOption:
               - value:
                   Coding:
-                    code: '0'
+                    code: "0"
                     display: Not at all
               - value:
                   Coding:
-                    code: '1'
+                    code: "1"
                     display: A little
               - value:
                   Coding:
-                    code: '2'
+                    code: "2"
                     display: Quite a bit
               - value:
                   Coding:
-                    code: '3'
+                    code: "3"
                     display: Very much
           - text: Did food and drink taste different than usual?
             type: choice
@@ -1164,19 +1183,19 @@ item:
             answerOption:
               - value:
                   Coding:
-                    code: '0'
+                    code: "0"
                     display: Not at all
               - value:
                   Coding:
-                    code: '1'
+                    code: "1"
                     display: A little
               - value:
                   Coding:
-                    code: '2'
+                    code: "2"
                     display: Quite a bit
               - value:
                   Coding:
-                    code: '3'
+                    code: "3"
                     display: Very much
           - text: Were your eyes painful, irritated, or watery?
             type: choice
@@ -1184,19 +1203,19 @@ item:
             answerOption:
               - value:
                   Coding:
-                    code: '0'
+                    code: "0"
                     display: Not at all
               - value:
                   Coding:
-                    code: '1'
+                    code: "1"
                     display: A little
               - value:
                   Coding:
-                    code: '2'
+                    code: "2"
                     display: Quite a bit
               - value:
                   Coding:
-                    code: '3'
+                    code: "3"
                     display: Very much
           - text: Have you lost any hair?
             type: choice
@@ -1204,19 +1223,19 @@ item:
             answerOption:
               - value:
                   Coding:
-                    code: '0'
+                    code: "0"
                     display: Not at all
               - value:
                   Coding:
-                    code: '1'
+                    code: "1"
                     display: A little
               - value:
                   Coding:
-                    code: '2'
+                    code: "2"
                     display: Quite a bit
               - value:
                   Coding:
-                    code: '3'
+                    code: "3"
                     display: Very much
           - text: Were you upset by the loss of your hair?
             type: choice
@@ -1224,19 +1243,19 @@ item:
             answerOption:
               - value:
                   Coding:
-                    code: '0'
+                    code: "0"
                     display: Not at all
               - value:
                   Coding:
-                    code: '1'
+                    code: "1"
                     display: A little
               - value:
                   Coding:
-                    code: '2'
+                    code: "2"
                     display: Quite a bit
               - value:
                   Coding:
-                    code: '3'
+                    code: "3"
                     display: Very much
           - text: Did you feel ill or unwell?
             type: choice
@@ -1244,19 +1263,19 @@ item:
             answerOption:
               - value:
                   Coding:
-                    code: '0'
+                    code: "0"
                     display: Not at all
               - value:
                   Coding:
-                    code: '1'
+                    code: "1"
                     display: A little
               - value:
                   Coding:
-                    code: '2'
+                    code: "2"
                     display: Quite a bit
               - value:
                   Coding:
-                    code: '3'
+                    code: "3"
                     display: Very much
           - text: Did you have hot flushes?
             type: choice
@@ -1264,19 +1283,19 @@ item:
             answerOption:
               - value:
                   Coding:
-                    code: '0'
+                    code: "0"
                     display: Not at all
               - value:
                   Coding:
-                    code: '1'
+                    code: "1"
                     display: A little
               - value:
                   Coding:
-                    code: '2'
+                    code: "2"
                     display: Quite a bit
               - value:
                   Coding:
-                    code: '3'
+                    code: "3"
                     display: Very much
           - text: Did you have headaches?
             type: choice
@@ -1284,19 +1303,19 @@ item:
             answerOption:
               - value:
                   Coding:
-                    code: '0'
+                    code: "0"
                     display: Not at all
               - value:
                   Coding:
-                    code: '1'
+                    code: "1"
                     display: A little
               - value:
                   Coding:
-                    code: '2'
+                    code: "2"
                     display: Quite a bit
               - value:
                   Coding:
-                    code: '3'
+                    code: "3"
                     display: Very much
           - text: >-
               Have you felt physically less attractive as a result of your disease
@@ -1306,19 +1325,19 @@ item:
             answerOption:
               - value:
                   Coding:
-                    code: '0'
+                    code: "0"
                     display: Not at all
               - value:
                   Coding:
-                    code: '1'
+                    code: "1"
                     display: A little
               - value:
                   Coding:
-                    code: '2'
+                    code: "2"
                     display: Quite a bit
               - value:
                   Coding:
-                    code: '3'
+                    code: "3"
                     display: Very much
           - text: >-
               Have you been feeling less feminine as a result of your disease or
@@ -1328,19 +1347,19 @@ item:
             answerOption:
               - value:
                   Coding:
-                    code: '0'
+                    code: "0"
                     display: Not at all
               - value:
                   Coding:
-                    code: '1'
+                    code: "1"
                     display: A little
               - value:
                   Coding:
-                    code: '2'
+                    code: "2"
                     display: Quite a bit
               - value:
                   Coding:
-                    code: '3'
+                    code: "3"
                     display: Very much
           - text: Did you find it difficult to look at yourself naked?
             type: choice
@@ -1348,19 +1367,19 @@ item:
             answerOption:
               - value:
                   Coding:
-                    code: '0'
+                    code: "0"
                     display: Not at all
               - value:
                   Coding:
-                    code: '1'
+                    code: "1"
                     display: A little
               - value:
                   Coding:
-                    code: '2'
+                    code: "2"
                     display: Quite a bit
               - value:
                   Coding:
-                    code: '3'
+                    code: "3"
                     display: Very much
           - text: Have you been dissatisfied with your body?
             type: choice
@@ -1368,19 +1387,19 @@ item:
             answerOption:
               - value:
                   Coding:
-                    code: '0'
+                    code: "0"
                     display: Not at all
               - value:
                   Coding:
-                    code: '1'
+                    code: "1"
                     display: A little
               - value:
                   Coding:
-                    code: '2'
+                    code: "2"
                     display: Quite a bit
               - value:
                   Coding:
-                    code: '3'
+                    code: "3"
                     display: Very much
           - text: Were you worried about your health in the future?
             type: choice
@@ -1388,19 +1407,19 @@ item:
             answerOption:
               - value:
                   Coding:
-                    code: '0'
+                    code: "0"
                     display: Not at all
               - value:
                   Coding:
-                    code: '1'
+                    code: "1"
                     display: A little
               - value:
                   Coding:
-                    code: '2'
+                    code: "2"
                     display: Quite a bit
               - value:
                   Coding:
-                    code: '3'
+                    code: "3"
                     display: Very much
           - text: To what extent were you interested in sex?
             type: choice
@@ -1408,19 +1427,19 @@ item:
             answerOption:
               - value:
                   Coding:
-                    code: '0'
+                    code: "0"
                     display: Not at all
               - value:
                   Coding:
-                    code: '1'
+                    code: "1"
                     display: A little
               - value:
                   Coding:
-                    code: '2'
+                    code: "2"
                     display: Quite a bit
               - value:
                   Coding:
-                    code: '3'
+                    code: "3"
                     display: Very much
           - text: To what extent were you sexually active? (with or without intercourse)
             type: choice
@@ -1428,19 +1447,19 @@ item:
             answerOption:
               - value:
                   Coding:
-                    code: '0'
+                    code: "0"
                     display: Not at all
               - value:
                   Coding:
-                    code: '1'
+                    code: "1"
                     display: A little
               - value:
                   Coding:
-                    code: '2'
+                    code: "2"
                     display: Quite a bit
               - value:
                   Coding:
-                    code: '3'
+                    code: "3"
                     display: Very much
           - text: To what extent was sex enjoyable for you?
             type: choice
@@ -1448,20 +1467,32 @@ item:
             answerOption:
               - value:
                   Coding:
-                    code: '0'
+                    code: "0"
                     display: Not at all
               - value:
                   Coding:
-                    code: '1'
+                    code: "1"
                     display: A little
               - value:
                   Coding:
-                    code: '2'
+                    code: "2"
                     display: Quite a bit
               - value:
                   Coding:
-                    code: '3'
+                    code: "3"
                     display: Very much
+          - text: >-
+              Instructions:
+            linkId: instruction-3
+            type: display
+          - text: >-
+              If you have never been diagnosed with breast cancer, please proceed to the next page.
+            linkId: instruction-4
+            type: display
+          - text: >-
+              If you have been diagnosed with breast, please complete the questions below.
+            linkId: instruction-5
+            type: display
           - text: >-
               Q40 During the past week: Did you have any pain in your arm or
               shoulder?
@@ -1470,19 +1501,19 @@ item:
             answerOption:
               - value:
                   Coding:
-                    code: '0'
+                    code: "0"
                     display: Not at all
               - value:
                   Coding:
-                    code: '1'
+                    code: "1"
                     display: A little
               - value:
                   Coding:
-                    code: '2'
+                    code: "2"
                     display: Quite a bit
               - value:
                   Coding:
-                    code: '3'
+                    code: "3"
                     display: Very much
           - text: Did you have a swollen arm or hand?
             type: choice
@@ -1490,19 +1521,19 @@ item:
             answerOption:
               - value:
                   Coding:
-                    code: '0'
+                    code: "0"
                     display: Not at all
               - value:
                   Coding:
-                    code: '1'
+                    code: "1"
                     display: A little
               - value:
                   Coding:
-                    code: '2'
+                    code: "2"
                     display: Quite a bit
               - value:
                   Coding:
-                    code: '3'
+                    code: "3"
                     display: Very much
           - text: Was it difficult to raise your arm or to move it sideways?
             type: choice
@@ -1510,19 +1541,19 @@ item:
             answerOption:
               - value:
                   Coding:
-                    code: '0'
+                    code: "0"
                     display: Not at all
               - value:
                   Coding:
-                    code: '1'
+                    code: "1"
                     display: A little
               - value:
                   Coding:
-                    code: '2'
+                    code: "2"
                     display: Quite a bit
               - value:
                   Coding:
-                    code: '3'
+                    code: "3"
                     display: Very much
           - text: Have you had any pain in the area of your affected breast?
             type: choice
@@ -1530,19 +1561,19 @@ item:
             answerOption:
               - value:
                   Coding:
-                    code: '0'
+                    code: "0"
                     display: Not at all
               - value:
                   Coding:
-                    code: '1'
+                    code: "1"
                     display: A little
               - value:
                   Coding:
-                    code: '2'
+                    code: "2"
                     display: Quite a bit
               - value:
                   Coding:
-                    code: '3'
+                    code: "3"
                     display: Very much
           - text: Was the area of your affected breast swollen?
             type: choice
@@ -1550,19 +1581,19 @@ item:
             answerOption:
               - value:
                   Coding:
-                    code: '0'
+                    code: "0"
                     display: Not at all
               - value:
                   Coding:
-                    code: '1'
+                    code: "1"
                     display: A little
               - value:
                   Coding:
-                    code: '2'
+                    code: "2"
                     display: Quite a bit
               - value:
                   Coding:
-                    code: '3'
+                    code: "3"
                     display: Very much
           - text: Was the area of your affected breast oversensitive?
             type: choice
@@ -1570,19 +1601,19 @@ item:
             answerOption:
               - value:
                   Coding:
-                    code: '0'
+                    code: "0"
                     display: Not at all
               - value:
                   Coding:
-                    code: '1'
+                    code: "1"
                     display: A little
               - value:
                   Coding:
-                    code: '2'
+                    code: "2"
                     display: Quite a bit
               - value:
                   Coding:
-                    code: '3'
+                    code: "3"
                     display: Very much
           - text: >-
               Have you had skin problems on or in the area of your affected breast
@@ -1607,19 +1638,19 @@ item:
             answerOption:
               - value:
                   Coding:
-                    code: '0'
+                    code: "0"
                     display: Very dissatisfied
               - value:
                   Coding:
-                    code: '1'
+                    code: "1"
                     display: Somewhat dissatisfied
               - value:
                   Coding:
-                    code: '2'
+                    code: "2"
                     display: Somewhat satisfied
               - value:
                   Coding:
-                    code: '3'
+                    code: "3"
                     display: Very satisfied
           - text: How comfortable your bras fit?
             type: choice
@@ -1627,19 +1658,19 @@ item:
             answerOption:
               - value:
                   Coding:
-                    code: '0'
+                    code: "0"
                     display: Very dissatisfied
               - value:
                   Coding:
-                    code: '1'
+                    code: "1"
                     display: Somewhat dissatisfied
               - value:
                   Coding:
-                    code: '2'
+                    code: "2"
                     display: Somewhat satisfied
               - value:
                   Coding:
-                    code: '3'
+                    code: "3"
                     display: Very satisfied
           - text: Being able to wear clothing that is more fitted?
             type: choice
@@ -1647,19 +1678,19 @@ item:
             answerOption:
               - value:
                   Coding:
-                    code: '0'
+                    code: "0"
                     display: Very dissatisfied
               - value:
                   Coding:
-                    code: '1'
+                    code: "1"
                     display: Somewhat dissatisfied
               - value:
                   Coding:
-                    code: '2'
+                    code: "2"
                     display: Somewhat satisfied
               - value:
                   Coding:
-                    code: '3'
+                    code: "3"
                     display: Very satisfied
           - text: How you look in the mirror unclothed?
             type: choice
@@ -1667,19 +1698,19 @@ item:
             answerOption:
               - value:
                   Coding:
-                    code: '0'
+                    code: "0"
                     display: Very dissatisfied
               - value:
                   Coding:
-                    code: '1'
+                    code: "1"
                     display: Somewhat dissatisfied
               - value:
                   Coding:
-                    code: '2'
+                    code: "2"
                     display: Somewhat satisfied
               - value:
                   Coding:
-                    code: '3'
+                    code: "3"
                     display: Very satisfied
         text: Degree of Health
         type: group
@@ -1711,7 +1742,7 @@ item:
                   Coding:
                     code: MuchMore
                     display: Much more
-          - text: '2. After the examinations my enjoyment of life is:'
+          - text: "2. After the examinations my enjoyment of life is:"
             type: choice
             linkId: enjoymentOfLife
             answerOption:
@@ -1735,7 +1766,7 @@ item:
                   Coding:
                     code: MuchMore
                     display: Much more
-          - text: '3. After the examinations my anxiety about breast cancer is:'
+          - text: "3. After the examinations my anxiety about breast cancer is:"
             type: choice
             linkId: anxietyAboutBreastCancer
             answerOption:
@@ -1759,7 +1790,7 @@ item:
                   Coding:
                     code: MuchLess
                     display: Much less
-          - text: '4. After the examinations I feel:'
+          - text: "4. After the examinations I feel:"
             type: choice
             linkId: feelingRelaxed
             answerOption:
@@ -1783,7 +1814,7 @@ item:
                   Coding:
                     code: MuchMoreRelaxed
                     display: Much more relaxed
-          - text: '5. After the examinations my relationship with my family is:'
+          - text: "5. After the examinations my relationship with my family is:"
             type: choice
             linkId: relationshipWithFamily
             answerOption:
@@ -1807,7 +1838,7 @@ item:
                   Coding:
                     code: MuchCloser
                     display: Much closer
-          - text: '6. After the examinations my relationship with friends is:'
+          - text: "6. After the examinations my relationship with friends is:"
             type: choice
             linkId: relationshipWithFriends
             answerOption:
@@ -1831,7 +1862,7 @@ item:
                   Coding:
                     code: MuchCloser
                     display: Much closer
-          - text: '7. After the examinations my relationship with other people is:'
+          - text: "7. After the examinations my relationship with other people is:"
             type: choice
             linkId: relationshipWithOthers
             answerOption:
@@ -1855,7 +1886,7 @@ item:
                   Coding:
                     code: MuchBetter
                     display: Much better
-          - text: '8. After the examinations I feel:'
+          - text: "8. After the examinations I feel:"
             type: choice
             linkId: feelingCalm
             answerOption:
@@ -1879,7 +1910,7 @@ item:
                   Coding:
                     code: MuchLessCalm
                     display: Much less calm
-          - text: '9. After the examinations my thoughts about the future are:'
+          - text: "9. After the examinations my thoughts about the future are:"
             type: choice
             linkId: thoughtsAboutFuture
             answerOption:
@@ -1903,7 +1934,7 @@ item:
                   Coding:
                     code: MuchMoreOptimistic
                     display: Much more optimistic
-          - text: '10. After the examinations my sense of well-being is:'
+          - text: "10. After the examinations my sense of well-being is:"
             type: choice
             linkId: senseOfWellBeing
             answerOption:
@@ -1927,7 +1958,7 @@ item:
                   Coding:
                     code: MuchGreater
                     display: Much greater
-          - text: '11. After the examinations my awareness of life is:'
+          - text: "11. After the examinations my awareness of life is:"
             type: choice
             linkId: awarenessOfLife
             answerOption:
@@ -1951,7 +1982,7 @@ item:
                   Coding:
                     code: MuchGreater
                     display: Much greater
-          - text: '12. After the examinations I value life:'
+          - text: "12. After the examinations I value life:"
             type: choice
             linkId: valueLife
             answerOption:
@@ -2010,7 +2041,7 @@ item:
     linkId: patientId
     initialExpression:
       language: text/fhirpath
-      expression: '%Patient.id'
+      expression: "%Patient.id"
 meta:
   profile:
     - https://beda.software/beda-emr-questionnaire
