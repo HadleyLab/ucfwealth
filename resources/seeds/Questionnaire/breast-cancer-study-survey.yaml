@@ -8,12 +8,19 @@ item:
     linkId: wizard
     itemControl:
       coding:
-        - code: wizard-with-tooltips
+        - code: wizard
     item:
-      - item:
-          - text: "Q3 Please indicate your sex:"
+      - linkId: demographic-factors-group
+        text: Demographic factors
+        type: group
+        item:
+          - text: "1. Please indicate your sex:"
             type: choice
             linkId: sex
+            itemControl:
+              coding:
+                - code: inline-choice
+            inlineChoiceDirection: horizontal
             answerOption:
               - value:
                   Coding:
@@ -23,25 +30,25 @@ item:
                   Coding:
                     code: "2"
                     display: Female
-          - text: Q4 What is your date of birth? DD/MM/YYYY
+          - text: 2. What is your date of birth? DD/MM/YYYY
             type: date
             linkId: dateOfBirth
             initialExpression:
               language: text/fhirpath
               expression: "%Patient.birthDate"
-          - text: Q5 What is your country of residence?
+          - text: 3. What is your country of residence?
             type: string
             linkId: countryOfResidence
-          - text: Q6 What is your ethnicity?
+          - text: 4. What is your ethnicity?
             type: choice
             linkId: ethnicity
             answerValueSet: http://terminology.hl7.org/ValueSet/v3-Ethnicity
-          - text: Q7 Please indicate the highest level of schooling completed.
+          - text: 5. Please indicate the highest level of schooling completed.
             type: choice
             linkId: schoolingCompleted
             itemControl:
               coding:
-                - {}
+                - code: inline-choice
             answerOption:
               - value:
                   Coding:
@@ -62,12 +69,12 @@ item:
                     code: "3"
                     system: ""
                     display: Tertiary
-          - text: Q8 What is your relationship status?
+          - text: 6. What is your relationship status?
             type: choice
             linkId: relationshipStatus
             itemControl:
               coding:
-                - {}
+                - code: inline-choice
             answerOption:
               - value:
                   Coding:
@@ -88,9 +95,12 @@ item:
                     code: "3"
                     system: ""
                     display: Widowed
-          - text: Q9 What is your current menopausal status?
+          - text: 7. What is your current menopausal status?
             type: choice
             linkId: menopausalStatus
+            itemControl:
+              coding:
+                - code: inline-choice
             answerOption:
               - value:
                   Coding:
@@ -105,16 +115,17 @@ item:
                   Coding:
                     code: "3"
                     system: ""
-                    display: "I don't know what my current menopausal status is"
-        text: Demographic factors
+                    display: I don't know
+      - text: Baseline clinical factors
         type: group
-        linkId: demographicFactors
-      - item:
+        linkId: baselineClinicalFactors
+        item:
           - text: >-
-              Q10 Have you been told by a doctor that you have any of the following?
-              (select all that apply)
+              1. Have you been told by a doctor that you have any of the following?
             type: choice
             linkId: diseases
+            helpText: Select all that apply
+            repeats: true
             answerOption:
               - value:
                   Coding:
@@ -169,16 +180,23 @@ item:
                     code: "12"
                     display: Arthritis
           - text: >-
-              Q11 What is your height? (Please enter as x ft and x inches. For
-              example: 5 ft and 5 inches)
+              2. What is your height?
             type: string
             linkId: height
-          - text: Q12 What is your weight? (lbs)
+            helpText: "For example: 5 ft and 5 inches"
+          - text: 3. What is your weight?
             type: decimal
             linkId: weight
-          - text: Q13 Indicate the laterality of breast cancer
+            unit:
+              code: lb
+              system: http://unitsofmeasure.org
+              display: lbs
+          - text: 4. Indicate the laterality of breast cancer
             type: choice
             linkId: laterality
+            itemControl:
+              coding:
+                - code: inline-choice
             answerOption:
               - value:
                   Coding:
@@ -195,12 +213,15 @@ item:
               - value:
                   Coding:
                     code: "3"
-                    display: I have never been diagnosed with breast cancer
+                    display: No diagnosis of breast cancer
           - text: >-
-              Q14 Indicate if this is first breast cancer or new cancer on
+              5. Indicate if this is first breast cancer or new cancer on
               contralateral or ipsilateral breast:
             type: choice
             linkId: cancerHistory
+            itemControl:
+              coding:
+                - code: inline-choice
             answerOption:
               - value:
                   Coding:
@@ -217,361 +238,438 @@ item:
               - value:
                   Coding:
                     code: "3"
-                    display: I have never been diagnosed with breast cancer
-        text: Baseline Clinical Factors
-        type: group
-        linkId: baselineClinicalFactors
-      - item:
-          - text: >-
-              Instructions:
-            linkId: instruction-1
-            type: display
-          - text: >-
-              If you have never been diagnosed with breast cancer, please proceed to the next page.
-            linkId: instruction-2
-            type: display
-          - text: If you have been diagnosed with breast, please complete the questions below.
-            linkId: instruction-3
-            type: display
-          - text: Q15 Initial date of histological diagnosis DD/MM/YYYY
-            type: date
-            linkId: initialDiagnosisDate
-          - text: "Q16 Indicate histologic type of the tumor (select all that apply):"
-            type: choice
-            linkId: histologicType
-            answerOption:
-              - value:
-                  Coding:
-                    code: "0"
-                    display: Ductal carcinoma in situ
-              - value:
-                  Coding:
-                    code: "1"
-                    display: Invasive ductal carcinoma
-              - value:
-                  Coding:
-                    code: "2"
-                    display: Invasive lobular carcinoma
-              - value:
-                  Coding:
-                    code: "3"
-                    display: Other
-              - value:
-                  Coding:
-                    code: "999"
-                    display: Unknown
-          - text: >-
-              Q17 Indicate if the patient carries a genetic mutation predisposing
-              breast cancer:
-            type: choice
-            linkId: geneticMutation
-            answerOption:
-              - value:
-                  Coding:
-                    code: "0"
-                    display: No mutation
-              - value:
-                  Coding:
-                    code: "1"
-                    display: BRCA1
-              - value:
-                  Coding:
-                    code: "2"
-                    display: BRCA2
-              - value:
-                  Coding:
-                    code: "3"
-                    display: Other mutation
-              - value:
-                  Coding:
-                    code: "4"
-                    display: Not tested
-          - text: "Q18 Indicate grade of invasive component of tumor:"
-            type: choice
-            linkId: invasiveComponentGrade
-            answerOption:
-              - value:
-                  Coding:
-                    code: "0"
-                    display: Grade 1
-              - value:
-                  Coding:
-                    code: "1"
-                    display: Grade 2
-              - value:
-                  Coding:
-                    code: "2"
-                    display: Grade 3
-              - value:
-                  Coding:
-                    code: "3"
-                    display: Not reported
-          - text: Q19 Indicate tumor grade of DCIS component of tumor
-            type: choice
-            linkId: dcisComponentGrade
-            answerOption:
-              - value:
-                  Coding:
-                    code: "0"
-                    display: Low
-              - value:
-                  Coding:
-                    code: "1"
-                    display: Intermediate
-              - value:
-                  Coding:
-                    code: "2"
-                    display: High
-              - value:
-                  Coding:
-                    code: "3"
-                    display: Not reported
-          - text: Q20 Clinical tumor stage
-            type: choice
-            linkId: clinicalTumorStage
-            answerOption:
-              - value:
-                  Coding:
-                    code: "0"
-                    display: cTX
-              - value:
-                  Coding:
-                    code: "1"
-                    display: cT0
-              - value:
-                  Coding:
-                    code: "2"
-                    display: cTis
-              - value:
-                  Coding:
-                    code: "3"
-                    display: cT1
-              - value:
-                  Coding:
-                    code: "4"
-                    display: cT2
-              - value:
-                  Coding:
-                    code: "5"
-                    display: cT3
-              - value:
-                  Coding:
-                    code: "6"
-                    display: cT4
-              - value:
-                  Coding:
-                    code: "999"
-                    display: Unknown
-          - text: Q21 Clinical nodal stage
-            type: choice
-            linkId: clinicalNodalStage
-            answerOption:
-              - value:
-                  Coding:
-                    code: "0"
-                    display: cNX
-              - value:
-                  Coding:
-                    code: "1"
-                    display: cN0
-              - value:
-                  Coding:
-                    code: "2"
-                    display: cN1
-              - value:
-                  Coding:
-                    code: "3"
-                    display: cN2
-              - value:
-                  Coding:
-                    code: "4"
-                    display: cN3
-              - value:
-                  Coding:
-                    code: "999"
-                    display: Unknown
-          - text: Q22 Clinical distant metastasis
-            type: choice
-            linkId: clinicalDistantMetastasis
-            answerOption:
-              - value:
-                  Coding:
-                    code: "0"
-                    display: cMX
-              - value:
-                  Coding:
-                    code: "1"
-                    display: cM0
-              - value:
-                  Coding:
-                    code: "2"
-                    display: cM1
-              - value:
-                  Coding:
-                    code: "999"
-                    display: Unknown
-          - text: Q23 Pathological tumor stage
-            type: choice
-            linkId: pathologicalTumorStage
-            answerOption:
-              - value:
-                  Coding:
-                    code: "0"
-                    display: pTX
-              - value:
-                  Coding:
-                    code: "1"
-                    display: pT0
-              - value:
-                  Coding:
-                    code: "2"
-                    display: pTis
-              - value:
-                  Coding:
-                    code: "3"
-                    display: pT1
-              - value:
-                  Coding:
-                    code: "4"
-                    display: pT2
-              - value:
-                  Coding:
-                    code: "5"
-                    display: pT3
-              - value:
-                  Coding:
-                    code: "6"
-                    display: pT4
-              - value:
-                  Coding:
-                    code: "999"
-                    display: Unknown
-          - text: Q24 Pathological nodal stage
-            type: choice
-            linkId: pathologicalNodalStage
-            answerOption:
-              - value:
-                  Coding:
-                    code: "0"
-                    display: pNX
-              - value:
-                  Coding:
-                    code: "1"
-                    display: pN0
-              - value:
-                  Coding:
-                    code: "2"
-                    display: pN1
-              - value:
-                  Coding:
-                    code: "3"
-                    display: pN2
-              - value:
-                  Coding:
-                    code: "4"
-                    display: pN3
-              - value:
-                  Coding:
-                    code: "999"
-                    display: Unknown
-          - text: Q25 Pathological distant metastasis
-            type: choice
-            linkId: pathologicalDistantMetastasis
-            answerOption:
-              - value:
-                  Coding:
-                    code: "0"
-                    display: pMx
-              - value:
-                  Coding:
-                    code: "1"
-                    display: pM0
-              - value:
-                  Coding:
-                    code: "2"
-                    display: pM1
-              - value:
-                  Coding:
-                    code: "999"
-                    display: Unknown
-          - text: Q26 Size of invasive tumor (in mm)
-            type: decimal
-            linkId: invasiveTumorSize
-          - text: Q27 Number of lymph nodes resected
-            type: integer
-            linkId: lymphNodesResected
-          - text: Q28 Number of lymph nodes involved
-            type: integer
-            linkId: lymphNodesInvolved
-          - text: Q29 Estrogen receptor status
-            type: choice
-            linkId: estrogenReceptorStatus
-            answerOption:
-              - value:
-                  Coding:
-                    code: "0"
-                    display: "No"
-              - value:
-                  Coding:
-                    code: "1"
-                    display: "Yes"
-              - value:
-                  Coding:
-                    code: "2"
-                    display: Not performed
-              - value:
-                  Coding:
-                    code: "999"
-                    display: Unknown
-          - text: Q30 Progesterone receptor status
-            type: choice
-            linkId: progesteroneReceptorStatus
-            answerOption:
-              - value:
-                  Coding:
-                    code: "0"
-                    display: "No"
-              - value:
-                  Coding:
-                    code: "1"
-                    display: "Yes"
-              - value:
-                  Coding:
-                    code: "2"
-                    display: Not performed
-              - value:
-                  Coding:
-                    code: "999"
-                    display: Unknown
-          - text: Q31 HER2 receptor status
-            type: choice
-            linkId: her2ReceptorStatus
-            answerOption:
-              - value:
-                  Coding:
-                    code: "0"
-                    display: Negative
-              - value:
-                  Coding:
-                    code: "1"
-                    display: Positive
-              - value:
-                  Coding:
-                    code: "2"
-                    display: Equivocal
-              - value:
-                  Coding:
-                    code: "3"
-                    display: Not performed
-        text: Baseline Tumor Factors
+                    display: No diagnosis of breast cancer
+      - text: Baseline tumor factors
         type: group
         linkId: baselineTumorFactors
-      - item:
+        item:
+          - text: Have you been diagnosed with breast cancer?
+            type: choice
+            linkId: patientHasDiagnosisOfBreastCancer
+            itemControl:
+              coding:
+                - code: inline-choice
+            inlineChoiceDirection: horizontal
+            answerOption:
+              - value:
+                  Coding:
+                    code: "no"
+                    display: "No"
+              - value:
+                  Coding:
+                    code: "yes"
+                    display: "Yes"
+          - text: If you have never been diagnosed with breast cancer, please proceed to the next page.
+            type: display
+            linkId: patientHasNotDiagnosisOfBreastCancerDescription
+            enableWhen:
+              - question: patientHasDiagnosisOfBreastCancer
+                operator: "="
+                answer:
+                  Coding:
+                    code: "no"
+          - linkId: patientHasDiagnosisOfBreastCancerGroup1
+            type: group
+            enableWhen:
+              - question: patientHasDiagnosisOfBreastCancer
+                operator: "="
+                answer:
+                  Coding:
+                    code: "yes"
+            item:
+              - text: If you have been diagnosed with breast, please complete the questions below.
+                linkId: instruction-1
+                type: display
+              - text: 1. Initial date of histological diagnosis DD/MM/YYYY
+                type: date
+                linkId: initialDiagnosisDate
+              - text: "2. Indicate histologic type of the tumor:"
+                type: choice
+                linkId: histologicType
+                helpText: Select all that apply
+                repeats: true
+                itemControl:
+                  coding:
+                    - code: inline-choice
+                answerOption:
+                  - value:
+                      Coding:
+                        code: "0"
+                        display: Ductal carcinoma in situ
+                  - value:
+                      Coding:
+                        code: "1"
+                        display: Invasive ductal carcinoma
+                  - value:
+                      Coding:
+                        code: "2"
+                        display: Invasive lobular carcinoma
+                  - value:
+                      Coding:
+                        code: "3"
+                        display: Other
+                  - value:
+                      Coding:
+                        code: "999"
+                        display: Unknown
+              - text: Specify other histologic type
+                type: string
+                linkId: otherHistologicType
+                enableWhen:
+                  - question: histologicType
+                    operator: "="
+                    answer:
+                      Coding:
+                        code: "3"
+              - text: >-
+                  3. Indicate if the patient carries a genetic mutation predisposing
+                  breast cancer:
+                type: choice
+                linkId: geneticMutation
+                itemControl:
+                  coding:
+                    - code: inline-choice
+                answerOption:
+                  - value:
+                      Coding:
+                        code: "0"
+                        display: No mutation
+                  - value:
+                      Coding:
+                        code: "1"
+                        display: BRCA1
+                  - value:
+                      Coding:
+                        code: "2"
+                        display: BRCA2
+                  - value:
+                      Coding:
+                        code: "3"
+                        display: Other mutation
+                  - value:
+                      Coding:
+                        code: "4"
+                        display: Not tested
+              - text: "4. Indicate grade of invasive component of tumor:"
+                type: choice
+                linkId: invasiveComponentGrade
+                itemControl:
+                  coding:
+                    - code: inline-choice
+                answerOption:
+                  - value:
+                      Coding:
+                        code: "0"
+                        display: Grade 1
+                  - value:
+                      Coding:
+                        code: "1"
+                        display: Grade 2
+                  - value:
+                      Coding:
+                        code: "2"
+                        display: Grade 3
+                  - value:
+                      Coding:
+                        code: "3"
+                        display: Not reported
+              - text: 5. Indicate tumor grade of DCIS component of tumor
+                type: choice
+                linkId: dcisComponentGrade
+                itemControl:
+                  coding:
+                    - code: inline-choice
+                answerOption:
+                  - value:
+                      Coding:
+                        code: "0"
+                        display: Low
+                  - value:
+                      Coding:
+                        code: "1"
+                        display: Intermediate
+                  - value:
+                      Coding:
+                        code: "2"
+                        display: High
+                  - value:
+                      Coding:
+                        code: "3"
+                        display: Not reported
+              - text: 6. Clinical tumor stage
+                type: choice
+                linkId: clinicalTumorStage
+                answerOption:
+                  - value:
+                      Coding:
+                        code: "0"
+                        display: cTX
+                  - value:
+                      Coding:
+                        code: "1"
+                        display: cT0
+                  - value:
+                      Coding:
+                        code: "2"
+                        display: cTis
+                  - value:
+                      Coding:
+                        code: "3"
+                        display: cT1
+                  - value:
+                      Coding:
+                        code: "4"
+                        display: cT2
+                  - value:
+                      Coding:
+                        code: "5"
+                        display: cT3
+                  - value:
+                      Coding:
+                        code: "6"
+                        display: cT4
+                  - value:
+                      Coding:
+                        code: "999"
+                        display: Unknown
+              - text: 7. Clinical nodal stage
+                type: choice
+                linkId: clinicalNodalStage
+                itemControl:
+                  coding:
+                    - code: inline-choice
+                answerOption:
+                  - value:
+                      Coding:
+                        code: "0"
+                        display: cNX
+                  - value:
+                      Coding:
+                        code: "1"
+                        display: cN0
+                  - value:
+                      Coding:
+                        code: "2"
+                        display: cN1
+                  - value:
+                      Coding:
+                        code: "3"
+                        display: cN2
+                  - value:
+                      Coding:
+                        code: "4"
+                        display: cN3
+                  - value:
+                      Coding:
+                        code: "999"
+                        display: Unknown
+              - text: 8. Clinical distant metastasis
+                type: choice
+                linkId: clinicalDistantMetastasis
+                itemControl:
+                  coding:
+                    - code: inline-choice
+                answerOption:
+                  - value:
+                      Coding:
+                        code: "0"
+                        display: cMX
+                  - value:
+                      Coding:
+                        code: "1"
+                        display: cM0
+                  - value:
+                      Coding:
+                        code: "2"
+                        display: cM1
+                  - value:
+                      Coding:
+                        code: "999"
+                        display: Unknown
+              - text: 9. Pathological tumor stage
+                type: choice
+                linkId: pathologicalTumorStage
+                answerOption:
+                  - value:
+                      Coding:
+                        code: "0"
+                        display: pTX
+                  - value:
+                      Coding:
+                        code: "1"
+                        display: pT0
+                  - value:
+                      Coding:
+                        code: "2"
+                        display: pTis
+                  - value:
+                      Coding:
+                        code: "3"
+                        display: pT1
+                  - value:
+                      Coding:
+                        code: "4"
+                        display: pT2
+                  - value:
+                      Coding:
+                        code: "5"
+                        display: pT3
+                  - value:
+                      Coding:
+                        code: "6"
+                        display: pT4
+                  - value:
+                      Coding:
+                        code: "999"
+                        display: Unknown
+              - text: 10. Pathological nodal stage
+                type: choice
+                linkId: pathologicalNodalStage
+                itemControl:
+                  coding:
+                    - code: inline-choice
+                answerOption:
+                  - value:
+                      Coding:
+                        code: "0"
+                        display: pNX
+                  - value:
+                      Coding:
+                        code: "1"
+                        display: pN0
+                  - value:
+                      Coding:
+                        code: "2"
+                        display: pN1
+                  - value:
+                      Coding:
+                        code: "3"
+                        display: pN2
+                  - value:
+                      Coding:
+                        code: "4"
+                        display: pN3
+                  - value:
+                      Coding:
+                        code: "999"
+                        display: Unknown
+              - text: 11. Pathological distant metastasis
+                type: choice
+                linkId: pathologicalDistantMetastasis
+                itemControl:
+                  coding:
+                    - code: inline-choice
+                answerOption:
+                  - value:
+                      Coding:
+                        code: "0"
+                        display: pMx
+                  - value:
+                      Coding:
+                        code: "1"
+                        display: pM0
+                  - value:
+                      Coding:
+                        code: "2"
+                        display: pM1
+                  - value:
+                      Coding:
+                        code: "999"
+                        display: Unknown
+              - text: 12. Size of invasive tumor
+                type: decimal
+                linkId: invasiveTumorSize
+                unit:
+                  code: mm
+                  system: http://unitsofmeasure.org
+                  display: mm
+              - text: 13. Number of lymph nodes resected
+                type: integer
+                linkId: lymphNodesResected
+              - text: 14. Number of lymph nodes involved
+                type: integer
+                linkId: lymphNodesInvolved
+              - text: 15. Estrogen receptor status
+                type: choice
+                linkId: estrogenReceptorStatus
+                itemControl:
+                  coding:
+                    - code: inline-choice
+                answerOption:
+                  - value:
+                      Coding:
+                        code: "0"
+                        display: "No"
+                  - value:
+                      Coding:
+                        code: "1"
+                        display: "Yes"
+                  - value:
+                      Coding:
+                        code: "2"
+                        display: Not performed
+                  - value:
+                      Coding:
+                        code: "999"
+                        display: Unknown
+              - text: 16. Progesterone receptor status
+                type: choice
+                linkId: progesteroneReceptorStatus
+                itemControl:
+                  coding:
+                    - code: inline-choice
+                answerOption:
+                  - value:
+                      Coding:
+                        code: "0"
+                        display: "No"
+                  - value:
+                      Coding:
+                        code: "1"
+                        display: "Yes"
+                  - value:
+                      Coding:
+                        code: "2"
+                        display: Not performed
+                  - value:
+                      Coding:
+                        code: "999"
+                        display: Unknown
+              - text: 17. HER2 receptor status
+                type: choice
+                linkId: her2ReceptorStatus
+                itemControl:
+                  coding:
+                    - code: inline-choice
+                answerOption:
+                  - value:
+                      Coding:
+                        code: "0"
+                        display: Negative
+                  - value:
+                      Coding:
+                        code: "1"
+                        display: Positive
+                  - value:
+                      Coding:
+                        code: "2"
+                        display: Equivocal
+                  - value:
+                      Coding:
+                        code: "3"
+                        display: Not performed
+      - text: Degree of health
+        type: group
+        linkId: degreeOfHealth
+        item:
           - text: >-
-              Q32 Do you have any trouble doing strenuous activities, like carrying
+              1. Do you have any trouble doing strenuous activities, like carrying
               a heavy shopping bag or a suitcase?
             type: choice
             linkId: strenuousActivities
+            itemControl:
+              coding:
+                - code: inline-choice
             answerOption:
               - value:
                   Coding:
@@ -589,9 +687,12 @@ item:
                   Coding:
                     code: "3"
                     display: Very much
-          - text: Q33 Do you have any trouble taking a long walk?
+          - text: 2. Do you have any trouble taking a long walk?
             type: choice
             linkId: longWalk
+            itemControl:
+              coding:
+                - code: inline-choice
             answerOption:
               - value:
                   Coding:
@@ -609,9 +710,12 @@ item:
                   Coding:
                     code: "3"
                     display: Very much
-          - text: Q34 Do you have any trouble taking a short walk outside of the house?
+          - text: 3. Do you have any trouble taking a short walk outside of the house?
             type: choice
             linkId: shortWalk
+            itemControl:
+              coding:
+                - code: inline-choice
             answerOption:
               - value:
                   Coding:
@@ -629,9 +733,12 @@ item:
                   Coding:
                     code: "3"
                     display: Very much
-          - text: Q35 Do you need to stay in bed or a chair during the day?
+          - text: 4. Do you need to stay in bed or a chair during the day?
             type: choice
             linkId: stayInBed
+            itemControl:
+              coding:
+                - code: inline-choice
             answerOption:
               - value:
                   Coding:
@@ -650,10 +757,13 @@ item:
                     code: "3"
                     display: Very much
           - text: >-
-              Q36 Do you need help with eating, dressing, washing yourself or using
+              5. Do you need help with eating, dressing, washing yourself or using
               the toilet?
             type: choice
             linkId: needHelp
+            itemControl:
+              coding:
+                - code: inline-choice
             answerOption:
               - value:
                   Coding:
@@ -671,495 +781,585 @@ item:
                   Coding:
                     code: "3"
                     display: Very much
-          - text: >-
-              Q37 During the past week: Were you limited in doing either your work
-              or other daily activities?
-            type: choice
-            linkId: limitedActivities
-            answerOption:
-              - value:
-                  Coding:
-                    code: "0"
-                    display: Not at all
-              - value:
-                  Coding:
-                    code: "1"
-                    display: A little
-              - value:
-                  Coding:
-                    code: "2"
-                    display: Quite a bit
-              - value:
-                  Coding:
-                    code: "3"
-                    display: Very much
-          - text: >-
-              Were you limited in pursuing your hobbies or other leisure time
-              activities?
-            type: choice
-            linkId: limitedHobbies
-            answerOption:
-              - value:
-                  Coding:
-                    code: "0"
-                    display: Not at all
-              - value:
-                  Coding:
-                    code: "1"
-                    display: A little
-              - value:
-                  Coding:
-                    code: "2"
-                    display: Quite a bit
-              - value:
-                  Coding:
-                    code: "3"
-                    display: Very much
-          - text: Were you short of breath?
-            type: choice
-            linkId: shortOfBreath
-            answerOption:
-              - value:
-                  Coding:
-                    code: "0"
-                    display: Not at all
-              - value:
-                  Coding:
-                    code: "1"
-                    display: A little
-              - value:
-                  Coding:
-                    code: "2"
-                    display: Quite a bit
-              - value:
-                  Coding:
-                    code: "3"
-                    display: Very much
-          - text: Have you had pain?
-            type: choice
-            linkId: hadPain
-            answerOption:
-              - value:
-                  Coding:
-                    code: "0"
-                    display: Not at all
-              - value:
-                  Coding:
-                    code: "1"
-                    display: A little
-              - value:
-                  Coding:
-                    code: "2"
-                    display: Quite a bit
-              - value:
-                  Coding:
-                    code: "3"
-                    display: Very much
-          - text: Did you need to rest?
-            type: choice
-            linkId: neededToRest
-            answerOption:
-              - value:
-                  Coding:
-                    code: "0"
-                    display: Not at all
-              - value:
-                  Coding:
-                    code: "1"
-                    display: A little
-              - value:
-                  Coding:
-                    code: "2"
-                    display: Quite a bit
-              - value:
-                  Coding:
-                    code: "3"
-                    display: Very much
-          - text: Have you had trouble sleeping?
-            type: choice
-            linkId: troubleSleeping
-            answerOption:
-              - value:
-                  Coding:
-                    code: "0"
-                    display: Not at all
-              - value:
-                  Coding:
-                    code: "1"
-                    display: A little
-              - value:
-                  Coding:
-                    code: "2"
-                    display: Quite a bit
-              - value:
-                  Coding:
-                    code: "3"
-                    display: Very much
-          - text: Have you felt weak?
-            type: choice
-            linkId: feltWeak
-            answerOption:
-              - value:
-                  Coding:
-                    code: "0"
-                    display: Not at all
-              - value:
-                  Coding:
-                    code: "1"
-                    display: A little
-              - value:
-                  Coding:
-                    code: "2"
-                    display: Quite a bit
-              - value:
-                  Coding:
-                    code: "3"
-                    display: Very much
-          - text: Have you lacked appetite?
-            type: choice
-            linkId: lackedAppetite
-            answerOption:
-              - value:
-                  Coding:
-                    code: "0"
-                    display: Not at all
-              - value:
-                  Coding:
-                    code: "1"
-                    display: A little
-              - value:
-                  Coding:
-                    code: "2"
-                    display: Quite a bit
-              - value:
-                  Coding:
-                    code: "3"
-                    display: Very much
-          - text: Have you felt nauseated?
-            type: choice
-            linkId: feltNauseated
-            answerOption:
-              - value:
-                  Coding:
-                    code: "0"
-                    display: Not at all
-              - value:
-                  Coding:
-                    code: "1"
-                    display: A little
-              - value:
-                  Coding:
-                    code: "2"
-                    display: Quite a bit
-              - value:
-                  Coding:
-                    code: "3"
-                    display: Very much
-          - text: Have you vomited?
-            type: choice
-            linkId: vomited
-            answerOption:
-              - value:
-                  Coding:
-                    code: "0"
-                    display: Not at all
-              - value:
-                  Coding:
-                    code: "1"
-                    display: A little
-              - value:
-                  Coding:
-                    code: "2"
-                    display: Quite a bit
-              - value:
-                  Coding:
-                    code: "3"
-                    display: Very much
-          - text: Have you been constipated?
-            type: choice
-            linkId: beenConstipated
-            answerOption:
-              - value:
-                  Coding:
-                    code: "0"
-                    display: Not at all
-              - value:
-                  Coding:
-                    code: "1"
-                    display: A little
-              - value:
-                  Coding:
-                    code: "2"
-                    display: Quite a bit
-              - value:
-                  Coding:
-                    code: "3"
-                    display: Very much
-          - text: Have you had diarrhea?
-            type: choice
-            linkId: hadDiarrhea
-            answerOption:
-              - value:
-                  Coding:
-                    code: "0"
-                    display: Not at all
-              - value:
-                  Coding:
-                    code: "1"
-                    display: A little
-              - value:
-                  Coding:
-                    code: "2"
-                    display: Quite a bit
-              - value:
-                  Coding:
-                    code: "3"
-                    display: Very much
-          - text: Were you tired?
-            type: choice
-            linkId: wereTired
-            answerOption:
-              - value:
-                  Coding:
-                    code: "0"
-                    display: Not at all
-              - value:
-                  Coding:
-                    code: "1"
-                    display: A little
-              - value:
-                  Coding:
-                    code: "2"
-                    display: Quite a bit
-              - value:
-                  Coding:
-                    code: "3"
-                    display: Very much
-          - text: Did pain interfere with your daily activities?
-            type: choice
-            linkId: painInterfere
-            answerOption:
-              - value:
-                  Coding:
-                    code: "0"
-                    display: Not at all
-              - value:
-                  Coding:
-                    code: "1"
-                    display: A little
-              - value:
-                  Coding:
-                    code: "2"
-                    display: Quite a bit
-              - value:
-                  Coding:
-                    code: "3"
-                    display: Very much
-          - text: >-
-              Have you had difficulty in concentrating on things, like reading a
-              newspaper or watching television?
-            type: choice
-            linkId: difficultyConcentrating
-            answerOption:
-              - value:
-                  Coding:
-                    code: "0"
-                    display: Not at all
-              - value:
-                  Coding:
-                    code: "1"
-                    display: A little
-              - value:
-                  Coding:
-                    code: "2"
-                    display: Quite a bit
-              - value:
-                  Coding:
-                    code: "3"
-                    display: Very much
-          - text: Did you feel tense?
-            type: choice
-            linkId: feltTense
-            answerOption:
-              - value:
-                  Coding:
-                    code: "0"
-                    display: Not at all
-              - value:
-                  Coding:
-                    code: "1"
-                    display: A little
-              - value:
-                  Coding:
-                    code: "2"
-                    display: Quite a bit
-              - value:
-                  Coding:
-                    code: "3"
-                    display: Very much
-          - text: Did you worry?
-            type: choice
-            linkId: worried
-            answerOption:
-              - value:
-                  Coding:
-                    code: "0"
-                    display: Not at all
-              - value:
-                  Coding:
-                    code: "1"
-                    display: A little
-              - value:
-                  Coding:
-                    code: "2"
-                    display: Quite a bit
-              - value:
-                  Coding:
-                    code: "3"
-                    display: Very much
-          - text: Did you feel irritable?
-            type: choice
-            linkId: feltIrritable
-            answerOption:
-              - value:
-                  Coding:
-                    code: "0"
-                    display: Not at all
-              - value:
-                  Coding:
-                    code: "1"
-                    display: A little
-              - value:
-                  Coding:
-                    code: "2"
-                    display: Quite a bit
-              - value:
-                  Coding:
-                    code: "3"
-                    display: Very much
-          - text: Did you feel depressed?
-            type: choice
-            linkId: feltDepressed
-            answerOption:
-              - value:
-                  Coding:
-                    code: "0"
-                    display: Not at all
-              - value:
-                  Coding:
-                    code: "1"
-                    display: A little
-              - value:
-                  Coding:
-                    code: "2"
-                    display: Quite a bit
-              - value:
-                  Coding:
-                    code: "3"
-                    display: Very much
-          - text: Have you had difficulty remembering things?
-            type: choice
-            linkId: difficultyRemembering
-            answerOption:
-              - value:
-                  Coding:
-                    code: "0"
-                    display: Not at all
-              - value:
-                  Coding:
-                    code: "1"
-                    display: A little
-              - value:
-                  Coding:
-                    code: "2"
-                    display: Quite a bit
-              - value:
-                  Coding:
-                    code: "3"
-                    display: Very much
-          - text: >-
-              Has your physical condition or medical treatment interfered with your
-              family life?
-            type: choice
-            linkId: interferedFamilyLife
-            answerOption:
-              - value:
-                  Coding:
-                    code: "0"
-                    display: Not at all
-              - value:
-                  Coding:
-                    code: "1"
-                    display: A little
-              - value:
-                  Coding:
-                    code: "2"
-                    display: Quite a bit
-              - value:
-                  Coding:
-                    code: "3"
-                    display: Very much
-          - text: >-
-              Has your physical condition or medical treatment caused you financial
-              difficulties?
-            type: choice
-            linkId: causedFinancialDifficulties
-            answerOption:
-              - value:
-                  Coding:
-                    code: "0"
-                    display: Not at all
-              - value:
-                  Coding:
-                    code: "1"
-                    display: A little
-              - value:
-                  Coding:
-                    code: "2"
-                    display: Quite a bit
-              - value:
-                  Coding:
-                    code: "3"
-                    display: Very much
-          - text: Q38 How would you rate your overall health during the past week?
-            type: choice
-            linkId: overallHealth
-            answerOption:
-              - value:
-                  integer: 1
-              - value:
-                  integer: 2
-              - value:
-                  integer: 3
-              - value:
-                  integer: 4
-              - value:
-                  integer: 5
-              - value:
-                  integer: 6
-              - value:
-                  integer: 7
-          - text: How would you rate your overall quality of life during the past week?
-            type: choice
-            linkId: overallQualityOfLife
-            answerOption:
-              - value:
-                  integer: 1
-              - value:
-                  integer: 2
-              - value:
-                  integer: 3
-              - value:
-                  integer: 4
-              - value:
-                  integer: 5
-              - value:
-                  integer: 6
-              - value:
-                  integer: 7
-          - text: Q39 During the past week Did you have a dry mouth?
+          - linkId: questions6group
+            type: group
+            item:
+              - text: "6. During the past week:"
+                type: display
+                linkId: questions6Description
+              - text: >-
+                  a. Were you limited in doing either your work
+                  or other daily activities?
+                type: choice
+                linkId: limitedActivities
+                itemControl:
+                  coding:
+                    - code: inline-choice
+                answerOption:
+                  - value:
+                      Coding:
+                        code: "0"
+                        display: Not at all
+                  - value:
+                      Coding:
+                        code: "1"
+                        display: A little
+                  - value:
+                      Coding:
+                        code: "2"
+                        display: Quite a bit
+                  - value:
+                      Coding:
+                        code: "3"
+                        display: Very much
+              - text: >-
+                  b. Were you limited in pursuing your hobbies or other leisure time
+                  activities?
+                type: choice
+                linkId: limitedHobbies
+                itemControl:
+                  coding:
+                    - code: inline-choice
+                answerOption:
+                  - value:
+                      Coding:
+                        code: "0"
+                        display: Not at all
+                  - value:
+                      Coding:
+                        code: "1"
+                        display: A little
+                  - value:
+                      Coding:
+                        code: "2"
+                        display: Quite a bit
+                  - value:
+                      Coding:
+                        code: "3"
+                        display: Very much
+              - text: c. Were you short of breath?
+                type: choice
+                linkId: shortOfBreath
+                itemControl:
+                  coding:
+                    - code: inline-choice
+                answerOption:
+                  - value:
+                      Coding:
+                        code: "0"
+                        display: Not at all
+                  - value:
+                      Coding:
+                        code: "1"
+                        display: A little
+                  - value:
+                      Coding:
+                        code: "2"
+                        display: Quite a bit
+                  - value:
+                      Coding:
+                        code: "3"
+                        display: Very much
+              - text: d. Have you had pain?
+                type: choice
+                linkId: hadPain
+                itemControl:
+                  coding:
+                    - code: inline-choice
+                answerOption:
+                  - value:
+                      Coding:
+                        code: "0"
+                        display: Not at all
+                  - value:
+                      Coding:
+                        code: "1"
+                        display: A little
+                  - value:
+                      Coding:
+                        code: "2"
+                        display: Quite a bit
+                  - value:
+                      Coding:
+                        code: "3"
+                        display: Very much
+              - text: e. Did you need to rest?
+                type: choice
+                linkId: neededToRest
+                itemControl:
+                  coding:
+                    - code: inline-choice
+                answerOption:
+                  - value:
+                      Coding:
+                        code: "0"
+                        display: Not at all
+                  - value:
+                      Coding:
+                        code: "1"
+                        display: A little
+                  - value:
+                      Coding:
+                        code: "2"
+                        display: Quite a bit
+                  - value:
+                      Coding:
+                        code: "3"
+                        display: Very much
+              - text: f. Have you had trouble sleeping?
+                type: choice
+                linkId: troubleSleeping
+                itemControl:
+                  coding:
+                    - code: inline-choice
+                answerOption:
+                  - value:
+                      Coding:
+                        code: "0"
+                        display: Not at all
+                  - value:
+                      Coding:
+                        code: "1"
+                        display: A little
+                  - value:
+                      Coding:
+                        code: "2"
+                        display: Quite a bit
+                  - value:
+                      Coding:
+                        code: "3"
+                        display: Very much
+              - text: g. Have you felt weak?
+                type: choice
+                linkId: feltWeak
+                itemControl:
+                  coding:
+                    - code: inline-choice
+                answerOption:
+                  - value:
+                      Coding:
+                        code: "0"
+                        display: Not at all
+                  - value:
+                      Coding:
+                        code: "1"
+                        display: A little
+                  - value:
+                      Coding:
+                        code: "2"
+                        display: Quite a bit
+                  - value:
+                      Coding:
+                        code: "3"
+                        display: Very much
+              - text: h. Have you lacked appetite?
+                type: choice
+                linkId: lackedAppetite
+                itemControl:
+                  coding:
+                    - code: inline-choice
+                answerOption:
+                  - value:
+                      Coding:
+                        code: "0"
+                        display: Not at all
+                  - value:
+                      Coding:
+                        code: "1"
+                        display: A little
+                  - value:
+                      Coding:
+                        code: "2"
+                        display: Quite a bit
+                  - value:
+                      Coding:
+                        code: "3"
+                        display: Very much
+              - text: i. Have you felt nauseated?
+                type: choice
+                linkId: feltNauseated
+                itemControl:
+                  coding:
+                    - code: inline-choice
+                answerOption:
+                  - value:
+                      Coding:
+                        code: "0"
+                        display: Not at all
+                  - value:
+                      Coding:
+                        code: "1"
+                        display: A little
+                  - value:
+                      Coding:
+                        code: "2"
+                        display: Quite a bit
+                  - value:
+                      Coding:
+                        code: "3"
+                        display: Very much
+              - text: j. Have you vomited?
+                type: choice
+                linkId: vomited
+                itemControl:
+                  coding:
+                    - code: inline-choice
+                answerOption:
+                  - value:
+                      Coding:
+                        code: "0"
+                        display: Not at all
+                  - value:
+                      Coding:
+                        code: "1"
+                        display: A little
+                  - value:
+                      Coding:
+                        code: "2"
+                        display: Quite a bit
+                  - value:
+                      Coding:
+                        code: "3"
+                        display: Very much
+              - text: k. Have you been constipated?
+                type: choice
+                linkId: beenConstipated
+                itemControl:
+                  coding:
+                    - code: inline-choice
+                answerOption:
+                  - value:
+                      Coding:
+                        code: "0"
+                        display: Not at all
+                  - value:
+                      Coding:
+                        code: "1"
+                        display: A little
+                  - value:
+                      Coding:
+                        code: "2"
+                        display: Quite a bit
+                  - value:
+                      Coding:
+                        code: "3"
+                        display: Very much
+              - text: l. Have you had diarrhea?
+                type: choice
+                linkId: hadDiarrhea
+                itemControl:
+                  coding:
+                    - code: inline-choice
+                answerOption:
+                  - value:
+                      Coding:
+                        code: "0"
+                        display: Not at all
+                  - value:
+                      Coding:
+                        code: "1"
+                        display: A little
+                  - value:
+                      Coding:
+                        code: "2"
+                        display: Quite a bit
+                  - value:
+                      Coding:
+                        code: "3"
+                        display: Very much
+              - text: m. Were you tired?
+                type: choice
+                linkId: wereTired
+                itemControl:
+                  coding:
+                    - code: inline-choice
+                answerOption:
+                  - value:
+                      Coding:
+                        code: "0"
+                        display: Not at all
+                  - value:
+                      Coding:
+                        code: "1"
+                        display: A little
+                  - value:
+                      Coding:
+                        code: "2"
+                        display: Quite a bit
+                  - value:
+                      Coding:
+                        code: "3"
+                        display: Very much
+              - text: n. Did pain interfere with your daily activities?
+                type: choice
+                linkId: painInterfere
+                itemControl:
+                  coding:
+                    - code: inline-choice
+                answerOption:
+                  - value:
+                      Coding:
+                        code: "0"
+                        display: Not at all
+                  - value:
+                      Coding:
+                        code: "1"
+                        display: A little
+                  - value:
+                      Coding:
+                        code: "2"
+                        display: Quite a bit
+                  - value:
+                      Coding:
+                        code: "3"
+                        display: Very much
+              - text: >-
+                  o. Have you had difficulty in concentrating on things, like reading a
+                  newspaper or watching television?
+                type: choice
+                linkId: difficultyConcentrating
+                itemControl:
+                  coding:
+                    - code: inline-choice
+                answerOption:
+                  - value:
+                      Coding:
+                        code: "0"
+                        display: Not at all
+                  - value:
+                      Coding:
+                        code: "1"
+                        display: A little
+                  - value:
+                      Coding:
+                        code: "2"
+                        display: Quite a bit
+                  - value:
+                      Coding:
+                        code: "3"
+                        display: Very much
+              - text: p. Did you feel tense?
+                type: choice
+                linkId: feltTense
+                itemControl:
+                  coding:
+                    - code: inline-choice
+                answerOption:
+                  - value:
+                      Coding:
+                        code: "0"
+                        display: Not at all
+                  - value:
+                      Coding:
+                        code: "1"
+                        display: A little
+                  - value:
+                      Coding:
+                        code: "2"
+                        display: Quite a bit
+                  - value:
+                      Coding:
+                        code: "3"
+                        display: Very much
+              - text: q. Did you worry?
+                type: choice
+                linkId: worried
+                itemControl:
+                  coding:
+                    - code: inline-choice
+                answerOption:
+                  - value:
+                      Coding:
+                        code: "0"
+                        display: Not at all
+                  - value:
+                      Coding:
+                        code: "1"
+                        display: A little
+                  - value:
+                      Coding:
+                        code: "2"
+                        display: Quite a bit
+                  - value:
+                      Coding:
+                        code: "3"
+                        display: Very much
+              - text: r. Did you feel irritable?
+                type: choice
+                linkId: feltIrritable
+                itemControl:
+                  coding:
+                    - code: inline-choice
+                answerOption:
+                  - value:
+                      Coding:
+                        code: "0"
+                        display: Not at all
+                  - value:
+                      Coding:
+                        code: "1"
+                        display: A little
+                  - value:
+                      Coding:
+                        code: "2"
+                        display: Quite a bit
+                  - value:
+                      Coding:
+                        code: "3"
+                        display: Very much
+              - text: s. Did you feel depressed?
+                type: choice
+                linkId: feltDepressed
+                itemControl:
+                  coding:
+                    - code: inline-choice
+                answerOption:
+                  - value:
+                      Coding:
+                        code: "0"
+                        display: Not at all
+                  - value:
+                      Coding:
+                        code: "1"
+                        display: A little
+                  - value:
+                      Coding:
+                        code: "2"
+                        display: Quite a bit
+                  - value:
+                      Coding:
+                        code: "3"
+                        display: Very much
+              - text: t. Have you had difficulty remembering things?
+                type: choice
+                linkId: difficultyRemembering
+                itemControl:
+                  coding:
+                    - code: inline-choice
+                answerOption:
+                  - value:
+                      Coding:
+                        code: "0"
+                        display: Not at all
+                  - value:
+                      Coding:
+                        code: "1"
+                        display: A little
+                  - value:
+                      Coding:
+                        code: "2"
+                        display: Quite a bit
+                  - value:
+                      Coding:
+                        code: "3"
+                        display: Very much
+              - text: >-
+                  u. Has your physical condition or medical treatment interfered with your
+                  family life?
+                type: choice
+                linkId: interferedFamilyLife
+                itemControl:
+                  coding:
+                    - code: inline-choice
+                answerOption:
+                  - value:
+                      Coding:
+                        code: "0"
+                        display: Not at all
+                  - value:
+                      Coding:
+                        code: "1"
+                        display: A little
+                  - value:
+                      Coding:
+                        code: "2"
+                        display: Quite a bit
+                  - value:
+                      Coding:
+                        code: "3"
+                        display: Very much
+              - text: >-
+                  v. Has your physical condition or medical treatment caused you financial
+                  difficulties?
+                type: choice
+                linkId: causedFinancialDifficulties
+                itemControl:
+                  coding:
+                    - code: inline-choice
+                answerOption:
+                  - value:
+                      Coding:
+                        code: "0"
+                        display: Not at all
+                  - value:
+                      Coding:
+                        code: "1"
+                        display: A little
+                  - value:
+                      Coding:
+                        code: "2"
+                        display: Quite a bit
+                  - value:
+                      Coding:
+                        code: "3"
+                        display: Very much
+          - linkId: questions7group
+            type: group
+            item:
+              - text: |-
+                  7. For the following questions please select the number between 1 and 7 that best applies to you.
+                  Range from 1 to 7, with 1 = Very poor and 7 = Worst pain imaginable.
+                type: display
+                linkId: questions7Description
+              - text: a. How would you rate your overall health during the past week?
+                type: choice
+                linkId: overallHealth
+                answerOption:
+                  - value:
+                      integer: 1
+                  - value:
+                      integer: 2
+                  - value:
+                      integer: 3
+                  - value:
+                      integer: 4
+                  - value:
+                      integer: 5
+                  - value:
+                      integer: 6
+                  - value:
+                      integer: 7
+              - text: b. How would you rate your overall quality of life during the past week?
+                type: choice
+                linkId: overallQualityOfLife
+                answerOption:
+                  - value:
+                      integer: 1
+                  - value:
+                      integer: 2
+                  - value:
+                      integer: 3
+                  - value:
+                      integer: 4
+                  - value:
+                      integer: 5
+                  - value:
+                      integer: 6
+                  - value:
+                      integer: 7
+          - linkId: questions8group
+            type: group
+            item:
+              - text: |-
+                  8. During the past week:
+                type: display
+                linkId: questions8Description
+          - text: a. Did you have a dry mouth?
             type: choice
             linkId: dryMouth
+            itemControl:
+              coding:
+                - code: inline-choice
             answerOption:
               - value:
                   Coding:
@@ -1177,9 +1377,12 @@ item:
                   Coding:
                     code: "3"
                     display: Very much
-          - text: Did food and drink taste different than usual?
+          - text: b. Did food and drink taste different than usual?
             type: choice
             linkId: tasteDifferent
+            itemControl:
+              coding:
+                - code: inline-choice
             answerOption:
               - value:
                   Coding:
@@ -1197,9 +1400,12 @@ item:
                   Coding:
                     code: "3"
                     display: Very much
-          - text: Were your eyes painful, irritated, or watery?
+          - text: c. Were your eyes painful, irritated, or watery?
             type: choice
             linkId: eyesProblems
+            itemControl:
+              coding:
+                - code: inline-choice
             answerOption:
               - value:
                   Coding:
@@ -1217,9 +1423,12 @@ item:
                   Coding:
                     code: "3"
                     display: Very much
-          - text: Have you lost any hair?
+          - text: d. Have you lost any hair?
             type: choice
             linkId: lostHair
+            itemControl:
+              coding:
+                - code: inline-choice
             answerOption:
               - value:
                   Coding:
@@ -1237,9 +1446,12 @@ item:
                   Coding:
                     code: "3"
                     display: Very much
-          - text: Were you upset by the loss of your hair?
+          - text: e. Were you upset by the loss of your hair?
             type: choice
             linkId: upsetByHairLoss
+            itemControl:
+              coding:
+                - code: inline-choice
             answerOption:
               - value:
                   Coding:
@@ -1257,9 +1469,12 @@ item:
                   Coding:
                     code: "3"
                     display: Very much
-          - text: Did you feel ill or unwell?
+          - text: f. Did you feel ill or unwell?
             type: choice
             linkId: feltIll
+            itemControl:
+              coding:
+                - code: inline-choice
             answerOption:
               - value:
                   Coding:
@@ -1277,9 +1492,12 @@ item:
                   Coding:
                     code: "3"
                     display: Very much
-          - text: Did you have hot flushes?
+          - text: g. Did you have hot flushes?
             type: choice
             linkId: hotFlushes
+            itemControl:
+              coding:
+                - code: inline-choice
             answerOption:
               - value:
                   Coding:
@@ -1297,9 +1515,12 @@ item:
                   Coding:
                     code: "3"
                     display: Very much
-          - text: Did you have headaches?
+          - text: h. Did you have headaches?
             type: choice
             linkId: headaches
+            itemControl:
+              coding:
+                - code: inline-choice
             answerOption:
               - value:
                   Coding:
@@ -1318,10 +1539,13 @@ item:
                     code: "3"
                     display: Very much
           - text: >-
-              Have you felt physically less attractive as a result of your disease
+              i. Have you felt physically less attractive as a result of your disease
               or treatment?
             type: choice
             linkId: lessAttractive
+            itemControl:
+              coding:
+                - code: inline-choice
             answerOption:
               - value:
                   Coding:
@@ -1340,10 +1564,13 @@ item:
                     code: "3"
                     display: Very much
           - text: >-
-              Have you been feeling less feminine as a result of your disease or
+              j. Have you been feeling less feminine as a result of your disease or
               treatment?
             type: choice
             linkId: lessFeminine
+            itemControl:
+              coding:
+                - code: inline-choice
             answerOption:
               - value:
                   Coding:
@@ -1361,9 +1588,12 @@ item:
                   Coding:
                     code: "3"
                     display: Very much
-          - text: Did you find it difficult to look at yourself naked?
+          - text: k. Did you find it difficult to look at yourself naked?
             type: choice
             linkId: difficultToLookNaked
+            itemControl:
+              coding:
+                - code: inline-choice
             answerOption:
               - value:
                   Coding:
@@ -1381,9 +1611,12 @@ item:
                   Coding:
                     code: "3"
                     display: Very much
-          - text: Have you been dissatisfied with your body?
+          - text: l. Have you been dissatisfied with your body?
             type: choice
             linkId: dissatisfiedWithBody
+            itemControl:
+              coding:
+                - code: inline-choice
             answerOption:
               - value:
                   Coding:
@@ -1401,9 +1634,12 @@ item:
                   Coding:
                     code: "3"
                     display: Very much
-          - text: Were you worried about your health in the future?
+          - text: m. Were you worried about your health in the future?
             type: choice
             linkId: worriedAboutHealth
+            itemControl:
+              coding:
+                - code: inline-choice
             answerOption:
               - value:
                   Coding:
@@ -1421,9 +1657,12 @@ item:
                   Coding:
                     code: "3"
                     display: Very much
-          - text: To what extent were you interested in sex?
+          - text: n. To what extent were you interested in sex?
             type: choice
             linkId: interestedInSex
+            itemControl:
+              coding:
+                - code: inline-choice
             answerOption:
               - value:
                   Coding:
@@ -1441,9 +1680,12 @@ item:
                   Coding:
                     code: "3"
                     display: Very much
-          - text: To what extent were you sexually active? (with or without intercourse)
+          - text: o. To what extent were you sexually active? (with or without intercourse)
             type: choice
             linkId: sexuallyActive
+            itemControl:
+              coding:
+                - code: inline-choice
             answerOption:
               - value:
                   Coding:
@@ -1461,9 +1703,12 @@ item:
                   Coding:
                     code: "3"
                     display: Very much
-          - text: To what extent was sex enjoyable for you?
+          - text: p. To what extent was sex enjoyable for you?
             type: choice
             linkId: sexEnjoyable
+            itemControl:
+              coding:
+                - code: inline-choice
             answerOption:
               - value:
                   Coding:
@@ -1481,560 +1726,1411 @@ item:
                   Coding:
                     code: "3"
                     display: Very much
-          - text: >-
-              Instructions:
-            linkId: instruction-4
-            type: display
-          - text: >-
-              If you have never been diagnosed with breast cancer, please proceed to the next page.
-            linkId: instruction-5
-            type: display
-          - text: >-
-              If you have been diagnosed with breast, please complete the questions below.
-            linkId: instruction-6
-            type: display
-          - text: >-
-              Q40 During the past week: Did you have any pain in your arm or
-              shoulder?
-            type: choice
-            linkId: painInArm
-            answerOption:
-              - value:
+          - linkId: patientHasDiagnosisOfBreastCancerGroup2
+            type: group
+            enableWhen:
+              - question: patientHasDiagnosisOfBreastCancer
+                operator: "="
+                answer:
                   Coding:
-                    code: "0"
-                    display: Not at all
-              - value:
-                  Coding:
-                    code: "1"
-                    display: A little
-              - value:
-                  Coding:
-                    code: "2"
-                    display: Quite a bit
-              - value:
-                  Coding:
-                    code: "3"
-                    display: Very much
-          - text: Did you have a swollen arm or hand?
-            type: choice
-            linkId: swollenArm
-            answerOption:
-              - value:
-                  Coding:
-                    code: "0"
-                    display: Not at all
-              - value:
-                  Coding:
-                    code: "1"
-                    display: A little
-              - value:
-                  Coding:
-                    code: "2"
-                    display: Quite a bit
-              - value:
-                  Coding:
-                    code: "3"
-                    display: Very much
-          - text: Was it difficult to raise your arm or to move it sideways?
-            type: choice
-            linkId: difficultToRaiseArm
-            answerOption:
-              - value:
-                  Coding:
-                    code: "0"
-                    display: Not at all
-              - value:
-                  Coding:
-                    code: "1"
-                    display: A little
-              - value:
-                  Coding:
-                    code: "2"
-                    display: Quite a bit
-              - value:
-                  Coding:
-                    code: "3"
-                    display: Very much
-          - text: Have you had any pain in the area of your affected breast?
-            type: choice
-            linkId: painInBreast
-            answerOption:
-              - value:
-                  Coding:
-                    code: "0"
-                    display: Not at all
-              - value:
-                  Coding:
-                    code: "1"
-                    display: A little
-              - value:
-                  Coding:
-                    code: "2"
-                    display: Quite a bit
-              - value:
-                  Coding:
-                    code: "3"
-                    display: Very much
-          - text: Was the area of your affected breast swollen?
-            type: choice
-            linkId: swollenBreast
-            answerOption:
-              - value:
-                  Coding:
-                    code: "0"
-                    display: Not at all
-              - value:
-                  Coding:
-                    code: "1"
-                    display: A little
-              - value:
-                  Coding:
-                    code: "2"
-                    display: Quite a bit
-              - value:
-                  Coding:
-                    code: "3"
-                    display: Very much
-          - text: Was the area of your affected breast oversensitive?
-            type: choice
-            linkId: oversensitiveBreast
-            answerOption:
-              - value:
-                  Coding:
-                    code: "0"
-                    display: Not at all
-              - value:
-                  Coding:
-                    code: "1"
-                    display: A little
-              - value:
-                  Coding:
-                    code: "2"
-                    display: Quite a bit
-              - value:
-                  Coding:
-                    code: "3"
-                    display: Very much
-          - text: >-
-              Have you had skin problems on or in the area of your affected breast
-              (e.g., itchy, dry, flaky)?
-            type: choice
-            linkId: skinProblemsBreast
-            answerOption:
-              - value:
-                  integer: 0
-              - value:
-                  integer: 1
-              - value:
-                  integer: 2
-              - value:
-                  integer: 3
-          - text: >-
-              Q41 With your breasts in mind, or if you have had a mastectomy, with
-              your breast area in mind, in the past 2 weeks, how satisfied or
-              dissatisfied have you been with: How you look in the mirror clothed?
-            type: choice
-            linkId: satisfactionWithAppearanceClothed
-            answerOption:
-              - value:
-                  Coding:
-                    code: "0"
-                    display: Very dissatisfied
-              - value:
-                  Coding:
-                    code: "1"
-                    display: Somewhat dissatisfied
-              - value:
-                  Coding:
-                    code: "2"
-                    display: Somewhat satisfied
-              - value:
-                  Coding:
-                    code: "3"
-                    display: Very satisfied
-          - text: How comfortable your bras fit?
-            type: choice
-            linkId: comfortableBrasFit
-            answerOption:
-              - value:
-                  Coding:
-                    code: "0"
-                    display: Very dissatisfied
-              - value:
-                  Coding:
-                    code: "1"
-                    display: Somewhat dissatisfied
-              - value:
-                  Coding:
-                    code: "2"
-                    display: Somewhat satisfied
-              - value:
-                  Coding:
-                    code: "3"
-                    display: Very satisfied
-          - text: Being able to wear clothing that is more fitted?
-            type: choice
-            linkId: wearFittedClothing
-            answerOption:
-              - value:
-                  Coding:
-                    code: "0"
-                    display: Very dissatisfied
-              - value:
-                  Coding:
-                    code: "1"
-                    display: Somewhat dissatisfied
-              - value:
-                  Coding:
-                    code: "2"
-                    display: Somewhat satisfied
-              - value:
-                  Coding:
-                    code: "3"
-                    display: Very satisfied
-          - text: How you look in the mirror unclothed?
-            type: choice
-            linkId: satisfactionWithAppearanceUnclothed
-            answerOption:
-              - value:
-                  Coding:
-                    code: "0"
-                    display: Very dissatisfied
-              - value:
-                  Coding:
-                    code: "1"
-                    display: Somewhat dissatisfied
-              - value:
-                  Coding:
-                    code: "2"
-                    display: Somewhat satisfied
-              - value:
-                  Coding:
-                    code: "3"
-                    display: Very satisfied
-        text: Degree of Health
+                    code: "yes"
+            item:
+              - text: If you have been diagnosed with breast, please complete the questions below.
+                type: display
+                linkId: instruction-2
+              - linkId: questions9group
+                type: group
+                item:
+                  - text: |-
+                      9. During the past week:
+                    type: display
+                    linkId: questions9Description
+              - text: a. Did you have any pain in your arm or shoulder?
+                type: choice
+                linkId: painInArm
+                itemControl:
+                  coding:
+                    - code: inline-choice
+                answerOption:
+                  - value:
+                      Coding:
+                        code: "0"
+                        display: Not at all
+                  - value:
+                      Coding:
+                        code: "1"
+                        display: A little
+                  - value:
+                      Coding:
+                        code: "2"
+                        display: Quite a bit
+                  - value:
+                      Coding:
+                        code: "3"
+                        display: Very much
+              - text: b. Did you have a swollen arm or hand?
+                type: choice
+                linkId: swollenArm
+                itemControl:
+                  coding:
+                    - code: inline-choice
+                answerOption:
+                  - value:
+                      Coding:
+                        code: "0"
+                        display: Not at all
+                  - value:
+                      Coding:
+                        code: "1"
+                        display: A little
+                  - value:
+                      Coding:
+                        code: "2"
+                        display: Quite a bit
+                  - value:
+                      Coding:
+                        code: "3"
+                        display: Very much
+              - text: c. Was it difficult to raise your arm or to move it sideways?
+                type: choice
+                linkId: difficultToRaiseArm
+                itemControl:
+                  coding:
+                    - code: inline-choice
+                answerOption:
+                  - value:
+                      Coding:
+                        code: "0"
+                        display: Not at all
+                  - value:
+                      Coding:
+                        code: "1"
+                        display: A little
+                  - value:
+                      Coding:
+                        code: "2"
+                        display: Quite a bit
+                  - value:
+                      Coding:
+                        code: "3"
+                        display: Very much
+              - text: d. Have you had any pain in the area of your affected breast?
+                type: choice
+                linkId: painInBreast
+                itemControl:
+                  coding:
+                    - code: inline-choice
+                answerOption:
+                  - value:
+                      Coding:
+                        code: "0"
+                        display: Not at all
+                  - value:
+                      Coding:
+                        code: "1"
+                        display: A little
+                  - value:
+                      Coding:
+                        code: "2"
+                        display: Quite a bit
+                  - value:
+                      Coding:
+                        code: "3"
+                        display: Very much
+              - text: i. Was the area of your affected breast swollen?
+                type: choice
+                linkId: swollenBreast
+                itemControl:
+                  coding:
+                    - code: inline-choice
+                answerOption:
+                  - value:
+                      Coding:
+                        code: "0"
+                        display: Not at all
+                  - value:
+                      Coding:
+                        code: "1"
+                        display: A little
+                  - value:
+                      Coding:
+                        code: "2"
+                        display: Quite a bit
+                  - value:
+                      Coding:
+                        code: "3"
+                        display: Very much
+              - text: f. Was the area of your affected breast oversensitive?
+                type: choice
+                linkId: oversensitiveBreast
+                itemControl:
+                  coding:
+                    - code: inline-choice
+                answerOption:
+                  - value:
+                      Coding:
+                        code: "0"
+                        display: Not at all
+                  - value:
+                      Coding:
+                        code: "1"
+                        display: A little
+                  - value:
+                      Coding:
+                        code: "2"
+                        display: Quite a bit
+                  - value:
+                      Coding:
+                        code: "3"
+                        display: Very much
+              - text: >-
+                  g. Have you had skin problems on or in the area of your affected breast
+                  (e.g., itchy, dry, flaky)?
+                type: choice
+                linkId: skinProblemsBreast
+                itemControl:
+                  coding:
+                    - code: inline-choice
+                answerOption:
+                  - value:
+                      Coding:
+                        code: "0"
+                        display: Not at all
+                  - value:
+                      Coding:
+                        code: "1"
+                        display: A little
+                  - value:
+                      Coding:
+                        code: "2"
+                        display: Quite a bit
+                  - value:
+                      Coding:
+                        code: "3"
+                        display: Very much
+              - linkId: questions10group
+                type: group
+                item:
+                  - text: |-
+                      10. With your breasts in mind, or if you have had a mastectomy, with
+                      your breast area in mind, in the past 2 weeks, how satisfied or
+                      dissatisfied have you been with:
+                    type: display
+                    linkId: questions10Description
+              - text: a. How you look in the mirror clothed?
+                type: choice
+                linkId: satisfactionWithAppearanceClothed
+                itemControl:
+                  coding:
+                    - code: inline-choice
+                answerOption:
+                  - value:
+                      Coding:
+                        code: "0"
+                        display: Very dissatisfied
+                  - value:
+                      Coding:
+                        code: "1"
+                        display: Somewhat dissatisfied
+                  - value:
+                      Coding:
+                        code: "2"
+                        display: Somewhat satisfied
+                  - value:
+                      Coding:
+                        code: "3"
+                        display: Very satisfied
+              - text: b. How comfortable your bras fit?
+                type: choice
+                linkId: comfortableBrasFit
+                itemControl:
+                  coding:
+                    - code: inline-choice
+                answerOption:
+                  - value:
+                      Coding:
+                        code: "0"
+                        display: Very dissatisfied
+                  - value:
+                      Coding:
+                        code: "1"
+                        display: Somewhat dissatisfied
+                  - value:
+                      Coding:
+                        code: "2"
+                        display: Somewhat satisfied
+                  - value:
+                      Coding:
+                        code: "3"
+                        display: Very satisfied
+              - text: c. Being able to wear clothing that is more fitted?
+                type: choice
+                linkId: wearFittedClothing
+                itemControl:
+                  coding:
+                    - code: inline-choice
+                answerOption:
+                  - value:
+                      Coding:
+                        code: "0"
+                        display: Very dissatisfied
+                  - value:
+                      Coding:
+                        code: "1"
+                        display: Somewhat dissatisfied
+                  - value:
+                      Coding:
+                        code: "2"
+                        display: Somewhat satisfied
+                  - value:
+                      Coding:
+                        code: "3"
+                        display: Very satisfied
+              - text: d. How you look in the mirror unclothed?
+                type: choice
+                linkId: satisfactionWithAppearanceUnclothed
+                itemControl:
+                  coding:
+                    - code: inline-choice
+                answerOption:
+                  - value:
+                      Coding:
+                        code: "0"
+                        display: Very dissatisfied
+                  - value:
+                      Coding:
+                        code: "1"
+                        display: Somewhat dissatisfied
+                  - value:
+                      Coding:
+                        code: "2"
+                        display: Somewhat satisfied
+                  - value:
+                      Coding:
+                        code: "3"
+                        display: Very satisfied
+      - text: Before breast screening
         type: group
-        linkId: degreeOfHealth
-      - item:
-          - text: >-
-              1. After the examinations I have thought about the broader aspects of
-              life:
+        linkId: groupForWomenBeforeBreastScreening
+        item:
+          - text: Have you had a breast screening?
             type: choice
-            linkId: broaderAspectsOfLife
+            linkId: patientHasHadScreeningQ1
+            itemControl:
+              coding:
+                - code: inline-choice
+            inlineChoiceDirection: horizontal
             answerOption:
               - value:
                   Coding:
-                    code: MuchLess
-                    display: Much less
-              - value:
-                  Coding:
-                    code: Less
-                    display: Less
-              - value:
-                  Coding:
-                    code: TheSameAsBefore
-                    display: The same as before
-              - value:
-                  Coding:
-                    code: More
-                    display: More
-              - value:
-                  Coding:
-                    code: MuchMore
-                    display: Much more
-          - text: "2. After the examinations my enjoyment of life is:"
-            type: choice
-            linkId: enjoymentOfLife
-            answerOption:
-              - value:
-                  Coding:
-                    code: MuchLess
-                    display: Much less
-              - value:
-                  Coding:
-                    code: Less
-                    display: Less
-              - value:
-                  Coding:
-                    code: TheSameAsBefore
-                    display: The same as before
-              - value:
-                  Coding:
-                    code: More
-                    display: More
-              - value:
-                  Coding:
-                    code: MuchMore
-                    display: Much more
-          - text: "3. After the examinations my anxiety about breast cancer is:"
-            type: choice
-            linkId: anxietyAboutBreastCancer
-            answerOption:
-              - value:
-                  Coding:
-                    code: MuchGreater
-                    display: Much greater
-              - value:
-                  Coding:
-                    code: Greater
-                    display: Greater
-              - value:
-                  Coding:
-                    code: TheSameAsBefore
-                    display: The same as before
-              - value:
-                  Coding:
-                    code: Less
-                    display: Less
-              - value:
-                  Coding:
-                    code: MuchLess
-                    display: Much less
-          - text: "4. After the examinations I feel:"
-            type: choice
-            linkId: feelingRelaxed
-            answerOption:
-              - value:
-                  Coding:
-                    code: MuchLessRelaxed
-                    display: Much less relaxed
-              - value:
-                  Coding:
-                    code: LessRelaxed
-                    display: Less relaxed
-              - value:
-                  Coding:
-                    code: AsRelaxedAsBefore
-                    display: As relaxed as before
-              - value:
-                  Coding:
-                    code: MoreRelaxed
-                    display: More relaxed
-              - value:
-                  Coding:
-                    code: MuchMoreRelaxed
-                    display: Much more relaxed
-          - text: "5. After the examinations my relationship with my family is:"
-            type: choice
-            linkId: relationshipWithFamily
-            answerOption:
-              - value:
-                  Coding:
-                    code: MuchLessClose
-                    display: Much less close
-              - value:
-                  Coding:
-                    code: LessClose
-                    display: Less close
-              - value:
-                  Coding:
-                    code: TheSameAsBefore
-                    display: The same as before
-              - value:
-                  Coding:
-                    code: Closer
-                    display: Closer
-              - value:
-                  Coding:
-                    code: MuchCloser
-                    display: Much closer
-          - text: "6. After the examinations my relationship with friends is:"
-            type: choice
-            linkId: relationshipWithFriends
-            answerOption:
-              - value:
-                  Coding:
-                    code: MuchLessClose
-                    display: Much less close
-              - value:
-                  Coding:
-                    code: LessClose
-                    display: Less close
-              - value:
-                  Coding:
-                    code: TheSameAsBefore
-                    display: The same as before
-              - value:
-                  Coding:
-                    code: Closer
-                    display: Closer
-              - value:
-                  Coding:
-                    code: MuchCloser
-                    display: Much closer
-          - text: "7. After the examinations my relationship with other people is:"
-            type: choice
-            linkId: relationshipWithOthers
-            answerOption:
-              - value:
-                  Coding:
-                    code: MuchWorse
-                    display: Much worse
-              - value:
-                  Coding:
-                    code: Worse
-                    display: Worse
-              - value:
-                  Coding:
-                    code: TheSameAsBefore
-                    display: The same as before
-              - value:
-                  Coding:
-                    code: Better
-                    display: Better
-              - value:
-                  Coding:
-                    code: MuchBetter
-                    display: Much better
-          - text: "8. After the examinations I feel:"
-            type: choice
-            linkId: feelingCalm
-            answerOption:
-              - value:
-                  Coding:
-                    code: MuchCalmer
-                    display: Much calmer
-              - value:
-                  Coding:
-                    code: Calmer
-                    display: Calmer
-              - value:
-                  Coding:
-                    code: AsCalmAsBefore
-                    display: As calm as before
-              - value:
-                  Coding:
-                    code: LessCalm
-                    display: Less calm
-              - value:
-                  Coding:
-                    code: MuchLessCalm
-                    display: Much less calm
-          - text: "9. After the examinations my thoughts about the future are:"
-            type: choice
-            linkId: thoughtsAboutFuture
-            answerOption:
-              - value:
-                  Coding:
-                    code: MuchMorePessimistic
-                    display: Much more pessimistic
-              - value:
-                  Coding:
-                    code: MorePessimistic
-                    display: More pessimistic
-              - value:
-                  Coding:
-                    code: TheSameAsBefore
-                    display: The same as before
-              - value:
-                  Coding:
-                    code: MoreOptimistic
-                    display: More optimistic
-              - value:
-                  Coding:
-                    code: MuchMoreOptimistic
-                    display: Much more optimistic
-          - text: "10. After the examinations my sense of well-being is:"
-            type: choice
-            linkId: senseOfWellBeing
-            answerOption:
-              - value:
-                  Coding:
-                    code: MuchLess
-                    display: Much less
-              - value:
-                  Coding:
-                    code: Less
-                    display: Less
-              - value:
-                  Coding:
-                    code: TheSameAsBefore
-                    display: The same as before
-              - value:
-                  Coding:
-                    code: Greater
-                    display: Greater
-              - value:
-                  Coding:
-                    code: MuchGreater
-                    display: Much greater
-          - text: "11. After the examinations my awareness of life is:"
-            type: choice
-            linkId: awarenessOfLife
-            answerOption:
-              - value:
-                  Coding:
-                    code: MuchLess
-                    display: Much less
-              - value:
-                  Coding:
-                    code: Less
-                    display: Less
-              - value:
-                  Coding:
-                    code: TheSameAsBefore
-                    display: The same as before
-              - value:
-                  Coding:
-                    code: Greater
-                    display: Greater
-              - value:
-                  Coding:
-                    code: MuchGreater
-                    display: Much greater
-          - text: "12. After the examinations I value life:"
-            type: choice
-            linkId: valueLife
-            answerOption:
-              - value:
-                  Coding:
-                    code: MuchLess
-                    display: Much less
-              - value:
-                  Coding:
-                    code: Less
-                    display: Less
-              - value:
-                  Coding:
-                    code: TheSameAsBefore
-                    display: The same as before
-              - value:
-                  Coding:
-                    code: More
-                    display: More
-              - value:
-                  Coding:
-                    code: MuchMore
-                    display: Much more
-          - text: >-
-              13. After the examinations my belief that I do not have breast cancer
-              is:
-            type: choice
-            linkId: beliefNoBreastCancer
-            answerOption:
-              - value:
-                  Coding:
-                    code: MuchLess
-                    display: Much less
-              - value:
-                  Coding:
-                    code: Less
-                    display: Less
-              - value:
-                  Coding:
-                    code: TheSameAsBefore
-                    display: The same as before
-              - value:
-                  Coding:
-                    code: Greater
-                    display: Greater
-              - value:
-                  Coding:
-                    code: MuchGreater
-                    display: Much greater
-        text: For women who have undergone breast screening
+                    code: "no"
+                    display: "No"
+              - value:
+                  Coding:
+                    code: "yes"
+                    display: "Yes"
+          - text: If you have had a breast screening, please proceed to the next page.
+            type: display
+            linkId: instruction-3
+            enableWhen:
+              - question: patientHasHadScreeningQ1
+                operator: "="
+                answer:
+                  Coding:
+                    code: "yes"
+          - linkId: patientHasHadScreeningQ1Group1
+            type: group
+            enableWhen:
+              - question: patientHasHadScreeningQ1
+                operator: "="
+                answer:
+                  Coding:
+                    code: "no"
+            item:
+              - text: If you have not had a breast screening, please complete the questions below.
+                linkId: instruction-4
+                type: display
+              - linkId: instruction-5
+                text: |-
+                  It is important that you answer all questions. To what extent - over the last week - have you experienced the following because of thoughts 
+                  about breast cancer?
+                type: display
+              - linkId: beforeExaminationsFeltLessAttractive
+                text: 1. I have felt less attractive
+                type: choice
+                itemControl:
+                  coding:
+                    - code: inline-choice
+                answerOption:
+                  - value:
+                      Coding:
+                        code: notAtAll
+                        display: Not at all
+                  - value:
+                      Coding:
+                        code: aBit
+                        display: A bit
+                  - value:
+                      Coding:
+                        code: quiteABit
+                        display: Quite a bit
+                  - value:
+                      Coding:
+                        code: aLot
+                        display: A lot
+              - linkId: beforeExaminationsWorried
+                text: 2. I have been worried
+                type: choice
+                itemControl:
+                  coding:
+                    - code: inline-choice
+                answerOption:
+                  - value:
+                      Coding:
+                        code: notAtAll
+                        display: Not at all
+                  - value:
+                      Coding:
+                        code: aBit
+                        display: A bit
+                  - value:
+                      Coding:
+                        code: quiteABit
+                        display: Quite a bit
+                  - value:
+                      Coding:
+                        code: aLot
+                        display: A lot
+              - linkId: beforeExaminationsWorriedAboutFuture
+                text: 3. I have been worried about my future
+                type: choice
+                itemControl:
+                  coding:
+                    - code: inline-choice
+                answerOption:
+                  - value:
+                      Coding:
+                        code: notAtAll
+                        display: Not at all
+                  - value:
+                      Coding:
+                        code: aBit
+                        display: A bit
+                  - value:
+                      Coding:
+                        code: quiteABit
+                        display: Quite a bit
+                  - value:
+                      Coding:
+                        code: aLot
+                        display: A lot
+              - linkId: beforeExaminationsFeltScared
+                text: 4. I have felt scared
+                type: choice
+                itemControl:
+                  coding:
+                    - code: inline-choice
+                answerOption:
+                  - value:
+                      Coding:
+                        code: notAtAll
+                        display: Not at all
+                  - value:
+                      Coding:
+                        code: aBit
+                        display: A bit
+                  - value:
+                      Coding:
+                        code: quiteABit
+                        display: Quite a bit
+                  - value:
+                      Coding:
+                        code: aLot
+                        display: A lot
+              - linkId: beforeExaminationsIrritable
+                text: 5. I have been irritable
+                type: choice
+                itemControl:
+                  coding:
+                    - code: inline-choice
+                answerOption:
+                  - value:
+                      Coding:
+                        code: notAtAll
+                        display: Not at all
+                  - value:
+                      Coding:
+                        code: aBit
+                        display: A bit
+                  - value:
+                      Coding:
+                        code: quiteABit
+                        display: Quite a bit
+                  - value:
+                      Coding:
+                        code: aLot
+                        display: A lot
+              - linkId: beforeExaminationsQuieterThanNormal
+                text: 6. I have been quieter than normal
+                type: choice
+                itemControl:
+                  coding:
+                    - code: inline-choice
+                answerOption:
+                  - value:
+                      Coding:
+                        code: notAtAll
+                        display: Not at all
+                  - value:
+                      Coding:
+                        code: aBit
+                        display: A bit
+                  - value:
+                      Coding:
+                        code: quiteABit
+                        display: Quite a bit
+                  - value:
+                      Coding:
+                        code: aLot
+                        display: A lot
+              - linkId: beforeExaminationsSleptBadly
+                text: 7. I have slept badly
+                type: choice
+                itemControl:
+                  coding:
+                    - code: inline-choice
+                answerOption:
+                  - value:
+                      Coding:
+                        code: notAtAll
+                        display: Not at all
+                  - value:
+                      Coding:
+                        code: aBit
+                        display: A bit
+                  - value:
+                      Coding:
+                        code: quiteABit
+                        display: Quite a bit
+                  - value:
+                      Coding:
+                        code: aLot
+                        display: A lot
+              - linkId: beforeExaminationsKeptBusyToTakeMindOffThings
+                text: 8. I have kept busy to take my mind off things
+                type: choice
+                itemControl:
+                  coding:
+                    - code: inline-choice
+                answerOption:
+                  - value:
+                      Coding:
+                        code: notAtAll
+                        display: Not at all
+                  - value:
+                      Coding:
+                        code: aBit
+                        display: A bit
+                  - value:
+                      Coding:
+                        code: quiteABit
+                        display: Quite a bit
+                  - value:
+                      Coding:
+                        code: aLot
+                        display: A lot
+              - linkId: beforeExaminationsHardToConcentrate
+                text: 9. I have found it hard to concentrate
+                type: choice
+                itemControl:
+                  coding:
+                    - code: inline-choice
+                answerOption:
+                  - value:
+                      Coding:
+                        code: notAtAll
+                        display: Not at all
+                  - value:
+                      Coding:
+                        code: aBit
+                        display: A bit
+                  - value:
+                      Coding:
+                        code: quiteABit
+                        display: Quite a bit
+                  - value:
+                      Coding:
+                        code: aLot
+                        display: A lot
+              - linkId: beforeExaminationsTimePassedSlowly
+                text: 10. I have felt time passed slowly
+                type: choice
+                itemControl:
+                  coding:
+                    - code: inline-choice
+                answerOption:
+                  - value:
+                      Coding:
+                        code: notAtAll
+                        display: Not at all
+                  - value:
+                      Coding:
+                        code: aBit
+                        display: A bit
+                  - value:
+                      Coding:
+                        code: quiteABit
+                        display: Quite a bit
+                  - value:
+                      Coding:
+                        code: aLot
+                        display: A lot
+              - linkId: beforeExaminationsAppetiteChanged
+                text: 11. My appetite has changed
+                type: choice
+                itemControl:
+                  coding:
+                    - code: inline-choice
+                answerOption:
+                  - value:
+                      Coding:
+                        code: notAtAll
+                        display: Not at all
+                  - value:
+                      Coding:
+                        code: aBit
+                        display: A bit
+                  - value:
+                      Coding:
+                        code: quiteABit
+                        display: Quite a bit
+                  - value:
+                      Coding:
+                        code: aLot
+                        display: A lot
+              - linkId: beforeExaminationsFeltSad
+                text: 12. I have felt sad
+                type: choice
+                itemControl:
+                  coding:
+                    - code: inline-choice
+                answerOption:
+                  - value:
+                      Coding:
+                        code: notAtAll
+                        display: Not at all
+                  - value:
+                      Coding:
+                        code: aBit
+                        display: A bit
+                  - value:
+                      Coding:
+                        code: quiteABit
+                        display: Quite a bit
+                  - value:
+                      Coding:
+                        code: aLot
+                        display: A lot
+              - linkId: beforeExaminationsUpset
+                text: 13. I have been upset
+                type: choice
+                itemControl:
+                  coding:
+                    - code: inline-choice
+                answerOption:
+                  - value:
+                      Coding:
+                        code: notAtAll
+                        display: Not at all
+                  - value:
+                      Coding:
+                        code: aBit
+                        display: A bit
+                  - value:
+                      Coding:
+                        code: quiteABit
+                        display: Quite a bit
+                  - value:
+                      Coding:
+                        code: aLot
+                        display: A lot
+              - linkId: beforeExaminationsExaminedBreasts
+                text: 14. I have examined my breasts
+                type: choice
+                itemControl:
+                  coding:
+                    - code: inline-choice
+                answerOption:
+                  - value:
+                      Coding:
+                        code: notAtAll
+                        display: Not at all
+                  - value:
+                      Coding:
+                        code: aBit
+                        display: A bit
+                  - value:
+                      Coding:
+                        code: quiteABit
+                        display: Quite a bit
+                  - value:
+                      Coding:
+                        code: aLot
+                        display: A lot
+              - linkId: beforeExaminationsFeltRestless
+                text: 15. I have felt restless
+                type: choice
+                itemControl:
+                  coding:
+                    - code: inline-choice
+                answerOption:
+                  - value:
+                      Coding:
+                        code: notAtAll
+                        display: Not at all
+                  - value:
+                      Coding:
+                        code: aBit
+                        display: A bit
+                  - value:
+                      Coding:
+                        code: quiteABit
+                        display: Quite a bit
+                  - value:
+                      Coding:
+                        code: aLot
+                        display: A lot
+              - linkId: beforeExaminationsNervous
+                text: 16. I have been nervous
+                type: choice
+                itemControl:
+                  coding:
+                    - code: inline-choice
+                answerOption:
+                  - value:
+                      Coding:
+                        code: notAtAll
+                        display: Not at all
+                  - value:
+                      Coding:
+                        code: aBit
+                        display: A bit
+                  - value:
+                      Coding:
+                        code: quiteABit
+                        display: Quite a bit
+                  - value:
+                      Coding:
+                        code: aLot
+                        display: A lot
+              - linkId: beforeExaminationsUneasy
+                text: 17. I have been uneasy
+                type: choice
+                itemControl:
+                  coding:
+                    - code: inline-choice
+                answerOption:
+                  - value:
+                      Coding:
+                        code: notAtAll
+                        display: Not at all
+                  - value:
+                      Coding:
+                        code: aBit
+                        display: A bit
+                  - value:
+                      Coding:
+                        code: quiteABit
+                        display: Quite a bit
+                  - value:
+                      Coding:
+                        code: aLot
+                        display: A lot
+              - linkId: beforeExaminationsTimeToFallAsleep
+                text: 18. It has taken me a long time to fall asleep
+                type: choice
+                itemControl:
+                  coding:
+                    - code: inline-choice
+                answerOption:
+                  - value:
+                      Coding:
+                        code: notAtAll
+                        display: Not at all
+                  - value:
+                      Coding:
+                        code: aBit
+                        display: A bit
+                  - value:
+                      Coding:
+                        code: quiteABit
+                        display: Quite a bit
+                  - value:
+                      Coding:
+                        code: aLot
+                        display: A lot
+              - linkId: beforeExaminationsBreastsMirror
+                text: 19. I have examined my breasts in the mirror
+                type: choice
+                itemControl:
+                  coding:
+                    - code: inline-choice
+                answerOption:
+                  - value:
+                      Coding:
+                        code: notAtAll
+                        display: Not at all
+                  - value:
+                      Coding:
+                        code: aBit
+                        display: A bit
+                  - value:
+                      Coding:
+                        code: quiteABit
+                        display: Quite a bit
+                  - value:
+                      Coding:
+                        code: aLot
+                        display: A lot
+              - linkId: beforeExaminationsSelfWithdrawal
+                text: 20. I have withdrawn into myself
+                type: choice
+                itemControl:
+                  coding:
+                    - code: inline-choice
+                answerOption:
+                  - value:
+                      Coding:
+                        code: notAtAll
+                        display: Not at all
+                  - value:
+                      Coding:
+                        code: aBit
+                        display: A bit
+                  - value:
+                      Coding:
+                        code: quiteABit
+                        display: Quite a bit
+                  - value:
+                      Coding:
+                        code: aLot
+                        display: A lot
+              - linkId: beforeExaminationsFeltUnableToCope
+                text: 21. I have felt unable to cope
+                type: choice
+                itemControl:
+                  coding:
+                    - code: inline-choice
+                answerOption:
+                  - value:
+                      Coding:
+                        code: notAtAll
+                        display: Not at all
+                  - value:
+                      Coding:
+                        code: aBit
+                        display: A bit
+                  - value:
+                      Coding:
+                        code: quiteABit
+                        display: Quite a bit
+                  - value:
+                      Coding:
+                        code: aLot
+                        display: A lot
+              - linkId: beforeExaminationsDepressed
+                text: 22. I have been depressed
+                type: choice
+                itemControl:
+                  coding:
+                    - code: inline-choice
+                answerOption:
+                  - value:
+                      Coding:
+                        code: notAtAll
+                        display: Not at all
+                  - value:
+                      Coding:
+                        code: aBit
+                        display: A bit
+                  - value:
+                      Coding:
+                        code: quiteABit
+                        display: Quite a bit
+                  - value:
+                      Coding:
+                        code: aLot
+                        display: A lot
+              - linkId: beforeExaminationsWorkCommitmentDifficulty
+                text: 23. I have had difficulty dealing with my work or other commitments
+                type: choice
+                itemControl:
+                  coding:
+                    - code: inline-choice
+                answerOption:
+                  - value:
+                      Coding:
+                        code: notAtAll
+                        display: Not at all
+                  - value:
+                      Coding:
+                        code: aBit
+                        display: A bit
+                  - value:
+                      Coding:
+                        code: quiteABit
+                        display: Quite a bit
+                  - value:
+                      Coding:
+                        code: aLot
+                        display: A lot
+              - linkId: beforeExaminationsWokenUpTooEarly
+                text: 24. I have woken up far too early in the morning
+                type: choice
+                itemControl:
+                  coding:
+                    - code: inline-choice
+                answerOption:
+                  - value:
+                      Coding:
+                        code: notAtAll
+                        display: Not at all
+                  - value:
+                      Coding:
+                        code: aBit
+                        display: A bit
+                  - value:
+                      Coding:
+                        code: quiteABit
+                        display: Quite a bit
+                  - value:
+                      Coding:
+                        code: aLot
+                        display: A lot
+              - linkId: beforeExaminationsDifficultyDoingEverydayThingsAtHome
+                text: 25. I have had difficulty doing everyday things around the house
+                type: choice
+                itemControl:
+                  coding:
+                    - code: inline-choice
+                answerOption:
+                  - value:
+                      Coding:
+                        code: notAtAll
+                        display: Not at all
+                  - value:
+                      Coding:
+                        code: aBit
+                        display: A bit
+                  - value:
+                      Coding:
+                        code: quiteABit
+                        display: Quite a bit
+                  - value:
+                      Coding:
+                        code: aLot
+                        display: A lot
+              - linkId: beforeExaminationsFeltTerrified
+                text: 26. I have felt terrified
+                type: choice
+                itemControl:
+                  coding:
+                    - code: inline-choice
+                answerOption:
+                  - value:
+                      Coding:
+                        code: notAtAll
+                        display: Not at all
+                  - value:
+                      Coding:
+                        code: aBit
+                        display: A bit
+                  - value:
+                      Coding:
+                        code: quiteABit
+                        display: Quite a bit
+                  - value:
+                      Coding:
+                        code: aLot
+                        display: A lot
+              - linkId: beforeExaminationsAwakeMostNight
+                text: 27. I have been awake most of the night
+                type: choice
+                itemControl:
+                  coding:
+                    - code: inline-choice
+                answerOption:
+                  - value:
+                      Coding:
+                        code: notAtAll
+                        display: Not at all
+                  - value:
+                      Coding:
+                        code: aBit
+                        display: A bit
+                  - value:
+                      Coding:
+                        code: quiteABit
+                        display: Quite a bit
+                  - value:
+                      Coding:
+                        code: aLot
+                        display: A lot
+              - linkId: beforeExaminationsLessInterestInSex
+                text: 28. I have felt less interest in sex
+                type: choice
+                itemControl:
+                  coding:
+                    - code: inline-choice
+                answerOption:
+                  - value:
+                      Coding:
+                        code: notAtAll
+                        display: Not at all
+                  - value:
+                      Coding:
+                        code: aBit
+                        display: A bit
+                  - value:
+                      Coding:
+                        code: quiteABit
+                        display: Quite a bit
+                  - value:
+                      Coding:
+                        code: aLot
+                        display: A lot
+              - linkId: beforeExaminationsNotFeltLikeHavingBreastCaressed
+                text: 29. I have not felt like having my breast caressed
+                type: choice
+                itemControl:
+                  coding:
+                    - code: inline-choice
+                answerOption:
+                  - value:
+                      Coding:
+                        code: notAtAll
+                        display: Not at all
+                  - value:
+                      Coding:
+                        code: aBit
+                        display: A bit
+                  - value:
+                      Coding:
+                        code: quiteABit
+                        display: Quite a bit
+                  - value:
+                      Coding:
+                        code: aLot
+                        display: A lot
+              - linkId: beforeExaminationsSickLeaveLastWeek
+                text: 30. How many days sick leave have you had during the last week?
+                type: choice
+                itemControl:
+                  coding:
+                    - code: inline-choice
+                answerOption:
+                  - value:
+                      Coding:
+                        code: 0days
+                        display: 0 days
+                  - value:
+                      Coding:
+                        code: 1-2days
+                        display: 1 - 2 days
+                  - value:
+                      Coding:
+                        code: 3-4days
+                        display: 3 - 4 days
+                  - value:
+                      Coding:
+                        code: 5orMoreDays
+                        display: 5 or more days
+      - text: After breast screening
         type: group
-        linkId: groupForWomen
+        linkId: groupForWomenAfterBreastScreening
+        item:
+          - linkId: instruction-6
+            text: Thank you for your help.
+            type: display
+            enableWhen:
+              - question: patientHasHadScreeningQ1
+                operator: "="
+                answer:
+                  Coding:
+                    code: "no"
+          - linkId: patientHasHadScreeningQ1Group2
+            type: group
+            enableWhen:
+              - question: patientHasHadScreeningQ1
+                operator: "="
+                answer:
+                  Coding:
+                    code: "yes"
+            item:
+              - linkId: instruction-7
+                text: |-
+                  It is important that you answer all questions. Taking everything into account, has your experience of the Breast Screening Programme 
+                  caused any of the following:
+                type: display
+              - text: >-
+                  1. After the examinations I have thought about the broader aspects of
+                  life:
+                type: choice
+                linkId: broaderAspectsOfLife
+                itemControl:
+                  coding:
+                    - code: inline-choice
+                answerOption:
+                  - value:
+                      Coding:
+                        code: MuchLess
+                        display: Much less
+                  - value:
+                      Coding:
+                        code: Less
+                        display: Less
+                  - value:
+                      Coding:
+                        code: TheSameAsBefore
+                        display: The same as before
+                  - value:
+                      Coding:
+                        code: More
+                        display: More
+                  - value:
+                      Coding:
+                        code: MuchMore
+                        display: Much more
+              - text: "2. After the examinations my enjoyment of life is:"
+                type: choice
+                linkId: enjoymentOfLife
+                itemControl:
+                  coding:
+                    - code: inline-choice
+                answerOption:
+                  - value:
+                      Coding:
+                        code: MuchLess
+                        display: Much less
+                  - value:
+                      Coding:
+                        code: Less
+                        display: Less
+                  - value:
+                      Coding:
+                        code: TheSameAsBefore
+                        display: The same as before
+                  - value:
+                      Coding:
+                        code: More
+                        display: More
+                  - value:
+                      Coding:
+                        code: MuchMore
+                        display: Much more
+              - text: "3. After the examinations my anxiety about breast cancer is:"
+                type: choice
+                linkId: anxietyAboutBreastCancer
+                itemControl:
+                  coding:
+                    - code: inline-choice
+                answerOption:
+                  - value:
+                      Coding:
+                        code: MuchGreater
+                        display: Much greater
+                  - value:
+                      Coding:
+                        code: Greater
+                        display: Greater
+                  - value:
+                      Coding:
+                        code: TheSameAsBefore
+                        display: The same as before
+                  - value:
+                      Coding:
+                        code: Less
+                        display: Less
+                  - value:
+                      Coding:
+                        code: MuchLess
+                        display: Much less
+              - text: "4. After the examinations I feel:"
+                type: choice
+                linkId: feelingRelaxed
+                itemControl:
+                  coding:
+                    - code: inline-choice
+                answerOption:
+                  - value:
+                      Coding:
+                        code: MuchLessRelaxed
+                        display: Much less relaxed
+                  - value:
+                      Coding:
+                        code: LessRelaxed
+                        display: Less relaxed
+                  - value:
+                      Coding:
+                        code: AsRelaxedAsBefore
+                        display: As relaxed as before
+                  - value:
+                      Coding:
+                        code: MoreRelaxed
+                        display: More relaxed
+                  - value:
+                      Coding:
+                        code: MuchMoreRelaxed
+                        display: Much more relaxed
+              - text: "5. After the examinations my relationship with my family is:"
+                type: choice
+                linkId: relationshipWithFamily
+                itemControl:
+                  coding:
+                    - code: inline-choice
+                answerOption:
+                  - value:
+                      Coding:
+                        code: MuchLessClose
+                        display: Much less close
+                  - value:
+                      Coding:
+                        code: LessClose
+                        display: Less close
+                  - value:
+                      Coding:
+                        code: TheSameAsBefore
+                        display: The same as before
+                  - value:
+                      Coding:
+                        code: Closer
+                        display: Closer
+                  - value:
+                      Coding:
+                        code: MuchCloser
+                        display: Much closer
+              - text: "6. After the examinations my relationship with friends is:"
+                type: choice
+                linkId: relationshipWithFriends
+                itemControl:
+                  coding:
+                    - code: inline-choice
+                answerOption:
+                  - value:
+                      Coding:
+                        code: MuchLessClose
+                        display: Much less close
+                  - value:
+                      Coding:
+                        code: LessClose
+                        display: Less close
+                  - value:
+                      Coding:
+                        code: TheSameAsBefore
+                        display: The same as before
+                  - value:
+                      Coding:
+                        code: Closer
+                        display: Closer
+                  - value:
+                      Coding:
+                        code: MuchCloser
+                        display: Much closer
+              - text: "7. After the examinations my relationship with other people is:"
+                type: choice
+                linkId: relationshipWithOthers
+                itemControl:
+                  coding:
+                    - code: inline-choice
+                answerOption:
+                  - value:
+                      Coding:
+                        code: MuchWorse
+                        display: Much worse
+                  - value:
+                      Coding:
+                        code: Worse
+                        display: Worse
+                  - value:
+                      Coding:
+                        code: TheSameAsBefore
+                        display: The same as before
+                  - value:
+                      Coding:
+                        code: Better
+                        display: Better
+                  - value:
+                      Coding:
+                        code: MuchBetter
+                        display: Much better
+              - text: "8. After the examinations I feel:"
+                type: choice
+                linkId: feelingCalm
+                itemControl:
+                  coding:
+                    - code: inline-choice
+                answerOption:
+                  - value:
+                      Coding:
+                        code: MuchCalmer
+                        display: Much calmer
+                  - value:
+                      Coding:
+                        code: Calmer
+                        display: Calmer
+                  - value:
+                      Coding:
+                        code: AsCalmAsBefore
+                        display: As calm as before
+                  - value:
+                      Coding:
+                        code: LessCalm
+                        display: Less calm
+                  - value:
+                      Coding:
+                        code: MuchLessCalm
+                        display: Much less calm
+              - text: "9. After the examinations my thoughts about the future are:"
+                type: choice
+                linkId: thoughtsAboutFuture
+                itemControl:
+                  coding:
+                    - code: inline-choice
+                answerOption:
+                  - value:
+                      Coding:
+                        code: MuchMorePessimistic
+                        display: Much more pessimistic
+                  - value:
+                      Coding:
+                        code: MorePessimistic
+                        display: More pessimistic
+                  - value:
+                      Coding:
+                        code: TheSameAsBefore
+                        display: The same as before
+                  - value:
+                      Coding:
+                        code: MoreOptimistic
+                        display: More optimistic
+                  - value:
+                      Coding:
+                        code: MuchMoreOptimistic
+                        display: Much more optimistic
+              - text: "10. After the examinations my sense of well-being is:"
+                type: choice
+                linkId: senseOfWellBeing
+                itemControl:
+                  coding:
+                    - code: inline-choice
+                answerOption:
+                  - value:
+                      Coding:
+                        code: MuchLess
+                        display: Much less
+                  - value:
+                      Coding:
+                        code: Less
+                        display: Less
+                  - value:
+                      Coding:
+                        code: TheSameAsBefore
+                        display: The same as before
+                  - value:
+                      Coding:
+                        code: Greater
+                        display: Greater
+                  - value:
+                      Coding:
+                        code: MuchGreater
+                        display: Much greater
+              - text: "11. After the examinations my awareness of life is:"
+                type: choice
+                linkId: awarenessOfLife
+                itemControl:
+                  coding:
+                    - code: inline-choice
+                answerOption:
+                  - value:
+                      Coding:
+                        code: MuchLess
+                        display: Much less
+                  - value:
+                      Coding:
+                        code: Less
+                        display: Less
+                  - value:
+                      Coding:
+                        code: TheSameAsBefore
+                        display: The same as before
+                  - value:
+                      Coding:
+                        code: Greater
+                        display: Greater
+                  - value:
+                      Coding:
+                        code: MuchGreater
+                        display: Much greater
+              - text: "12. After the examinations I value life:"
+                type: choice
+                linkId: valueLife
+                itemControl:
+                  coding:
+                    - code: inline-choice
+                answerOption:
+                  - value:
+                      Coding:
+                        code: MuchLess
+                        display: Much less
+                  - value:
+                      Coding:
+                        code: Less
+                        display: Less
+                  - value:
+                      Coding:
+                        code: TheSameAsBefore
+                        display: The same as before
+                  - value:
+                      Coding:
+                        code: More
+                        display: More
+                  - value:
+                      Coding:
+                        code: MuchMore
+                        display: Much more
+              - text: >-
+                  13. After the examinations my belief that I do not have breast cancer
+                  is:
+                type: choice
+                linkId: beliefNoBreastCancer
+                itemControl:
+                  coding:
+                    - code: inline-choice
+                answerOption:
+                  - value:
+                      Coding:
+                        code: MuchLess
+                        display: Much less
+                  - value:
+                      Coding:
+                        code: Less
+                        display: Less
+                  - value:
+                      Coding:
+                        code: TheSameAsBefore
+                        display: The same as before
+                  - value:
+                      Coding:
+                        code: Greater
+                        display: Greater
+                  - value:
+                      Coding:
+                        code: MuchGreater
+                        display: Much greater
+              - text: Thank you for your help.
+                type: display
+                linkId: endOfQuestionnaire
+
   - text: PatientId
     type: string
     hidden: true
