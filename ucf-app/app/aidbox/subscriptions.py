@@ -51,7 +51,15 @@ async def user_created(event, request):
             await notification.execute("$send")
 
 
-study_coordinator_email = 'Amoy.Fraser@ucf.edu'
+study_coordinator_emails = [
+    'Amoy.Fraser@ucf.edu',
+    'Britney-Ann.Wray@ucf.edu',
+    'Deisdemy.Contreras@ucf.edu',
+    'Randi.Brown@ucf.edu',
+    'Yareliz.Nazario@ucf.edu',
+    'Aniya.Barclay@ucf.edu',
+    'genevieve.torres@ucf.edu',
+]
 
 @sdk.subscription("QuestionnaireResponse")
 async def send_qr_notification(event, request):
@@ -90,23 +98,24 @@ async def send_qr_notification(event, request):
                 await notification.execute("$send")
 
             patient_name = evaluate(patient, "Patient.name.given + ' ' + Patient.name.family")[0]
-            notification = aidbox.resource(
-                "Notification",
-                **{
-                    "provider": EMAIL_PROVIDER,
-                    "providerData": {
-                        "to": study_coordinator_email,
-                        "subject": f"Copy of {patient_name} {questionnaire['title']}",
-                        "template": {
-                            "id": "questionnaire-pdf",
-                            "resourceType": "NotificationTemplate",
-                        },
-                        "payload": {
-                            "print-href": f"{FRONTEND_URL}/print-patient-document/{patient_id}/{qr_id}",
+            for study_coordinator_email in study_coordinator_emails:
+                notification = aidbox.resource(
+                    "Notification",
+                    **{
+                        "provider": EMAIL_PROVIDER,
+                        "providerData": {
+                            "to": study_coordinator_email,
+                            "subject": f"Copy of {patient_name} {questionnaire['title']}",
+                            "template": {
+                                "id": "questionnaire-pdf",
+                                "resourceType": "NotificationTemplate",
+                            },
+                            "payload": {
+                                "print-href": f"{FRONTEND_URL}/print-patient-document/{patient_id}/{qr_id}",
+                            },
                         },
                     },
-                },
-            )
-            await notification.save()
-            logging.debug("Notifing study coordinator %s", notification['id'])
-            await notification.execute("$send")
+                )
+                await notification.save()
+                logging.debug("Notifing study coordinator %s", notification['id'])
+                await notification.execute("$send")
