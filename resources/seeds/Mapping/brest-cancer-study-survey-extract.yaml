@@ -1,0 +1,26 @@
+resourceType: Mapping
+id: brest-cancer-study-survey-extract
+body:
+  $let:
+    id: >-
+      $
+      fhirpath("QuestionnaireResponse.repeat(item).where(linkId='patient-id').answer.valueString").0
+    gender: >-
+      $
+      fhirpath("QuestionnaireResponse.repeat(item).where(linkId='sex').answer.valueCoding.code").0
+    birthDate: >-
+      $
+      fhirpath("QuestionnaireResponse.repeat(item).where(linkId='dateOfBirth').answer.valueDate").0
+  $body:
+    resourceType: Bundle
+    type: transaction
+    entry:
+      - request:
+          url: $ "Patient/" + id
+          method: PATCH
+        resource:
+          gender:
+            $if: $ gender = "1"
+            $then: male
+            $else: female
+          birthDate: $ birthDate

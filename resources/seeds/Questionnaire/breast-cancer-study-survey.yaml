@@ -3,6 +3,14 @@ resourceType: Questionnaire
 name: breast-cancer-study-survey
 title: Breast Cancer Study Survey
 status: active
+launchContext:
+  - name:
+      code: Patient
+    type:
+      - Patient
+mapping:
+  - id: brest-cancer-study-survey-extract
+    resourceType: Mapping
 item:
   - type: group
     linkId: wizard
@@ -14,6 +22,14 @@ item:
         text: Demographic factors
         type: group
         item:
+          - text: PatientID
+            type: string
+            linkId: patient-id
+            hidden: true
+            required: true
+            initialExpression:
+              language: text/fhirpath
+              expression: "%Patient.id"
           - text: "1. Please indicate your sex:"
             type: choice
             linkId: sex
@@ -3141,4 +3157,4 @@ item:
 meta:
   profile:
     - https://beda.software/beda-emr-questionnaire
-url: https://aidbox.emr.beda.software/ui/console#/entities/Questionnaire/set-password
+url: https://aidbox.emr.beda.software/ui/console#/entities/Questionnaire/brest-cancer-study-survey

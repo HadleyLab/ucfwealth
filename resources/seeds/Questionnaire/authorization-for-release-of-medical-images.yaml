@@ -14,6 +14,25 @@ mapping:
   - id: patient-edit-extract
     resourceType: Mapping
 item:
+  - linkId: mobile
+    type: string
+    text: Phone number
+    readOnly: true
+    hidden: true
+    itemControl:
+      coding:
+        - code: phoneWidget
+    initialExpression:
+      language: text/fhirpath
+      expression: "%Patient.telecom.where(system='phone').value"
+  - linkId: email
+    type: string
+    text: Email
+    readOnly: true
+    hidden: true
+    initialExpression:
+      language: text/fhirpath
+      expression: "%Patient.telecom.where(system='email').value"
   - linkId: patient-id
     type: string
     text: patientId

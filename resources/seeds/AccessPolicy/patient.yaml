@@ -107,5 +107,17 @@ or:
         $one-of:
           - '#^/fhir/Questionnaire/.*/\$assemble'
       request-method: get
+  - engine: matcho
+    matcho:
+      resource:
+        questionnaire:
+          $one-of:
+            - patient-informed-consent
+            - authorization-for-release-of-medical-images
+            - breast-cancer-study-survey
+      params:
+        resource/id: string?
+        resource/type: QuestionnaireResponse
+      request-method: put
 engine: complex
 roleName: patient
