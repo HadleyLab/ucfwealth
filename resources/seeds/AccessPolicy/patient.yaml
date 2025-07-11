@@ -110,6 +110,9 @@ or:
   - engine: matcho
     matcho:
       resource:
+        subject:
+          $reference:
+            id: .role.links.patient.id
         questionnaire:
           $one-of:
             - patient-informed-consent
