@@ -38,8 +38,11 @@ SELECT
         WHERE t->>'system' = 'phone'
         LIMIT 1
     ) AS phone
-FROM patient;
+FROM patient
+WHERE "patient".resource::text ILIKE '%YOUR_SEARCH_STRING%';
 ```
+
+Replace **YOUR_SEARCH_STRING** to find a patient with any information, ex: email, name, etc...
 
 #### 2. Delete user
 
