@@ -1,0 +1,12 @@
+type: sql
+command: >-
+  DELETE FROM "user" WHERE resource#>>'{email}' = 'USER_EMAIL';
+
+  DELETE FROM role WHERE resource#>>'{links,patient,id}' = 'PATIENT_ID';
+
+  DELETE FROM patient WHERE id = 'PATIENT_ID';
+
+  DELETE FROM QuestionnaireResponse WHERE resource#>>'{subject,id}' =
+  'PATIENT_ID';
+id: delete-patients-and-related-data
+resourceType: ui_snippet

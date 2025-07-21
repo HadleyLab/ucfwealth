@@ -1,0 +1,20 @@
+type: sql
+command: |-
+  SELECT
+      id AS ID,
+      (
+          SELECT t->>'value'
+          FROM jsonb_array_elements(resource->'telecom') AS t
+          WHERE t->>'system' = 'email'
+          LIMIT 1
+      ) AS email,
+      (
+          SELECT t->>'value'
+          FROM jsonb_array_elements(resource->'telecom') AS t
+          WHERE t->>'system' = 'phone'
+          LIMIT 1
+      ) AS phone
+  FROM patient
+  WHERE "patient".resource::text ILIKE '%patient%'
+id: search-patients
+resourceType: ui_snippet
