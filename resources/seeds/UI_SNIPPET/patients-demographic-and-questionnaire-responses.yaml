@@ -1,0 +1,43 @@
+type: sql
+command: |
+  SELECT
+      patient.resource#>>'{name,0,given,0}' AS given,
+      patient.resource#>>'{name,0,family}' AS family,
+      patient.resource#>>'{gender}' AS gender,
+      patient.resource#>>'{birthDate}' AS birthdate,
+      (
+          SELECT t->>'value'
+          FROM jsonb_array_elements(patient.resource->'telecom') AS t
+          WHERE t->>'system' = 'email'
+          LIMIT 1
+      ) AS email,
+      (
+          SELECT t->>'value'
+          FROM jsonb_array_elements(patient.resource->'telecom') AS t
+          WHERE t->>'system' = 'phone'
+          LIMIT 1
+      ) AS phone,
+      (
+          SELECT qr.resource
+          FROM questionnaireresponse qr
+          WHERE qr.resource->'subject'->>'id' = patient.id
+            AND qr.resource->>'questionnaire' = 'patient-informed-consent'
+          LIMIT 1
+      ) AS informed_consent,
+      (
+          SELECT qr.resource
+          FROM questionnaireresponse qr
+          WHERE qr.resource->'subject'->>'id' = patient.id
+            AND qr.resource->>'questionnaire' = 'authorization-for-release-of-medical-images'
+          LIMIT 1
+      ) AS auth_medical_images,
+      (
+          SELECT qr.resource
+          FROM questionnaireresponse qr
+          WHERE qr.resource->'subject'->>'id' = patient.id
+            AND qr.resource->>'questionnaire' = 'breast-cancer-study-survey'
+          LIMIT 1
+      ) AS breast_cancer_survey
+  FROM patient
+id: patients-demographic-and-questionnaire-responses
+resourceType: ui_snippet
